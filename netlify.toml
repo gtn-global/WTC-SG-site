@@ -1,0 +1,11 @@
+[build]
+  # 纯静态站点，无需构建命令
+  command = ""
+  # 发布目录为仓库根（HTML/CSS/JS/图片都在根目录）
+  publish = "."
+
+# 默认入口页（用户访问根路径时打开中文 Deck）
+[[redirects]]
+  from = "/"
+  to = "/WTC-SG-Deck-CN.html"
+  status = 200

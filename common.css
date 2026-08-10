@@ -5,6 +5,26 @@
    包含：全部业务组件 + 多页翻页 + 金色光晕背景（可选）
    ========================================================== */
 
+/* ---------- 章节 eyebrow 编号（仅段起始页） ---------- */
+.section-eyebrow{
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+.section-eyebrow::before{
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+  margin-bottom: 14px;
+}
+
 /* ---------- 设计变量 ---------- */
 :root{
   --color-bg:          #0A192F;   /* 内容页背景 */
@@ -58,6 +78,9 @@ html,body{
 
 /* ---------- 舞台 ---------- */
 #viewport{ width:100vw; height:100vh; overflow-y:auto; overflow-x:hidden; scroll-snap-type:y mandatory; scroll-behavior:smooth; position:relative; background:#000; }
+/* 演示型全屏站点隐藏滚动条，避免右侧出现竖条影响视觉效果 */
+#viewport::-webkit-scrollbar{ display:none; }
+#viewport{ scrollbar-width:none; -ms-overflow-style:none; }
 #slide, #stage{
   position:relative; overflow:hidden;
   background:var(--color-bg);
@@ -130,6 +153,10 @@ html,body{
   position:absolute; top:55px; left:var(--edge-x); right:var(--edge-x);
   display:flex; justify-content:space-between; align-items:center; z-index:1000;
 }
+
+/* 内容页：去掉页眉 logo 与尾部 slogan（仅封面页 P1 保留品牌锚点） */
+.slide.no-chrome .header,
+.slide.no-chrome .footer{ display:none; }
 .eyebrow{ font-size:18px; font-weight:400; color:var(--color-gold); letter-spacing:1.5px; }
 .logo{
   height:60px; width:auto; display:block; object-fit:contain;
