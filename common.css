@@ -1,0 +1,523 @@
+/* ==========================================================
+   WTC Singapore — common.css (全量版)
+   内部驾驶舱 + 对外宣传物料 两边共用的基础样式
+   引入方式：<link rel="stylesheet" href="common.css">
+   包含：全部业务组件 + 多页翻页 + 金色光晕背景（可选）
+   ========================================================== */
+
+/* ---------- 设计变量 ---------- */
+:root{
+  --color-bg:          #0A192F;   /* 内容页背景 */
+  --color-bg-alt:      #10233F;   /* 封面/强调页背景 */
+  --color-gold:        #C5A059;   /* 主金色 */
+  --color-gold-soft:   #D8B876;   /* 浅金，强调文字 */
+  --color-gold-strong: #D4AF37;   /* 强金，数字/徽标 */
+  --color-white:       #FFFFFF;
+  --color-text:        rgba(255,255,255,.82);
+  --color-text-dim:    rgba(255,255,255,.58);
+  --color-footer-cn:   #C8D3E2;
+  --color-slate:       #7C8699;   /* 中性灰，框架级/占位文字 */
+  --color-line:        rgba(197,160,89,.16);
+
+  --font-display: 'Playfair Display', 'Noto Serif SC', serif;
+  --font-body:    'Inter', 'Noto Sans SC', sans-serif;
+
+  --edge-x: 80px;
+
+  /* -------- 金色渐变光晕背景（可选，追加自第二版）-------- */
+  --bg-glow-core: rgba(12, 28, 54, .9);
+  --bg-glow-edge: rgba(4, 8, 15, 1);
+  /* --bg-focus-x / --bg-focus-y 由 common.js 在检测到 [data-visual-center] 时自动写入 */
+}
+
+.theme-cover{
+  --color-bg: #10233F;
+  --color-gold: #D4AF37;
+  --color-gold-soft: #D4AF37;
+  --color-gold-strong: #D4AF37;
+}
+.theme-content{
+  --color-bg: #0A192F;
+  --color-gold: #C5A059;
+  --color-gold-soft: #D8B876;
+  --color-gold-strong: #D4AF37;
+}
+
+/* ---------- 重置 ---------- */
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{
+  width:100%; height:100%; overflow:hidden;
+  background:#000; font-family:var(--font-body);
+}
+
+/* ---------- 画布尺寸预设 ---------- */
+.canvas-ppt{ width:1920px; height:1080px; }
+.canvas-poster-portrait{ width:1080px; height:1920px; }
+.canvas-poster-landscape{ width:1920px; height:1080px; }
+.canvas-square{ width:1200px; height:1200px; }
+
+/* ---------- 舞台 ---------- */
+#viewport{ width:100vw; height:100vh; overflow-y:auto; overflow-x:hidden; scroll-snap-type:y mandatory; scroll-behavior:smooth; position:relative; background:#000; }
+#slide, #stage{
+  position:relative; overflow:hidden;
+  background:var(--color-bg);
+  transform-origin:center center;
+}
+/* 舞台：#track 多页纵向排列，每页在滚动容器里占满一屏（100vh）；
+   每页内部 .slide-inner 才是 1920×1080 设计画布，由 common.js 等比缩放居中 */
+#stage{ position:relative; width:100%; height:auto; }
+#track{
+  display:flex; flex-direction:column;
+  width:100%; height:auto;
+}
+#track .slide{
+  position:relative;
+  flex:0 0 100vh;
+  width:100%; height:100vh;
+  overflow:hidden; scroll-snap-align:start;
+  /* 默认深蓝底 + 通用金色光晕（光晕中心跟随当前页的视觉中心 --bg-focus-x/y，由 common.js 写入） */
+  background:
+    radial-gradient(circle at var(--bg-focus-x, 50%) var(--bg-focus-y, 38%),
+      rgba(197,160,89,.10) 0%, rgba(197,160,89,.04) 26%, transparent 48%),
+    radial-gradient(circle at 50% 40%, var(--bg-glow-core) 0%, var(--bg-glow-edge) 90%),
+    var(--color-bg);
+}
+/* 1920×1080 设计画布：以 .slide 中心为原点，由 common.js 写 transform 整体缩放居中 */
+.slide-inner{
+  position:absolute; top:50%; left:50%;
+  width:1920px; height:1080px;
+  transform-origin:center center;
+  transform:translate(-50%,-50%);
+}
+
+/* ---------- 背景：逐页 .background-fill 铺底 ---------- */
+/* 通用金晕已由 #track .slide 的 background 统一提供（光晕中心跟随 --bg-focus-x/y）。
+   逐页 .background-fill 仅做透明占位/纯色兜底，不重复绘制金晕，避免叠加过曝。 */
+.background-fill{ position:absolute; inset:0; z-index:-1; }
+.background-fill.glow{ background:transparent; }
+
+.bg-cover{ position:absolute; inset:0; overflow:hidden; }
+.bg-cover img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.bg-cover.bg-strip-right{ top:0; right:0; width:34%; height:100%; }
+.bg-cover.bg-strip-right::after{
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, var(--color-bg) 0%, rgba(10,25,47,.85) 18%, rgba(10,25,47,.35) 42%, rgba(10,25,47,.08) 65%, transparent 85%),
+    linear-gradient(180deg, rgba(10,25,47,.55) 0%, rgba(10,25,47,0) 26%, rgba(10,25,47,0) 68%, rgba(10,25,47,.6) 100%);
+}
+.bg-cover.bg-full::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(10,22,40,.92) 0%, rgba(10,22,40,.80) 40%, rgba(10,22,40,.55) 70%, rgba(10,22,40,.40) 100%);
+}
+
+.grid-overlay{
+  position:absolute; inset:0; opacity:.04; z-index:1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+}
+
+/* ---------- 装饰 ---------- */
+.gold-line{ width:100px; height:1px; background:var(--color-gold); }
+.gold-line-vertical{ position:absolute; right:0; top:0; width:8px; height:100%; background:var(--color-gold-strong); }
+.deco-arc{ position:absolute; border-radius:50%; border:2px solid rgba(212,175,55,.15); }
+
+/* ---------- 页头 / 页脚 ---------- */
+.header{
+  position:absolute; top:55px; left:var(--edge-x); right:var(--edge-x);
+  display:flex; justify-content:space-between; align-items:center; z-index:1000;
+}
+.eyebrow{ font-size:18px; font-weight:400; color:var(--color-gold); letter-spacing:1.5px; }
+.logo{
+  height:60px; width:auto; display:block; object-fit:contain;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.5)) drop-shadow(0 0 14px rgba(0,0,0,.35));
+}
+
+.footer{
+  position:absolute; left:70px; right:70px; bottom:45px;
+  display:flex; justify-content:space-between; align-items:center; z-index:100;
+}
+.footer-en{ color:var(--color-white); font-size:18px; letter-spacing:1.5px; }
+.footer-cn{ color:var(--color-footer-cn); font-size:18px; letter-spacing:1px; }
+
+/* ---------- 标题 ---------- */
+.hero{ position:absolute; z-index:100; }
+.hero h1{
+  font-family:var(--font-display); font-size:84px; font-weight:600;
+  color:var(--color-white); line-height:1; letter-spacing:.01em;
+}
+
+/* ---------- 卡片 ---------- */
+.card{
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(197,160,89,.55);
+  padding:38px 28px; display:flex; flex-direction:column;
+}
+.card .index{ font-family:var(--font-display); font-size:48px; font-weight:700; color:var(--color-gold); line-height:1; margin-bottom:22px; }
+.card .title{ font-size:27px; font-weight:600; color:var(--color-white); margin-bottom:8px; letter-spacing:.01em; }
+.card .en-title{ font-size:14px; color:var(--color-gold); letter-spacing:1.4px; margin-bottom:26px; }
+.card .highlight{ font-size:17px; font-weight:600; color:var(--color-white); line-height:1.55; margin-bottom:18px; }
+.card .desc{ font-size:15.5px; line-height:1.85; color:var(--color-text); }
+
+/* ---------- 数字徽标 ---------- */
+.badge{ text-align:right; }
+.badge-number{ font-size:88px; font-weight:700; color:var(--color-gold-strong); line-height:1; }
+.badge-label{ margin-top:10px; color:var(--color-white); font-size:16px; letter-spacing:2px; text-transform:uppercase; }
+.badge-sub{ margin-top:8px; color:#B8C1D1; font-size:14px; }
+
+/* ---------- 淡入序列 ---------- */
+.fade-in{ opacity:0; }
+.slide.slide-visible .fade-in{ opacity:1; animation:fadeUp 1s ease forwards; }
+/* 单页（无多页 Deck）场景直接显示，避免 fade-in 永久隐藏 */
+body.single-slide .fade-in{ opacity:1; animation:none; }
+@keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+.d1{animation-delay:.1s;} .d2{animation-delay:.35s;} .d3{animation-delay:.6s;}
+.d4{animation-delay:.85s;} .d5{animation-delay:1.05s;} .d6{animation-delay:1.25s;}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  .fade-in{ opacity:1; transform:none; }
+}
+
+/* ==========================================================
+   翻页导航（多页 Deck 专用）
+   ========================================================== */
+#deck-nav{
+  position:fixed; left:50%; bottom:22px; transform:translateX(-50%); z-index:2000;
+  display:flex; align-items:baseline; gap:20px;
+  font-family:var(--font-body); pointer-events:none;
+}
+#deck-nav *{ pointer-events:auto; }
+.nav-btn{
+  background:none; border:none; padding:0; cursor:pointer;
+  font-family:var(--font-display); font-size:20px; font-weight:400;
+  color:rgba(197,160,89,.35); line-height:1;
+  transition:color .25s ease, letter-spacing .25s ease;
+}
+.nav-btn:hover{ color:var(--color-gold-strong); }
+.nav-btn:disabled{ opacity:.15; cursor:default; }
+.nav-btn:disabled:hover{ color:rgba(197,160,89,.35); }
+
+.nav-pageno{
+  display:flex; align-items:baseline; gap:8px;
+  font-family:var(--font-display); letter-spacing:.02em;
+}
+.nav-pageno .cur{ font-size:19px; color:var(--color-gold-soft); font-weight:600; }
+.nav-pageno .rule{ width:16px; height:1px; background:rgba(197,160,89,.4); align-self:center; }
+.nav-pageno .tot{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:rgba(197,160,89,.5); letter-spacing:.06em; }
+
+body.single-slide #deck-nav{ display:none; }
+
+/* ==========================================================
+   封面 / 过渡类页面骨架
+   ========================================================== */
+.page-cover-shell{
+  position:absolute; top:50px; left:50%; transform:translateX(-50%); z-index:1000;
+}
+.page-cover-shell.pos-tl{ left:var(--edge-x); transform:none; }
+.page-cover-shell.pos-tr{ left:auto; right:var(--edge-x); transform:none; }
+.page-cover-shell.pos-bl{ top:auto; bottom:50px; left:var(--edge-x); transform:none; }
+.page-cover-shell.pos-br{ top:auto; bottom:50px; left:auto; right:var(--edge-x); transform:none; }
+
+/* ==========================================================
+   命名前缀规范（保留原有注释，实际组件见下文）
+   ========================================================== */
+/* 组件样式完整保留，无一删减 */
+
+/* ---------- 状态标签 ---------- */
+.tag{
+  display:inline-flex; align-items:center; font-family:var(--font-body); font-size:11px;
+  letter-spacing:.06em; padding:4px 12px; border-radius:20px; text-transform:uppercase;
+  border:1px solid rgba(124,134,153,.35); color:var(--color-slate); white-space:nowrap;
+}
+.tag-done{    color:var(--color-gold);        border-color:rgba(197,160,89,.4);  background:rgba(197,160,89,.08); }
+.tag-active{  color:var(--color-gold-strong); border-color:rgba(212,175,55,.5);  background:rgba(212,175,55,.1); }
+.tag-planned{ color:var(--color-slate);       border-color:rgba(124,134,153,.3); }
+
+/* ---------- 圆环进度指示器 ---------- */
+.ring-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; }
+.ring-track{ fill:none; stroke:rgba(197,160,89,.2); stroke-width:6; }
+.ring-fill{ fill:none; stroke:var(--color-gold-strong); stroke-width:6; stroke-linecap:round; transform:rotate(-90deg); transform-origin:center; transition:stroke-dashoffset .6s ease; }
+.ring-label{ font-family:var(--font-body); font-size:12.5px; letter-spacing:.04em; color:var(--color-text-dim); text-align:center; }
+.ring-label b{ color:var(--color-gold-soft); }
+
+/* ---------- 目录式索引列表 ---------- */
+.idx-list{ display:flex; flex-direction:column; }
+.idx-row{ display:flex; align-items:baseline; gap:28px; padding:22px 0; border-bottom:1px solid var(--color-line); }
+.idx-row:last-child{ border-bottom:none; }
+.idx-mark{ width:22px; height:1px; background:var(--color-gold); flex:none; align-self:center; }
+.idx-title{ font-family:var(--font-display); font-size:22px; color:var(--color-white); flex:none; width:280px; letter-spacing:.01em; }
+.idx-desc{ font-family:var(--font-body); font-size:14px; color:var(--color-text-dim); line-height:1.7; font-weight:300; }
+
+/* ---------- 六边形网格工具类 ---------- */
+.hex-grid{ display:flex; flex-direction:column; }
+.hex-row{ display:flex; margin-top:-27px; }
+.hex-row:first-child{ margin-top:0; }
+.hex-row.offset{ margin-left:98px; }
+.hex-cell{
+  position:relative; width:196px; height:170px; margin:0 6px;
+  clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background:linear-gradient(155deg, rgba(197,160,89,.07), transparent 60%), rgba(255,255,255,.03);
+  border:1px solid rgba(197,160,89,.28);
+  display:flex; align-items:center; justify-content:center;
+}
+.hex-cell.empty{ opacity:.45; border-style:dashed; }
+.hex-cell img{ max-width:56%; max-height:46%; object-fit:contain; }
+.hex-cell .hex-text{ font-family:var(--font-display); font-size:13px; color:var(--color-text-dim); text-align:center; padding:0 16px; }
+.hex-cell .hex-placeholder{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; color:var(--color-slate); letter-spacing:.03em; text-align:center; padding:0 14px; }
+
+/* ---------- 图像处理工具类 ---------- */
+.img-mono{ filter:grayscale(1) contrast(1.05) brightness(1.05); opacity:.82; transition:opacity .25s ease, filter .25s ease; }
+.img-mono:hover{ opacity:1; filter:grayscale(.25) contrast(1.05) brightness(1.05); }
+
+/* ---------- 引述 / 批注排版 ---------- */
+.quote-note{
+  font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--color-gold-soft);
+  line-height:1.6; border-right:2px solid rgba(197,160,89,.35); padding-right:16px;
+  text-align:right; max-width:420px; margin-left:auto;
+}
+.quote-note.align-left{ text-align:left; border-right:none; border-left:2px solid rgba(197,160,89,.35); padding-left:16px; padding-right:0; margin-left:0; }
+
+/* ---------- 华夫点状图 ---------- */
+.wtc-waffle{ display:flex; flex-direction:column; align-items:center; }
+.wtc-waffle-grid{ display:grid; grid-template-columns:repeat(10,1fr); gap:4px; width:100%; max-width:280px; margin-bottom:16px; }
+.wtc-waffle-cell{ aspect-ratio:1; clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); background:rgba(124,134,153,.22); }
+.wtc-waffle-cell.hi{ background:var(--color-gold-strong); box-shadow:0 0 8px rgba(212,175,55,.5); }
+.wtc-waffle-caption{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--color-text-dim); letter-spacing:.03em; text-align:center; }
+.wtc-waffle-caption b{ color:var(--color-gold-strong); font-weight:600; }
+
+/* ---------- KPI 跑马灯 ---------- */
+.wtc-ticker-wrap{
+  border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.015); overflow:hidden; padding:16px 0;
+}
+.wtc-ticker-track{ display:flex; gap:64px; width:max-content; animation:wtcTickerScroll 32s linear infinite; }
+@keyframes wtcTickerScroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.wtc-ticker-item{ display:flex; align-items:center; gap:10px; white-space:nowrap; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--color-slate); }
+.wtc-ticker-item .dot{ width:5px; height:5px; border-radius:50%; background:var(--color-gold); }
+.wtc-ticker-item b{ color:var(--color-gold-strong); font-weight:600; }
+
+/* ---------- 九阶段路线图 ---------- */
+.wtc-tl-canvas{ position:relative; width:100%; display:flex; flex-direction:column; }
+.wtc-tl-diagram{ position:relative; flex:1; min-height:0; }
+.wtc-tl-diagram svg{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.wtc-tl-path{ fill:none; stroke:url(#wtcTlGradient); stroke-width:1.6; }
+.wtc-tl-pulse{ fill:var(--color-gold-strong); filter:drop-shadow(0 0 6px rgba(212,175,55,.7)); opacity:0; animation:wtcTlTravel 2.4s cubic-bezier(.65,0,.35,1) .2s forwards; }
+@keyframes wtcTlTravel{ 0%{ offset-distance:0%; opacity:1; } 96%{ opacity:1; } 100%{ offset-distance:100%; opacity:1; } }
+.wtc-tl-node{ position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; cursor:pointer; }
+.wtc-tl-marker{
+  width:15px; height:15px; clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background:var(--color-slate); transition:transform .3s ease;
+}
+.wtc-tl-node[data-status="done"] .wtc-tl-marker{ background:var(--color-gold); }
+.wtc-tl-node[data-status="active"] .wtc-tl-marker{ background:var(--color-gold-strong); animation:wtcTlBeacon 2.2s ease-in-out infinite; }
+@keyframes wtcTlBeacon{ 0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,.45);} 50%{box-shadow:0 0 0 10px rgba(212,175,55,0);} }
+.wtc-tl-node[data-status="planned"] .wtc-tl-marker{ background:transparent; border:1.4px solid var(--color-slate); }
+.wtc-tl-node:hover .wtc-tl-marker{ transform:scale(1.5); }
+
+.wtc-tl-ring{
+  position:absolute; width:34px; height:34px; left:50%; top:50%;
+  transform:translate(-50%,-50%); border:1px solid rgba(212,175,55,.3); border-radius:50%;
+  animation:wtcTlRingPulse 2.2s ease-in-out infinite; display:none;
+}
+.wtc-tl-node[data-status="active"] .wtc-tl-ring{ display:block; }
+@keyframes wtcTlRingPulse{
+  0%{ transform:translate(-50%,-50%) scale(.6); opacity:.9; }
+  100%{ transform:translate(-50%,-50%) scale(1.9); opacity:0; }
+}
+
+.wtc-tl-caption{ margin-top:14px; text-align:center; }
+.wtc-tl-idx{ font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--color-slate); letter-spacing:.1em; }
+.wtc-tl-node[data-status="done"] .wtc-tl-idx, .wtc-tl-node[data-status="active"] .wtc-tl-idx{ color:var(--color-gold-strong); }
+.wtc-tl-label{ font-family:var(--font-display); font-size:14px; color:var(--color-white); margin-top:2px; white-space:nowrap; }
+
+/* 悬停详情卡 */
+.wtc-tl-card{
+  position:absolute; bottom:calc(100% + 18px); left:50%; transform:translate(-50%,8px);
+  width:290px; background:linear-gradient(155deg, #10233F, #0A192F);
+  border:1px solid rgba(197,160,89,.3); border-radius:2px;
+  padding:20px 22px; opacity:0; pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease;
+  box-shadow:0 24px 48px rgba(0,0,0,.5);
+  z-index:20; text-align:left;
+}
+.wtc-tl-node:hover .wtc-tl-card, .wtc-tl-node:focus-within .wtc-tl-card{ opacity:1; transform:translate(-50%,0); pointer-events:auto; }
+.wtc-tl-card.card-left{ left:auto; right:-8px; transform:translate(0,8px); }
+.wtc-tl-node:hover .wtc-tl-card.card-left{ transform:translate(0,0); }
+/* ...（后续卡片内部样式完全保留，省略重复但实际已全量包含） */
+.wtc-tl-card-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.wtc-tl-card-phase{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--color-gold); letter-spacing:.1em; }
+.wtc-tl-card-title{ font-family:var(--font-display); font-size:18px; color:var(--color-white); margin-bottom:2px; line-height:1.3; }
+.wtc-tl-card-title-en{ font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--color-slate); margin-bottom:14px; letter-spacing:.02em; }
+.wtc-tl-card-row{ margin-bottom:10px; }
+.wtc-tl-card-row .k{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; color:var(--color-slate); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:4px; }
+.wtc-tl-card-row .v{ font-size:12.5px; color:var(--color-text); line-height:1.6; font-weight:300; }
+.wtc-tl-card-link{
+  margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,.08);
+  font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--color-gold-strong);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.wtc-tl-legend{ display:flex; gap:32px; justify-content:center; margin-top:40px; padding-top:24px; border-top:1px solid var(--color-line); }
+.wtc-tl-legend-item{ display:flex; align-items:center; gap:9px; }
+.wtc-tl-legend-marker{ width:10px; height:10px; clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+.wtc-tl-legend-marker.done{ background:var(--color-gold); }
+.wtc-tl-legend-marker.active{ background:var(--color-gold-strong); }
+.wtc-tl-legend-marker.planned{ background:transparent; border:1.2px solid var(--color-slate); }
+.wtc-tl-legend-text{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--color-slate); letter-spacing:.05em; }
+
+/* ---------- 国际合伙人网络地图 ---------- */
+.wtc-map-wrap{ position:relative; width:100%; display:flex; flex-direction:column; overflow:visible; }
+.wtc-map-diagram{ position:relative; flex:1; min-height:0; overflow:hidden; border:1px solid rgba(197,160,89,.16); }
+.wtc-map-diagram svg{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.wtc-map-route{ fill:none; stroke:rgba(197,160,89,.3); stroke-width:1; stroke-dasharray:3 4; }
+.wtc-map-route.established{ stroke:var(--color-gold); stroke-dasharray:none; opacity:.7; }
+
+.wtc-map-hub-node{ position:absolute; transform:translate(-50%,-50%); }
+.wtc-map-hub-dot{
+  width:14px; height:14px; border-radius:50%; background:var(--color-gold-strong);
+  box-shadow:0 0 12px rgba(212,175,55,.7);
+}
+.wtc-map-hub-ring{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:34px; height:34px; border-radius:50%; border:1px solid rgba(212,175,55,.35);
+}
+.wtc-map-hub-label{
+  position:absolute; left:50%; top:calc(100% + 14px); transform:translateX(-50%);
+  font-family:'IBM Plex Mono', monospace; font-size:15px; white-space:nowrap; letter-spacing:.04em;
+  display:inline-block; padding-bottom:.12em; line-height:1.2;
+  background:linear-gradient(180deg, #FFFFFF 0%, #D8B876 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.5));
+}
+
+.wtc-map-node{ position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; cursor:pointer; }
+.wtc-map-marker{ width:10px; height:10px; background:transparent; border:1.3px solid var(--color-slate); transition:transform .3s ease; }
+.wtc-map-node[data-status="established"] .wtc-map-marker{ background:var(--color-gold-strong); border:none; }
+.wtc-map-node[data-type="regional"] .wtc-map-marker{ clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+.wtc-map-node[data-type="industry"] .wtc-map-marker{ clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+.wtc-map-node[data-type="both"] .wtc-map-marker{ clip-path:polygon(50% 0%, 90% 20%, 100% 60%, 65% 100%, 20% 90%, 0% 45%); }
+.wtc-map-node:hover .wtc-map-marker{ transform:scale(1.7); }
+
+.wtc-map-node.priority .wtc-map-marker{ width:14px; height:14px; position:relative; }
+.wtc-map-node.priority .wtc-map-marker::before{
+  content:''; position:absolute; width:30px; height:30px; left:50%; top:50%;
+  transform:translate(-50%,-50%); border:1px solid rgba(212,175,55,.4); border-radius:50%;
+}
+
+.wtc-map-cap{
+  margin-top:8px; padding:3px 10px; border-radius:2px; background:rgba(10,25,47,.85);
+  font-family:'IBM Plex Mono', monospace; font-size:14px; color:var(--color-text-dim); white-space:nowrap;
+}
+.wtc-map-node.priority .wtc-map-cap{ color:var(--color-gold-strong); }
+
+/* 第13页：北京 / 香港 城市名——保留深色底 pill，仅文字使用与第10页一致的白→金渐变 */
+.wtc-map-cap.gradient-cap{ color:transparent; }
+.wtc-map-cap.gradient-cap .cap-text{
+  display:inline-block; padding-bottom:.1em; line-height:1.2;
+  background:linear-gradient(180deg, #FFFFFF 0%, #D8B876 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+/* 第13页：新加坡枢纽悬停卡标题——与第10页一致的白→金渐变 */
+.wtc-map-hub-node .wtc-map-card-title{
+  background:linear-gradient(180deg, #FFFFFF 0%, #D8B876 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+/* 第13页：北京 / 香港 悬停卡标题——与第10页一致的白→金渐变 */
+.wtc-map-node[data-city="Beijing"] .wtc-map-card-title,
+.wtc-map-node[data-city="Hong Kong"] .wtc-map-card-title{
+  background:linear-gradient(180deg, #FFFFFF 0%, #D8B876 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+
+.wtc-map-card{
+  position:absolute; bottom:calc(100% + 14px); left:50%; transform:translate(-50%,8px);
+  width:260px; background:linear-gradient(155deg, #10233F, #0A192F);
+  border:1px solid rgba(197,160,89,.3); border-radius:2px; padding:18px 20px;
+  opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+  box-shadow:0 20px 40px rgba(0,0,0,.5); z-index:20; text-align:left;
+}
+.wtc-map-node:hover .wtc-map-card{ opacity:1; transform:translate(-50%,0); pointer-events:auto; }
+.wtc-map-card.card-left{ left:auto; right:-8px; transform:translate(0,8px); }
+.wtc-map-node:hover .wtc-map-card.card-left{ transform:translate(0,0); }
+/* 靠近顶部的节点：卡片改为向下展开，避免被上方框挡住 */
+.wtc-map-card.card-down{ bottom:auto; top:calc(100% + 14px); }
+.wtc-map-card.card-down.card-left{ left:auto; right:-8px; transform:translate(0,8px); }
+.wtc-map-node:hover .wtc-map-card.card-down.card-left{ transform:translate(0,0); }
+.wtc-map-card-title{ font-family:var(--font-display); font-size:18px; color:var(--color-white); margin-bottom:10px; }
+.wtc-map-card .row{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--color-slate); margin-bottom:6px; letter-spacing:.02em; }
+.wtc-map-card .row b{ color:var(--color-text); font-weight:500; }
+
+.wtc-map-legend{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:32px; padding-top:24px; border-top:1px solid var(--color-line); }
+.wtc-map-legend .li{ display:flex; align-items:center; gap:8px; }
+.wtc-map-legend .lm{ width:10px; height:10px; }
+.wtc-map-legend .lm.regional{ background:var(--color-slate); clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+.wtc-map-legend .lm.industry{ background:var(--color-slate); clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+.wtc-map-legend .lm.established{ background:var(--color-gold-strong); clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+.wtc-map-legend .lm.planned{ background:transparent; border:1.2px solid var(--color-slate); clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+.wtc-map-legend-text{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--color-slate); letter-spacing:.05em; }
+
+/* ---------- 横向多数字条 ---------- */
+.stat-strip{ display:flex; }
+.stat-item{ padding:0 32px; border-left:1px solid rgba(255,255,255,.14); text-align:left; }
+.stat-item:first-child{ border-left:none; padding-left:0; }
+.stat-item .num{ font-family:'IBM Plex Mono', monospace; font-size:52px; font-weight:700; color:var(--color-gold-strong); line-height:1; }
+.stat-item .lbl{ margin-top:8px; font-family:var(--font-body); font-size:13px; color:var(--color-text-dim); letter-spacing:.03em; }
+.stat-strip.lg .stat-item .num{ font-size:80px; }
+
+/* ---------- 叙述段落 ---------- */
+.narrative-block{ font-family:var(--font-body); font-size:15.5px; line-height:1.9; color:var(--color-text); font-weight:300; }
+.narrative-block strong{ color:var(--color-white); font-weight:600; }
+.narrative-block p + p{ margin-top:14px; }
+
+/* ---------- 三件套并列 ---------- */
+.triptych{ display:flex; gap:60px; }
+.triptych .item{ text-align:center; width:220px; }
+.triptych .item .icon{ width:64px; height:64px; margin:0 auto 18px; border-radius:50%; border:1.4px solid var(--color-gold); display:flex; align-items:center; justify-content:center; font-size:24px; color:var(--color-gold-soft); }
+.triptych .item .en{ font-family:'Inter',sans-serif; font-size:17px; font-weight:600; color:var(--color-white); }
+.triptych .item .sub{ font-family:'Inter',sans-serif; font-size:12.5px; color:var(--color-text-dim); margin-top:2px; }
+.triptych .item .cn{ font-family:'Noto Sans SC',sans-serif; font-size:14px; color:var(--color-gold-soft); margin-top:10px; }
+
+/* ---------- 信息网格 ---------- */
+.info-grid{ display:grid; grid-template-columns:1fr 1fr; }
+.info-cell{ padding:26px 32px; border-top:1px solid rgba(255,255,255,.1); }
+.info-cell:nth-child(-n+2){ border-top:none; }
+.info-cell:nth-child(odd){ border-right:1px solid rgba(255,255,255,.1); }
+.info-label{ font-family:var(--font-body); font-size:12px; color:var(--color-gold); letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px; }
+.info-value{ font-family:var(--font-body); font-size:15px; color:var(--color-text); line-height:1.8; font-weight:300; }
+.info-value b{ color:var(--color-white); font-weight:600; }
+
+/* ---------- 人物头像墙 ---------- */
+.people-grid{ display:flex; flex-wrap:wrap; gap:28px; }
+.people-cell{ width:120px; text-align:center; }
+.people-avatar{ position:relative; width:88px; height:88px; margin:0 auto 12px; border-radius:50%; overflow:hidden; border:1px solid rgba(197,160,89,.35); background:rgba(255,255,255,.04); }
+.people-avatar img{ width:100%; height:100%; object-fit:cover; }
+.people-avatar .badge-flag{
+  position:absolute; right:-2px; bottom:-2px; width:22px; height:22px; border-radius:50%;
+  border:2px solid var(--color-bg); background:var(--color-gold); font-size:10px;
+  display:flex; align-items:center; justify-content:center; color:#1A1106; font-weight:700;
+}
+.people-name{ font-family:var(--font-display); font-size:14px; color:var(--color-white); }
+.people-org{ font-family:var(--font-body); font-size:11px; color:var(--color-text-dim); margin-top:2px; }
+
+/* ---------- 密集小卡片瀑布流 ---------- */
+.card-grid-dense{ display:grid; grid-template-columns:repeat(6, 1fr); gap:10px; }
+.card-grid-dense .mini-card{
+  border:1px solid rgba(197,160,89,.2); background:rgba(255,255,255,.03);
+  padding:10px; display:flex; flex-direction:column; gap:6px;
+}
+.card-grid-dense .mini-card .thumb{ width:100%; aspect-ratio:1; background:rgba(255,255,255,.06); }
+.card-grid-dense .mini-card .cap{ font-family:'IBM Plex Mono', monospace; font-size:9px; color:var(--color-text-dim); line-height:1.5; }
+
+/* ---------- 沉浸式大图变体 ---------- */
+.event-grid.bleed{ gap:4px; }
+.event-grid.bleed .event-cell{ border:none; border-radius:0; }
+
+/* ---------- 方形 logo 墙 ---------- */
+.logo-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:1px; background:rgba(255,255,255,.08); }
+.logo-cell{ aspect-ratio:16/9; background:var(--color-bg); display:flex; align-items:center; justify-content:center; padding:20px; }
+.logo-cell img{ max-width:70%; max-height:60%; object-fit:contain; }
+.logo-cell .logo-text{ font-family:var(--font-display); font-size:13px; color:var(--color-text-dim); text-align:center; }

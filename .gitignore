@@ -1,0 +1,15 @@
+# 系统/编辑器垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# IDE / 编辑缓存
+.vscode/
+.idea/
+*.log
+
+# 本地临时产物
+*.tmp
+.cache/
