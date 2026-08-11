@@ -163,22 +163,38 @@
             mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .15) 20%, rgba(0, 0, 0, .5) 35%, rgba(0, 0, 0, .85) 50%, #000 65%, #000 100%);
         }
 
-        .p2-bottom-scrim {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 360px;
-            z-index: 5;
-            background: linear-gradient(to top, rgba(7, 15, 26, .95) 0%, rgba(7, 15, 26, .55) 45%, rgba(7, 15, 26, 0) 100%);
-        }
+        /* .p2-bottom-scrim 已移除：避免 P2 底部出现深色渐变横带，与 P3/P4 纯色背景打通 */
 
         .p2-hero {
             position: absolute;
             left: 60px;
-            top: 130px;
+            top: 180px;
             width: 860px;
             z-index: 20;
+        }
+
+        /* P1–P16：去掉光晕，背景统一为纯色（消除页间过渡带） */
+        #track .slide[data-slide="1"],
+        #track .slide[data-slide="2"],
+        #track .slide[data-slide="3"],
+        #track .slide[data-slide="4"],
+        #track .slide[data-slide="5"],
+        #track .slide[data-slide="6"],
+        #track .slide[data-slide="7"],
+        #track .slide[data-slide="8"],
+        #track .slide[data-slide="9"],
+        #track .slide[data-slide="10"],
+        #track .slide[data-slide="11"],
+        #track .slide[data-slide="12"],
+        #track .slide[data-slide="13"],
+        #track .slide[data-slide="14"],
+        #track .slide[data-slide="15"],
+        #track .slide[data-slide="16"] {
+            background: #0A192F;
+        }
+        /* P16 的氛围光晕层也透明，统一纯色 */
+        #track .slide[data-slide="16"] .background-fill.glow {
+            background: transparent;
         }
 
         .p2-hero h1 {
@@ -209,7 +225,7 @@
         .p2-stat-row {
             position: absolute;
             left: 60px;
-            top: 295px;
+            top: 345px;
             width: 860px;
             display: flex;
             gap: 20px;
@@ -251,7 +267,7 @@
         .p2-left-panel {
             position: absolute;
             left: 60px;
-            top: 440px;
+            top: 490px;
             width: 860px;
             z-index: 20;
         }
@@ -277,7 +293,7 @@
             position: absolute;
             left: 60px;
             right: 60px;
-            bottom: 100px;
+            bottom: 50px;
             height: 100px;
             display: flex;
             justify-content: space-between;
@@ -386,10 +402,13 @@
 
         .p3-main-block {
             position: absolute;
-            top: 150px;
-            left: 80px;
-            width: 1080px;
+            top: 180px;
+            left: 60px;
+            right: 60px;
+            bottom: 60px;
             z-index: 6;
+            display: flex;
+            flex-direction: column;
         }
 
         .p3-headline-cn {
@@ -429,13 +448,14 @@
 
         .p4-intro {
             font-family: var(--font-body);
-            font-size: 20px;
-            line-height: 1.9;
+            font-size: 26px;
+            line-height: 2.0;
             color: #C7D0DB;
+            max-width: 1080px;
         }
 
         .p4-intro p {
-            margin-bottom: 11px;
+            margin-bottom: 20px;
         }
 
         .p4-intro p:last-child {
@@ -450,27 +470,46 @@
             margin: 30px 0;
         }
 
-        .p4-feature {
-            margin-bottom: 26px;
+        /* P5（章首页）：三个业务版块改为三列卡片，字号放大、撑满整屏底部，消除与 P6 之间的空白断裂 */
+        #track .slide[data-slide="5"] .p4-feature-divider {
+            margin: 30px 0 30px;
         }
-
-        .p4-feature:last-child {
+        #track .slide[data-slide="5"] .p4-feature-row {
+            display: flex;
+            gap: 32px;
+            margin-top: auto;
+            padding-bottom: 16px;
+        }
+        #track .slide[data-slide="5"] .p4-feature {
+            flex: 1;
             margin-bottom: 0;
+            padding: 32px 28px 34px;
+            border: 1px solid rgba(214, 178, 107, .32);
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
         }
-
-        .p4-feature-en {
+        #track .slide[data-slide="5"] .p4-feature-en {
             font-family: var(--font-display);
-            font-size: 26px;
+            font-size: 34px;
             font-weight: 600;
             color: #fff;
             line-height: 1.2;
         }
-
-        .p4-feature-cn {
-            margin-top: 6px;
-            font-size: 16px;
+        #track .slide[data-slide="5"] .p4-feature-cn {
+            margin-top: 12px;
+            font-size: 18px;
             color: var(--color-gold);
             letter-spacing: 1px;
+        }
+        #track .slide[data-slide="5"] .p4-feature-desc {
+            margin-top: auto;
+            padding-top: 26px;
+            font-size: 18px;
+            line-height: 1.85;
+            color: #C7D0DB;
         }
 
         .p3-narrative-cards {
@@ -683,8 +722,8 @@
 
         .p4-hero {
             position: absolute;
-            top: 148px;
-            left: 80px;
+            top: 145px;
+            left: 60px;
             z-index: 100;
         }
 
@@ -702,11 +741,50 @@
             left: 80px;
             width: 1100px;
             top: 316px;
-            bottom: 150px;
+            bottom: 60px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 50px;
             z-index: 50;
+        }
+
+        /* P7 卡片与 P8 卡片视觉统一：金边 + 浅底 + 圆角 */
+        .p4-content .card {
+            padding: 42px 36px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--color-gold);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p4-content .card .title {
+            font-size: 22px;
+            color: #fff;
+            font-weight: 600;
+            margin: 18px 0 10px;
+        }
+
+        .p4-content .card .en-title {
+            font-size: 15px;
+            color: var(--color-gold);
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .p4-content .card .highlight {
+            font-size: 15px;
+            color: var(--color-gold-soft);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .p4-content .card .desc {
+            font-size: 16.5px;
+            line-height: 1.85;
+            color: #C8D3E2;
         }
 
         .p4-visual-copy {
@@ -714,7 +792,7 @@
             left: 1280px;
             width: 560px;
             top: 316px;
-            bottom: 150px;
+            bottom: 60px;
             z-index: 80;
             display: flex;
             flex-direction: column;
@@ -831,7 +909,7 @@
         }
 
         .hero-sub {
-            margin-top: 18px;
+            margin-top: 22px;
             font-size: 28px;
             color: var(--color-gold);
             font-weight: 500;
@@ -841,10 +919,12 @@
             position: absolute;
             left: 70px;
             right: 720px;
-            bottom: 170px;
+            top: 250px;
+            bottom: 70px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-content: start;
             z-index: 10;
         }
 
@@ -853,14 +933,12 @@
         }
 
         .p5-index {
-            position: absolute;
-            top: -72px;
-            left: 0;
             font-family: var(--font-display);
             font-size: 64px;
             font-weight: 400;
             line-height: 1;
             color: var(--color-gold);
+            margin-bottom: 20px;
         }
 
         /* 第7页序号与第9页（.p6-index）保持一致的字体与字号 */
@@ -873,8 +951,10 @@
         }
 
         .p5-card {
-            min-height: 390px;
-            padding: 42px 36px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            padding: 28px 24px;
             background: rgba(255, 255, 255, .05);
             border: 1px solid var(--color-gold);
             backdrop-filter: blur(10px);
@@ -883,25 +963,27 @@
         }
 
         .p5-card h3 {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--color-gold);
             line-height: 1.3;
-            min-height: 47px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             white-space: nowrap;
         }
 
         .p5-cn-title {
             color: #fff;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .p5-card p {
+            flex: 1;
             color: #C8D3E2;
             font-size: 18px;
-            line-height: 1.9;
+            line-height: 1.85;
+            display: flex;
+            align-items: flex-start;
         }
 
         .p5-visual-copy {
@@ -909,21 +991,26 @@
             right: 80px;
             top: 250px;
             width: 420px;
+            text-align: left;
             z-index: 10;
         }
 
         .p5-visual-title {
             color: #fff;
-            font-size: 38px;
-            font-weight: 700;
-            line-height: 1.3;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 500;
+            font-size: 34px;
+            line-height: 1.32;
             margin-bottom: 20px;
         }
 
         .p5-visual-desc {
             color: #D8E0EC;
-            font-size: 18px;
-            line-height: 1.8;
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 16.5px;
+            line-height: 1.85;
         }
 
         .p5-visual-line {
@@ -970,14 +1057,16 @@
             position: absolute;
             left: 80px;
             top: 310px;
+            bottom: 70px;
             width: 1180px;
             z-index: 100;
             display: flex;
             flex-direction: column;
-            gap: 72px;
+            gap: 24px;
         }
 
         .p6-row {
+            flex: 1;
             display: flex;
             align-items: flex-start;
         }
@@ -1012,7 +1101,7 @@
         }
 
         .p6-title {
-            font-size: 30px;
+            font-size: 34px;
             color: #fff;
             font-weight: 600;
             margin-bottom: 8px;
@@ -1027,7 +1116,7 @@
         }
 
         .p6-desc {
-            font-size: 18px;
+            font-size: 20px;
             line-height: 1.9;
             color: var(--color-text);
             max-width: 860px;
@@ -1058,7 +1147,7 @@
 
         .p6-metric {
             position: relative;
-            margin-bottom: 95px;
+            margin-bottom: 60px;
         }
 
         .p6-metric:last-child {
@@ -1077,17 +1166,20 @@
         }
 
         .p6-metric-label {
-            font-size: 13px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--color-gold);
+            font-family: var(--font-display);
+            font-size: 34px;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.3;
             margin-bottom: 12px;
         }
 
         .p6-metric-value {
             color: #fff;
-            font-size: 19px;
-            line-height: 1.8;
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 16.5px;
+            line-height: 1.85;
             max-width: 460px;
         }
 
@@ -1171,7 +1263,7 @@
 
         .p8-hero {
             position: absolute;
-            left: 70px;
+            left: 80px;
             top: 200px;
             width: 1100px;
         }
@@ -1248,6 +1340,37 @@
         .event-grid.bleed .event-cell {
             border: none;
             border-radius: 0;
+        }
+
+        /* P3/P4 图集网格：原文件缺此定义，卡片无法成网格。补 3 列紧凑 grid */
+        .card-grid-dense {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 14px;
+        }
+
+        .card-grid-dense .mini-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(197, 160, 89, .28);
+            border-radius: 8px;
+        }
+
+        .card-grid-dense .mini-card .thumb {
+            width: 100%;
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+
+        .card-grid-dense .mini-card .cap {
+            padding: 8px 10px;
+            font-size: 13px;
+            color: var(--color-text, #cfd8e8);
+            letter-spacing: .5px;
         }
 
         /* 如果 common.css 未加载，以下为 fallback 基础骨架 */
@@ -1442,6 +1565,68 @@
             border-radius: 0;
         }
 
+        /* P3/P4 图集网格：原文件缺此定义，卡片无法成网格。补 4 列紧凑 grid */
+        .card-grid-dense {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 14px;
+        }
+
+        .card-grid-dense .mini-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(197, 160, 89, .28);
+            border-radius: 8px;
+        }
+
+        .card-grid-dense .mini-card .thumb {
+            width: 100%;
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+
+        .card-grid-dense .mini-card .cap {
+            padding: 8px 10px;
+            font-size: 13px;
+            color: var(--color-text, #cfd8e8);
+            letter-spacing: .5px;
+        }
+
+        /* P3/P4 图集网格：原文件缺此定义，卡片无法成网格。补 3 列紧凑 grid */
+        .card-grid-dense {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 14px;
+        }
+
+        .card-grid-dense .mini-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(197, 160, 89, .28);
+            border-radius: 8px;
+        }
+
+        .card-grid-dense .mini-card .thumb {
+            width: 100%;
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+
+        .card-grid-dense .mini-card .cap {
+            padding: 8px 10px;
+            font-size: 13px;
+            color: var(--color-text, #cfd8e8);
+            letter-spacing: .5px;
+        }
+
         .event-cell {
             position: relative;
             overflow: hidden;
@@ -1556,7 +1741,7 @@
         }
 
         /* ---- 模块 A：主标题区 ---- */
-        .page-title-en {
+        .page-title-cn {
             font-family: var(--font-display);
             font-size: 50px;
             font-weight: 500;
@@ -1565,7 +1750,7 @@
             line-height: 1.2;
         }
 
-        .page-title-cn {
+        .page-title-en {
             font-family: 'Noto Serif SC', serif;
             font-size: 28px;
             font-weight: 400;
@@ -1640,6 +1825,7 @@
         /* ---- 模块 C：手风琴式交互权益标签 ---- */
         .pillars-container {
             width: 100%;
+            margin-top: 80px;
         }
 
         .pillar-item {
@@ -1666,12 +1852,12 @@
         .pillar-index {
             font-family: var(--font-display);
             font-style: italic;
-            font-size: 24px;
+            font-size: 34px;
             color: var(--color-gold);
             opacity: 0.5;
             line-height: 1;
             flex-shrink: 0;
-            width: 34px;
+            width: 46px;
             transition: opacity 0.35s ease, text-shadow 0.35s ease;
         }
 
@@ -1688,8 +1874,8 @@
 
         .pillar-title-en {
             font-family: var(--font-body);
-            font-size: 18px;
-            font-weight: 500;
+            font-size: 26px;
+            font-weight: 600;
             color: var(--color-white);
             letter-spacing: .5px;
             text-transform: uppercase;
@@ -1737,8 +1923,8 @@
 
         .pillar-content p {
             font-family: var(--font-body);
-            font-size: 13.5px;
-            line-height: 1.85;
+            font-size: 17px;
+            line-height: 1.9;
             color: var(--color-text);
             font-weight: 300;
             padding-top: 14px;
@@ -1757,8 +1943,8 @@
         .pillar-content ul li {
             position: relative;
             font-family: var(--font-body);
-            font-size: 13.5px;
-            line-height: 1.85;
+            font-size: 17px;
+            line-height: 1.9;
             color: var(--color-text);
             font-weight: 300;
             padding-left: 16px;
@@ -1787,9 +1973,9 @@
         .hex-column {
             position: absolute;
             left: 55%;
-            top: 180px;
+            top: 240px;
             width: 42%;
-            height: 750px;
+            height: 800px;
             z-index: 50;
             display: flex;
             align-items: center;
@@ -2794,6 +2980,162 @@
             gap: 56px;
         }
 
+        /* P6 标题改为页眉（置 slide 顶部，与章节页眉一致） */
+        #track .slide[data-slide="6"] .p6-header {
+            position: absolute;
+            top: 55px;
+            left: 60px;
+            margin: 0;
+            z-index: 1001;
+        }
+        /* 页面主体下移到页眉之下，避免遮挡 */
+        #track .slide[data-slide="6"] .page-body {
+            top: 210px;
+        }
+        #track .slide[data-slide="6"] .p6-header::after {
+            display: none;   /* 取消 .section-eyebrow 默认短金线 */
+        }
+        #track .slide[data-slide="6"] .p6-header-en {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 50px;
+            font-weight: 600;
+            color: var(--color-white);
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+        #track .slide[data-slide="6"] .p6-header-sub {
+            display: block;
+            margin-top: 10px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--color-gold);
+            letter-spacing: 4px;
+        }
+
+        /* P11 标题改为页眉（置 slide 顶部，与章节页眉一致） */
+        #track .slide[data-slide="11"] .p7-hero {
+            position: absolute;
+            top: 55px;
+            left: 60px;
+            margin: 0;
+            z-index: 1001;
+        }
+        #track .slide[data-slide="11"] .p7-hero h1 {
+            font-family: var(--font-display);
+            font-size: 50px;
+            font-weight: 600;
+            color: var(--color-white);
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        #track .slide[data-slide="11"] .p7-hero .hero-sub {
+            display: block;
+            margin-top: 10px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--color-gold);
+            letter-spacing: 4px;
+        }
+        /* 取消 .p7-hero 默认额外间距，统一为页眉细金线 */
+        #track .slide[data-slide="11"] .p7-hero .gold-line {
+            display: none;
+        }
+        #track .slide[data-slide="11"] .p7-hero::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            height: 1px;
+            margin-top: 22px;
+            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+        }
+        /* P15 眉题：沿用章节页眉细金线，与 P16→P15 衔接紧凑 */
+        #track .slide[data-slide="15"] .section-eyebrow.p2-eyebrow-top {
+            position: absolute;
+            top: 55px;
+            left: 60px;
+            z-index: 1001;
+        }
+        #track .slide[data-slide="15"] .section-eyebrow.p2-eyebrow-top::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            height: 1px;
+            margin-top: 18px;
+            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+        }
+
+        #track .slide[data-slide="12"] .top-balance-bar {
+            top: 55px;
+        }
+        #track .slide[data-slide="12"] .top-balance-bar::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            height: 1px;
+            margin-top: 22px;
+            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+        }
+
+        #track .slide[data-slide="13"] .hero {
+            top: 55px;
+        }
+        #track .slide[data-slide="13"] .hero::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            height: 1px;
+            margin-top: 22px;
+            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+        }
+
+        #track .slide[data-slide="14"] .left-column {
+            top: 55px;
+            height: 830px;
+        }
+        #track .slide[data-slide="14"] .page-title-en::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 760px;
+            height: 1px;
+            margin-top: 22px;
+            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+        }
+
+        /* P8/P9 延续页：标题置顶（原章节标位置），标题下加细金线作为小节标识 */
+        #track .slide[data-slide="8"] .p5-content {
+            top: 55px;
+        }
+        #track .slide[data-slide="8"] .p5-content::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            height: 1px;
+            margin-top: 22px;
+            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+        }
+
+        #track .slide[data-slide="9"] .p6-hero {
+            top: 55px;
+        }
+        #track .slide[data-slide="9"] .p6-hero::after {
+            content: "";
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            height: 1px;
+            margin-top: 22px;
+            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+        }
+
         /* ---------- 左侧：信息认知区（30%） ---------- */
         .left-panel {
             width: 32%;
@@ -3130,12 +3472,12 @@
                         <div class="eyebrow">World Trade Centers Association丨世界贸易中心协会</div>
                         <div class="logo-group">
                             <img src="WTCA logo2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;">
-                            <img class="logo" src="logo_sg.png" alt="WTCA Logo">
+                            <img class="logo" src="logo_sg.png" alt="WTC Singapore Logo">
                         </div>
                     </div>
 
+                    <div class="section-eyebrow p2-eyebrow-top">01 — 关于 世界贸易中心协会 WTCA</div>
                     <div class="p2-hero fade-in d2">
-                        <div class="section-eyebrow">01 — 关于 WTCA / ABOUT WTCA</div>
                         <h1 style="white-space: nowrap;">全球领先的国际商业网络</h1>
                         <h2>World Trade Centers Association(WTCA) · Your Passport to Global Success</h2>
                     </div>
@@ -3190,7 +3532,7 @@
                         </div>
                         <div class="p2-time-item">
                             <div class="p2-dot"></div>
-                            <div class="p2-year">100万+</div>
+                            <div class="p2-year">1M+</div>
                             <div class="p2-desc">企业会员</div>
                         </div>
                     </div>
@@ -3205,15 +3547,7 @@
                 <!-- ============ 第3页：Events and Impact 活动图集瀑布流 ============ -->
                 <div class="slide theme-content no-chrome" data-slide="3">
 
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">World Trade Centers Association丨世界贸易中心协会</div>
-                        <div class="logo-group">
-                            <img src="WTCA logo2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;">
-                            <img class="logo" src="logo_sg.png" alt="WTCA Logo">
-                        </div>
-                    </div>
-
-                    <div class="fade-in d2" style="position:absolute; left:80px; top:135px; z-index:100;">
+                    <div class="fade-in d2" style="position:absolute; left:80px; top:95px; z-index:100;">
                         <h1
                             style="margin:0; font-family:var(--font-display); font-size:50px; font-weight:500; color:var(--color-white); letter-spacing:2px; line-height:1.2;">
                             全球连接，在这里持续发生</h1>
@@ -3223,7 +3557,7 @@
                     </div>
 
                     <div class="card-grid-dense fade-in d4"
-                        style="position:absolute; left:80px; right:80px; top:295px; bottom:125px;">
+                        style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img class="thumb" data-base="waterfall/wtca01" alt="全球连接 01"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 01</div>
@@ -3286,7 +3620,7 @@
 
                     <script>
                         (function () {
-                            var exts = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif'];
+                            var exts = ['jpg', 'png'];
                             document.querySelectorAll('.mini-card img.thumb[data-base]').forEach(function (img) {
                                 var base = img.getAttribute('data-base');
                                 var i = 0;
@@ -3325,15 +3659,7 @@
                 <!-- ============ 第4页：世贸建筑图集（复制自第3页，图片改引 世贸建筑） ============ -->
                 <div class="slide theme-content no-chrome" data-slide="4">
 
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">World Trade Centers Association丨世界贸易中心协会</div>
-                        <div class="logo-group">
-                            <img src="WTCA logo2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;">
-                            <img class="logo" src="logo_sg.png" alt="WTCA Logo">
-                        </div>
-                    </div>
-
-                    <div class="fade-in d2" style="position:absolute; left:80px; top:135px; z-index:100;">
+                    <div class="fade-in d2" style="position:absolute; left:80px; top:95px; z-index:100;">
                         <h1
                             style="margin:0; font-family:var(--font-display); font-size:50px; font-weight:500; color:var(--color-white); letter-spacing:2px; line-height:1.2;">
                             全球世贸地标</h1>
@@ -3343,7 +3669,7 @@
                     </div>
 
                     <div class="card-grid-dense fade-in d4" id="cardGrid4"
-                        style="position:absolute; left:80px; right:80px; top:295px; bottom:125px;">
+                        style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img class="thumb" data-base="wtc-buildings/01_washington_wtc" alt="世贸建筑 01"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 01</div>
@@ -3406,7 +3732,7 @@
 
                     <script>
                         (function () {
-                            var exts = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif'];
+                            var exts = ['jpg', 'png'];
                             var grid = document.getElementById('cardGrid4');
                             grid.querySelectorAll('.mini-card img.thumb[data-base]').forEach(function (img) {
                                 var base = img.getAttribute('data-base');
@@ -3445,15 +3771,9 @@
                 <!-- ============ 第5页：立足亚太 Gateway ============ -->
                 <div class="slide theme-content" data-slide="5">
 
-                    <div class="p3-vignette"></div>
-
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img class="logo" src="logo_sg.png" alt="World Trade Center Singapore logo">
-                    </div>
+                    <div class="section-eyebrow p2-eyebrow-top">02 — 关于 新加坡世贸 WTC Singapore</div>
 
                     <div class="p3-main-block">
-                        <div class="section-eyebrow">02 — 立足亚太 / GATEWAY TO ASIA PACIFIC</div>
                         <div class="p3-headline-cn fade-in d2">立足亚太，链接全球市场的产业资本生态枢纽</div>
                         <div class="p3-headline-en fade-in d3">Gateway from Asia-Pacific to the World · NEXUS of
                             Capital, Innovation and Global Markets</div>
@@ -3467,36 +3787,34 @@
 
                         <div class="p4-feature-divider"></div>
 
-                        <div class="p4-feature">
-                            <div class="p4-feature-en">WTC One Club</div>
-                            <div class="p4-feature-cn">Cross-border Business Community</div>
+                        <div class="p4-feature-row">
+                            <div class="p4-feature">
+                                <div class="p4-feature-en">WTC One Club</div>
+                                <div class="p4-feature-cn">Cross-border Business Community</div>
+                                <div class="p4-feature-desc">汇聚全球企业家、投资人与产业领袖的高端商务社群，以私享活动与会员网络促成跨境合作与资源对接。</div>
+                            </div>
+                            <div class="p4-feature">
+                                <div class="p4-feature-en">GlobalX 出海加速器</div>
+                                <div class="p4-feature-cn">Market Access One-Stop Service Platform</div>
+                                <div class="p4-feature-desc">为出海企业提供市场进入、合规落地与本地化运营的一站式加速服务，打通东盟与中国双向通道。</div>
+                            </div>
+                            <div class="p4-feature">
+                                <div class="p4-feature-en">WTC Fund 国际资本创新生态</div>
+                                <div class="p4-feature-cn">Innovation Capital Investment Fund</div>
+                                <div class="p4-feature-desc">以产业资本连接早期科技与成长期项目，构建"资本+产业+场景"的创新投资生态，加速全球化布局。</div>
+                            </div>
                         </div>
-                        <div class="p4-feature">
-                            <div class="p4-feature-en">GlobalX 出海加速器</div>
-                            <div class="p4-feature-cn">Market Access One-Stop Service Platform</div>
-                        </div>
-                        <div class="p4-feature">
-                            <div class="p4-feature-en">WTC Fund 国际资本创新生态</div>
-                            <div class="p4-feature-cn">Innovation Capital Investment Fund</div>
-                        </div>
-                    </div>
-
-                    <div class="p3-bottom-bar fade-in d7">
-                        <span class="footer-en" style="font-size:18px;">Where Capital Meets Innovation, Opportunity
-                            Becomes Value.</span>
-                        <span class="footer-cn" style="font-size:18px;">资本汇聚创新，机遇转化为价值。</span>
                     </div>
 
                 </div>
 
                 <!-- ============ 第6页 ============ -->
                 <div class="slide theme-content no-chrome" data-slide="6">
-                    <div class="grid-overlay"></div>
 
-                    <!-- 页头 -->
-                    <div class="header">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img class="logo" src="logo_sg.png" alt="WTC Singapore">
+                    <!-- 页眉标题 -->
+                    <div class="section-eyebrow p2-eyebrow-top p6-header">
+                        <span class="p6-header-en">新加坡·全球商业生态的战略支点</span>
+                        <span class="p6-header-sub">Why Singapore</span>
                     </div>
 
                     <!-- 页面主体 -->
@@ -3504,9 +3822,6 @@
 
                         <!-- 左侧：信息认知区 -->
                         <div class="left-panel">
-
-                            <h1 class="page-title seq-1">新加坡·全球商业生态的战略支点</h1>
-                            <p class="page-subtitle seq-2">Why Singapore</p>
 
                             <div class="divider-line seq-3"></div>
 
@@ -3635,15 +3950,10 @@
 
                     <div class="p4-grid"></div>
 
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img src="logo_sg.png" class="logo" alt="WTC Singapore Logo">
-                    </div>
+                    <div class="section-eyebrow p2-eyebrow-top">03 — 核心服务 / CORE OFFERINGS</div>
 
                     <div class="p4-hero fade-in d2">
-                        <div class="section-eyebrow">03 — 核心服务 / CORE OFFERINGS</div>
                         <h1>WTC One Club · 专属全球商业网络</h1>
-                        <div class="gold-line" style="margin-top:22px;"></div>
                         <div class="hero-sub">An Exclusive Global Business Network</div>
                     </div>
 
@@ -3698,11 +4008,6 @@
                     <div class="p5-arc"></div>
                     <div class="p5-arc p5-arc2"></div>
 
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img src="logo_sg.png" class="logo" alt="WTC Singapore Logo">
-                    </div>
-
                     <div class="p5-content fade-in d2">
                         <h1>GlobalX 出海加速器</h1>
                         <div class="p5-subtitle">A One-Stop Global Expansion Service Platform</div>
@@ -3710,26 +4015,26 @@
 
                     <div class="p5-matrix">
                         <div class="p5-column fade-in d3">
-                            <div class="p5-index">01</div>
                             <div class="p5-card">
+                                <div class="p5-index">01</div>
                                 <div class="p5-cn-title">AI 驱动：重塑指数级生产力</div>
-                                <h3>AI+Insights on Global Market</h3>
+                                <h3>AI-Driven Exponential Productivity</h3>
                                 <p>深度嵌入 AI 工作流与智能代理体系，实现市场拓展、组织协同、数据运营与全球业务管理的数字化重构，全面提升跨境增长效率。</p>
                             </div>
                         </div>
                         <div class="p5-column fade-in d4">
-                            <div class="p5-index">02</div>
                             <div class="p5-card">
+                                <div class="p5-index">02</div>
                                 <div class="p5-cn-title">世贸网络：连接全球资源</div>
-                                <h3>Trade and Investment Opportunity</h3>
+                                <h3>WTCA Network: Global Resource Access</h3>
                                 <p>依托 WTCA 全球 90+ 国家与地区、300+ 世界贸易中心节点网络，构建即插即用的国际化产业基础设施，为企业快速进入目标市场提供可信赖的资源连接能力。</p>
                             </div>
                         </div>
                         <div class="p5-column fade-in d5">
-                            <div class="p5-index">03</div>
                             <div class="p5-card">
+                                <div class="p5-index">03</div>
                                 <div class="p5-cn-title">资本赋能：离岸杠杆枢纽</div>
-                                <h3>Integrated Services</h3>
+                                <h3>Capital Empowerment: Offshore Leverage Hub</h3>
                                 <p>以国际资本网络为支撑，打通主权基金、家族办公室、战略投资机构与跨境融资渠道，为企业全球扩张提供制度化资本解决方案。</p>
                             </div>
                         </div>
@@ -3741,11 +4046,6 @@
                         <div class="p5-visual-desc">依托 WTCA 全球网络、AI 智能运营基础设施与战略资本资源，GlobalX 赋能企业拓展东盟及国际市场。</div>
                     </div>
 
-                    <div class="footer fade-in d6">
-                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                        <div class="footer-cn">资本汇聚创新，机遇转化为价值。</div>
-                    </div>
-
                 </div>
 
                 <!-- ============ 第9页 ============ -->
@@ -3753,14 +4053,8 @@
 
                     <div class="grid-overlay" style="opacity:.03;"></div>
 
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img src="logo_sg.png" class="logo" alt="WTC Singapore Logo">
-                    </div>
-
                     <div class="p6-hero fade-in d2">
                         <h1>WTC Fund 国际资本创新生态</h1>
-                        <div class="gold-line" style="margin-top:20px;"></div>
                         <div class="hero-sub">A Global Platform for Capital Innovation and Value Creation</div>
                     </div>
 
@@ -3815,27 +4109,14 @@
                         </div>
                     </div>
 
-                    <div class="footer fade-in d6">
-                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                        <div class="footer-cn">资本汇聚创新，机遇转化为价值。</div>
-                    </div>
-
                 </div>
 
                 <!-- ============ 第10页 ============ -->
                 <div class="slide theme-content no-chrome" data-slide="10">
-                    <!-- 特殊页面背景光影 -->
-                    <div class="bg-radial"></div>
-
-                    <!-- 页头区 -->
-                    <div class="header">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img class="logo" src="logo_sg.png" alt="WTC Singapore Logo">
-                    </div>
+                    <div class="section-eyebrow p2-eyebrow-top">04 — 全球生态 / GLOBAL ECOSYSTEM</div>
 
                     <!-- 页面主标题区 -->
-                    <div class="page-intro fade-in d1">
-                        <div class="section-eyebrow">04 — 全球生态 / GLOBAL ECOSYSTEM</div>
+                    <div class="page-intro fade-in d1" style="top:180px;left:60px;right:60px;">
                         <h1>连接全球资源，创造持续价值</h1>
                         <div class="page-intro-cn">The Power of the connected Ecosystem</div>
                     </div>
@@ -3998,13 +4279,6 @@
                         </svg>
                     </div>
 
-                    <div class="p7-header fade-in d1">
-                        <div class="logo-group">
-                            <img src="WTCA logo2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;">
-                            <img src="logo_sg.png" class="logo" alt="WTC Singapore Logo">
-                        </div>
-                    </div>
-
                     <div class="p7-hero fade-in d2">
                         <h1>全球领导力网络</h1>
                         <div class="gold-line" style="margin-top:20px;"></div>
@@ -4012,12 +4286,7 @@
                     </div>
 
                     <div class="p7-constellation-zone">
-                        <img src="人物.png" alt="Governance Leaders" class="fade-in d3">
-                    </div>
-
-                    <div class="footer fade-in d6">
-                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                        <div class="footer-cn">资本汇聚创新，机遇转化为价值。</div>
+                        <img src="governance-leaders.png" alt="Governance Leaders" class="fade-in d3">
                     </div>
 
                 </div>
@@ -4025,12 +4294,6 @@
                 <!-- ============ 第12页 ============ -->
                 <div class="slide theme-content no-chrome" data-slide="12">
                     <div class="background-fill glow"></div>
-                    <!-- 页头区 -->
-                    <div class="header">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img class="logo" src="logo_sg.png" alt="WTC Singapore Logo">
-                    </div>
-
                     <!-- 顶部布局栏 -->
                     <div class="top-balance-bar">
                         <!-- 战略标语 + 副标题 -->
@@ -4132,22 +4395,11 @@
 
                     </div>
 
-                    <!-- 页脚 -->
-                    <div class="footer fade-in d4">
-                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                        <div class="footer-cn">资本汇聚创新，机遇转化为价值。</div>
-                    </div>
-
                 </div>
 
                 <div class="slide theme-content no-chrome" data-slide="13">
 
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img src="logo_sg.png" class="logo" alt="WTC Singapore Logo">
-                    </div>
-
-                    <div class="hero fade-in d2" style="left:80px; top:135px;">
+                    <div class="hero fade-in d2" style="left:80px; top:55px;">
                         <h1>国际合伙人网络</h1>
                         <div class="hero-title-cn">Global X Partners Networks</div>
                     </div>
@@ -4167,27 +4419,18 @@
                     <div style="position:absolute; width:1720px; left:50%; margin-left:-860px; top:450px; height:510px;"
                         class="fade-in d4" id="demoMap"></div>
 
-                    <div class="footer fade-in d6">
-                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                        <div class="footer-cn">资本汇聚创新，机遇转化为价值。</div>
-                    </div>
                 </div>
 
                 <div class="slide theme-content no-chrome" data-slide="14">
                     <div class="background-fill glow"></div>
-                    <!-- 页头区 -->
-                    <div class="header">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img class="logo" src="logo_sg.png" alt="WTC Singapore Logo">
-                    </div>
 
                     <!-- 左侧栏 -->
                     <div class="left-column">
 
                         <!-- 模块 A：主标题 -->
                         <div class="fade-in d1">
-                            <h1 class="page-title-en">全球连接的力量</h1>
-                            <div class="page-title-cn">Join Us as ONE Club Members</div>
+                            <h1 class="page-title-cn">全球连接的力量</h1>
+                            <div class="page-title-en">Join Us as ONE Club Members</div>
                         </div>
 
                         <!-- 模块 B：领导力引用卡片 -->
@@ -4195,7 +4438,7 @@
                             <img class="leader-avatar" src="COO_quote.png" alt="董立鑫 秘书长">
                             <div class="leader-quote-wrap">
                                 <div class="leader-quote">"全球只有一个商业网络叫世界贸易中心协会，而这，是它在亚太的会籍。"</div>
-                                <div class="leader-signature-en">Bruce Dong<span>Secretary General & COO, WTC
+                                <div class="leader-signature-en">Bruce Dong<span>Secretary General &amp; COO, WTC
                                         Singapore</span>
                                 </div>
                             </div>
@@ -4271,29 +4514,21 @@
                         <span>WTC One Club 会员</span>
                     </div>
 
-                    <!-- 页脚 -->
-                    <div class="footer fade-in d6">
-                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                        <div class="footer-cn">资本汇聚创新，机遇转化为价值。</div>
-                    </div>
                 </div>
 
                 <div class="slide theme-content no-chrome" data-slide="15">
-                    <!-- ——— 页头 ——— -->
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img src="logo_sg.png" class="logo" alt="WTC Singapore Logo" />
-                    </div>
+                    <!-- ——— 章节眉题（连接我们章节起始页）——— -->
+                    <div class="section-eyebrow p2-eyebrow-top">05 — 连接我们 / CONNECT</div>
 
                     <!-- ——— 隐藏标题（仅存在于代码中，页面不显示）——— -->
-                    <div class="p-title" style="display:none" aria-hidden="true">
-                        <h1 class="p-title-en">全球连接，在这里持续发生</h1>
-                        <div class="p-title-cn">Where Global Connections Come to Life</div>
+                    <div class="p-title" style="display:none">
+                        <h1 class="p-title-cn">连接我们</h1>
+                        <div class="p-title-en">Connect With Us</div>
                     </div>
 
                     <!-- ——— 九宫格主体 ——— -->
                     <div class="event-grid bleed fade-in d4"
-                        style="position:absolute; left:80px; right:80px; top:120px; bottom:90px;">
+                        style="position:absolute; left:80px; right:80px; top:125px; bottom:70px;">
                         <!-- 1/9 -->
                         <div class="event-cell real" data-img="grid/grid1"
                             style="background: linear-gradient(160deg, rgba(212,175,55,.18), rgba(197,160,89,.03) 55%) center/cover no-repeat;">
@@ -4338,7 +4573,7 @@
 
                     <script>
                         (function () {
-                            var exts = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif'];
+                            var exts = ['jpg', 'png'];
                             var grid = document.querySelector('.event-grid');
                             if (!grid) return;
                             var cells = grid.querySelectorAll('.event-cell[data-img]');
@@ -4394,15 +4629,9 @@
                     <div class="background-fill glow"></div>
                     <div class="p8-grid"></div>
 
-                    <div class="header fade-in d1">
-                        <div class="eyebrow">WTC Singapore ｜ 新加坡世界贸易中心</div>
-                        <img src="logo_sg.png" class="logo" alt="Logo">
-                    </div>
-
-                    <div class="p8-hero fade-in d2">
-                        <div class="section-eyebrow">05 — 连接我们 / CONNECT</div>
+                    <div class="p8-hero fade-in d2" style="top:180px;left:60px;">
                         <h1>联手 WTC Singapore<br>共建全球商业未来</h1>
-                        <div class="hero-sub">Creat the Future of Global Business Together</div>
+                        <div class="hero-sub">Create the Future of Global Business Together</div>
                     </div>
 
                     <div class="p8-card fade-in d4">

@@ -16,13 +16,26 @@
   margin-bottom: 16px;
   display: block;
 }
-.section-eyebrow::before{
+.section-eyebrow::after{
   content: "";
   display: block;
   width: 40px;
   height: 1px;
   background: var(--color-gold);
-  margin-bottom: 14px;
+  margin-top: 14px;
+}
+
+/* P2 编号移到页眉位置（top:55px / left:60px）预览 */
+.p2-eyebrow-top{
+  position: absolute;
+  top: 55px;
+  left: 60px;
+  margin: 0;
+  z-index: 1001;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.2;
 }
 
 /* ---------- 设计变量 ---------- */
