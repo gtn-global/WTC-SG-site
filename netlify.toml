@@ -1,6 +1,6 @@
 [build]
-  # 纯静态站点，无需构建命令
-  command = ""
+  # 生成 sitemap 后再发布
+  command = "node generate-sitemap.js"
   # 发布目录为仓库根（HTML/CSS/JS/图片都在根目录）
   publish = "."
 

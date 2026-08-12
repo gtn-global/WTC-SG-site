@@ -1,15 +1,22 @@
-# 系统/编辑器垃圾
+# 依赖与构建产物
+node_modules/
+package-lock.json
+yarn.lock
+
+# 本地环境
+.env
+.env.*
+*.local
+
+# 操作系统
 .DS_Store
 Thumbs.db
 desktop.ini
-*.swp
-*~
 
-# IDE / 编辑缓存
+# 编辑器
 .vscode/
 .idea/
-*.log
+*.swp
 
-# 本地临时产物
-*.tmp
-.cache/
+# 日志
+*.log

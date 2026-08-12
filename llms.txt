@@ -1,0 +1,20 @@
+# WTC Singapore Deck
+
+世界贸易中心新加坡（WTC Singapore）介绍演示文稿的中英文双版本静态站点。
+
+## 站点页面
+
+- WTC-SG-Deck-CN.html — 中文版演示文稿（16 页，主入口）
+- WTC-SG-Deck-EN.html — 英文版演示文稿
+
+## 项目结构
+
+- common.css / common.js — 全站共用样式与脚本
+- netlify.toml — Netlify 部署配置（根路径重定向到中文版）
+- generate-sitemap.js — 站点地图生成脚本
+- grid/ waterfall/ wtc-buildings/ — 演示用图片资源
+- logo/ — 标志与二维码资源
+
+## 部署
+
+纯静态站点，由 Netlify 从 GitHub 仓库 `gtn-global/WTC-SG-site` 自动构建，根路径 `/` 重定向至中文版 Deck。
