@@ -561,3 +561,87 @@ body.single-slide #deck-nav{ display:none; }
 .logo-cell{ aspect-ratio:16/9; background:var(--color-bg); display:flex; align-items:center; justify-content:center; padding:20px; }
 .logo-cell img{ max-width:70%; max-height:60%; object-fit:contain; }
 .logo-cell .logo-text{ font-family:var(--font-display); font-size:13px; color:var(--color-text-dim); text-align:center; }
+
+/* ==========================================================
+   新增：顶部导航菜单（悬浮右上角圆形按钮 + 下拉面板）
+   独立于原有翻页系统，纯新增，不影响任何已有样式
+   ========================================================== */
+#site-nav-toggle{
+  position: fixed; top: 22px; right: 24px; z-index: 2200;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(10,10,12,.55);
+  border: 1px solid rgba(197,160,89,.35);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+#site-nav-toggle span{
+  display: block; width: 20px; height: 1px;
+  background: rgba(255,255,255,.85);
+  position: relative;
+}
+#site-nav-toggle span::before,
+#site-nav-toggle span::after{
+  content: ""; display: block; width: 20px; height: 1px;
+  background: rgba(255,255,255,.85);
+  position: absolute; left: 0;
+}
+#site-nav-toggle span::before{ top: -6px; }
+#site-nav-toggle span::after{ top: 6px; }
+
+#site-nav-panel{
+  position: fixed; top: 80px; right: 24px; z-index: 2199;
+  background: rgba(10,10,12,.92);
+  border: 1px solid rgba(197,160,89,.25);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px; padding: 12px 0;
+  min-width: 220px;
+  display: none;
+  flex-direction: column;
+}
+#site-nav-panel.open{ display: flex; }
+#site-nav-panel a{
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,.78);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .2s ease, background .2s ease;
+}
+#site-nav-panel a:hover,
+#site-nav-panel a:focus-visible{
+  color: var(--color-gold-strong);
+  background: rgba(197,160,89,.08);
+}
+
+/* ==========================================================
+   新增：hover/touch 统一修复
+   1) 交互元素可点性兜底（tablet / 触屏无 :hover）
+   2) 地图枢纽节点 tooltip 在触屏用 .tap-active 触发，避免遮挡
+   3) 资本流向卡片 hover→.active，让触屏也能查看
+   ========================================================== */
+.wtc-map-hub-node,
+.wtc-map-hub-node *,
+.capital-flow-card,
+.capital-hover-card,
+.capital-hover-card *{
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* 触屏：点按节点显示 tooltip（不再依赖 :hover） */
+.wtc-map-hub-node.tap-active .wtc-map-card{
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+/* 资本流向卡片：hover 与触屏激活态统一 */
+.capital-hover-card.active,
+.capital-flow-card:hover .capital-hover-card{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

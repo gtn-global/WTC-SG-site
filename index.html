@@ -3404,6 +3404,18 @@
 
 <body>
 
+    <div id="site-nav-toggle" role="button" aria-label="打开导航菜单" onclick="document.getElementById('site-nav-panel').classList.toggle('open')">
+        <span></span>
+    </div>
+    <nav id="site-nav-panel" aria-label="网站导航">
+        <a href="#" onclick="WTCDeck.goTo(0); document.getElementById('site-nav-panel').classList.remove('open'); return false;">首页</a>
+        <a href="#" onclick="WTCDeck.goTo(1); document.getElementById('site-nav-panel').classList.remove('open'); return false;">关于协会</a>
+        <a href="#" onclick="WTCDeck.goTo(4); document.getElementById('site-nav-panel').classList.remove('open'); return false;">关于新加坡世贸</a>
+        <a href="#" onclick="WTCDeck.goTo(6); document.getElementById('site-nav-panel').classList.remove('open'); return false;">核心服务</a>
+        <a href="#" onclick="WTCDeck.goTo(9); document.getElementById('site-nav-panel').classList.remove('open'); return false;">全球生态</a>
+        <a href="#" onclick="WTCDeck.goTo(14); document.getElementById('site-nav-panel').classList.remove('open'); return false;">联系我们</a>
+    </nav>
+
     <div id="viewport">
         <div id="stage" class="canvas-ppt">
             <div id="track">
@@ -5061,6 +5073,21 @@
                 hubNode.appendChild(card);
                 var style = document.createElement('style');
                 style.textContent = '.wtc-map-hub-node:hover .wtc-map-card { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }';
+            // 触屏兜底：点按切换 .tap-active，避免 :hover 在平板/手机上不触发且遮挡
+            document.querySelectorAll('.wtc-map-hub-node').forEach(function(node){
+              node.addEventListener('click', function(e){
+                e.stopPropagation();
+                document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function(n){
+                  if(n !== node) n.classList.remove('tap-active');
+                });
+                node.classList.toggle('tap-active');
+              });
+            });
+            document.addEventListener('click', function(){
+              document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function(n){
+                n.classList.remove('tap-active');
+              });
+            });
                 document.head.appendChild(style);
             }
 
@@ -5252,6 +5279,27 @@
             });
         })();
 
+    </script>
+    <script>
+    // hover/touch 统一修复：资本流向卡片在触屏上点按切换 .active 显示详情
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.capital-flow-card').forEach(function (card) {
+        var hover = card.querySelector('.capital-hover-card');
+        if (!hover) return;
+        card.addEventListener('click', function (e) {
+          e.stopPropagation();
+          document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
+            if (h !== hover) h.classList.remove('active');
+          });
+          hover.classList.toggle('active');
+        });
+      });
+      document.addEventListener('click', function () {
+        document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
+          h.classList.remove('active');
+        });
+      });
+    });
     </script>
 </body>
 
