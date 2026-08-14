@@ -7,12 +7,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const DEFAULT_BASE = 'https://wtc-sg-site.netlify.app';
+const DEFAULT_BASE = 'https://wtcasg.org';
 const BASE = (process.argv[2] || DEFAULT_BASE).replace(/\/$/, '');
 
 // 站点内所有公开页面（相对路径，不含前导斜杠）
 const PAGES = [
-  'WTC-SG-Deck-CN.html',
+  'index.html',
   'WTC-SG-Deck-EN.html',
 ];
 
