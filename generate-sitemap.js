@@ -13,7 +13,7 @@ const BASE = (process.argv[2] || DEFAULT_BASE).replace(/\/$/, '');
 // 站点内所有公开页面（相对路径，不含前导斜杠）
 const PAGES = [
   'index.html',
-  'WTC-SG-Deck-EN.html',
+  'index-en.html',
 ];
 
 const now = new Date().toISOString().slice(0, 10);

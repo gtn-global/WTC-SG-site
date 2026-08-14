@@ -5,7 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WTC Singapore | CN</title>
+    <title>新加坡世贸中心 WTC Singapore | 世界贸易中心协会 WTCA 新加坡</title>
+    <meta name="description" content="新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）成员，依托全球经贸网络，为企业提供核心服务、全球生态连接与跨境商机对接。">
+    <link rel="canonical" href="index.html">
+    <link rel="alternate" hreflang="zh-CN" href="index.html">
+    <link rel="alternate" hreflang="en" href="index-en.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WTC Singapore">
+    <meta property="og:title" content="新加坡世贸中心 WTC Singapore | 世界贸易中心协会 WTCA 新加坡">
+    <meta property="og:description" content="新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）成员，依托全球经贸网络，为企业提供核心服务、全球生态连接与跨境商机对接。">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:url" content="index.html">
+    <meta property="og:image" content="ogimage/og%20image.jpeg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="ogimage/og%20image.jpeg">
+    <meta name="twitter:title" content="新加坡世贸中心 WTC Singapore | 世界贸易中心协会 WTCA 新加坡">
+    <meta name="twitter:description" content="新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）成员，依托全球经贸网络，为企业提供核心服务、全球生态连接与跨境商机对接。">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
@@ -776,7 +799,7 @@
 
         .p4-content .card .highlight {
             font-size: 15px;
-            color: var(--color-gold-soft);
+            color: #C8D3E2;
             line-height: 1.6;
             margin-bottom: 14px;
         }
@@ -1302,7 +1325,7 @@
         }
 
         .p8-card h3 {
-            color: var(--color-gold-strong);
+            color: #C5A059;
             font-size: 14px;
             letter-spacing: 2px;
             margin-bottom: 8px;
@@ -3399,22 +3422,134 @@
                 opacity: 1 !important;
             }
         }
+
+        /* ==========================================================
+           顶部固定导航栏（替代原汉堡按钮 + 侧滑面板）
+           页面级样式，不改动 common.css
+           ========================================================== */
+        #site-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            z-index: 2300;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            background: rgba(8, 16, 30, .92);
+            border-bottom: 1px solid rgba(197, 160, 89, .18);
+        }
+
+        /* 导航栏占真实高度的一块：滚动容器整体下移并收缩，
+           使 16 页内容均位于导航栏下方、不被覆盖（覆盖 common.css 的 100vh） */
+        #viewport {
+            position: relative;
+            top: 64px;
+            height: calc(100vh - 64px);
+        }
+
+        #track .slide {
+            height: calc(100vh - 64px);
+            flex-basis: calc(100vh - 64px);
+        }
+
+        #site-topbar .topbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            margin-right: auto;
+        }
+
+        #site-topbar .brand-text {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #C5A059;
+        }
+
+        #site-topbar .topbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #site-topbar .topbar-nav a {
+            position: relative;
+            padding: 8px 14px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, .72);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color .2s ease;
+        }
+
+        #site-topbar .topbar-nav a::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 2px;
+            height: 2px;
+            background: #C5A059;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform .2s ease;
+        }
+
+        #site-topbar .topbar-nav a:hover,
+        #site-topbar .topbar-nav a:focus-visible {
+            color: #fff;
+        }
+
+        #site-topbar .topbar-nav a.active {
+            color: #C5A059;
+        }
+
+        #site-topbar .topbar-nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        #site-topbar .topbar-lang {
+            margin-left: 22px;
+            padding: 6px 14px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #C5A059;
+            text-decoration: none;
+            border: 1px solid rgba(197, 160, 89, .45);
+            border-radius: 4px;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        #site-topbar .topbar-lang:hover,
+        #site-topbar .topbar-lang:focus-visible {
+            background: rgba(197, 160, 89, .14);
+            color: #fff;
+        }
     </style>
 </head>
 
 <body>
 
-    <div id="site-nav-toggle" role="button" aria-label="打开导航菜单" onclick="document.getElementById('site-nav-panel').classList.toggle('open')">
-        <span></span>
-    </div>
-    <nav id="site-nav-panel" aria-label="网站导航">
-        <a href="#" onclick="WTCDeck.goTo(0); document.getElementById('site-nav-panel').classList.remove('open'); return false;">首页</a>
-        <a href="#" onclick="WTCDeck.goTo(1); document.getElementById('site-nav-panel').classList.remove('open'); return false;">关于协会</a>
-        <a href="#" onclick="WTCDeck.goTo(4); document.getElementById('site-nav-panel').classList.remove('open'); return false;">关于新加坡世贸</a>
-        <a href="#" onclick="WTCDeck.goTo(6); document.getElementById('site-nav-panel').classList.remove('open'); return false;">核心服务</a>
-        <a href="#" onclick="WTCDeck.goTo(9); document.getElementById('site-nav-panel').classList.remove('open'); return false;">全球生态</a>
-        <a href="#" onclick="WTCDeck.goTo(14); document.getElementById('site-nav-panel').classList.remove('open'); return false;">联系我们</a>
-    </nav>
+    <header id="site-topbar" aria-label="网站导航">
+        <a class="topbar-brand" href="#" onclick="WTCDeck.goTo(0); return false;">
+            <span class="brand-text">新加坡世贸丨WTC Singapore</span>
+        </a>
+        <nav class="topbar-nav" aria-label="章节导航">
+            <a href="#" data-target="0" onclick="WTCDeck.goTo(0); return false;">首页</a>
+            <a href="#" data-target="1" onclick="WTCDeck.goTo(1); return false;">关于世界贸易中心协会</a>
+            <a href="#" data-target="4" onclick="WTCDeck.goTo(4); return false;">关于新加坡世贸</a>
+            <a href="#" data-target="6" onclick="WTCDeck.goTo(6); return false;">核心服务</a>
+            <a href="#" data-target="9" onclick="WTCDeck.goTo(9); return false;">全球生态</a>
+            <a href="#" data-target="14" onclick="WTCDeck.goTo(14); return false;">联系我们</a>
+        </nav>
+        <a class="topbar-lang" href="index-en.html">EN</a>
+    </header>
 
     <div id="viewport">
         <div id="stage" class="canvas-ppt">
@@ -3435,8 +3570,8 @@
                             <div class="p1-brand-cn">新加坡世界贸易中心</div>
                         </div>
                         <div class="logo-group">
-                            <img src="WTCA logo2.jpg" class="logo" alt="WTCA Logo" style="margin-right:20px;">
-                            <img src="logo_sg.jpg" class="logo" alt="WTC Singapore Logo">
+                            <img src="quotes-logos/WTCA logo2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;">
+                            <img src="quotes-logos/logo_sg.png" class="logo" alt="WTC Singapore Logo">
                         </div>
                     </div>
 
@@ -3483,8 +3618,8 @@
                     <div class="header fade-in d1" style="left:60px;">
                         <div class="eyebrow">World Trade Centers Association丨世界贸易中心协会</div>
                         <div class="logo-group">
-                            <img src="WTCA logo2.jpg" class="logo" alt="WTCA Logo" style="margin-right:20px;">
-                            <img class="logo" src="logo_sg.jpg" alt="WTC Singapore Logo">
+                            <img src="quotes-logos/WTCA logo2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;">
+                            <img class="logo" src="quotes-logos/logo_sg.png" alt="WTC Singapore Logo">
                         </div>
                     </div>
 
@@ -4298,7 +4433,7 @@
                     </div>
 
                     <div class="p7-constellation-zone">
-                        <img src="governance-leaders.jpg" alt="Governance Leaders" class="fade-in d3">
+                        <img src="quotes-logos/governance-leaders.png" alt="Governance Leaders" class="fade-in d3">
                     </div>
 
                 </div>
@@ -4318,7 +4453,7 @@
 
                     <!-- Leadership Perspective（重新定位至标题下方） -->
                     <div class="fund-leadership-perspective fade-in d2">
-                        <img class="leader-avatar" src="chairman_quote.jpg" alt="Blake Zhang">
+                        <img class="leader-avatar" src="quotes-logos/chairman_quote.png" alt="Blake Zhang">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">"一个充满生命力、长期可持续发展的平台，更要靠一群拥有共同理念和追求的人，共同成长，共同创造长期价值。"</div>
                             <div class="leader-signature">Blake Zhang<span>Chairman, WTC Singapore</span></div>
@@ -4418,7 +4553,7 @@
 
                     <!-- 领导力引用卡片（标题下方） -->
                     <div class="hero-leader fade-in d3">
-                        <img class="leader-avatar" src="CEO_quote.jpg" alt="Xiaolan Zhu">
+                        <img class="leader-avatar" src="quotes-logos/CEO_quote.png" alt="Xiaolan Zhu">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">
                                 "在全球产业链、供应链重构中，中国企业国际化进入新的发展阶段，更加需要国际背书，拓展国际朋友圈，做好体系化、专业化的国际化战略、合规、组织设计与跨文化融合。"</div>
@@ -4447,7 +4582,7 @@
 
                         <!-- 模块 B：领导力引用卡片 -->
                         <div class="leadership-perspective fade-in d2">
-                            <img class="leader-avatar" src="COO_quote.jpg" alt="董立鑫 秘书长">
+                            <img class="leader-avatar" src="quotes-logos/COO_quote.png" alt="董立鑫 秘书长">
                             <div class="leader-quote-wrap">
                                 <div class="leader-quote">"全球只有一个商业网络叫世界贸易中心协会，而这，是它在亚太的会籍。"</div>
                                 <div class="leader-signature-en">Bruce Dong<span>Secretary General &amp; COO, WTC
@@ -4530,7 +4665,7 @@
 
                 <div class="slide theme-content no-chrome" data-slide="15">
                     <!-- ——— 章节眉题（连接我们章节起始页）——— -->
-                    <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; top:55px; left:60px; margin:0;">05 — 连接我们 / CONNECT</div>
+                    <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; left:60px; margin:0;">05 — 连接我们 / CONNECT</div>
 
                     <!-- ——— 隐藏标题（仅存在于代码中，页面不显示）——— -->
                     <div class="p-title" style="display:none">
@@ -4657,10 +4792,10 @@
                         </div>
                         <div class="p8-qr">
                             <div class="p8-qr-item">
-                                <img src="donglixin_qrcode.jpg" alt="董立鑫 二维码">
+                                <img src="quotes-logos/donglixin_qrcode.jpg" alt="董立鑫 二维码">
                             </div>
                             <div class="p8-qr-item">
-                                <img src="zhuxiaolan_qrcode.jpg" alt="朱小兰 二维码">
+                                <img src="quotes-logos/zhuxiaolan_qrcode.jpg" alt="朱小兰 二维码">
                             </div>
                         </div>
                     </div>
@@ -4706,6 +4841,38 @@
     </div>
 
     <script src="common.js"></script>
+
+    <!-- 顶部导航栏：跟随翻页高亮当前章节（页面级，不改动 common.js） -->
+    <script>
+        (function () {
+            function syncTopbarActive(idx) {
+                var links = document.querySelectorAll('#site-topbar .topbar-nav a');
+                for (var i = 0; i < links.length; i++) {
+                    var t = parseInt(links[i].getAttribute('data-target'), 10);
+                    if (t === idx) links[i].classList.add('active');
+                    else links[i].classList.remove('active');
+                }
+            }
+            function wrapGoTo() {
+                if (!window.WTCDeck || typeof window.WTCDeck.goTo !== 'function') return false;
+                var _goTo = window.WTCDeck.goTo;
+                window.WTCDeck.goTo = function (i) {
+                    syncTopbarActive(i);
+                    return _goTo.apply(this, arguments);
+                };
+                // 初始高亮
+                var init = (window.WTCDeck && window.WTCDeck.index) ? window.WTCDeck.index : 0;
+                syncTopbarActive(init);
+                return true;
+            }
+            // common.js 可能异步，重试直到 WTCDeck 就绪
+            var tries = 0;
+            var timer = setInterval(function () {
+                tries++;
+                if (wrapGoTo() || tries > 50) clearInterval(timer);
+            }, 50);
+        })();
+    </script>
 
     <!-- ===== 插入页脚本 (P4/P6/P8/P11/P13/P14) ===== -->
     <script>

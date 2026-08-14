@@ -5,7 +5,7 @@
 ## 站点页面
 
 - index.html — 中文版演示文稿（主入口，访问根路径 `/` 时直接展示）
-- WTC-SG-Deck-EN.html — 英文版演示文稿
+- index-en.html — 英文版演示文稿
 
 ## 项目结构
 
