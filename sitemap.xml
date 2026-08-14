@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://wtc-sg-site.netlify.app/WTC-SG-Deck-CN.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <loc>https://wtcasg.org/index.html</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://wtc-sg-site.netlify.app/WTC-SG-Deck-EN.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <loc>https://wtcasg.org/WTC-SG-Deck-EN.html</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
   </url>
 </urlset>
+
