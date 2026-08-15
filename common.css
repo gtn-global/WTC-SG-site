@@ -83,6 +83,22 @@ html,body{
   background:#0A192F; font-family:var(--font-body);
 }
 
+/* ---------- 手机端适配 ---------- */
+@media (max-width: 820px) {
+  html,body{ overflow:visible; }
+  #viewport{ height:auto; overflow-y:visible; scroll-snap-type:none; }
+  #track{ display:block; }
+  #track .slide{
+    flex:none;
+    height:auto;
+    min-height:auto;
+    scroll-snap-align:none;
+    overflow:visible;
+  }
+  .topbar-nav{ overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .topbar-nav::-webkit-scrollbar{ display:none; }
+}
+
 /* ---------- 画布尺寸预设 ---------- */
 .canvas-ppt{ width:1920px; height:1080px; }
 .canvas-poster-portrait{ width:1080px; height:1920px; }
