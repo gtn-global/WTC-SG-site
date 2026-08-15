@@ -74,14 +74,6 @@
             inners[i].style.transform = isMobile
                 ? 'translate(-50%, 0) scale(' + scale + ')'
                 : 'translate(-50%,-50%) scale(' + scale + ')';
-            // 手机端：.slide 高度跟随缩放后的内容高度，避免 100vh 造成大面积空白
-            if (isMobile) {
-                slide.style.height = (1080 * scale) + 'px';
-                slide.style.minHeight = (1080 * scale) + 'px';
-            } else {
-                slide.style.height = '';
-                slide.style.minHeight = '';
-            }
         }
         return true;
     }
@@ -103,9 +95,8 @@
     function goTo(i) {
         if (!deck.viewport) return;
         deck.index = Math.max(0, Math.min(deck.count - 1, i));
-        var target = deck.track ? deck.track.children[deck.index] : null;
-        var targetTop = target ? target.offsetTop : deck.index * (deck.viewport.clientHeight || 1080);
-        deck.viewport.scrollTo({ top: targetTop, behavior: 'smooth' });
+        // 每页真实占满一屏（100vh），滚动按真实屏高计算
+        deck.viewport.scrollTo({ top: deck.index * deck.viewport.clientHeight, behavior: 'smooth' });
         renderNav();
         updateVisualFocus();
         for (var k = Math.max(0, deck.index - 1); k <= Math.min(deck.count - 1, deck.index + 1); k++) {
@@ -187,7 +178,7 @@
         });
 
         deck.viewport.addEventListener('scroll', function () {
-            var h = (deck.track && deck.track.children[0]) ? deck.track.children[0].offsetHeight : (deck.viewport.clientHeight || 1080);
+            var h = deck.viewport.clientHeight || 1080;
             var idx = Math.round(deck.viewport.scrollTop / h);
             if (idx !== deck.index && idx >= 0 && idx < deck.count) {
                 deck.index = idx;
@@ -230,8 +221,8 @@
 
     function rescale() {
         scaleStage();
-        if (deck.viewport && deck.track && deck.track.children[deck.index]) {
-            deck.viewport.scrollTop = deck.track.children[deck.index].offsetTop;
+        if (deck.viewport) {
+            deck.viewport.scrollTop = deck.index * deck.viewport.clientHeight;
         }
     }
 
