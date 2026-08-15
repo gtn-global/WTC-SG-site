@@ -10,11 +10,10 @@
 ## 项目结构
 
 - common.css / common.js — 全站共用样式与脚本
-- netlify.toml — Netlify 部署配置
 - generate-sitemap.js — 站点地图生成脚本
 - grid/ waterfall/ wtc-buildings/ — 演示用图片资源
 - logo/ — 标志与二维码资源
 
 ## 部署
 
-纯静态站点，由 Netlify 从 GitHub 仓库 `gtn-global/WTC-SG-site` 自动构建，根路径 `/` 直接展示 index.html。
+纯静态站点，由 GitHub Pages 从 GitHub 仓库 `gtn-global/WTC-SG-site`（分支 main，根路径 `/`）发布，自定义域名 `wtcasg.org`。根路径 `/` 直接展示 index.html（中文版），`/index-en.html` 为英文版。

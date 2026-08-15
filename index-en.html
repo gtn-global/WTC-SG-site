@@ -3533,6 +3533,41 @@
             flex-basis: calc(100vh - 64px);
         }
     </style>
+
+    <!-- JSON-LD: Organization + WebSite (GEO / structured data) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WTC Singapore",
+      "alternateName": "World Trade Center Singapore",
+      "url": "https://wtcasg.org/",
+      "logo": "https://wtcasg.org/logo/logo-primary.svg",
+      "image": "https://wtcasg.org/ogimage/og%20image.jpeg",
+      "description": "WTC Singapore is a member of the World Trade Centers Association (WTCA), connecting businesses to a global trade network with core services, a worldwide ecosystem, and cross-border opportunities.",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "World Trade Centers Association (WTCA)",
+        "url": "https://www.wtca.org/"
+      },
+      "sameAs": [
+        "https://www.wtca.org/"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WTC Singapore",
+      "url": "https://wtcasg.org/",
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://wtcasg.org/index-en.html"
+      }
+    }
+    </script>
 </head>
 
 <body>

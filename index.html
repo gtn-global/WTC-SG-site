@@ -3531,6 +3531,41 @@
             color: #fff;
         }
     </style>
+
+    <!-- JSON-LD: Organization + WebSite (GEO / 结构化数据) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WTC Singapore",
+      "alternateName": "新加坡世贸中心",
+      "url": "https://wtcasg.org/",
+      "logo": "https://wtcasg.org/logo/logo-primary.svg",
+      "image": "https://wtcasg.org/ogimage/og%20image.jpeg",
+      "description": "新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）成员，依托全球经贸网络，为企业提供核心服务、全球生态连接与跨境商机对接。",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "World Trade Centers Association (WTCA)",
+        "url": "https://www.wtca.org/"
+      },
+      "sameAs": [
+        "https://www.wtca.org/"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WTC Singapore",
+      "url": "https://wtcasg.org/",
+      "inLanguage": "zh-CN",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://wtcasg.org/index.html"
+      }
+    }
+    </script>
 </head>
 
 <body>
