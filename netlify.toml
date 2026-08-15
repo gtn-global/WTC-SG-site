@@ -1,7 +1,0 @@
-[build]
-  # 生成 sitemap 后再发布
-  command = "node generate-sitemap.js"
-  # 发布目录为仓库根（HTML/CSS/JS/图片都在根目录）
-  publish = "."
-
-# 默认入口页：index.html（中文站点），Netlify 静态托管访问 "/" 时会自动使用根目录下的 index.html，无需额外 redirect
