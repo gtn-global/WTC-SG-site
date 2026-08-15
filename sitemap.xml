@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://wtcasg.org/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://wtcasg.org/quotes-logos/logo_sg.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://wtcasg.org/quotes-logos/governance-leaders.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://wtcasg.org/wtc-buildings/wtc-building-01.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://wtcasg.org/index-en.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://wtcasg.org/quotes-logos/logo_sg.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://wtcasg.org/quotes-logos/governance-leaders.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://wtcasg.org/wtc-buildings/wtc-building-01.jpg</image:loc>
+    </image:image>
   </url>
 </urlset>
 

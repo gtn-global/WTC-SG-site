@@ -1621,9 +1621,38 @@
             border: 1px solid rgba(197, 160, 89, .28);
         }
 
+        /* grid 重构：<img> 铺底，文字层叠在上层 */
+        .event-cell .event-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .event-cell > .event-date,
+        .event-cell > .event-title {
+            position: relative;
+            z-index: 1;
+        }
+
         .event-cell.real {
             border-color: rgba(212, 175, 55, .6);
+        }
+
+        .event-cell.real::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
             background: linear-gradient(160deg, rgba(212, 175, 55, .18), rgba(197, 160, 89, .03) 55%);
+        }
+
+        .event-cell.real > .event-date,
+        .event-cell.real > .event-title {
+            z-index: 2;
         }
 
         .event-cell.empty {

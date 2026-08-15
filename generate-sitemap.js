@@ -17,6 +17,20 @@ const PAGES = [
   'index-en.html',
 ];
 
+// 每个页面关联的代表性图片（用于 sitemap image 扩展，提升图片搜索可见性）
+const PAGE_IMAGES = {
+  '': [
+    'quotes-logos/logo_sg.webp',
+    'quotes-logos/governance-leaders.webp',
+    'wtc-buildings/wtc-building-01.jpg',
+  ],
+  'index-en.html': [
+    'quotes-logos/logo_sg.webp',
+    'quotes-logos/governance-leaders.webp',
+    'wtc-buildings/wtc-building-01.jpg',
+  ],
+};
+
 // lastmod 取最近一次 git 提交的日期（内容真实修改时间），避免每次构建漂移
 let lastmod;
 try {
@@ -26,15 +40,21 @@ try {
 }
 const now = lastmod;
 
-const urls = PAGES.map(p => `  <url>
+const urls = PAGES.map(p => {
+  const imgs = (PAGE_IMAGES[p] || []).map(img =>
+    `    <image:image>\n      <image:loc>${BASE}/${img}</image:loc>\n    </image:image>`).join('\n');
+  return `  <url>
     <loc>${BASE}${p ? '/' + p : '/'}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>`).join('\n');
+${imgs}
+  </url>`;
+}).join('\n');
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls}
 </urlset>
 `;

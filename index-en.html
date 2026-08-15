@@ -36,9 +36,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap">
 
-    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="common.min.css">
 
-    <link rel="stylesheet" href="page-en.css">
+    <link rel="stylesheet" href="page-shared.min.css">
 
     <!-- JSON-LD: Organization + WebSite (GEO / structured data) -->
     <script type="application/ld+json">
@@ -48,7 +48,7 @@
       "name": "WTC Singapore",
       "alternateName": "World Trade Center Singapore",
       "url": "https://wtcasg.org/",
-      "logo": "https://wtcasg.org/quotes-logos/logo_sg.png",
+      "logo": "https://wtcasg.org/quotes-logos/logo_sg.webp",
       "image": "https://wtcasg.org/ogimage/og-image.jpg",
       "description": "WTC Singapore is a member of the World Trade Centers Association (WTCA), connecting businesses to a global trade network with core services, a worldwide ecosystem, and cross-border opportunities.",
       "parentOrganization": {
@@ -119,7 +119,7 @@
     <div id="viewport">
         <div id="stage" class="canvas-ppt">
             <div id="track">
-                <div class="slide theme-cover" data-slide="1">
+                <div class="slide theme-cover" data-slide="1" id="slide-1">
 
                     <div class="deco-arc"
                         style="right:-180px; top:-120px; width:900px; height:900px; border-color:rgba(212,175,55,.15);">
@@ -135,8 +135,8 @@
                             <div class="p1-brand-cn">World Trade Center Singapore</div>
                         </div>
                         <div class="logo-group">
-                            <img src="quotes-logos/wtca-logo-2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="1024" height="243">
-                            <img src="quotes-logos/logo_sg.png" class="logo" alt="WTC Singapore Logo" width="2277" height="448">
+                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="506" height="120">
+                            <img src="quotes-logos/logo_sg.webp" class="logo" alt="WTC Singapore Logo" width="610" height="120">
                         </div>
                     </div>
 
@@ -170,7 +170,7 @@
 
                 </div>
 
-                <div class="slide theme-content no-chrome" data-slide="2">
+                <div class="slide theme-content no-chrome" data-slide="2" id="slide-2">
 
                     <div class="p2-bottom-scrim"></div>
                     <div class="deco-arc"
@@ -183,8 +183,8 @@
                     <div class="header fade-in d1" style="left:60px;">
                         <div class="eyebrow">World Trade Centers Association</div>
                         <div class="logo-group">
-                            <img src="quotes-logos/wtca-logo-2.png" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="1024" height="243">
-                            <img class="logo" src="quotes-logos/logo_sg.png" alt="WTC Singapore Logo" width="2277" height="448">
+                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="506" height="120">
+                            <img class="logo" src="quotes-logos/logo_sg.webp" alt="WTC Singapore Logo" width="610" height="120">
                         </div>
                     </div>
 
@@ -239,7 +239,7 @@
                 </div>
 
                 <!-- ============ 第3页：Events and Impact 活动图集瀑布流 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="3">
+                <div class="slide theme-content no-chrome" data-slide="3" id="slide-3">
 
                     <div class="fade-in d2" style="position:absolute; left:80px; top:95px; z-index:100;">
                         <h2
@@ -252,51 +252,51 @@
 
                     <div class="card-grid-dense fade-in d4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca01" alt="Global Connection 01"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca01" alt="Global Connection 01"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 01</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca02" alt="Global Connection 02"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca02" alt="Global Connection 02"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 02</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca03" alt="Global Connection 03"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca03" alt="Global Connection 03"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 03</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca04" alt="Global Connection 04"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca04" alt="Global Connection 04"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 04</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca05" alt="Global Connection 05"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca05" alt="Global Connection 05"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 05</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca06" alt="Global Connection 06"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca06" alt="Global Connection 06"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 06</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca07" alt="Global Connection 07"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca07" alt="Global Connection 07"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 07</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca08" alt="Global Connection 08"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca08" alt="Global Connection 08"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 08</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca09" alt="Global Connection 09"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca09" alt="Global Connection 09"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 09</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca10" alt="Global Connection 10"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca10" alt="Global Connection 10"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 10</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca11" alt="Global Connection 11"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca11" alt="Global Connection 11"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 11</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="waterfall/wtca12" alt="Global Connection 12"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca12" alt="Global Connection 12"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 12</div>
                         </div>
@@ -351,7 +351,7 @@
                 </div>
 
                 <!-- ============ 第4页：世贸建筑图集（复制自第3页，图片改引 世贸建筑） ============ -->
-                <div class="slide theme-content no-chrome" data-slide="4">
+                <div class="slide theme-content no-chrome" data-slide="4" id="slide-4">
 
                     <div class="fade-in d2" style="position:absolute; left:80px; top:95px; z-index:100;">
                         <h2
@@ -364,51 +364,51 @@
 
                     <div class="card-grid-dense fade-in d4" id="cardGrid4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/01_washington_wtc" alt="WTC Building 01"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/01_washington_wtc" alt="WTC Building 01"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 01</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/02_taipei_wtc" alt="WTC Building 02"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc" alt="WTC Building 02"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 02</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/03_china_wtc" alt="WTC Building 03"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc" alt="WTC Building 03"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 03</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/04_amsterdam_wtc" alt="WTC Building 04"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/04_amsterdam_wtc" alt="WTC Building 04"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 04</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/05_new_york_wtc" alt="WTC Building 05"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/05_new_york_wtc" alt="WTC Building 05"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 05</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/06_suzhou_wtc" alt="WTC Building 06"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc" alt="WTC Building 06"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 06</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/07_rotterdam_wtc" alt="WTC Building 07"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/07_rotterdam_wtc" alt="WTC Building 07"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 07</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/08_bangalore_wtc" alt="WTC Building 08"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/08_bangalore_wtc" alt="WTC Building 08"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 08</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/09_pune_wtc" alt="WTC Building 09"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc" alt="WTC Building 09"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 09</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/10_bahrain_wtc" alt="WTC Building 10"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/10_bahrain_wtc" alt="WTC Building 10"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 10</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/11_seoul_wtc" alt="WTC Building 11"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc" alt="WTC Building 11"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 11</div>
                         </div>
-                        <div class="mini-card"><img class="thumb" data-base="wtc-buildings/12_dubai_wtc" alt="WTC Building 12"
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc" alt="WTC Building 12"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 12</div>
                         </div>
@@ -463,7 +463,7 @@
                 </div>
 
                 <!-- ============ 第5页：立足亚太 Gateway ============ -->
-                <div class="slide theme-content" data-slide="5">
+                <div class="slide theme-content" data-slide="5" id="slide-5">
 
                     <div class="section-eyebrow p2-eyebrow-top">02 — About WTC Singapore</div>
 
@@ -503,7 +503,7 @@
                 </div>
 
                 <!-- ============ 第6页 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="6">
+                <div class="slide theme-content no-chrome" data-slide="6" id="slide-6">
 
                     <!-- 页眉标题 -->
                     <div class="section-eyebrow p2-eyebrow-top p6-header">
@@ -640,7 +640,7 @@
 
                 </div>
 
-                <div class="slide theme-content no-chrome" data-slide="7">
+                <div class="slide theme-content no-chrome" data-slide="7" id="slide-7">
 
                     <div class="p4-grid"></div>
 
@@ -695,7 +695,7 @@
                 </div>
 
                 <!-- ============ 第8页 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="8">
+                <div class="slide theme-content no-chrome" data-slide="8" id="slide-8">
 
                     <div class="background-fill glow"></div>
                     <div class="p5-grid-line"></div>
@@ -743,7 +743,7 @@
                 </div>
 
                 <!-- ============ 第9页 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="9">
+                <div class="slide theme-content no-chrome" data-slide="9" id="slide-9">
 
                     <div class="grid-overlay" style="opacity:.03;"></div>
 
@@ -806,7 +806,7 @@
                 </div>
 
                 <!-- ============ 第10页 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="10">
+                <div class="slide theme-content no-chrome" data-slide="10" id="slide-10">
                     <div class="section-eyebrow p2-eyebrow-top">04 — Global Ecosystem / GLOBAL ECOSYSTEM</div>
 
                     <!-- 页面主标题区 -->
@@ -931,7 +931,7 @@
                 </div>
 
                 <!-- ============ 第11页 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="11">
+                <div class="slide theme-content no-chrome" data-slide="11" id="slide-11">
 
                     <div class="background-fill glow"></div>
                     <div class="p7-grid">
@@ -986,7 +986,7 @@
                 </div>
 
                 <!-- ============ 第12页 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="12">
+                <div class="slide theme-content no-chrome" data-slide="12" id="slide-12">
                     <div class="background-fill glow"></div>
                     <!-- 顶部布局栏 -->
                     <div class="top-balance-bar">
@@ -1091,7 +1091,7 @@
 
                 </div>
 
-                <div class="slide theme-content no-chrome" data-slide="13">
+                <div class="slide theme-content no-chrome" data-slide="13" id="slide-13">
 
                     <div class="hero fade-in d2" style="left:80px; top:55px;">
                         <h2 style="color:#ffffff !important; font-size:50px !important;">International Partner Network</h2>
@@ -1100,7 +1100,7 @@
 
                     <!-- 领导力引用卡片（标题下方） -->
                     <div class="hero-leader fade-in d3">
-                        <img class="leader-avatar" src="quotes-logos/CEO_quote.png" alt="Xiaolan Zhu" width="239" height="239" loading="lazy">
+                        <img class="leader-avatar" src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" width="200" height="200" loading="lazy">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">
                                 "As global industry and supply chains restructure, Chinese enterprises have entered a new stage of internationalization—needing international endorsement, an expanded global network, and systematic, professional international strategy, compliance, organization design, and cross-cultural integration."</div>
@@ -1115,7 +1115,7 @@
 
                 </div>
 
-                <div class="slide theme-content no-chrome" data-slide="14">
+                <div class="slide theme-content no-chrome" data-slide="14" id="slide-14">
                     <div class="background-fill glow"></div>
 
                     <!-- 左侧栏 -->
@@ -1210,7 +1210,7 @@
 
                 </div>
 
-                <div class="slide theme-content no-chrome" data-slide="15">
+                <div class="slide theme-content no-chrome" data-slide="15" id="slide-15">
                     <!-- ——— 章节眉题（Connect With Us章节起始页）——— -->
                     <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; left:60px; margin:0;">05 — Connect With Us / CONNECT</div>
 
@@ -1286,16 +1286,35 @@
                                 })();
                             }
 
-                            cells.forEach(function (cell) {
-                                resolve(cell, function (url) {
-                                    if (!url) return;
-                                    if (cell.classList.contains('real')) {
-                                        cell.style.backgroundImage = grad + ", url('" + url + "')";
-                                    } else {
-                                        cell.style.backgroundImage = "url('" + url + "')";
-                                    }
+                            if ('IntersectionObserver' in window) {
+                                var io = new IntersectionObserver(function (entries) {
+                                    entries.forEach(function (e) {
+                                        if (!e.isIntersecting) return;
+                                        var cell = e.target;
+                                        io.unobserve(cell);
+                                        resolve(cell, function (url) {
+                                            if (!url) return;
+                                            if (cell.classList.contains('real')) {
+                                                cell.style.backgroundImage = grad + ", url('" + url + "')";
+                                            } else {
+                                                cell.style.backgroundImage = "url('" + url + "')";
+                                            }
+                                        });
+                                    });
+                                }, { rootMargin: '200px 0px' });
+                                cells.forEach(function (cell) { io.observe(cell); });
+                            } else {
+                                cells.forEach(function (cell) {
+                                    resolve(cell, function (url) {
+                                        if (!url) return;
+                                        if (cell.classList.contains('real')) {
+                                            cell.style.backgroundImage = grad + ", url('" + url + "')";
+                                        } else {
+                                            cell.style.backgroundImage = "url('" + url + "')";
+                                        }
+                                    });
                                 });
-                            });
+                            }
 
                             var lb = document.getElementById('lightbox');
                             var lbImg = document.getElementById('lightbox-img');
@@ -1319,7 +1338,7 @@
 
                 </div>
 
-                <div class="slide theme-content" data-slide="16">
+                <div class="slide theme-content" data-slide="16" id="slide-16">
                     <div class="background-fill glow"></div>
                     <div class="p8-grid"></div>
 
@@ -1339,10 +1358,10 @@
                         </div>
                         <div class="p8-qr">
                             <div class="p8-qr-item">
-                                <img src="quotes-logos/donglixin_qrcode.jpg" alt="Bruce Dong QR Code" width="716" height="715" loading="lazy">
+                                <img src="quotes-logos/donglixin_qrcode.png" alt="Bruce Dong QR Code" width="320" height="320" loading="lazy">
                             </div>
                             <div class="p8-qr-item">
-                                <img src="quotes-logos/zhuxiaolan_qrcode.jpg" alt="Xiaolan Zhu QR Code" width="1006" height="1009" loading="lazy">
+                                <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="Xiaolan Zhu QR Code" width="320" height="320" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -1387,7 +1406,7 @@
         </div>
     </div>
 
-    <script src="common.js" defer></script>
+    <script src="common.min.js" defer></script>
 
     <!-- Top nav bar: highlight current chapter on slide change (page-level, common.js untouched) -->
     <script>
