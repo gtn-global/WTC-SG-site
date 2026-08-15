@@ -11,9 +11,9 @@ const { execSync } = require('child_process');
 const DEFAULT_BASE = 'https://wtcasg.org';
 const BASE = (process.argv[2] || DEFAULT_BASE).replace(/\/$/, '');
 
-// 站点内所有公开页面（相对路径，不含前导斜杠）
+// 站点内所有公开页面；中文首页 canonical 为根路径，故映射为 ''（生成 BASE + '/'）
 const PAGES = [
-  'index.html',
+  '',
   'index-en.html',
 ];
 
@@ -27,7 +27,7 @@ try {
 const now = lastmod;
 
 const urls = PAGES.map(p => `  <url>
-    <loc>${BASE}/${p}</loc>
+    <loc>${BASE}${p ? '/' + p : '/'}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
