@@ -1,0 +1,15 @@
+{
+  "name": "wtc-sg-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WTC Singapore 静态站点 - 构建与校验工具",
+  "scripts": {
+    "validate:html": "node tools/validate-html.js",
+    "process:images": "node tools/process-images.js",
+    "prepublishOnly": "node tools/validate-html.js"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1.4",
+    "sharp": "^0.33.5"
+  }
+}

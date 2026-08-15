@@ -100,8 +100,9 @@ html,body{
   transform-origin:center center;
 }
 /* 舞台：#track 多页纵向排列，每页在滚动容器里占满一屏（100vh）；
-   每页内部 .slide-inner 才是 1920×1080 设计画布，由 common.js 等比缩放居中 */
-#stage{ position:relative; width:100%; height:auto; }
+   每页内部 .slide-inner 才是 1920×1080 设计画布，由 common.js 等比缩放居中。
+   margin-top 为固定顶栏 #site-topbar（56px）留出安全区，彻底避免顶栏盖住画布内容 */
+#stage{ position:relative; width:100%; height:auto; margin-top:56px; }
 #track{
   display:flex; flex-direction:column;
   width:100%; height:auto;
@@ -226,11 +227,14 @@ body.single-slide .fade-in{ opacity:1; animation:none; }
 /* ==========================================================
    翻页导航（多页 Deck 专用）
    ========================================================== */
+/* 翻页导航：固定视口底部居中，始终可见；完全透明无背景、不挡点击，
+   仅显示页码与箭头，彻底消除"黑边/隐藏边"，且不盖画布内容 */
 #deck-nav{
-  position:fixed; left:50%; bottom:22px; transform:translateX(-50%); z-index:2000;
+  position:fixed; left:50%; bottom:22px; transform:translateX(-50%); z-index:50;
   display:flex; align-items:baseline; gap:20px;
   font-family:var(--font-body); pointer-events:none;
 }
+#deck-nav .nav-btn{ pointer-events:auto; }
 #deck-nav *{ pointer-events:auto; }
 .nav-btn{
   background:none; border:none; padding:0; cursor:pointer;
@@ -567,7 +571,7 @@ body.single-slide #deck-nav{ display:none; }
    独立于原有翻页系统，纯新增，不影响任何已有样式
    ========================================================== */
 #site-nav-toggle{
-  position: fixed; top: 22px; right: 24px; z-index: 2200;
+  position: fixed; top: 22px; right: 24px; z-index: 60;
   width: 48px; height: 48px; border-radius: 50%;
   background: rgba(10,10,12,.55);
   border: 1px solid rgba(197,160,89,.35);
@@ -590,7 +594,7 @@ body.single-slide #deck-nav{ display:none; }
 #site-nav-toggle span::after{ top: 6px; }
 
 #site-nav-panel{
-  position: fixed; top: 80px; right: 24px; z-index: 2199;
+  position: fixed; top: 80px; right: 24px; z-index: 59;
   background: rgba(10,10,12,.92);
   border: 1px solid rgba(197,160,89,.25);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -622,6 +626,30 @@ body.single-slide #deck-nav{ display:none; }
    2) 地图枢纽节点 tooltip 在触屏用 .tap-active 触发，避免遮挡
    3) 资本流向卡片 hover→.active，让触屏也能查看
    ========================================================== */
+/* ==========================================================
+   顶部导航条 #site-topbar：固定视口顶部、半透明玻璃质感，
+   始终可见且不盖画布内容（画布缩放后顶部留有 letterbox 余量，
+   顶栏落于空白处）。彻底替代此前"改背景色伪装黑边"的做法。
+   ========================================================== */
+#site-topbar{
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 56px; display: flex; align-items: center; gap: 18px;
+  padding: 0 24px;
+  background: rgba(10,18,31,.82);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(197,160,89,.18);
+  font-family: var(--font-body);
+}
+#site-topbar .topbar-brand{ color: var(--color-gold); font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+#site-topbar .topbar-nav{ display: flex; gap: 16px; flex: 1; overflow: hidden; }
+#site-topbar .topbar-nav a{ color: var(--color-text-dim); font-size: 13px; text-decoration: none; white-space: nowrap; transition: color .2s; }
+#site-topbar .topbar-nav a:hover,
+#site-topbar .topbar-nav a.active{ color: var(--color-gold); }
+#site-topbar .topbar-lang{ color: var(--color-gold-soft); font-size: 13px; text-decoration: none; }
+
+/* 右上角菜单按钮下移，避免与固定顶栏重叠 */
+#site-nav-toggle{ top: 64px; }
+
 .wtc-map-hub-node,
 .wtc-map-hub-node *,
 .capital-flow-card,
