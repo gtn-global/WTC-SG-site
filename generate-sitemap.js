@@ -6,6 +6,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const DEFAULT_BASE = 'https://wtcasg.org';
 const BASE = (process.argv[2] || DEFAULT_BASE).replace(/\/$/, '');
@@ -16,7 +17,14 @@ const PAGES = [
   'index-en.html',
 ];
 
-const now = new Date().toISOString().slice(0, 10);
+// lastmod 取最近一次 git 提交的日期（内容真实修改时间），避免每次构建漂移
+let lastmod;
+try {
+  lastmod = execSync('git log -1 --format=%cI', { cwd: __dirname }).toString().trim().slice(0, 10);
+} catch (e) {
+  lastmod = new Date().toISOString().slice(0, 10);
+}
+const now = lastmod;
 
 const urls = PAGES.map(p => `  <url>
     <loc>${BASE}/${p}</loc>

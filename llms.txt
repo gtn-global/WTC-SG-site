@@ -17,3 +17,19 @@
 ## 部署
 
 纯静态站点，由 GitHub Pages 从 GitHub 仓库 `gtn-global/WTC-SG-site`（分支 main，根路径 `/`）发布，自定义域名 `wtcasg.org`。根路径 `/` 直接展示 index.html（中文版），`/index-en.html` 为英文版。
+
+## 关于 WTC Singapore
+
+新加坡世界贸易中心（WTC Singapore）是世界贸易中心协会（World Trade Centers Association, WTCA）在新加坡的成员机构。WTCA 是一个覆盖全球 90 多个国家与地区、300 多个城市的全球经贸网络，关联企业超过 100 万家。
+
+WTC Singapore 依托 WTCA 的全球网络，为企业与机构提供核心服务、全球生态连接与跨境商机对接，助力企业拓展海外市场、对接国际资源与合作伙伴。
+
+### 三大核心业务
+
+1. **WTC ONE Club** — 面向企业高层与决策者的国际商业俱乐部与会员网络。
+2. **GlobalX 出海加速器** — 助力企业拓展海外市场、对接国际资源与合作伙伴的出海加速器。
+3. **WTC Fund** — 连接国际资本与创新的产业生态基金。
+
+### 联系信息
+
+- TODO(wtcsg): 待补充真实联系邮箱、电话、办公地址与社交媒体链接。
