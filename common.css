@@ -80,7 +80,7 @@
 *{ margin:0; padding:0; box-sizing:border-box; }
 html,body{
   width:100%; height:100%; overflow:hidden;
-  background:#000; font-family:var(--font-body);
+  background:#0A192F; font-family:var(--font-body);
 }
 
 /* ---------- 画布尺寸预设 ---------- */
@@ -90,7 +90,7 @@ html,body{
 .canvas-square{ width:1200px; height:1200px; }
 
 /* ---------- 舞台 ---------- */
-#viewport{ width:100vw; height:100vh; overflow-y:auto; overflow-x:hidden; scroll-snap-type:y mandatory; scroll-behavior:smooth; position:relative; background:#000; }
+#viewport{ width:100vw; height:100vh; overflow-y:auto; overflow-x:hidden; scroll-snap-type:y mandatory; scroll-behavior:smooth; position:relative; background:#0A192F; }
 /* 演示型全屏站点隐藏滚动条，避免右侧出现竖条影响视觉效果 */
 #viewport::-webkit-scrollbar{ display:none; }
 #viewport{ scrollbar-width:none; -ms-overflow-style:none; }

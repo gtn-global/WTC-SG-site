@@ -1407,7 +1407,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background: #000;
+            background: #0A192F;
             font-family: 'Inter', 'Noto Sans SC', sans-serif;
         }
 
@@ -3081,18 +3081,17 @@
         /* P15 眉题：沿用章节页眉细金线，与 P16→P15 衔接紧凑 */
         #track .slide[data-slide="15"] .section-eyebrow.p2-eyebrow-top {
             position: absolute;
-            top: 55px;
+            top: 35px;
             left: 60px;
             z-index: 1001;
         }
         #track .slide[data-slide="15"] .section-eyebrow.p2-eyebrow-top::after {
             content: "";
             display: block;
-            width: 100%;
-            max-width: 1200px;
+            width: 40px;
             height: 1px;
-            margin-top: 18px;
-            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+            background: var(--color-gold);
+            margin-top: 14px;
         }
 
         #track .slide[data-slide="12"] .top-balance-bar {
@@ -3443,6 +3442,7 @@
             padding: 0 40px;
             background: rgba(8, 16, 30, .92);
             border-bottom: 1px solid rgba(197, 160, 89, .18);
+            box-sizing: border-box;
         }
 
         #site-topbar .topbar-brand {
@@ -3524,17 +3524,18 @@
             color: #fff;
         }
 
-        /* Topbar occupies real height: push scroll container down so
-           nothing is covered (overrides common.css 100vh) */
+        /* Topbar is fixed overlay (semi-transparent on top of content); content starts at 0
+           and fills the screen, so the page visually joins the topbar as one (overrides common.css 100vh) */
         #viewport {
             position: relative;
-            top: 64px;
-            height: calc(100vh - 64px);
+            top: 0;
+            height: 100vh;
+            background: #0A192F;
         }
 
         #track .slide {
-            height: calc(100vh - 64px);
-            flex-basis: calc(100vh - 64px);
+            height: 100vh;
+            flex-basis: 100vh;
         }
     </style>
 

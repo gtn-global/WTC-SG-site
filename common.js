@@ -60,13 +60,20 @@
         // 每页内容（.slide-inner，1920×1080 设计画布）等比 contain 缩放并居中于其 .slide 容器。
         // 以父 .slide 中心为原点，保证内容完整可见、不变形、不偏位；非 16:9 留黑边不裁切。
         var inners = document.querySelectorAll('.slide-inner');
+        var isMobile = window.innerWidth <= 820;
         for (var i = 0; i < inners.length; i++) {
             var slide = inners[i].parentNode;
             var sw = slide.clientWidth || window.innerWidth;
             var sh = slide.clientHeight || window.innerHeight;
-            var scale = Math.min(sw / 1920, sh / 1080);
-            inners[i].style.transformOrigin = 'center center';
-            inners[i].style.transform = 'translate(-50%,-50%) scale(' + scale + ')';
+            // 窄屏（手机/竖屏）：仅按宽度铺满，不取 min(宽,高)，避免整页被缩到极小无法阅读；
+            // 高度由内容自然撑开，用户可纵向滚动浏览（顶部对齐，配合 CSS overflow-y:auto）。
+            var scale = isMobile ? (sw / 1920) : Math.min(sw / 1920, sh / 1080);
+            // JS 全权控制 top 与 transform，避免与 CSS 媒体查询冲突导致内容跑出视口
+            inners[i].style.top = isMobile ? '0' : '50%';
+            inners[i].style.transformOrigin = isMobile ? 'center top' : 'center center';
+            inners[i].style.transform = isMobile
+                ? 'translate(-50%, 0) scale(' + scale + ')'
+                : 'translate(-50%,-50%) scale(' + scale + ')';
         }
         return true;
     }
@@ -99,6 +106,32 @@
     function next() { goTo(deck.index + 1); }
     function prev() { goTo(deck.index - 1); }
 
+    /* 锚点路由：按 data-slide（1-based）定位，并同步 URL hash（#slide-N）
+       注意：通过 window.WTCDeck.goTo 跳转（而非闭包内 goTo），以便 index.html
+       的 syncTopbarActive 劫持层能拦截并更新导航高亮 */
+    function goToBySlide(n) {
+        var idx = Math.max(1, Math.min(deck.count, n)) - 1;
+        // 走被劫持的 window.WTCDeck.goTo（syncTopbarActive 会更新导航高亮）
+        if (window.WTCDeck && typeof window.WTCDeck.goTo === 'function') {
+            window.WTCDeck.goTo(idx);
+        } else {
+            goTo(idx);
+        }
+        // 静默写 hash（replaceState 不触发 hashchange，避免重复跳转）
+        if (history.replaceState) {
+            history.replaceState(null, '', '#slide-' + (idx + 1));
+        }
+    }
+
+    /* 解析 URL hash（#slide-N）→ 跳到对应页 */
+    function applyHash() {
+        var h = location.hash || '';
+        var m = h.match(/^#slide-(\d+)$/);
+        if (!m) return;
+        var n = parseInt(m[1], 10);
+        if (n >= 1 && n <= deck.count) goTo(n - 1);
+    }
+
     /* 把每页 .slide 的子节点包进 .slide-inner，内容单独等比缩放，与滚动布局解耦 */
     function wrapSlides() {
         var slides = deck.track ? deck.track.querySelectorAll('.slide') : [];
@@ -124,6 +157,14 @@
         deck.count = track.querySelectorAll('.slide').length;
         if (document.body) document.body.classList.toggle('single-slide', deck.count <= 1);
 
+        // 锚点路由：给每页按 data-slide（1-based）写入 id="slide-N"，供导航/URL 定位
+        var slideEls = track.querySelectorAll('.slide');
+        for (var si = 0; si < slideEls.length; si++) {
+            var ds = slideEls[si].getAttribute('data-slide');
+            if (ds) slideEls[si].id = 'slide-' + ds;
+        }
+        // 注意：不监听 hashchange，避免 goToBySlide 写 hash 时触发重复跳转/死循环
+
         var prevBtn = document.getElementById('deckPrev');
         var nextBtn = document.getElementById('deckNext');
         if (prevBtn) prevBtn.addEventListener('click', prev);
@@ -147,6 +188,8 @@
 
         goTo(0);
         initReveal();
+        // 若 URL 带 #slide-N，加载后定位到对应页（刷新/外链直达）
+        applyHash();
         return true;
     }
 
@@ -200,7 +243,7 @@
     /* 暴露全局接口 */
     window.scaleSlide = rescale;
     window.updateVisualFocus = updateVisualFocus;
-    window.WTCDeck = { next: next, prev: prev, goTo: goTo, rescale: rescale };
+    window.WTCDeck = { next: next, prev: prev, goTo: goTo, goToBySlide: goToBySlide, rescale: rescale };
 
 })();
 
