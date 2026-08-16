@@ -1732,6 +1732,8 @@
                 var TYPE_LABEL = { regional: 'Regional International Partner', industry: 'Industry International Partner', both: 'Regional + Industry International Partner' };
                 var STATUS_LABEL_MAP = { established: 'Established', planned: 'Planned' };
                 el.className = (el.className ? el.className + ' ' : '') + 'wtc-map-wrap';
+                var isEn = (document.documentElement.getAttribute('lang') || '').toLowerCase().indexOf('en') === 0;
+                function labelOf(n) { return isEn ? (n.en || n.city) : (n.city || n.en); }
                 function arcCtrl(x1, y1, x2, y2) {
                     var mx = (x1 + x2) / 2, my = (y1 + y2) / 2, dx = x2 - x1, dy = y2 - y1, dist = Math.hypot(dx, dy) || 1;
                     var nx = -dy / dist, ny = dx / dist, bend = (x2 < x1 ? -1 : 1) * dist * 0.12;
@@ -1769,12 +1771,12 @@
                     wrap.style.top = (n.y / H * 100) + '%';
                     wrap.innerHTML =
                         '<div class="wtc-map-card' + (nearRightEdge ? ' card-left' : '') + '">' +
-                        '<div class="wtc-map-card-title">' + n.en + '</div>' +
+                        '<div class="wtc-map-card-title">' + labelOf(n) + '</div>' +
                         '<div class="row">Partner Type　<b>' + (TYPE_LABEL[n.type] || TYPE_LABEL.regional) + '</b></div>' +
                         (n.desc ? '<div class="row">Core Advantage　　<b style="font-size:11px;">' + n.desc + '</b></div>' : '') +
                         (n.priority ? '<div class="row" style="color:var(--color-gold-strong);">★ Priority Expansion City</div>' : '') +
                         '</div>' +
-                        '<div class="wtc-map-marker"></div><div class="wtc-map-cap">' + n.en + '</div>';
+                        '<div class="wtc-map-marker"></div><div class="wtc-map-cap">' + labelOf(n) + '</div>';
                     nodeLayer.appendChild(wrap);
                 });
                 diagram.appendChild(nodeLayer);
