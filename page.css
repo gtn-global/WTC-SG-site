@@ -257,19 +257,19 @@
         }
 
         .p2-block {
-            margin-bottom: 22px;
+            margin-bottom: 30px;
         }
 
         .p2-block-title {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 600;
             color: var(--color-gold);
             margin-bottom: 7px;
         }
 
         .p2-block-text {
-            font-size: 18px;
-            line-height: 1.75;
+            font-size: 22px;
+            line-height: 1.8;
             color: #C7D0DD;
         }
 
@@ -432,8 +432,8 @@
 
         .p4-intro {
             font-family: var(--font-body);
-            font-size: 26px;
-            line-height: 2.0;
+            font-size: 28px;
+            line-height: 1.95;
             color: #C7D0DB;
             max-width: 1080px;
         }
@@ -451,7 +451,7 @@
             height: 1px;
             background: var(--color-gold);
             opacity: .5;
-            margin: 30px 0;
+            margin: 26px 0;
         }
 
         /* P5（章首页）：三个业务版块改为三列卡片，字号放大、撑满整屏底部，消除与 P6 之间的空白断裂 */
@@ -916,6 +916,7 @@
             line-height: 1;
             color: var(--color-gold);
             flex-shrink: 0;
+            transform: translateY(-10px);
         }
 
         /* 第7页序号与第9页（.p6-index）保持一致的字体与字号 */
@@ -3567,4 +3568,27 @@
             #site-topbar .brand-text { font-size: 11px; max-width: 30vw; overflow: hidden; text-overflow: ellipsis; }
             #site-topbar .topbar-nav { max-width: 56vw; }
             #site-topbar .topbar-nav a { padding: 6px 7px; font-size: 11px; }
+        }
+        /* P2 容器与文字（与 page-shared.min.css 同步） */
+        .p2-left-panel {
+            position: absolute;
+            left: 60px;
+            top: 440px;
+            width: 920px;
+            z-index: 20;
+        }
+        .p2-block-text {
+            font-size: 22px;
+            line-height: 1.8;
+            color: #c7d0dd;
+            white-space: nowrap;
+        }
+
+        /* P5 介绍文字（与 page-shared.min.css 同步，规格同 P2 正文） */
+        .p4-intro {
+            font-family: var(--font-body);
+            font-size: 22px;
+            line-height: 1.8;
+            color: #c7d0dd;
+            max-width: 920px;
         }
