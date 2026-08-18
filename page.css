@@ -745,28 +745,14 @@
         }
 
         .p4-content .card .title {
-            font-size: 22px;
+            font-size: 32px;
             color: #fff;
             font-weight: 600;
-            margin: 18px 0 10px;
-        }
-
-        .p4-content .card .en-title {
-            font-size: 15px;
-            color: var(--color-gold);
-            letter-spacing: 1px;
-            margin-bottom: 14px;
-        }
-
-        .p4-content .card .highlight {
-            font-size: 15px;
-            color: #C8D3E2;
-            line-height: 1.6;
-            margin-bottom: 14px;
+            margin: 18px 0 14px;
         }
 
         .p4-content .card .desc {
-            font-size: 16.5px;
+            font-size: 22px;
             line-height: 1.85;
             color: #C8D3E2;
         }
@@ -916,13 +902,20 @@
             position: relative;
         }
 
+        .p5-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
         .p5-index {
             font-family: var(--font-display);
             font-size: 64px;
             font-weight: 400;
             line-height: 1;
             color: var(--color-gold);
-            margin-bottom: 20px;
+            flex-shrink: 0;
         }
 
         /* 第7页序号与第9页（.p6-index）保持一致的字体与字号 */
@@ -956,15 +949,14 @@
 
         .p5-cn-title {
             color: #fff;
-            font-size: 20px;
+            font-size: 32px;
             font-weight: 600;
-            margin-bottom: 8px;
         }
 
         .p5-card p {
             flex: 1;
             color: #C8D3E2;
-            font-size: 18px;
+            font-size: 22px;
             line-height: 1.85;
             display: flex;
             align-items: flex-start;
@@ -1085,24 +1077,16 @@
         }
 
         .p6-title {
-            font-size: 34px;
+            font-size: 32px;
             color: #fff;
             font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .p6-subtitle {
-            font-size: 15px;
-            letter-spacing: 2px;
-            color: var(--color-gold);
-            text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
         .p6-desc {
-            font-size: 20px;
+            font-size: 22px;
             line-height: 1.9;
-            color: var(--color-text);
+            color: #c8d3e2;
             max-width: 860px;
         }
 
