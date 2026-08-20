@@ -1,4 +1,5 @@
 <!-- WTC-LANG-NOTE: 本文件为英文版（EN），中文版见 index.html。两份共用 common.css，文案差异仅在 HTML 文本节点与 JS 字符串。语言切换：英文版 <a href="index.html">中文</a> / 中文版 <a href="index-en.html">EN</a>。 -->
+<!-- WTC-LANG-NOTE: 本文档为英文版（EN），中文版见 index.html。两份共用 common.css，文案差异仅在 HTML 文本节点与 JS 字符串。语言切换：英文版 <a href="index.html">中文</a> / 中文版 <a href="index-en.html">EN</a>。-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -115,6 +116,15 @@
             line-height: 1.75;
             margin: 0;
         }
+        /* 首页 slide-7 / slide-8 聚合页入口卡片（与中文页一致，页面内局部样式） */
+        .p5-cases-card{ display:flex; align-items:center; justify-content:space-between; gap:20px; max-width:100%; margin:20px 0 0; padding:18px 24px; text-decoration:none; border:1px solid rgba(197,160,89,.42); border-radius:14px; background:linear-gradient(135deg, rgba(197,160,89,.10), rgba(197,160,89,.03)); transition:border-color .35s ease, background .35s ease, transform .35s ease; }
+        .p5-cases-card:hover{ border-color:var(--color-gold-strong); background:linear-gradient(135deg, rgba(212,175,55,.16), rgba(212,175,55,.05)); transform:translateY(-2px); }
+        .p5-cases-card .cc-left{ display:flex; flex-direction:column; gap:6px; min-width:0; }
+        .p5-cases-card .cc-title{ font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--color-white); line-height:1.2; }
+        .p5-cases-card .cc-sub{ font-size:13.5px; color:var(--color-text-dim); line-height:1.5; }
+        .p5-cases-card .cc-btn{ flex:none; display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border:1px solid var(--color-gold); border-radius:999px; color:var(--color-gold-strong); font-size:14px; font-weight:600; letter-spacing:.4px; white-space:nowrap; transition:background .35s ease, color .35s ease; }
+        .p5-cases-card:hover .cc-btn{ background:var(--color-gold-strong); color:#0A192F; }
+        @media (max-width:680px){ .p5-cases-card{ flex-direction:column; align-items:flex-start; gap:14px; } .p5-cases-card .cc-btn{ align-self:stretch; justify-content:center; } }
     </style>
 </head>
 
@@ -707,6 +717,13 @@
                         </div>
                         <div class="vc-rule"></div>
                         <div class="vc-body">Bringing together institutional capital, global decision-makers, and the WTCA international network, <em>WTC One Club</em> serves as a private gateway turning strategic relationships into lasting opportunities.</div>
+                        <a class="p5-cases-card" href="wtc-one-club/one-club-journal-en.html">
+                            <span class="cc-left">
+                                <span class="cc-title">Club Notes</span>
+                                <span class="cc-sub">Where global decision-makers and institutional capital turn strategic relationships into lasting opportunity.</span>
+                            </span>
+                            <span class="cc-btn">Enter Notes &rarr;</span>
+                        </a>
                     </div>
 
                     <div class="footer fade-in d6">
@@ -772,6 +789,13 @@
                         <div class="p5-visual-line"></div>
                         <div class="p5-visual-title">One Connection<br>Global Expansion</div>
                         <div class="p5-visual-desc">Drawing on the WTCA Global Network, AI operations infrastructure, and strategic capital, GlobalX empowers enterprises to expand into ASEAN and international markets.</div>
+                        <a class="p5-cases-card" href="cases/case-list-en.html">
+                            <span class="cc-left">
+                                <span class="cc-title">Global Expansion Cases</span>
+                                <span class="cc-sub">Real go-global stories — how we empower companies to grow across borders.</span>
+                            </span>
+                            <span class="cc-btn">View Cases &rarr;</span>
+                        </a>
                     </div>
 
                 </div>

@@ -1,0 +1,110 @@
+/* ============================================================
+   WTC ONE Club · 手记式日志 专属组件
+   延续 case-study.css 的深蓝+金色 token，不重复定义 :root。
+   使用方式：<link rel="stylesheet" href="case-study.css"> 之后再引入本文件。
+   ============================================================ */
+
+/* ---------- 召集人卡：秘书长以"召集人"身份贯穿全程 ---------- */
+.convener-card{
+  display:flex; align-items:center; gap:20px;
+  margin-top:32px; padding:22px 26px;
+  border:1px solid var(--color-line); border-radius:4px;
+  background: rgba(255,255,255,.02);
+}
+.convener-avatar{
+  width:56px; height:56px; border-radius:50%; flex-shrink:0;
+  border:1px solid rgba(197,160,89,.4);
+  background: linear-gradient(135deg, rgba(197,160,89,.18), rgba(197,160,89,.04));
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-style:italic; color: var(--color-gold);
+  font-size:20px; overflow:hidden;
+}
+.convener-avatar img{ width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; }
+.convener-info .name{ font-family: var(--font-body); font-weight:600; font-size:15px; color: var(--color-white); }
+.convener-info .title{ margin-top:3px; font-family: var(--font-mono); font-size:11.5px; color: var(--color-gold); letter-spacing:.02em; }
+.convener-info .note{ margin-top:6px; font-size:13px; color: var(--color-text-dim); max-width:52ch; line-height:1.6; }
+
+/* ---------- 三支柱筛选（直接复用主站 slide-7 的原话，不另造新词） ---------- */
+.pillar-filter{ display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
+.pillar-filter button{
+  font-family: var(--font-mono); font-size:11.5px; letter-spacing:.03em;
+  padding:7px 16px; border-radius:100px; border:1px solid rgba(197,160,89,.35);
+  background: transparent; color: var(--color-text-dim); cursor:pointer;
+  transition: all .2s;
+}
+.pillar-filter button:hover{ border-color: var(--color-gold); color: var(--color-gold); }
+.pillar-filter button.active{
+  background: var(--color-gold); border-color: var(--color-gold); color: var(--color-bg); font-weight:600;
+}
+
+/* ---------- 手记纵向日志：不是卡片网格，是像理事会纪要一样的竖向列表 ---------- */
+.journal-list{ margin-top:36px; }
+.journal-row{
+  display:block; text-decoration:none; color:inherit;
+  padding:26px 0; border-bottom:1px solid var(--color-line);
+  transition: padding-left .2s;
+}
+.journal-row:first-child{ padding-top:0; }
+.journal-row:hover{ padding-left:8px; }
+.journal-row .row-top{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.journal-row .row-date{ font-family: var(--font-mono); font-size:12px; color: var(--color-gold); letter-spacing:.02em; white-space:nowrap; }
+.journal-row .row-pillar{
+  font-family: var(--font-mono); font-size:10px; letter-spacing:.04em;
+  color: var(--color-text-dim); border:1px solid rgba(255,255,255,.14); border-radius:100px; padding:2px 9px;
+}
+.journal-row .row-title{
+  margin-top:10px; font-family: var(--font-display); font-style:normal; font-weight:600;
+  font-size:20px; color: var(--color-white); line-height:1.4;
+}
+.journal-row .row-excerpt{ margin-top:8px; font-size:14px; color: var(--color-text-dim); line-height:1.7; max-width:64ch; }
+.journal-row .row-arrow{ margin-top:10px; font-family: var(--font-mono); font-size:11px; color: var(--color-gold); }
+
+/* 条目稀少时不显得空：给列表一个克制的起始/结束标记，而不是靠数量撑视觉 */
+.journal-list::before{
+  content:'— 俱乐部手记 / CLUB NOTES —';
+  display:block; font-family: var(--font-mono); font-size:10.5px; letter-spacing:.1em;
+  color: var(--color-slate); margin-bottom:8px;
+}
+.journal-list::after{
+  content:'更多手记，随每一次真实的会面持续更新';
+  display:block; font-family: var(--font-mono); font-size:11px;
+  color: var(--color-slate); padding-top:24px; text-align:center;
+}
+
+/* ---------- 详情页：手记正文（第一人称叙事） ---------- */
+.journal-meta{ display:flex; align-items:center; gap:14px; margin-top:8px; }
+.journal-meta .row-pillar{
+  font-family: var(--font-mono); font-size:10px; letter-spacing:.04em;
+  color: var(--color-gold); border:1px solid rgba(197,160,89,.4); border-radius:100px; padding:2px 9px;
+}
+.journal-meta .row-date{ font-family: var(--font-mono); font-size:12px; color: var(--color-text-dim); }
+
+.journal-byline{
+  display:flex; align-items:center; gap:12px; margin-top:28px; padding-top:24px;
+  border-top:1px solid var(--color-line);
+}
+.journal-byline .convener-avatar{ width:40px; height:40px; font-size:15px; }
+.journal-byline .by-name{ font-family: var(--font-body); font-size:13.5px; color: var(--color-white); font-weight:500; }
+.journal-byline .by-title{ font-family: var(--font-mono); font-size:11px; color: var(--color-text-dim); }
+
+@media (max-width: 720px){
+  .convener-card{ flex-direction:column; align-items:flex-start; }
+  .journal-row .row-title{ font-size:18px; }
+}
+
+/* ---------- 详情页：现场照片（占位 + 正式图共用同一结构） ---------- */
+.journal-figure{
+  margin:28px 0 4px; padding:18px;
+  border:1px dashed rgba(197,160,89,.4); border-radius:6px;
+  background: rgba(255,255,255,.015);
+  text-align:center;
+}
+.journal-figure img{
+  display:block; width:100%; max-width:680px; margin:0 auto;
+  border-radius:4px; aspect-ratio:16/9; object-fit:cover;
+  background: rgba(255,255,255,.04);
+}
+.journal-figure figcaption{
+  margin-top:10px; font-family: var(--font-mono); font-size:11px;
+  letter-spacing:.02em; color: var(--color-text-dim);
+}

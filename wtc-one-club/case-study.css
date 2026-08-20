@@ -1,0 +1,194 @@
+/* ============================================================
+   WTC Singapore 案例研究 · 共享样式
+   设计token与common.css保持一致（深蓝+金色），供所有案例页复用。
+   金色分工：--color-gold 结构/框架色；--color-gold-strong 只用于数据数字。
+   ============================================================ */
+:root{
+  --color-bg:          #0A192F;
+  --color-gold:        #C5A059;
+  --color-gold-strong: #D4AF37;
+  --color-white:       #FFFFFF;
+  --color-text:        rgba(255,255,255,.82);
+  --color-text-dim:    rgba(255,255,255,.58);
+  --color-slate:       #7C8699;
+  --color-line:        rgba(197,160,89,.16);
+
+  --font-display: 'Playfair Display', 'Noto Serif SC', serif;
+  --font-body:    'Inter', 'Noto Sans SC', sans-serif;
+  --font-mono:    'Inter', 'Noto Sans SC', sans-serif;
+
+  --edge-x: 80px;
+  --content-w: 860px;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; }
+:focus-visible{ outline: 2px solid var(--color-gold-strong); outline-offset: 3px; }
+
+.container{ max-width: var(--content-w); margin: 0 auto; padding: 0 var(--edge-x); }
+
+/* ---------- 顶部导航 ---------- */
+#site-topbar{
+  position: sticky; top:0; z-index:100;
+  height:56px; display:flex; align-items:center; gap:18px;
+  padding:0 24px;
+  background: rgba(10,18,31,.86);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(197,160,89,.18);
+  font-family: var(--font-body);
+}
+#site-topbar .topbar-brand{ color:var(--color-gold); font-size:15px; font-weight:600; text-decoration:none; white-space:nowrap; }
+#site-topbar .topbar-back{ color:var(--color-text-dim); font-size:13px; text-decoration:none; display:flex; align-items:center; gap:6px; }
+#site-topbar .topbar-back:hover{ color:var(--color-gold); }
+#site-topbar .topbar-lang{ margin-left:auto; color:var(--color-gold); font-size:13px; text-decoration:none; }
+
+/* ---------- 面包屑 + 示例提示 ---------- */
+.crumb{ margin-top: 28px; font-family: var(--font-mono); font-size:11px; letter-spacing:.04em; color: var(--color-slate); }
+.crumb a{ text-decoration:none; color:var(--color-slate); }
+.crumb a:hover{ color:var(--color-gold); }
+
+.demo-flag{
+  margin-top: 14px; padding: 10px 16px;
+  border:1px dashed rgba(197,160,89,.4); border-radius:4px;
+  font-family: var(--font-mono); font-size:11.5px; color: var(--color-gold);
+  background: rgba(197,160,89,.06);
+}
+
+/* ---------- Hero ---------- */
+.hero{ padding: 56px 0 44px; border-bottom: 1px solid var(--color-line); }
+.eyebrow{
+  font-family: var(--font-mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+  color: var(--color-gold); margin-bottom: 22px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{ content:''; width:26px; height:1px; background: var(--color-gold); display:inline-block; }
+.hero h1{
+  font-family: var(--font-display); font-weight:600; font-style: italic;
+  font-size: clamp(30px, 4.4vw, 46px); line-height:1.28; color: var(--color-white); max-width: 15ch;
+}
+.hero .lead{ margin-top:22px; font-size:17px; line-height:1.75; color: var(--color-text); max-width: 62ch; font-weight:300; }
+.meta-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.tag{
+  font-family: var(--font-mono); font-size:11px; letter-spacing:.04em;
+  padding:5px 12px; border-radius:100px; border:1px solid rgba(197,160,89,.35);
+  color: var(--color-gold); background: rgba(197,160,89,.06);
+}
+.hero-summary{ margin-top:30px; font-family: var(--font-mono); font-size:13px; color: var(--color-text-dim); letter-spacing:.02em; line-height:1.9; }
+.hero-summary b{ color: var(--color-gold-strong); font-weight:500; }
+
+/* ---------- 正文 ---------- */
+.section{ padding: 56px 0; border-bottom:1px solid var(--color-line); }
+.section h2{
+  font-family: var(--font-display); font-weight:600; font-size: clamp(22px, 2.6vw, 28px);
+  color: var(--color-white); margin-bottom: 22px;
+}
+.section p{ font-size:15.5px; color: var(--color-text); max-width: 68ch; margin-bottom:16px; }
+.section p:last-child{ margin-bottom:0; }
+
+.pull-quote{ margin: 30px 0; padding: 22px 28px; border-left:2px solid var(--color-gold); background: rgba(255,255,255,.02); }
+.pull-quote p{
+  font-family: var(--font-display); font-style: italic; font-weight:400;
+  font-size: 18px; line-height:1.6; color: var(--color-white); max-width: 56ch;
+}
+.pull-quote cite{ display:block; margin-top:14px; font-style:normal; font-family: var(--font-mono); font-size:11.5px; letter-spacing:.04em; color: var(--color-text-dim); }
+
+/* ---------- 解决方案 + 成果：连接线只在 .journey-steps 范围内绘制，
+   .j-result 独立在外，用一小段短竖线衔接——线会在终点圆圈处真正"停下"，
+   不会像 v2 那样一路穿过数字和文字。 ---------- */
+.journey-steps{ position:relative; }
+.journey-steps::before{
+  content:''; position:absolute; left:19px; top:8px; bottom:8px; width:0;
+  border-left: 1.5px dashed rgba(197,160,89,.45);
+}
+.j-step{ position:relative; padding: 0 0 34px 56px; }
+.j-step .node{
+  position:absolute; left:0; top:0; width:40px; height:40px; border-radius:50%;
+  border:1px solid rgba(197,160,89,.5); background: var(--color-bg);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-mono); font-size:13px; color: var(--color-gold);
+}
+.j-step h3{
+  font-family: var(--font-body); font-weight:600; font-size:15.5px; color: var(--color-white);
+  margin-bottom:8px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.j-step h3 .svc-tag{
+  font-family: var(--font-mono); font-size:10px; letter-spacing:.05em; font-weight:400;
+  color: var(--color-gold); border:1px solid rgba(197,160,89,.4); border-radius:100px; padding:2px 9px;
+}
+.j-step p{ font-size:14.5px; color: var(--color-text-dim); max-width:60ch; }
+
+.j-result{ position:relative; padding: 20px 0 0 56px; margin-top:4px; }
+.j-result::before{
+  content:''; position:absolute; left:19px; top:-16px; height:24px; width:0;
+  border-left: 1.5px dashed rgba(197,160,89,.45);
+}
+.j-result .node{
+  position:absolute; left:-3px; top:4px; width:46px; height:46px; border-radius:50%;
+  border:1.5px solid var(--color-gold-strong); background: var(--color-bg);
+  box-shadow: 0 0 0 6px rgba(212,175,55,.08);
+}
+.j-result-num{ font-family: var(--font-mono); font-size:64px; font-weight:700; color: var(--color-gold-strong); line-height:1; }
+.j-result-lbl{ margin-top:8px; font-size:14px; color: var(--color-text); max-width: 40ch; }
+.j-result-sub{ margin-top:20px; display:flex; gap:32px; flex-wrap:wrap; font-family: var(--font-mono); font-size:12.5px; color: var(--color-text-dim); }
+.j-result-sub span b{ color:var(--color-white); font-weight:500; font-size:14px; }
+
+/* ---------- 相关服务卡片 ---------- */
+.svc-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:1px; background: rgba(255,255,255,.08); margin-top:8px; }
+.svc-card{ background: var(--color-bg); padding:26px 22px; text-decoration:none; color:inherit; transition: background .25s; }
+.svc-card:hover{ background: rgba(197,160,89,.06); }
+.svc-card .svc-name{ font-family: var(--font-display); font-style:italic; font-weight:600; font-size:17px; color: var(--color-white); }
+.svc-card .svc-desc{ margin-top:10px; font-size:13px; color: var(--color-text-dim); line-height:1.6; }
+.svc-card .svc-link{ margin-top:16px; font-family: var(--font-mono); font-size:11px; color: var(--color-gold); letter-spacing:.03em; }
+
+/* ---------- CTA ---------- */
+.cta{ padding: 64px 0 80px; }
+.cta h2{ font-family: var(--font-display); font-style:italic; font-weight:600; font-size: clamp(24px,3vw,32px); color: var(--color-white); max-width:20ch; }
+.cta p{ margin-top:14px; font-size:14.5px; color: var(--color-text-dim); max-width:52ch; }
+.cta-btn{
+  display:inline-block; margin-top:26px; padding:13px 30px;
+  border:1px solid var(--color-gold-strong); border-radius:2px;
+  font-family: var(--font-mono); font-size:12.5px; letter-spacing:.06em;
+  color: var(--color-gold-strong); text-decoration:none; transition: all .2s;
+}
+.cta-btn:hover{ background: var(--color-gold-strong); color: var(--color-bg); }
+
+/* ---------- footer ---------- */
+footer{
+  border-top:1px solid var(--color-line); padding: 28px 0 40px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  font-family: var(--font-mono); font-size:11px; color: var(--color-slate);
+}
+footer a{ color: var(--color-slate); text-decoration:none; }
+footer a:hover{ color: var(--color-gold); }
+
+/* ---------- 案例列表页专用（index页复用同一套token） ---------- */
+.case-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:1px; background: rgba(255,255,255,.08); margin-top:32px; }
+.case-card{ background: var(--color-bg); padding:30px 26px; text-decoration:none; color:inherit; transition: background .25s; display:flex; flex-direction:column; }
+.case-card:hover{ background: rgba(197,160,89,.06); }
+.case-card .case-eyebrow{ font-family: var(--font-mono); font-size:10.5px; letter-spacing:.08em; color: var(--color-gold); text-transform:uppercase; }
+.case-card .case-title{ font-family: var(--font-display); font-style:italic; font-weight:600; font-size:19px; color: var(--color-white); margin-top:12px; line-height:1.4; }
+.case-card .case-desc{ margin-top:10px; font-size:13px; color: var(--color-text-dim); line-height:1.6; flex-grow:1; }
+.case-card .case-stat{ margin-top:18px; font-family: var(--font-mono); font-size:12px; color: var(--color-gold-strong); }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 720px){
+  :root{ --edge-x: 22px; }
+  .svc-grid{ grid-template-columns: 1fr; }
+  .case-grid{ grid-template-columns: 1fr; }
+  .hero{ padding-top:36px; }
+  .hero-summary{ line-height:2.1; }
+  .j-result-num{ font-size:48px; }
+  .j-result-sub{ flex-direction:column; gap:10px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .svc-card, .cta-btn, .case-card{ transition:none; }
+}

@@ -139,6 +139,17 @@
       "inLanguage": "zh-CN"
     }
     </script>
+    <style>
+        /* 首页 slide-7 / slide-8 聚合页入口卡片（页面内局部样式，不改动 common.min.css） */
+        .p5-cases-card{ display:flex; align-items:center; justify-content:space-between; gap:20px; max-width:100%; margin:20px 0 0; padding:18px 24px; text-decoration:none; border:1px solid rgba(197,160,89,.42); border-radius:14px; background:linear-gradient(135deg, rgba(197,160,89,.10), rgba(197,160,89,.03)); transition:border-color .35s ease, background .35s ease, transform .35s ease; }
+        .p5-cases-card:hover{ border-color:var(--color-gold-strong); background:linear-gradient(135deg, rgba(212,175,55,.16), rgba(212,175,55,.05)); transform:translateY(-2px); }
+        .p5-cases-card .cc-left{ display:flex; flex-direction:column; gap:6px; min-width:0; }
+        .p5-cases-card .cc-title{ font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--color-white); line-height:1.2; }
+        .p5-cases-card .cc-sub{ font-size:13.5px; color:var(--color-text-dim); line-height:1.5; }
+        .p5-cases-card .cc-btn{ flex:none; display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border:1px solid var(--color-gold); border-radius:999px; color:var(--color-gold-strong); font-size:14px; font-weight:600; letter-spacing:.4px; white-space:nowrap; transition:background .35s ease, color .35s ease; }
+        .p5-cases-card:hover .cc-btn{ background:var(--color-gold-strong); color:#0A192F; }
+        @media (max-width:680px){ .p5-cases-card{ flex-direction:column; align-items:flex-start; gap:14px; } .p5-cases-card .cc-btn{ align-self:stretch; justify-content:center; } }
+    </style>
 </head>
 
 <body>
@@ -673,6 +684,13 @@
                         </div>
                         <div class="vc-rule"></div>
                         <div class="vc-body">汇聚机构资本、全球决策者与 WTCA 国际网络，<em>WTC One Club</em> 作为私属门户，让战略关系转化为持久机遇。</div>
+                        <a class="p5-cases-card" href="wtc-one-club/one-club-journal.html">
+                            <span class="cc-left">
+                                <span class="cc-title">俱乐部手记</span>
+                                <span class="cc-sub">汇聚全球决策者与机构资本，让战略关系转化为持久机遇。</span>
+                            </span>
+                            <span class="cc-btn">进入手记 &rarr;</span>
+                        </a>
                     </div>
 
                     <div class="footer fade-in d6">
@@ -735,6 +753,13 @@
                         <div class="p5-visual-line"></div>
                         <div class="p5-visual-title">一次链接<br>全球拓展</div>
                         <div class="p5-visual-desc">依托 WTCA 全球网络、AI 智能运营基础设施与战略资本资源，GlobalX 赋能企业拓展东盟及国际市场。</div>
+                        <a class="p5-cases-card" href="cases/case-list.html">
+                            <span class="cc-left">
+                                <span class="cc-title">出海实战案例</span>
+                                <span class="cc-sub">探寻真实出海实战，我们如何赋能企业全球化增长。</span>
+                            </span>
+                            <span class="cc-btn">查看案例 &rarr;</span>
+                        </a>
                     </div>
 
                 </div>
