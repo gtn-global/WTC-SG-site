@@ -1,0 +1,275 @@
+/* ============================================================
+   WTC ONE Club · 秘书长手记 —— 专用样式
+   依赖 case-study.css 已定义的设计 token（深蓝 #0A192F + 金色体系、
+   字体系统）。本文件只新增本板块专属组件，不重复定义 :root。
+   请在 <head> 中于 case-study.css 之后引入本文件。
+   ============================================================ */
+
+/* ---------- 召集人卡（Convener Card）——本板块的"签名"组件 ---------- */
+.convener-card{
+  border: 1px solid rgba(197,160,89,.28);
+  padding: 26px 24px;
+  background: rgba(255,255,255,.015);
+  display:flex; flex-direction:column; gap:14px;
+}
+.convener-top{ display:flex; align-items:center; gap:14px; }
+.convener-avatar{
+  width:52px; height:52px; border-radius:50%;
+  border:1px solid rgba(197,160,89,.5);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-style:italic; font-weight:600;
+  font-size:18px; color: var(--color-gold);
+  flex-shrink:0; background: rgba(197,160,89,.06);
+}
+.convener-name{ font-family: var(--font-body); font-weight:600; font-size:15px; color: var(--color-white); }
+.convener-title{ margin-top:3px; font-size:12px; color: var(--color-text-dim); line-height:1.5; }
+.convener-rule{ height:1px; background: linear-gradient(90deg, rgba(197,160,89,.5), rgba(197,160,89,0)); }
+.convener-line{
+  font-family: var(--font-display); font-style:italic; font-size:14.5px;
+  color: var(--color-text); line-height:1.6;
+}
+
+/* 详情页用的紧凑版召集人条 */
+.byline-strip{
+  display:flex; align-items:center; gap:12px;
+  padding: 16px 0; margin: 28px 0 32px;
+  border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);
+}
+.byline-strip .convener-avatar{ width:40px; height:40px; font-size:14px; }
+.byline-strip .byline-text{ font-size:12.5px; color: var(--color-text-dim); line-height:1.6; }
+.byline-strip .byline-text b{ color: var(--color-white); font-weight:600; font-family:var(--font-body); }
+
+/* ---------- 聚合页 Hero：非对称两栏 ---------- */
+.club-hero{
+  padding: 56px 0 40px; border-bottom: 1px solid var(--color-line);
+  display:grid; grid-template-columns: 1.55fr 1fr; gap:56px; align-items:start;
+}
+.club-hero h1{
+  font-family: var(--font-display); font-weight:600; font-style:italic;
+  font-size: clamp(30px, 4vw, 44px); line-height:1.3; color: var(--color-white);
+}
+.club-hero .lead{ margin-top:20px; font-size:16px; line-height:1.75; color: var(--color-text); max-width:56ch; font-weight:300; }
+
+/* ---------- 三支柱筛选（复用主站 slide-7 的 01/02/03 编号体系） ---------- */
+.pillar-filter{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:1px;
+  background: rgba(255,255,255,.08); margin: 40px 0 0;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.pillar-btn{
+  background: var(--color-bg); border:none; cursor:pointer; text-align:left;
+  padding: 20px 20px 22px; color:inherit; font-family:var(--font-body);
+  transition: background .2s;
+}
+.pillar-btn:hover{ background: rgba(197,160,89,.06); }
+.pillar-btn.active{ background: rgba(197,160,89,.1); }
+.pillar-btn .pf-index{
+  font-family: var(--font-mono); font-size:11px; color: var(--color-gold);
+  letter-spacing:.05em;
+}
+.pillar-btn .pf-title{
+  margin-top:8px; font-family: var(--font-display); font-style:italic; font-weight:600;
+  font-size:15px; color: var(--color-white); line-height:1.4;
+}
+.pillar-btn .pf-sub{ margin-top:6px; font-size:11.5px; color: var(--color-text-dim); line-height:1.5; }
+.pillar-btn.active .pf-title{ color: var(--color-gold-strong); }
+
+/* ---------- 手记日志（Ledger）——纵向条目列表，替代卡片网格 ---------- */
+.ledger{ margin-top: 8px; }
+.ledger-row{
+  display:grid; grid-template-columns: 90px 1px 1fr auto;
+  gap: 22px; align-items:start;
+  padding: 30px 0; border-bottom: 1px solid var(--color-line);
+  text-decoration:none; color:inherit;
+  transition: opacity .2s;
+}
+.ledger-row:hover .ledger-title{ color: var(--color-gold-strong); }
+.ledger-date{
+  font-family: var(--font-mono); font-size:12px; color: var(--color-slate);
+  letter-spacing:.03em; padding-top:3px;
+}
+.ledger-rule{ background: rgba(197,160,89,.3); align-self:stretch; }
+.ledger-tag{
+  font-family: var(--font-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+  color: var(--color-gold); margin-bottom:10px; display:block;
+}
+.ledger-title{
+  font-family: var(--font-display); font-style:italic; font-weight:600;
+  font-size:19px; color: var(--color-white); line-height:1.4; transition:color .2s;
+}
+.ledger-excerpt{
+  margin-top:10px; font-size:13.5px; color: var(--color-text-dim); line-height:1.65; max-width:60ch;
+}
+.ledger-arrow{
+  font-family: var(--font-mono); font-size:12px; color: var(--color-gold);
+  padding-top:4px; white-space:nowrap;
+}
+.ledger-row.is-hidden{ display:none; }
+
+/* 占位行（更多手记敬请期待） */
+.ledger-row.placeholder{
+  opacity:.45; pointer-events:none; border-bottom-style:dashed;
+}
+.ledger-row.placeholder .ledger-title{ font-style:normal; font-family:var(--font-body); font-weight:500; }
+
+/* ---------- 详情页 Hero ---------- */
+.entry-hero{ padding: 48px 0 0; }
+.entry-hero .ledger-tag{ margin-bottom:18px; }
+.entry-hero .entry-date{
+  font-family: var(--font-mono); font-size:12px; color: var(--color-slate); margin-bottom:18px; display:block;
+}
+.entry-hero h1{
+  font-family: var(--font-display); font-weight:600; font-style:italic;
+  font-size: clamp(28px, 4vw, 42px); line-height:1.32; color: var(--color-white); max-width:18ch;
+}
+.entry-dek{
+  margin-top:18px; font-family: var(--font-display); font-style:italic; font-weight:400;
+  font-size:17px; line-height:1.6; color: var(--color-gold); max-width:52ch;
+}
+
+/* ---------- 正文图片占位 ---------- */
+.entry-image{
+  margin: 8px 0 40px; aspect-ratio: 16/9; width:100%;
+  border:1px solid rgba(197,160,89,.2); background: rgba(255,255,255,.02);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-mono); font-size:11.5px; color: var(--color-slate); letter-spacing:.04em;
+}
+
+/* ---------- 现场纪要小结条 ---------- */
+.entry-stats{
+  margin: 36px 0; padding: 18px 0;
+  border-top:1px solid var(--color-line); border-bottom:1px solid var(--color-line);
+  display:flex; gap:36px; flex-wrap:wrap;
+  font-family: var(--font-mono); font-size:12.5px; color: var(--color-text-dim);
+}
+.entry-stats span b{ color: var(--color-white); font-weight:500; font-size:14px; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 720px){
+  .club-hero{ grid-template-columns:1fr; gap:32px; }
+  .pillar-filter{ grid-template-columns:1fr; }
+  .ledger-row{ grid-template-columns: 1fr; gap:8px; }
+  .ledger-rule{ display:none; }
+  .ledger-date{ padding-top:0; }
+  .ledger-arrow{ display:none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .pillar-btn, .ledger-row, .ledger-title{ transition:none; }
+}
+
+/* ============================================================
+   会员申请页（Apply）专属组件
+   表单本体没有依赖任何第三方 UI 库，纯 CSS 变量 + 原生表单元素，
+   方便后续接入任何后端（飞书 Webhook / 自定义机器人等）。
+   ============================================================ */
+
+/* ---------- 静态权益卡：复用 .pillar-btn 视觉，去掉交互语义 ---------- */
+.benefit-card{ cursor: default; }
+.benefit-card:hover{ background: var(--color-bg); }
+
+/* ---------- 表单 ---------- */
+.apply-form-wrap{ margin-top: 8px; }
+.form-grid{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 22px 24px;
+  margin-top: 8px;
+}
+.form-field{ display:flex; flex-direction:column; gap:8px; }
+.form-field.full{ grid-column: 1 / -1; }
+.form-field label{
+  font-family: var(--font-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+  color: var(--color-text-dim);
+}
+.form-field label .req{ color: var(--color-gold-strong); margin-left:3px; }
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="tel"],
+.form-field textarea{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(197,160,89,.25);
+  border-radius: 2px;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-white);
+  transition: border-color .2s, background .2s;
+  width:100%;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder{ color: var(--color-slate); }
+.form-field input:focus,
+.form-field textarea:focus{
+  outline:none; border-color: var(--color-gold-strong); background: rgba(255,255,255,.05);
+}
+.form-field textarea{ resize: vertical; min-height: 100px; line-height:1.6; }
+
+.checkbox-group{ display:flex; flex-direction:column; gap:11px; margin-top:6px; }
+.checkbox-row{
+  display:flex; align-items:flex-start; gap:10px;
+  font-family: var(--font-body); font-size:13.5px; color: var(--color-text); line-height:1.55;
+}
+.checkbox-row input[type="checkbox"]{
+  margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color: var(--color-gold-strong);
+}
+.checkbox-row.consent{
+  margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--color-line);
+  font-size: 12.5px; color: var(--color-text-dim);
+}
+
+.form-submit-row{ margin-top: 36px; display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+.form-note{
+  font-family: var(--font-mono); font-size:11.5px; color: var(--color-slate);
+  line-height:1.75; margin-top:18px; max-width:56ch;
+}
+
+/* 提交按钮加载态 */
+.cta-btn[disabled]{ opacity:.55; cursor: default; }
+
+/* ---------- 提交成功态 ---------- */
+.form-success{
+  display:none; padding: 52px 36px; text-align:center;
+  border: 1px solid rgba(197,160,89,.3); background: rgba(197,160,89,.05);
+}
+.form-success .fs-icon{
+  width:46px; height:46px; margin:0 auto 22px; border-radius:50%;
+  border:1px solid var(--color-gold-strong); display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-size:20px; color: var(--color-gold-strong);
+}
+.form-success h3{
+  font-family: var(--font-display); font-style:italic; font-weight:600;
+  font-size: clamp(20px,2.4vw,24px); color: var(--color-white);
+}
+.form-success p{
+  margin-top:12px; font-size:13.5px; color: var(--color-text-dim);
+  max-width:44ch; margin-left:auto; margin-right:auto; line-height:1.75;
+}
+
+@media (max-width:720px){
+  .form-grid{ grid-template-columns: 1fr; }
+}
+
+/* ---------- FAQ 手风琴（借用原生 details/summary，无需额外 JS） ---------- */
+.faq-list{ margin-top: 8px; display:flex; flex-direction:column; gap:0; }
+.faq-item{
+  border-bottom: 1px solid var(--color-line);
+  padding: 22px 0;
+}
+.faq-item summary{
+  cursor: pointer; list-style: none;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  font-family: var(--font-display); font-style:italic; font-weight:600;
+  font-size: clamp(16px,2vw,19px); color: var(--color-white);
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:'+'; flex-shrink:0; width:26px; height:26px; border-radius:50%;
+  border:1px solid rgba(197,160,89,.4); display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-body); font-style:normal; font-size:16px; color: var(--color-gold);
+  transition: transform .25s;
+}
+.faq-item[open] summary::after{ content:'−'; transform: rotate(180deg); }
+.faq-answer{
+  margin-top:16px; font-size:14.5px; line-height:1.8; color: var(--color-text);
+  max-width: 68ch;
+}
+.faq-answer b{ color: var(--color-gold-strong); font-weight:500; }
