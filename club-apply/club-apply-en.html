@@ -77,7 +77,7 @@ body{
 .pull-quote cite{ display:block; margin-top:14px; font-style:normal; font-family:var(--font-mono); font-size:12px; color:var(--color-text-dim); letter-spacing:.05em; }
 
 .faq-section{ padding: 64px 0 48px; border-top: 1px solid var(--color-line); }
-.faq-section h2{ font-family:var(--font-display); font-weight:600; font-style:italic; font-size:clamp(22px,2.6vw,30px); color:var(--color-white); margin:0 0 32px; }
+.faq-section h2{ font-family:var(--font-display); font-weight:600; font-size:clamp(22px,2.6vw,30px); color:var(--color-white); margin:0 0 32px; }
 
 .club-hero{ padding: 56px 0 40px; border-bottom: 1px solid var(--color-line); }
 .club-hero p.lead{ margin-top: 22px; max-width: 64ch; }
@@ -167,7 +167,7 @@ body{
     letter-spacing: .5px;
   }
   .faq-item { border-bottom: 1px solid rgba(212,175,55,.18); padding: 14px 0; cursor: pointer; }
-  .faq-item summary { list-style: none; cursor: pointer; font-size: 17px; font-weight: 600; color: var(--color-white); padding-right: 28px; position: relative; }
+  .faq-item summary { list-style: none; cursor: pointer; font-size: 17px; font-weight: 600; font-style: normal; color: var(--color-white); padding-right: 28px; position: relative; }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item summary::after { content: "+"; position: absolute; right: 0; top: 0; color: var(--color-gold); font-size: 20px; line-height: 1; transition: transform .2s ease; }
   .faq-item[open] summary::after { content: "\2212"; }
@@ -176,14 +176,14 @@ body{
 
   /* ===== 区块容器 ===== */
   .section{ padding: 64px 0 48px; border-bottom: 1px solid var(--color-line); }
-  .section h2{ font-family:var(--font-display); font-weight:600; font-style:italic; font-size:clamp(22px,2.6vw,30px); color:var(--color-white); margin:0 0 32px; }
+  .section h2{ font-family:var(--font-display); font-weight:600; font-size:clamp(22px,2.6vw,30px); color:var(--color-white); margin:0 0 32px; }
 
   /* ===== 三大支柱卡 ===== */
   .pillar-filter{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   .pillar-btn.benefit-card{ display:flex; flex-direction:column; gap:10px; padding:28px 24px; border:1px solid var(--color-line); border-radius:8px; background:rgba(255,255,255,.02); transition:border-color .2s ease, transform .2s ease; }
   .pillar-btn.benefit-card:hover{ border-color:var(--color-gold); transform:translateY(-2px); }
   .pf-index{ font-family:var(--font-mono); font-size:12px; letter-spacing:.12em; color:var(--color-gold); }
-  .pf-title{ font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--color-white); }
+  .pillar-btn .pf-title{ font-family:var(--font-display); font-size:18px; font-weight:600; font-style:normal; color:var(--color-white); }
   .pf-sub{ font-size:13.5px; line-height:1.65; color:var(--color-text-dim); }
 
   /* ===== 三步流程 ===== */
@@ -225,6 +225,8 @@ body{
   .cta-btn-ghost{ background:transparent; color:var(--color-gold); margin-right:10px; }
   .cta-btn-ghost:hover{ background:var(--color-gold); color:#0A192F; }
   .form-note{ margin-top:14px; font-size:12.5px; line-height:1.6; color:var(--color-text-dim); }
+  /* 成功页标题用正体（覆盖 club.css 的 italic，需在 link 之后声明） */
+  .form-success h3{ font-style:normal; }
 
   /* ===== 成功状态 ===== */
   .form-success{ display:none; padding:48px 40px; text-align:center; border:1px solid var(--color-gold); border-radius:8px; }
