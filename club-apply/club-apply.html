@@ -168,7 +168,8 @@ footer a:hover{ text-decoration:underline; }
   开发者 / 秘书长请读：
   本页表单直接 POST 到飞书群机器人 Webhook（页面底部 <script> 里的
   FEISHU_WEBHOOK 常量）。把该常量替换成你的飞书群机器人 Webhook 地址即可。
-  飞书已设自定义关键词 "WTC"，本页发送的消息含 "WTC ONE Club" 可正常命中。
+  当前机器人未启用签名校验 / IP 白名单 / 自定义关键词（如需启用，
+  请同步修改底部 postToFeishu 的发送逻辑）。
   若 Webhook 未配置或网络失败，提交后仍显示成功页 + 邮件/复制兜底，
   不会让访客的申请卡在半路。
 -->
@@ -387,14 +388,13 @@ footer a:hover{ text-decoration:underline; }
 /* ============================================================
    提交对接说明——
    1) 表单直接 POST 到飞书群机器人 Webhook（FEISHU_WEBHOOK 常量）。
-   2) 飞书已设自定义关键词 "WTC"，本页发送的消息含 "WTC ONE Club"，
-      可正常命中；非 WTC 消息会被飞书拒掉。
+   2) 当前机器人未启用签名校验 / IP 白名单 / 自定义关键词。
    3) 若 Webhook 未配置或网络失败，自动显示成功页 + 邮件/复制兜底，
       不会让访客的申请卡在半路。
    4) 发往飞书的 JSON 结构（text 消息）：
       { msg_type: "text", content: { text: "【WTC ONE Club 新申请】..." } }
    ============================================================ */
-const FEISHU_WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/a40d3082-4062-4608-b5b7-9039fa5ec78f";
+const FEISHU_WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/43795099-0363-414d-a30b-a82390fd12b7";
 
 async function postToFeishu(data) {
   const text =
