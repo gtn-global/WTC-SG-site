@@ -43,6 +43,44 @@ body{
   font-family:var(--font-body);
   -webkit-font-smoothing:antialiased;
 }
+
+/* 基础布局：.container / 顶部条 / 面包屑 —— 这些原本属于缺失的 case-study.css */
+.container{ max-width:1180px; margin:0 auto; padding:0 80px; box-sizing:border-box; }
+@media(max-width:960px){ .container{ padding:0 32px; } }
+@media(max-width:560px){ .container{ padding:0 20px; } }
+
+#site-topbar{
+  display:flex; align-items:center; gap:18px;
+  padding:14px 80px; border-bottom:1px solid var(--color-line);
+  background:rgba(10,25,47,.7);
+  font-family:var(--font-mono); font-size:12px; color:var(--color-text-dim);
+  backdrop-filter:blur(8px);
+}
+.topbar-brand{ color:var(--color-gold); text-decoration:none; font-weight:600; letter-spacing:.05em; }
+.topbar-back{ color:var(--color-text); text-decoration:none; }
+.topbar-back:hover{ color:var(--color-gold); }
+.topbar-lang{ margin-left:auto; color:var(--color-text-dim); text-decoration:none; }
+.topbar-lang:hover{ color:var(--color-gold); }
+@media(max-width:960px){ #site-topbar{ padding:12px 32px; } }
+@media(max-width:560px){ #site-topbar{ padding:10px 20px; flex-wrap:wrap; } }
+
+.crumb{ padding:18px 0; font-size:12.5px; color:var(--color-text-dim); letter-spacing:.03em; }
+.crumb a{ color:var(--color-text-dim); text-decoration:none; }
+.crumb a:hover{ color:var(--color-gold); }
+
+.eyebrow{ font-family:var(--font-mono); font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--color-gold); margin:0 0 16px; }
+.meta-row{ display:inline-flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:24px; }
+.tag{ display:inline-block; padding:5px 12px; border:1px solid var(--color-line); border-radius:999px; font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--color-text-dim); }
+
+.pull-quote{ margin: 48px 0; padding: 32px 36px; border-left: 2px solid var(--color-gold); background: rgba(255,255,255,.02); backdrop-filter: blur(5px); }
+.pull-quote p{ font-family: var(--font-display); font-style: italic; font-size: 20px; line-height:1.7; color: var(--color-gold); letter-spacing:.5px; margin:0; }
+.pull-quote cite{ display:block; margin-top:14px; font-style:normal; font-family:var(--font-mono); font-size:12px; color:var(--color-text-dim); letter-spacing:.05em; }
+
+.faq-section{ padding: 64px 0 48px; border-top: 1px solid var(--color-line); }
+.faq-section h2{ font-family:var(--font-display); font-weight:600; font-style:italic; font-size:clamp(22px,2.6vw,30px); color:var(--color-white); margin:0 0 32px; }
+
+.club-hero{ padding: 56px 0 40px; border-bottom: 1px solid var(--color-line); }
+.club-hero p.lead{ margin-top: 22px; max-width: 64ch; }
 </style>
 <link rel="stylesheet" href="club.css">
 
