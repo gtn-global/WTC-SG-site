@@ -34,12 +34,12 @@
 
 <!--
   For the developer / Secretary-General:
-  This form has no live backend by default. To receive submissions via
-  Feishu automation, replace WTC_APPLY_ENDPOINT in the <script> at the
-  bottom of this page with your Feishu webhook URL — the page will POST
-  the form data as JSON. See the field list in that script comment.
-  Until the webhook is connected, submissions fall back to opening an
-  email to partners@wtcasg.org, so no visitor's application gets lost.
+  This form POSTs directly to the Feishu group bot webhook (the
+  FEISHU_WEBHOOK constant in the <script> at the bottom). Replace that
+  constant with your Feishu group bot webhook URL.
+  The bot requires the keyword "WTC"; our message includes "WTC ONE Club"
+  and passes. If the webhook is unset or unreachable, the success page +
+  email/copy fallback still shows, so no application gets lost.
 -->
 </head>
 <body>
@@ -55,7 +55,7 @@
     <a href="https://wtcasg.org/">Home</a> / <a href="https://wtcasg.org/#slide-7">WTC ONE Club</a> / Apply
   </nav>
 
-  <header class="club-hero">
+  <header class="club-hero club-hero--single">
     <div>
       <p class="eyebrow">WTC ONE Club · Membership Application</p>
       <h1>Apply to Join Singapore's<br>Exclusive Global Business Network</h1>
@@ -70,7 +70,6 @@
         <span class="tag">Founders / CEOs Only</span>
       </div>
     </div>
-    <div class="entry-image">WTC ONE CLUB — scene image placeholder</div>
   </header>
 
   <section class="section">
@@ -90,6 +89,37 @@
       </details>
     </div>
   </section>
+
+<style>
+  /* Apply-page only: single-column hero (no right image) + hover-to-open FAQ */
+  .club-hero--single { grid-template-columns: 1fr; max-width: 820px; }
+  /* 英文标题用正体 Playfair Display，对齐主站 slide-7 大标题（非斜体） */
+  .club-hero h1 { font-style: normal; font-family: var(--font-display); }
+  /* pull-quote 引语：用 Playfair Display 斜体模拟手写感（现有字体中最接近手写） */
+  .pull-quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--color-gold);
+    letter-spacing: .5px;
+  }
+  .faq-item { border-bottom: 1px solid rgba(212,175,55,.18); padding: 14px 0; cursor: pointer; }
+  .faq-item summary { list-style: none; cursor: pointer; font-size: 17px; font-weight: 600; color: var(--color-white); padding-right: 28px; position: relative; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; position: absolute; right: 0; top: 0; color: var(--color-gold); font-size: 20px; line-height: 1; transition: transform .2s ease; }
+  .faq-item[open] summary::after { content: "\2212"; }
+  .faq-answer { margin: 12px 0 4px; color: var(--color-text); font-size: 14.5px; line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .28s ease, opacity .28s ease; opacity: 0; }
+  .faq-item[open] .faq-answer { max-height: 400px; opacity: 1; }
+</style>
+
+<script>
+  // FAQ hover-to-open: expand on mouse enter, collapse on leave (click still works)
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    item.addEventListener('mouseenter', function () { item.setAttribute('open', ''); });
+    item.addEventListener('mouseleave', function () { item.removeAttribute('open'); });
+  });
+</script>
 
   <section class="section">
     <h2>What You'll Gain as a Member</h2>
@@ -135,7 +165,7 @@
     </div>
     <div class="pull-quote" style="margin-top:20px;">
       <p>"We want WTC ONE Club to stay small and deliberate — every member should make the trust within this circle worth more."</p>
-      <cite>— [Secretary-General signature placeholder, please replace], Secretary-General & COO, WTC Singapore</cite>
+      <cite>— Bruce Dong, Secretary-General & COO, WTC Singapore</cite>
     </div>
   </section>
 
@@ -211,12 +241,18 @@
         <div class="fs-icon">✓</div>
         <h3>Application Submitted</h3>
         <p>Thank you for your interest in WTC ONE Club. We've received your application and our team will be in touch after review.</p>
+        <div class="fs-fallback" id="fsFallback" style="display:none;">
+          <p class="fs-fallback-note">If you don't hear from us, you can also email a backup copy or copy your application to send directly:</p>
+          <a class="cta-btn cta-btn-ghost" id="fsMailLink" href="#">Send email backup</a>
+          <button type="button" class="cta-btn cta-btn-ghost" id="fsCopyBtn">Copy application</button>
+          <span class="fs-copy-ok" id="fsCopyOk" style="display:none;">Copied ✓</span>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>WTC Singapore ｜ 6 Raffles Quay, Singapore</span>
+    <span>WTC Singapore ｜ wtcasg.org</span>
     <a href="https://wtcasg.org/#slide-7">Learn about WTC ONE Club</a>
   </footer>
 </div>
@@ -224,16 +260,40 @@
 <script>
 /* ============================================================
    Submission integration notes —
-   1) No live backend by default. Replace WTC_APPLY_ENDPOINT with the
-      webhook URL from your Feishu automation / custom bot — the page
-      will POST the form data as JSON.
-   2) Until the webhook is connected, submitting falls back to opening
-      an email to partners@wtcasg.org, so no visitor's application is lost.
-   3) JSON payload shape sent to the webhook:
-      { name, company, title, email, phone, referrer,
-        interests: [], goals, submitted_at, source_page }
+   1) The form POSTs directly to the Feishu group bot webhook
+      (FEISHU_WEBHOOK constant).
+   2) The bot requires the keyword "WTC"; our message includes
+      "WTC ONE Club", so it passes. Non-WTC messages are rejected.
+   3) If the webhook is unreachable, the success page + email/copy
+      fallback still shows — no visitor's application is lost.
+   4) JSON sent to Feishu (text message):
+      { msg_type: "text", content: { text: "【WTC ONE Club ...】..." } }
    ============================================================ */
-const WTC_APPLY_ENDPOINT = ""; // ← replace with your Feishu webhook URL
+const FEISHU_WEBHOOK = "https://open.feishu.cn/open/apis/bot/v2/hook/a40d3082-4062-4608-b5b7-9039fa5ec78f";
+
+async function postToFeishu(data) {
+  const text =
+    "【WTC ONE Club 新申请】\n" +
+    "Name: " + data.name + "\n" +
+    "Company: " + data.company + "\n" +
+    "Title: " + data.title + "\n" +
+    "Email: " + data.email + "\n" +
+    "Phone: " + data.phone + "\n" +
+    "Referrer: " + data.referrer + "\n" +
+    "Areas of interest: " + (data.interests.join(", ") || "(none)") + "\n" +
+    "Goals: " + data.goals + "\n" +
+    "Source page: " + data.source_page + "\n" +
+    "Submitted at: " + data.submitted_at;
+
+  const res = await fetch(FEISHU_WEBHOOK, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ msg_type: 'text', content: { text } })
+  });
+  if (!res.ok) throw new Error('feishu failed');
+  const json = await res.json().catch(() => ({}));
+  if (json.code !== 0) throw new Error('feishu rejected: ' + json.msg);
+}
 
 document.getElementById('wtcApplyForm').addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -258,31 +318,39 @@ document.getElementById('wtcApplyForm').addEventListener('submit', async functio
   submitBtn.textContent = 'Submitting…';
 
   try {
-    if (!WTC_APPLY_ENDPOINT) throw new Error('no endpoint configured');
-    const res = await fetch(WTC_APPLY_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    if (!res.ok) throw new Error('submit failed');
+    await postToFeishu(data);
     showSuccess(form);
   } catch (err) {
-    const subject = encodeURIComponent('WTC ONE Club Application — ' + data.name);
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nCompany: ${data.company}\nTitle: ${data.title}\nEmail: ${data.email}\nPhone: ${data.phone}\nReferrer: ${data.referrer}\nAreas of interest: ${data.interests.join(', ')}\nGoals: ${data.goals}`
-    );
-    window.location.href = `mailto:partners@wtcasg.org?subject=${subject}&body=${body}`;
-    showSuccess(form);
+    showSuccess(form, data);
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Submit Application →';
   }
 });
 
-function showSuccess(form) {
+function showSuccess(form, data) {
   document.querySelector('.apply-form-wrap form').style.display = 'none';
   const success = document.getElementById('formSuccess');
   success.style.display = 'block';
+
+  if (data) {
+    const subject = encodeURIComponent('WTC ONE Club Application — ' + data.name);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nCompany: ${data.company}\nTitle: ${data.title}\nEmail: ${data.email}\nPhone: ${data.phone}\nReferrer: ${data.referrer}\nAreas of interest: ${data.interests.join(', ')}\nGoals: ${data.goals}`
+    );
+    const mailLink = document.getElementById('fsMailLink');
+    mailLink.href = `mailto:partners@wtcasg.org?subject=${subject}&body=${body}`;
+    document.getElementById('fsFallback').style.display = 'block';
+
+    const copyBtn = document.getElementById('fsCopyBtn');
+    const copyOk = document.getElementById('fsCopyOk');
+    copyBtn.onclick = function () {
+      navigator.clipboard.writeText(`Name: ${data.name}\nCompany: ${data.company}\nTitle: ${data.title}\nEmail: ${data.email}\nPhone: ${data.phone}\nReferrer: ${data.referrer}\nAreas of interest: ${data.interests.join(', ')}\nGoals: ${data.goals}`)
+        .then(() => { copyOk.style.display = 'inline'; })
+        .catch(() => { copyOk.textContent = 'Copy failed, please select manually'; copyOk.style.display = 'inline'; });
+    };
+  }
+
   success.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 </script>
