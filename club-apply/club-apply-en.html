@@ -376,8 +376,8 @@ body{
         <h3>Application Submitted</h3>
         <p>Thank you for your interest in WTC ONE Club. We've received your application and our team will be in touch after review.</p>
         <div class="fs-fallback" id="fsFallback" style="display:none;">
-          <p class="fs-fallback-note">If you don't hear from us, you can also email a backup copy or copy your application to send directly:</p>
-          <a class="cta-btn cta-btn-ghost" id="fsMailLink" href="#">Send email backup</a>
+          <p class="fs-fallback-note">Optional backup — if you'd like a copy on hand or want to send a confirmation to your own email, use either option below:</p>
+          <a class="cta-btn cta-btn-ghost" id="fsMailLink" href="#">Email me a backup</a>
           <button type="button" class="cta-btn cta-btn-ghost" id="fsCopyBtn">Copy application</button>
           <span class="fs-copy-ok" id="fsCopyOk" style="display:none;">Copied ✓</span>
         </div>
@@ -453,7 +453,7 @@ document.getElementById('wtcApplyForm').addEventListener('submit', async functio
 
   try {
     await postToFeishu(data);
-    showSuccess(form);
+    showSuccess(form, data);
   } catch (err) {
     showSuccess(form, data);
   } finally {

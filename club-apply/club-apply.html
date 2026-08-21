@@ -369,7 +369,7 @@ footer a:hover{ text-decoration:underline; }
         <h3>申请已提交</h3>
         <p>感谢您对 WTC ONE Club 的关注。我们已收到您的申请，团队将在审核后与您联系。</p>
         <div class="fs-fallback" id="fsFallback" style="display:none;">
-          <p class="fs-fallback-note">若长时间未收到回复，您也可直接发送邮件备份，或复制申请内容发给我们的团队：</p>
+          <p class="fs-fallback-note">可选备份——如您希望自留一份记录，或将申请内容转发至自己的邮箱备份，可使用以下任一方式：</p>
           <a class="cta-btn cta-btn-ghost" id="fsMailLink" href="#">发送邮件备份</a>
           <button type="button" class="cta-btn cta-btn-ghost" id="fsCopyBtn">复制申请内容</button>
           <span class="fs-copy-ok" id="fsCopyOk" style="display:none;">已复制 ✓</span>
@@ -444,7 +444,7 @@ document.getElementById('wtcApplyForm').addEventListener('submit', async functio
 
   try {
     await postToFeishu(data);
-    showSuccess(form);
+    showSuccess(form, data);
   } catch (err) {
     // 飞书失败也给出成功提示 + 邮件/复制兜底，避免申请卡住
     showSuccess(form, data);
