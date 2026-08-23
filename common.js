@@ -132,15 +132,21 @@
         if (n >= 1 && n <= deck.count) goTo(n - 1);
     }
 
-    /* 把每页 .slide 的子节点包进 .slide-inner，内容单独等比缩放，与滚动布局解耦 */
+    /* 把每页 .slide 的子节点包进 .slide-inner，内容单独等比缩放，与滚动布局解耦
+       .mobile-layout 作为移动端旁路内容保留在 .slide 直系层级，不参与缩放 */
     function wrapSlides() {
         var slides = deck.track ? deck.track.querySelectorAll('.slide') : [];
         for (var i = 0; i < slides.length; i++) {
             var s = slides[i];
+            var hasMobileLayout = !!s.querySelector(':scope > .mobile-layout');
+            s.classList.toggle('has-mobile-layout', hasMobileLayout);
             if (s.querySelector(':scope > .slide-inner')) continue; // 已包裹则跳过
             var inner = document.createElement('div');
             inner.className = 'slide-inner';
-            while (s.firstChild) inner.appendChild(s.firstChild);
+            var kids = Array.prototype.slice.call(s.children);
+            kids.forEach(function (k) {
+                if (!k.classList.contains('mobile-layout')) inner.appendChild(k);
+            });
             s.appendChild(inner);
         }
     }

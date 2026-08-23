@@ -1,0 +1,230 @@
+/* ============================================================
+   Mobile-only slide layout.
+   Desktop deck behavior remains unchanged.
+   ============================================================ */
+
+.mobile-layout {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  #track .slide.has-mobile-layout > .slide-inner {
+    display: none !important;
+  }
+
+  #track .slide.has-mobile-layout > .mobile-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 28px 22px 26px;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    color: #fff;
+  }
+}
+
+/* Slide 1 mobile layout */
+.mh-deco-arc {
+  position: absolute;
+  right: -140px;
+  top: -100px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  pointer-events: none;
+}
+
+.mh-top {
+  position: relative;
+  z-index: 2;
+}
+
+.mh-eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c5a059;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.mh-logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mh-logos img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mh-middle {
+  position: relative;
+  z-index: 2;
+}
+
+.mh-headline {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.22;
+  color: #fff;
+  margin: 0;
+}
+
+.mh-headline span {
+  color: #c5a059;
+}
+
+.mh-headline-en {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #c9cdd6;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+}
+
+.mh-sub {
+  margin-top: 22px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.mh-sub-en {
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: #9099a8;
+  font-weight: 300;
+}
+
+.mh-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+.mh-badges {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mh-badge {
+  flex: 1;
+}
+
+.mh-badge-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: #d4af37;
+  line-height: 1;
+}
+
+.mh-badge-lbl {
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.mh-footer-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+  margin: 20px 0 12px;
+}
+
+.mh-footer-text {
+  font-size: 10.5px;
+  color: #8b93a3;
+  line-height: 1.6;
+}
+
+/* Slide 2 mobile layout */
+.m2-top {
+  position: relative;
+  z-index: 2;
+}
+
+.m2-eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c5a059;
+  line-height: 1.5;
+}
+
+.m2-title {
+  margin: 12px 0 0;
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-size: 28px;
+  line-height: 1.24;
+  color: #fff;
+}
+
+.m2-sub {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #aeb6c5;
+  line-height: 1.5;
+}
+
+.m2-stats {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.m2-stat {
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 10px;
+  padding: 10px 8px;
+  background: rgba(197, 160, 89, 0.05);
+}
+
+.m2-stat-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 20px;
+  line-height: 1;
+  color: #d4af37;
+  font-weight: 700;
+}
+
+.m2-stat-lbl {
+  margin-top: 5px;
+  font-size: 10px;
+  line-height: 1.35;
+  color: #e3e7ee;
+}
+
+.m2-list {
+  margin: 16px 0 0;
+  padding-left: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.m2-list li {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #d7dce5;
+}
+
+.m2-foot {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 12px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #8b93a3;
+}
