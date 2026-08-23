@@ -378,3 +378,91 @@
   color: #8b93a3;
   line-height: 1.55;
 }
+
+/* Slide 8 mobile layout */
+.m8-top {
+  position: relative;
+  z-index: 2;
+}
+
+.m8-eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c5a059;
+}
+
+.m8-title {
+  margin: 10px 0 0;
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-size: 30px;
+  line-height: 1.22;
+  color: #fff;
+}
+
+.m8-sub {
+  margin-top: 7px;
+  font-size: 12px;
+  color: #b8c0cf;
+}
+
+.m8-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.m8-card {
+  border: 1px solid rgba(197, 160, 89, 0.36);
+  border-radius: 12px;
+  padding: 11px 12px;
+  background: rgba(197, 160, 89, 0.05);
+}
+
+.m8-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.m8-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: #d4af37;
+  font-weight: 700;
+}
+
+.m8-name {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.m8-desc {
+  margin: 7px 0 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #d5dbe6;
+}
+
+.m8-cta {
+  margin-top: 14px;
+  display: block;
+  text-decoration: none;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  border-radius: 999px;
+  text-align: center;
+  padding: 11px 14px;
+  color: #d4af37;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.m8-foot {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 12px;
+  font-size: 10.8px;
+  color: #8b93a3;
+  line-height: 1.55;
+}
