@@ -1006,12 +1006,16 @@
   flex-shrink: 0;
 }
 .m12-leader-sign {
+  min-width: 0;
   font-size: 10.5px;
+  line-height: 1.45;
   color: #d8b876;
 }
 .m12-leader-sign span {
+  display: block;
+  margin-left: 0;
+  margin-top: 2px;
   color: #8b93a3;
-  margin-left: 5px;
 }
 .m12-quote { margin-top: 12px; padding: 10px 12px; border-left: 2px solid #c5a059; background: rgba(255, 255, 255, 0.03); font-size: 11px; color: #d7dce5; line-height: 1.6; }
 .m12-list { margin-top: 12px; display: grid; gap: 9px; }
@@ -1042,12 +1046,16 @@
   flex-shrink: 0;
 }
 .m13-leader-sign {
+  min-width: 0;
   font-size: 10.5px;
+  line-height: 1.45;
   color: #d8b876;
 }
 .m13-leader-sign span {
+  display: block;
+  margin-left: 0;
+  margin-top: 2px;
   color: #8b93a3;
-  margin-left: 5px;
 }
 .m13-quote { margin-top: 12px; padding: 10px 12px; border-left: 2px solid #c5a059; background: rgba(255, 255, 255, 0.03); font-size: 11px; color: #d7dce5; line-height: 1.6; }
 .m13-list { margin-top: 12px; display: grid; gap: 8px; }
@@ -1080,6 +1088,23 @@
   .m12-item-desc,
   .m13-pill {
     font-size: 10.5px;
+  }
+
+  .m12-leader,
+  .m13-leader {
+    padding: 9px;
+    gap: 8px;
+  }
+
+  .m12-leader img,
+  .m13-leader img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .m12-leader-sign,
+  .m13-leader-sign {
+    font-size: 10px;
   }
 
   .m11-card img {
