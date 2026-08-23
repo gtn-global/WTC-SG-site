@@ -2,22 +2,6 @@
 
 世界贸易中心新加坡（WTC Singapore）介绍演示文稿的中英文双版本静态站点。
 
-## 站点页面
-
-- index.html — 中文版演示文稿（主入口，访问根路径 `/` 时直接展示）
-- index-en.html — 英文版演示文稿
-
-## 项目结构
-
-- common.css / common.js — 全站共用样式与脚本
-- generate-sitemap.js — 站点地图生成脚本
-- grid/ waterfall/ wtc-buildings/ — 演示用图片资源
-- logo/ — 标志与二维码资源
-
-## 部署
-
-纯静态站点，由 GitHub Pages 从 GitHub 仓库 `gtn-global/WTC-SG-site`（分支 main，根路径 `/`）发布，自定义域名 `wtcasg.org`。根路径 `/` 直接展示 index.html（中文版），`/index-en.html` 为英文版。
-
 ## 关于 WTC Singapore
 
 新加坡世界贸易中心（WTC Singapore）是世界贸易中心协会（World Trade Centers Association, WTCA）在新加坡的成员机构。WTCA 是一个覆盖全球 90 多个国家与地区、300 多个城市的全球经贸网络，关联企业超过 100 万家。
@@ -32,15 +16,37 @@ WTC Singapore 依托 WTCA 的全球网络，为企业与机构提供核心服务
 
 ## 秘书长手记（Secretary-General's Journal，董立鑫 Bruce Dong 第一人称记录）
 
-- 手记聚合页：https://wtcasg.org/wtc-one-club/one-club-journal.html
-- 就职仪式：https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony.html
-- 走访新加坡文思海辉：https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore.html
-- 香港新能源资本沙龙：https://wtcasg.org/wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon.html
-- 中国国际服务贸易交易会（CIFTIS）2025：https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html
+- 俱乐部手记 · WTC ONE Club — https://wtcasg.org/wtc-one-club/one-club-journal.html
+- Club Notes · WTC ONE Club — https://wtcasg.org/wtc-one-club/one-club-journal-en.html
+- 任命书递到手上那一刻，我知道接下来的事才刚刚开始 — https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony.html
+- The Moment the Appointment Letter Landed in My Hands, I Knew the Real Work Was Only Beginning — https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en.html
+- 在博彦科技 · 新加坡，看一家中国科技公司怎么把"出海"落成三个坐标 — https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore.html
+- At Beyondsoft's Singapore Hub, How a Chinese Tech Company Turned "Going Global" into Three Coordinates — https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore-en.html
+- 从香港飞来的新能源投行人士，点破了出海最被忽略的事 — https://wtcasg.org/wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon.html
+- The New-Energy Investment Banker Who Flew in from Hong Kong Pinpointed What Outbound Ventures Overlook Most — https://wtcasg.org/wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon-en.html
+- 2025 中国国际服务贸易交易会（服贸会） — https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html
+- WTC Singapore at the 2025 China International Fair for Trade in Services (CIFTIS) — https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en.html
 
 ## 俱乐部申请
 
-- WTC ONE Club 入会申请：https://wtcasg.org/club-apply/club-apply.html
+- 申请加入 WTC ONE Club — https://wtcasg.org/club-apply/club-apply.html
+- Apply for WTC ONE Club — https://wtcasg.org/club-apply/club-apply-en.html
+
+## 案例研究
+
+- 案例研究 — https://wtcasg.org/cases/case-list.html
+- Case Studies — https://wtcasg.org/cases/case-list-en.html
+- 案例研究 · 科技企业对接阿联酋资本 — https://wtcasg.org/cases/hardtech-semiconductor/index.html
+- Case Study · Connecting a Tech Company to UAE Capital — https://wtcasg.org/cases/hardtech-semiconductor/en.html
+- 案例研究 · 家居建材行业的国际化拓展之路 — https://wtcasg.org/cases/home-building-materials/index.html
+- Case Study · A Home & Building Materials Company's Path to Global Markets — https://wtcasg.org/cases/home-building-materials/en.html
+- 案例研究 · 智慧交通企业新加坡国际总部 — https://wtcasg.org/cases/smart-manufacturing/index.html
+- Case Study · A Smart Mobility Company's Singapore International HQ — https://wtcasg.org/cases/smart-manufacturing/en.html
+
+## 站点页面
+
+- 新加坡世贸中心 WTC Singapore — https://wtcasg.org/
+- World Trade Centers Association (WTCA) Member in Singapore — https://wtcasg.org/index-en.html
 
 ## 关于秘书长
 
@@ -53,3 +59,14 @@ WTC Singapore 依托 WTCA 的全球网络，为企业与机构提供核心服务
 - 办公地址（OFFICE ADDRESS）：6 Raffles Quay, Singapore
 - 官方网站（OFFICIAL WEBSITE）：https://wtcasg.org
 - 合作咨询邮箱（INQUIRY EMAIL）：partners@wtcasg.org
+
+## 项目结构
+
+- common.css / common.js — 全站共用样式与脚本
+- generate-sitemap.js — 站点地图生成脚本
+- grid/ waterfall/ wtc-buildings/ — 演示用图片资源
+- logo/ — 标志与二维码资源
+
+## 部署
+
+纯静态站点，由 GitHub Pages 从 GitHub 仓库 `gtn-global/WTC-SG-site`（分支 main，根路径 `/`）发布，自定义域名 `wtcasg.org`。根路径 `/` 直接展示 index.html（中文版），`/index-en.html` 为英文版。

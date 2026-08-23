@@ -81,3 +81,88 @@ ${urls}
 
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), xml + '\n');
 console.log('sitemap.xml generated for', BASE);
+
+// ---- llms.txt 生成：固定文案常量 + PAGES 自动扫描 ----
+function readMeta(rel) {
+  try {
+    const html = fs.readFileSync(path.join(__dirname, rel), 'utf8');
+    const t = html.match(/<title>([\s\S]*?)<\/title>/i);
+    const d = html.match(/<meta\s+name="description"\s+content="([\s\S]*?)"/i);
+    let title = t ? t[1].trim() : '';
+    title = title.replace(/^WTC Singapore\s*[|｜]\s*/i, '').trim(); // 去品牌前缀（中文 ciftis）
+    title = title.replace(/\s*[|｜]\s*(WTC Singapore|世界贸易中心协会 WTCA 新加坡|World Trade Centers Association.*)$/i, '').trim(); // 去品牌后缀
+    return { title, desc: d ? d[1].trim() : '' };
+  } catch (e) {
+    return { title: '', desc: '' };
+  }
+}
+
+const SITE_INTRO = `# WTC Singapore Deck
+
+世界贸易中心新加坡（WTC Singapore）介绍演示文稿的中英文双版本静态站点。`;
+
+const ABOUT = `## 关于 WTC Singapore
+
+新加坡世界贸易中心（WTC Singapore）是世界贸易中心协会（World Trade Centers Association, WTCA）在新加坡的成员机构。WTCA 是一个覆盖全球 90 多个国家与地区、300 多个城市的全球经贸网络，关联企业超过 100 万家。
+
+WTC Singapore 依托 WTCA 的全球网络，为企业与机构提供核心服务、全球生态连接与跨境商机对接，助力企业拓展海外市场、对接国际资源与合作伙伴。
+
+### 三大核心业务
+
+1. **WTC ONE Club** — 面向企业高层与决策者的国际商业俱乐部与会员网络。
+2. **GlobalX 出海加速器** — 助力企业拓展海外市场、对接国际资源与合作伙伴的出海加速器。
+3. **WTC Fund** — 连接国际资本与创新的产业生态基金。`;
+
+const SECRETARY = `## 关于秘书长
+
+- 姓名：董立鑫（英文名 Bruce Dong）
+- 职位：WTC Singapore Secretary-General & COO（秘书长兼首席运营官）
+- LinkedIn：https://www.linkedin.com/in/donglixin
+
+### 联系信息
+
+- 办公地址（OFFICE ADDRESS）：6 Raffles Quay, Singapore
+- 官方网站（OFFICIAL WEBSITE）：https://wtcasg.org
+- 合作咨询邮箱（INQUIRY EMAIL）：partners@wtcasg.org`;
+
+const PROJECT_STRUCTURE = `## 项目结构
+
+- common.css / common.js — 全站共用样式与脚本
+- generate-sitemap.js — 站点地图生成脚本
+- grid/ waterfall/ wtc-buildings/ — 演示用图片资源
+- logo/ — 标志与二维码资源`;
+
+const DEPLOY = `## 部署
+
+纯静态站点，由 GitHub Pages 从 GitHub 仓库 \`gtn-global/WTC-SG-site\`（分支 main，根路径 \`/\`）发布，自定义域名 \`wtcasg.org\`。根路径 \`/\` 直接展示 index.html（中文版），\`/index-en.html\` 为英文版。`;
+
+const sitePages = [], journalPages = [], clubPages = [], casePages = [];
+for (const p of PAGES) {
+  const meta = readMeta(p || 'index.html');
+  const entry = { url: BASE + (p ? '/' + p : '/'), title: meta.title };
+  if (p.startsWith('club-apply/')) clubPages.push(entry);
+  else if (p.startsWith('wtc-one-club/')) journalPages.push(entry);
+  else if (p.startsWith('cases/')) casePages.push(entry);
+  else sitePages.push(entry);
+}
+
+function section(title, entries) {
+  if (!entries.length) return '';
+  const lines = entries.map(e => `- ${e.title || e.url} — ${e.url}`).join('\n');
+  return `## ${title}\n\n${lines}`;
+}
+
+const llms = [
+  SITE_INTRO,
+  ABOUT,
+  section('秘书长手记（Secretary-General\'s Journal，董立鑫 Bruce Dong 第一人称记录）', journalPages),
+  section('俱乐部申请', clubPages),
+  section('案例研究', casePages),
+  section('站点页面', sitePages),
+  SECRETARY,
+  PROJECT_STRUCTURE,
+  DEPLOY,
+].filter(Boolean).join('\n\n') + '\n';
+
+fs.writeFileSync(path.join(__dirname, 'llms.txt'), llms);
+console.log('llms.txt generated for', BASE);
