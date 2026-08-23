@@ -92,20 +92,31 @@
         if (nextBtn) nextBtn.disabled = (deck.index === deck.count - 1);
     }
 
-    function getStepHeight() {
-        if (!deck.viewport) return window.innerHeight || 1080;
-        if (window.innerWidth <= 820 && deck.track && deck.track.children.length) {
-            var firstSlide = deck.track.children[0];
-            return firstSlide.offsetHeight || deck.viewport.clientHeight || 1080;
+    function getSlideTop(i) {
+        if (!deck.track || !deck.track.children.length) return 0;
+        var idx = Math.max(0, Math.min(deck.track.children.length - 1, i));
+        var slide = deck.track.children[idx];
+        return slide ? slide.offsetTop : 0;
+    }
+
+    function getNearestSlideIndex(scrollTop) {
+        if (!deck.track || !deck.track.children.length) return 0;
+        var nearest = 0;
+        var minDist = Infinity;
+        for (var i = 0; i < deck.track.children.length; i++) {
+            var dist = Math.abs(deck.track.children[i].offsetTop - scrollTop);
+            if (dist < minDist) {
+                minDist = dist;
+                nearest = i;
+            }
         }
-        return deck.viewport.clientHeight || 1080;
+        return nearest;
     }
 
     function goTo(i) {
         if (!deck.viewport) return;
         deck.index = Math.max(0, Math.min(deck.count - 1, i));
-        var step = getStepHeight();
-        deck.viewport.scrollTo({ top: deck.index * step, behavior: 'smooth' });
+        deck.viewport.scrollTo({ top: getSlideTop(deck.index), behavior: 'smooth' });
         renderNav();
         updateVisualFocus();
         for (var k = Math.max(0, deck.index - 1); k <= Math.min(deck.count - 1, deck.index + 1); k++) {
@@ -193,8 +204,7 @@
         });
 
         deck.viewport.addEventListener('scroll', function () {
-            var h = getStepHeight();
-            var idx = Math.round(deck.viewport.scrollTop / h);
+            var idx = getNearestSlideIndex(deck.viewport.scrollTop);
             if (idx !== deck.index && idx >= 0 && idx < deck.count) {
                 deck.index = idx;
                 renderNav();
@@ -224,8 +234,7 @@
     }
     function revealAround() {
         if (!revealSlides.length || !deck.viewport) return;
-        var h = getStepHeight();
-        var i = Math.round(deck.viewport.scrollTop / h);
+        var i = getNearestSlideIndex(deck.viewport.scrollTop);
         if (i < 0) i = 0;
         if (i > revealSlides.length - 1) i = revealSlides.length - 1;
         // 把首页到当前页下方一页全部标记，保证滚动过的页面都可见
@@ -237,7 +246,7 @@
     function rescale() {
         scaleStage();
         if (deck.viewport) {
-            deck.viewport.scrollTop = deck.index * getStepHeight();
+            deck.viewport.scrollTop = getSlideTop(deck.index);
         }
     }
 

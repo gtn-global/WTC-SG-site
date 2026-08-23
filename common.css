@@ -97,12 +97,13 @@ html,body{
 
 @media (max-width:820px){
   #stage{margin-top:54px;}
-  #track .slide{height:92vh;flex-basis:92vh;}
+  #track .slide.has-mobile-layout{height:auto;flex-basis:auto;min-height:0;}
+  #track .slide.has-mobile-layout > .mobile-layout{height:auto;min-height:0;justify-content:flex-start;overflow:visible;}
   .slide.slide-visible .fade-in{animation:none;opacity:1;}
 }
 
 @media (max-width:480px){
-  #track .slide{height:90vh;flex-basis:90vh;}
+  #track .slide.has-mobile-layout{height:auto;flex-basis:auto;}
 }
 #slide, #stage{
   position:relative; overflow:hidden;
