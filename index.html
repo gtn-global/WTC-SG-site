@@ -1866,6 +1866,9 @@
     </div>
 
     <script src="common.min.js" defer></script>
+    <script>
+        window.__WTC_IS_MOBILE = window.matchMedia('(max-width: 820px)').matches;
+    </script>
 
     <!-- 顶部导航栏：跟随翻页高亮当前章节（页面级，不改动 common.js） -->
     <script>
@@ -1974,6 +1977,7 @@
            4x5 呼吸感蜂窝星阵 —— 数据配置 + 后缀自动匹配渲染
            ========================================================== */
         (function () {
+            if (window.__WTC_IS_MOBILE) return;
             /* 数据配置区 — 只需维护 logo 文件名（不含后缀），
                图片放在 logo/ 子文件夹中，例如 logo/logo1.png
                后缀自动匹配顺序：svg → png → jpg → jpeg → webp */
@@ -2090,6 +2094,7 @@
            手风琴交互 —— hover 预览 + click 锁定（更稳妥的双模式）
            ========================================================== */
         (function () {
+            if (window.__WTC_IS_MOBILE) return;
             var container = document.getElementById('pillarsContainer');
             if (!container) return;
             var items = Array.prototype.slice.call(container.querySelectorAll('.pillar-item'));
@@ -2224,6 +2229,7 @@
         };
 
         window.addEventListener('load', function () {
+            if (window.__WTC_IS_MOBILE) return;
             var adjustedNodes = [
                 { city: '北京', en: 'Beijing', x: 765 - 50, y: 60, status: 'planned', type: 'industry', desc: '国际合作、政府资源、产业协同', priority: true },
                 { city: '上海', en: 'Shanghai', x: 1055 - 50, y: 190, status: 'planned', type: 'both', desc: '国际金融、跨境投资、全球企业' },
@@ -2297,6 +2303,7 @@
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
+            if (window.__WTC_IS_MOBILE) return;
             const modules = document.querySelectorAll('.capital-module');
             const hoverCard = document.getElementById('capital-hover-card');
             const hcTitle = document.getElementById('hc-title');
@@ -2347,6 +2354,7 @@
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
+            if (window.__WTC_IS_MOBILE) return;
             const nodes = document.querySelectorAll('.node');
             const hoverCard = document.getElementById('hover-card');
 
@@ -2423,6 +2431,7 @@
         /* ===== 第6页能力手风琴：鼠标悬停即展开，同一时间仅展开一项 ===== */
         /* 悬停某条时，同步高亮右侧对应漂浮关键词（复用 data-group / data-groups 联动） */
         (function () {
+            if (window.__WTC_IS_MOBILE) return;
             var accordion = document.getElementById('capabilityAccordion');
             if (!accordion) return;
             var items = Array.prototype.slice.call(accordion.querySelectorAll('.capability-item'));
@@ -2475,6 +2484,7 @@
     <script>
     // hover/touch 统一修复：资本流向卡片在触屏上点按切换 .active 显示详情
     document.addEventListener('DOMContentLoaded', function () {
+            if (window.__WTC_IS_MOBILE) return;
       document.querySelectorAll('.capital-flow-card').forEach(function (card) {
         var hover = card.querySelector('.capital-hover-card');
         if (!hover) return;
