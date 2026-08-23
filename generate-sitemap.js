@@ -15,6 +15,26 @@ const BASE = (process.argv[2] || DEFAULT_BASE).replace(/\/$/, '');
 const PAGES = [
   '',
   'index-en.html',
+  'wtc-one-club/one-club-journal.html',
+  'wtc-one-club/one-club-journal-en.html',
+  'wtc-one-club/journal-launch-ceremony/journal-launch-ceremony.html',
+  'wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en.html',
+  'wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore.html',
+  'wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore-en.html',
+  'wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon.html',
+  'wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon-en.html',
+  'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html',
+  'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en.html',
+  'club-apply/club-apply.html',
+  'club-apply/club-apply-en.html',
+  'cases/case-list.html',
+  'cases/case-list-en.html',
+  'cases/hardtech-semiconductor/index.html',
+  'cases/hardtech-semiconductor/en.html',
+  'cases/home-building-materials/index.html',
+  'cases/home-building-materials/en.html',
+  'cases/smart-manufacturing/index.html',
+  'cases/smart-manufacturing/en.html',
 ];
 
 // 每个页面关联的代表性图片（用于 sitemap image 扩展，提升图片搜索可见性）
