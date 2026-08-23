@@ -786,3 +786,161 @@
   font-size: 11px;
   color: #8b93a3;
 }
+
+/* Slide 5 mobile layout */
+.m5-top {
+  position: relative;
+  z-index: 2;
+}
+
+.m5-eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c5a059;
+}
+
+.m5-title {
+  margin: 10px 0 0;
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-size: 26px;
+  line-height: 1.28;
+  color: #fff;
+}
+
+.m5-sub {
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: #b8c0cf;
+  line-height: 1.5;
+}
+
+.m5-intro {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #c7d0db;
+}
+
+.m5-list {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.m5-card {
+  border: 1px solid rgba(197, 160, 89, 0.36);
+  border-radius: 12px;
+  padding: 11px 12px;
+  background: rgba(197, 160, 89, 0.05);
+}
+
+.m5-name-en {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.m5-name-cn {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #c5a059;
+}
+
+.m5-desc {
+  margin: 7px 0 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #d5dbe6;
+}
+
+/* Slide 9 mobile layout */
+.m9-top {
+  position: relative;
+  z-index: 2;
+}
+
+.m9-eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c5a059;
+}
+
+.m9-title {
+  margin: 10px 0 0;
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-size: 30px;
+  line-height: 1.22;
+  color: #fff;
+}
+
+.m9-sub {
+  margin-top: 7px;
+  font-size: 12px;
+  color: #b8c0cf;
+}
+
+.m9-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.m9-card {
+  border: 1px solid rgba(197, 160, 89, 0.36);
+  border-radius: 12px;
+  padding: 11px 12px;
+  background: rgba(197, 160, 89, 0.05);
+}
+
+.m9-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.m9-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: #d4af37;
+  font-weight: 700;
+}
+
+.m9-name {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.m9-desc {
+  margin: 7px 0 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #d5dbe6;
+}
+
+.m9-metrics {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.m9-metric {
+  border-top: 1px solid rgba(197, 160, 89, 0.35);
+  padding-top: 8px;
+}
+
+.m9-metric-label {
+  font-size: 11px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.m9-metric-value {
+  margin-top: 4px;
+  font-size: 10.5px;
+  color: #c7d0db;
+  line-height: 1.5;
+}
