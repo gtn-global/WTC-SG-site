@@ -92,11 +92,20 @@
         if (nextBtn) nextBtn.disabled = (deck.index === deck.count - 1);
     }
 
+    function getStepHeight() {
+        if (!deck.viewport) return window.innerHeight || 1080;
+        if (window.innerWidth <= 820 && deck.track && deck.track.children.length) {
+            var firstSlide = deck.track.children[0];
+            return firstSlide.offsetHeight || deck.viewport.clientHeight || 1080;
+        }
+        return deck.viewport.clientHeight || 1080;
+    }
+
     function goTo(i) {
         if (!deck.viewport) return;
         deck.index = Math.max(0, Math.min(deck.count - 1, i));
-        // 每页真实占满一屏（100vh），滚动按真实屏高计算
-        deck.viewport.scrollTo({ top: deck.index * deck.viewport.clientHeight, behavior: 'smooth' });
+        var step = getStepHeight();
+        deck.viewport.scrollTo({ top: deck.index * step, behavior: 'smooth' });
         renderNav();
         updateVisualFocus();
         for (var k = Math.max(0, deck.index - 1); k <= Math.min(deck.count - 1, deck.index + 1); k++) {
@@ -184,7 +193,7 @@
         });
 
         deck.viewport.addEventListener('scroll', function () {
-            var h = deck.viewport.clientHeight || 1080;
+            var h = getStepHeight();
             var idx = Math.round(deck.viewport.scrollTop / h);
             if (idx !== deck.index && idx >= 0 && idx < deck.count) {
                 deck.index = idx;
@@ -215,7 +224,7 @@
     }
     function revealAround() {
         if (!revealSlides.length || !deck.viewport) return;
-        var h = deck.viewport.clientHeight || 1080;
+        var h = getStepHeight();
         var i = Math.round(deck.viewport.scrollTop / h);
         if (i < 0) i = 0;
         if (i > revealSlides.length - 1) i = revealSlides.length - 1;
@@ -228,7 +237,7 @@
     function rescale() {
         scaleStage();
         if (deck.viewport) {
-            deck.viewport.scrollTop = deck.index * deck.viewport.clientHeight;
+            deck.viewport.scrollTop = deck.index * getStepHeight();
         }
     }
 
