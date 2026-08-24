@@ -89,6 +89,17 @@ a{ color: inherit; }
   font-family: var(--font-display); font-weight:600; font-size: clamp(22px, 2.6vw, 28px);
   color: var(--color-white); margin-bottom: 22px;
 }
+/* 相关报道 / Related Coverage 区块标题：金色、上方金色分隔线，作为独立板块标题 */
+.section.related-report h2{
+  margin:64px 0 8px;
+  padding-top:28px;
+  border-top:1px solid rgba(197,160,89,.4);
+  font-family:var(--font-display);
+  font-size:26px;
+  font-weight:600;
+  letter-spacing:3px;
+  color:#C5A059;
+}
 .section p{ font-size:15.5px; color: var(--color-text); max-width: 68ch; margin-bottom:16px; }
 .section p:last-child{ margin-bottom:0; }
 
