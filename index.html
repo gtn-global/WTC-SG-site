@@ -1176,7 +1176,7 @@
                         <!-- 左侧节点群 (生态网络) -->
                         <!-- 节点附带 data 属性供 JS 读取渲染 Hover 面板 -->
                         <div class="node node-left node-l1" data-title="WTCA 全球网络"
-                            data-desc="依托 WTCA 全球网络，连接世界贸易中心体系、国际城市及跨区域商业合作网络，推动国际商务合作、会员互联及全球资源共享。"
+                            data-desc="依托 WTCA 全球网络——涵盖雅加达、吉隆坡、马尼拉、香港、孟买、班加罗尔、大阪、墨尔本等城市——连接世界贸易中心体系、国际城市及跨区域商业合作网络，推动国际商务合作、会员互联及全球资源共享。<a href='https://www.wtca.org/locations/map/asia' target='_blank' rel='noopener'>查看完整名录 →</a>"
                             data-tags="WTCA,全球城市,国际商务,会员网络">
                             <span class="node-text">WTCA 全球网络</span><span class="node-dot"></span>
                         </div>
@@ -1585,6 +1585,11 @@
 
                         </div>
 
+                        <a href="club-apply/club-apply.html" class="p14-cta">
+                            立即申请加入 WTC ONE Club
+                            <span class="p14-cta-arrow">→</span>
+                        </a>
+
                     </div>
 
                     <!-- 右侧栏：4x5 呼吸感蜂窝星阵 -->
@@ -1854,6 +1859,20 @@
             <div class="sub-text">世界贸易中心协会新加坡世贸 & 中国国际贸易学会金融文化贸易促进工作委员会</div>
         </div>
     </div>
+
+    <style>
+        #hover-card {
+            pointer-events: auto;
+        }
+
+        #hover-card a,
+        #hover-card a:visited,
+        #hover-card a:hover,
+        #hover-card a:focus {
+            color: #D4AF37;
+            text-decoration: none;
+        }
+    </style>
 
     <script src="common.min.js" defer></script>
     <script>
@@ -2362,7 +2381,7 @@
                     const isExtra = this.getAttribute('data-extra');
 
                     hcTitle.textContent = title;
-                    hcDesc.textContent = desc;
+                    hcDesc.innerHTML = desc;
 
                     hcTags.innerHTML = '';
                     if (tags) {
@@ -2412,7 +2431,24 @@
                     hoverCard.classList.add('active');
                 });
 
+                let hideTimer = null;
+
                 node.addEventListener('mouseleave', function (e) {
+                    hideTimer = setTimeout(function () {
+                        if (!hoverCard.matches(':hover')) {
+                            hoverCard.classList.remove('active');
+                        }
+                    }, 80);
+                });
+
+                node.addEventListener('mouseenter', function () {
+                    if (hideTimer) {
+                        clearTimeout(hideTimer);
+                        hideTimer = null;
+                    }
+                });
+
+                hoverCard.addEventListener('mouseleave', function () {
                     hoverCard.classList.remove('active');
                 });
             });

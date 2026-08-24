@@ -42,6 +42,11 @@
             --font-display: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
             --font-body:    'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
         }
+
+        /* Only English version: move the left accordion upward without moving the CTA. */
+        html[lang="en"] .slide[data-slide="14"] .pillars-container {
+            margin-top: -18px;
+        }
     </style>
 
     <link rel="stylesheet" href="common.min.css">
@@ -141,6 +146,13 @@
         .p5-cases-card .cc-btn{ flex:none; display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border:1px solid var(--color-gold); border-radius:999px; color:var(--color-gold-strong); font-size:14px; font-weight:600; letter-spacing:.4px; white-space:nowrap; transition:background .35s ease, color .35s ease; }
         .p5-cases-card:hover .cc-btn{ background:var(--color-gold-strong); color:#0A192F; }
         @media (max-width:680px){ .p5-cases-card{ flex-direction:column; align-items:flex-start; gap:14px; } .p5-cases-card .cc-btn{ align-self:stretch; justify-content:center; } }
+    </style>
+
+    <!-- P14 手风琴展开后与申请入口重叠修复：下移 CTA，避开 03 展开内容 -->
+    <style>
+        #track .slide[data-slide="14"] .p14-cta {
+            top: 880px;
+        }
     </style>
 </head>
 
@@ -1216,7 +1228,7 @@
                         <!-- 左侧Nodes群 (Ecosystem Network) -->
                         <!-- Nodes附带 data 属性供 JS 读取渲染 Hover 面板 -->
                         <div class="node node-left node-l1" data-title="WTCA Global Network"
-                            data-desc="Built on the WTCA Global Network, connecting the world’s Trade Centers, international cities, and cross-regional business networks to advance international cooperation, member interconnection, and global resource sharing."
+                            data-desc="Built on the WTCA Global Network — spanning cities including Jakarta, Kuala Lumpur, Metro Manila, Hong Kong, Mumbai, Bengaluru, Osaka, and Melbourne — connecting the world's Trade Centers, international cities, and cross-regional business networks to advance international cooperation, member interconnection, and global resource sharing. <a href='https://www.wtca.org/locations/map/asia' target='_blank' rel='noopener'>View the full directory →</a>"
                             data-tags="WTCA,Global Cities,International Business,Member Network">
                             <span class="node-text">WTCA Global Network</span><span class="node-dot"></span>
                         </div>
@@ -1624,6 +1636,11 @@
 
                         </div>
 
+                        <a href="club-apply/club-apply-en.html" class="p14-cta">
+                            Apply to Join WTC ONE Club
+                            <span class="p14-cta-arrow">→</span>
+                        </a>
+
                     </div>
 
                     <!-- 右侧栏：4x5 呼吸感蜂窝星阵 -->
@@ -1939,6 +1956,20 @@
             <div class="sub-text">World Trade Centers Association Singapore & the Financial Culture Trade Promotion Committee of China International Trade Society</div>
         </div>
     </div>
+
+    <style>
+        #hover-card {
+            pointer-events: auto;
+        }
+
+        #hover-card a,
+        #hover-card a:visited,
+        #hover-card a:hover,
+        #hover-card a:focus {
+            color: #D4AF37 !important;
+            text-decoration: none;
+        }
+    </style>
 
     <script src="common.min.js" defer></script>
     <script>
@@ -2447,7 +2478,7 @@
                     const isExtra = this.getAttribute('data-extra');
 
                     hcTitle.textContent = title;
-                    hcDesc.textContent = desc;
+                    hcDesc.innerHTML = desc;
 
                     hcTags.innerHTML = '';
                     if (tags) {
@@ -2497,7 +2528,31 @@
                     hoverCard.classList.add('active');
                 });
 
+                let hideTimer = null;
+
                 node.addEventListener('mouseleave', function (e) {
+                    hideTimer = setTimeout(function () {
+                        if (!hoverCard.matches(':hover')) {
+                            hoverCard.classList.remove('active');
+                        }
+                    }, 80);
+                });
+
+                node.addEventListener('mouseenter', function () {
+                    if (hideTimer) {
+                        clearTimeout(hideTimer);
+                        hideTimer = null;
+                    }
+                });
+
+                hoverCard.addEventListener('mouseenter', function () {
+                    if (hideTimer) {
+                        clearTimeout(hideTimer);
+                        hideTimer = null;
+                    }
+                });
+
+                hoverCard.addEventListener('mouseleave', function () {
                     hoverCard.classList.remove('active');
                 });
             });
