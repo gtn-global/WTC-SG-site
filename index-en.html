@@ -10,7 +10,8 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <title>WTC Singapore | World Trade Centers Association (WTCA) Member in Singapore</title>
-    <meta name="description" content="WTC Singapore is a member of the World Trade Centers Association (WTCA) in Singapore, connecting businesses to a global trade network spanning 90+ countries and 300+ World Trade Centers. We provide core values, a worldwide ecosystem, and cross-border opportunities through the International Business Network, GlobalX Going-Global Accelerator, WTC Fund international capital ecosystem, and Global Leadership Network — helping companies expand overseas, access international resources, and build global partnerships.">
+    <meta name="description"
+        content="WTC Singapore is a member of the World Trade Centers Association (WTCA) in Singapore, connecting businesses to a global trade network spanning 90+ countries and 300+ World Trade Centers. We provide core values, a worldwide ecosystem, and cross-border opportunities through the International Business Network, GlobalX Going-Global Accelerator, WTC Fund international capital ecosystem, and Global Leadership Network — helping companies expand overseas, access international resources, and build global partnerships.">
     <link rel="canonical" href="https://wtcasg.org/index-en.html">
     <link rel="alternate" hreflang="zh-CN" href="https://wtcasg.org/">
     <link rel="alternate" hreflang="en" href="https://wtcasg.org/index-en.html">
@@ -19,7 +20,8 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WTC Singapore">
     <meta property="og:title" content="WTC Singapore | World Trade Centers Association (WTCA) Member in Singapore">
-    <meta property="og:description" content="WTC Singapore is a member of the World Trade Centers Association (WTCA), connecting businesses to a global trade network with core values, a worldwide ecosystem, and cross-border opportunities.">
+    <meta property="og:description"
+        content="WTC Singapore is a member of the World Trade Centers Association (WTCA), connecting businesses to a global trade network with core values, a worldwide ecosystem, and cross-border opportunities.">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="zh_CN">
     <meta property="og:url" content="https://wtcasg.org/index-en.html">
@@ -33,14 +35,15 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wtcasg.org/ogimage/og-image.jpg">
     <meta name="twitter:title" content="WTC Singapore | World Trade Centers Association (WTCA) Member in Singapore">
-    <meta name="twitter:description" content="WTC Singapore is a member of the World Trade Centers Association (WTCA), connecting businesses to a global trade network with core values, a worldwide ecosystem, and cross-border opportunities.">
+    <meta name="twitter:description"
+        content="WTC Singapore is a member of the World Trade Centers Association (WTCA), connecting businesses to a global trade network with core values, a worldwide ecosystem, and cross-border opportunities.">
 
     <link rel="stylesheet" href="fonts/fonts.css">
     <style>
         /* 字体本地化：拉丁字形走本地 woff2，中文回退系统字体（零加载） */
-        :root{
+        :root {
             --font-display: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
-            --font-body:    'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+            --font-body: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
         }
 
         /* Only English version: move the left accordion upward without moving the CTA. */
@@ -54,6 +57,16 @@
     <link rel="stylesheet" href="page-shared.min.css">
 
     <link rel="stylesheet" href="mobile-slides.css">
+    <style>
+        /* Mirror the confirmed final slide-14 honeycomb treatment from the Chinese page */
+        #track .slide[data-slide="14"] .hex-column {
+            top: 170px !important;
+        }
+
+        #track .slide[data-slide="14"] .hex-caption-pill {
+            top: 845px !important;
+        }
+    </style>
 
     <!-- JSON-LD: Organization + WebSite (GEO / structured data) -->
     <script type="application/ld+json">
@@ -130,6 +143,7 @@
             line-height: 1.35;
             margin: 18px 0 10px;
         }
+
         /* P7 (data-slide=7) only: card body is one continuous paragraph, unified size/color */
         #track .slide[data-slide="7"] .p4-content .card .desc {
             color: #fff;
@@ -137,15 +151,83 @@
             line-height: 1.75;
             margin: 0;
         }
+
         /* 首页 slide-7 / slide-8 聚合页入口卡片（与中文页一致，页面内局部样式） */
-        .p5-cases-card{ display:flex; align-items:center; justify-content:space-between; gap:20px; max-width:100%; margin:20px 0 0; padding:18px 24px; text-decoration:none; border:1px solid rgba(197,160,89,.42); border-radius:14px; background:linear-gradient(135deg, rgba(197,160,89,.10), rgba(197,160,89,.03)); transition:border-color .35s ease, background .35s ease, transform .35s ease; }
-        .p5-cases-card:hover{ border-color:var(--color-gold-strong); background:linear-gradient(135deg, rgba(212,175,55,.16), rgba(212,175,55,.05)); transform:translateY(-2px); }
-        .p5-cases-card .cc-left{ display:flex; flex-direction:column; gap:6px; min-width:0; }
-        .p5-cases-card .cc-title{ font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--color-white); line-height:1.2; }
-        .p5-cases-card .cc-sub{ font-size:13.5px; color:var(--color-text-dim); line-height:1.5; }
-        .p5-cases-card .cc-btn{ flex:none; display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border:1px solid var(--color-gold); border-radius:999px; color:var(--color-gold-strong); font-size:14px; font-weight:600; letter-spacing:.4px; white-space:nowrap; transition:background .35s ease, color .35s ease; }
-        .p5-cases-card:hover .cc-btn{ background:var(--color-gold-strong); color:#0A192F; }
-        @media (max-width:680px){ .p5-cases-card{ flex-direction:column; align-items:flex-start; gap:14px; } .p5-cases-card .cc-btn{ align-self:stretch; justify-content:center; } }
+        .p5-cases-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 100%;
+            margin: 20px 0 0;
+            padding: 18px 24px;
+            text-decoration: none;
+            border: 1px solid rgba(197, 160, 89, .42);
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(197, 160, 89, .10), rgba(197, 160, 89, .03));
+            transition: border-color .35s ease, background .35s ease, transform .35s ease;
+        }
+
+        .p5-cases-card:hover {
+            border-color: var(--color-gold-strong);
+            background: linear-gradient(135deg, rgba(212, 175, 55, .16), rgba(212, 175, 55, .05));
+            transform: translateY(-2px);
+        }
+
+        .p5-cases-card .cc-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 0;
+        }
+
+        .p5-cases-card .cc-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-white);
+            line-height: 1.2;
+        }
+
+        .p5-cases-card .cc-sub {
+            font-size: 13.5px;
+            color: var(--color-text-dim);
+            line-height: 1.5;
+        }
+
+        .p5-cases-card .cc-btn {
+            flex: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border: 1px solid var(--color-gold);
+            border-radius: 999px;
+            color: var(--color-gold-strong);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .4px;
+            white-space: nowrap;
+            transition: background .35s ease, color .35s ease;
+        }
+
+        .p5-cases-card:hover .cc-btn {
+            background: var(--color-gold-strong);
+            color: #0A192F;
+        }
+
+        @media (max-width:680px) {
+            .p5-cases-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+
+            .p5-cases-card .cc-btn {
+                align-self: stretch;
+                justify-content: center;
+            }
+        }
     </style>
 
     <!-- P14 手风琴展开后与申请入口重叠修复：下移 CTA，避开 03 展开内容 -->
@@ -153,8 +235,202 @@
         #track .slide[data-slide="14"] .p14-cta {
             top: 880px;
         }
+
+        /* English version: Our Value mega menu hidden by default, shown only on hover of the nav item */
+        #site-topbar {
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav {
+            position: relative;
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega {
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega>a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            z-index: 2;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega>a::after {
+            content: "▾";
+            font-size: 10px;
+            color: rgba(255, 255, 255, .65);
+            margin-left: 8px;
+            transform: translateY(-1px);
+            transition: transform .2s ease, color .2s ease;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega:hover>a::after,
+        #site-topbar .topbar-nav .nav-item-with-mega:focus-within>a::after {
+            transform: rotate(180deg) translateY(1px);
+            color: var(--color-gold);
+        }
+
+        #site-topbar .topbar-nav .mega-panel {
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 10px);
+            transform: translateX(-50%) translateY(8px);
+            width: 620px;
+            display: none;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0;
+            padding: 10px 0 0;
+            background: rgba(16, 35, 63, .98);
+            border: 1px solid rgba(197, 160, 89, .28);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, .42);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+            z-index: 260;
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega:hover .mega-panel,
+        #site-topbar .topbar-nav .nav-item-with-mega:focus-within .mega-panel {
+            display: grid;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        #site-topbar .topbar-nav .mega-panel::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -12px;
+            height: 12px;
+            background: transparent;
+        }
+
+        #site-topbar .topbar-nav .mega-col {
+            position: relative;
+            min-height: 260px;
+            padding: 0 22px 16px;
+            border-right: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        #site-topbar .topbar-nav .mega-col:last-child {
+            border-right: none;
+        }
+
+        #site-topbar .topbar-nav .mega-col-top {
+            display: block;
+            min-height: 66px;
+            padding-top: 20px;
+            margin-bottom: 18px;
+            font-family: var(--font-body);
+            color: rgba(255, 255, 255, .72);
+            letter-spacing: .12em;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        #site-topbar .topbar-nav .mega-col-top strong {
+            display: block;
+            margin-top: 4px;
+            margin-bottom: 0;
+            font-family: var(--font-display);
+            font-size: 20px;
+            line-height: 1.15;
+            letter-spacing: 0;
+            text-transform: none;
+            color: #fff;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        #site-topbar .topbar-nav .mega-primary {
+            display: block;
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, .8);
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 1.7;
+            min-height: 48px;
+            transition: color .2s ease;
+        }
+
+        #site-topbar .topbar-nav .mega-primary:hover {
+            color: var(--color-gold);
+        }
+
+        #site-topbar .topbar-nav .mega-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, .08);
+            margin: 12px 0 18px;
+        }
+
+        #site-topbar .topbar-nav .mega-subhead {
+            margin-bottom: 10px;
+            font-family: var(--font-body);
+            letter-spacing: .08em;
+            font-size: 10px;
+            color: rgba(255, 255, 255, .44);
+            text-transform: uppercase;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 10px 0;
+            color: rgba(255, 255, 255, .82);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            font-size: 14px;
+            transition: color .2s ease, padding-left .2s ease;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem:last-child {
+            border-bottom: none;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem:hover {
+            color: var(--color-gold);
+            padding-left: 4px;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem .mega-arrow {
+            color: var(--color-gold);
+            opacity: 0;
+            transition: opacity .2s ease;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem:hover .mega-arrow {
+            opacity: 1;
+        }
+
+        #site-topbar .topbar-nav .mega-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 58px;
+            height: 22px;
+            padding: 0 8px;
+            border: 1px solid rgba(197, 160, 89, .5);
+            border-radius: 999px;
+            color: var(--color-gold);
+            font-size: 9px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+        }
     </style>
-</head>
 
 <body>
 
@@ -166,7 +442,39 @@
             <a href="#" data-target="0" onclick="WTCDeck.goTo(0); return false;">Home</a>
             <a href="#" data-target="1" onclick="WTCDeck.goTo(1); return false;">About WTCA</a>
             <a href="#" data-target="4" onclick="WTCDeck.goTo(4); return false;">About WTC Singapore</a>
-            <a href="#" data-target="6" onclick="WTCDeck.goTo(6); return false;">Our Value</a>
+
+            <div class="nav-item-with-mega">
+                <a href="#" data-target="6" onclick="WTCDeck.goTo(6); return false;" class="active">Our Value</a>
+                <div class="mega-panel" aria-label="Our Value menu">
+                    <div class="mega-col">
+                        <span class="mega-col-top">01<strong>WTC ONE Club</strong></span>
+                        <a class="mega-primary" href="#">Global Business<br>Opportunities<br>Explore Membership →</a>
+                        <div class="mega-divider"></div>
+                        <div class="mega-subhead">More</div>
+                        <a class="mega-subitem" href="wtc-one-club/one-club-journal-en.html"><span>Club
+                                Journal</span><span class="mega-arrow">→</span></a>
+                        <a class="mega-subitem" href="club-apply/club-apply-en.html"><span>Apply to Join<br>WTC ONE
+                                Club</span><span class="mega-arrow">→</span></a>
+                    </div>
+                    <div class="mega-col">
+                        <span class="mega-col-top">02<strong>GlobalX</strong></span>
+                        <a class="mega-primary" href="#">Global Expansion<br>Accelerator<br>Explore Services →</a>
+                        <div class="mega-divider"></div>
+                        <div class="mega-subhead">More</div>
+                        <a class="mega-subitem" href="cases/case-list-en.html"><span>Case Studies</span><span
+                                class="mega-arrow">→</span></a>
+                    </div>
+                    <div class="mega-col">
+                        <span class="mega-col-top">03<strong>WTC Fund</strong></span>
+                        <a class="mega-primary" href="#">Innovation Capital<br>Ecosystem<br>Explore Investment →</a>
+                        <div class="mega-divider"></div>
+                        <div class="mega-subhead">More</div>
+                        <a class="mega-subitem" href="#"><span>Coming Soon</span><span
+                                class="mega-tag">Coming</span></a>
+                    </div>
+                </div>
+            </div>
+
             <a href="#" data-target="9" onclick="WTCDeck.goTo(9); return false;">Global Ecosystem</a>
             <a href="#" data-target="14" onclick="WTCDeck.goTo(14); return false;">Connect With Us</a>
         </nav>
@@ -192,8 +500,10 @@
                             <div class="p1-brand-cn">World Trade Center Singapore</div>
                         </div>
                         <div class="logo-group">
-                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="506" height="120">
-                            <img src="quotes-logos/logo_sg.webp" class="logo" alt="WTC Singapore Logo" width="610" height="120">
+                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo"
+                                style="margin-right:20px;" width="506" height="120">
+                            <img src="quotes-logos/logo_sg.webp" class="logo" alt="WTC Singapore Logo" width="610"
+                                height="120">
                         </div>
                     </div>
 
@@ -257,7 +567,8 @@
                                 </div>
                             </div>
                             <div class="mh-footer-line"></div>
-                            <p class="mh-footer-text">World Trade Centers Association member · 90+ countries and regions</p>
+                            <p class="mh-footer-text">World Trade Centers Association member · 90+ countries and regions
+                            </p>
                         </div>
                     </div>
 
@@ -276,8 +587,10 @@
                     <div class="header fade-in d1" style="left:60px;">
                         <div class="eyebrow">World Trade Centers Association</div>
                         <div class="logo-group">
-                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="506" height="120">
-                            <img class="logo" src="quotes-logos/logo_sg.webp" alt="WTC Singapore Logo" width="610" height="120">
+                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo"
+                                style="margin-right:20px;" width="506" height="120">
+                            <img class="logo" src="quotes-logos/logo_sg.webp" alt="WTC Singapore Logo" width="610"
+                                height="120">
                         </div>
                     </div>
 
@@ -306,18 +619,24 @@
                         <div class="p2-block">
                             <div class="p2-block-title">Mission</div>
                             <div class="p2-block-text">Connecting global business opportunities—Connect Business,
-                                Globally. Committed to connecting global business resources and advancing international trade, investment cooperation, and cross-border commerce.</div>
+                                Globally. Committed to connecting global business resources and advancing international
+                                trade, investment cooperation, and cross-border commerce.</div>
                         </div>
                         <div class="p2-block">
                             <div class="p2-block-title">Vision</div>
                             <div class="p2-block-text">WTCA
-                                A vital platform connecting global business, communities, and resources, and a premier brand for international economic cooperation and cross-border exchange. As a trusted global brand, WTCA
-                                continuously links the world’s business networks, empowering enterprises to seize international opportunities and create global value.</div>
+                                A vital platform connecting global business, communities, and resources, and a premier
+                                brand for international economic cooperation and cross-border exchange. As a trusted
+                                global brand, WTCA
+                                continuously links the world’s business networks, empowering enterprises to seize
+                                international opportunities and create global value.</div>
                         </div>
                         <div class="p2-block">
                             <div class="p2-block-title">Governance</div>
                             <div class="p2-block-text">
-                                As a non-political international organization, WTCA is governed by a global council as its highest decision-making body. Its governance across five world regions and committee mechanisms support global vision and long-term sustainability.</div>
+                                As a non-political international organization, WTCA is governed by a global council as
+                                its highest decision-making body. Its governance across five world regions and committee
+                                mechanisms support global vision and long-term sustainability.</div>
                         </div>
                     </div>
 
@@ -348,16 +667,19 @@
                         <div class="m2-top">
                             <div class="m2-eyebrow">01 · About WTCA</div>
                             <h2 class="m2-title">The World’s Leading International Business Network</h2>
-                            <p class="m2-sub">World Trade Centers Association (WTCA) · Your Passport to Global Success</p>
+                            <p class="m2-sub">World Trade Centers Association (WTCA) · Your Passport to Global Success
+                            </p>
 
                             <ul class="m2-list">
                                 <li>Mission: connect global business resources and accelerate cross-border growth.</li>
-                                <li>Vision: a trusted platform linking global business communities and opportunities.</li>
+                                <li>Vision: a trusted platform linking global business communities and opportunities.
+                                </li>
                                 <li>Governance: a non-political global council model across five world regions.</li>
                             </ul>
                         </div>
 
-                        <div class="m2-foot">World Trade Centers Association | wtca.org · Connection · Recognition · Trust · Global Influence</div>
+                        <div class="m2-foot">World Trade Centers Association | wtca.org · Connection · Recognition ·
+                            Trust · Global Influence</div>
                     </div>
 
                 </div>
@@ -376,52 +698,52 @@
 
                     <div class="card-grid-dense fade-in d4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca01" alt="Global Connection 01"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca01"
+                                alt="Global Connection 01" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 01</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca02" alt="Global Connection 02"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca02"
+                                alt="Global Connection 02" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 02</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca03" alt="Global Connection 03"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca03"
+                                alt="Global Connection 03" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 03</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca04" alt="Global Connection 04"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca04"
+                                alt="Global Connection 04" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 04</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca05" alt="Global Connection 05"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca05"
+                                alt="Global Connection 05" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 05</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca06" alt="Global Connection 06"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca06"
+                                alt="Global Connection 06" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 06</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca07" alt="Global Connection 07"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca07"
+                                alt="Global Connection 07" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 07</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca08" alt="Global Connection 08"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca08"
+                                alt="Global Connection 08" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 08</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca09" alt="Global Connection 09"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca09"
+                                alt="Global Connection 09" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 09</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca10" alt="Global Connection 10"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca10"
+                                alt="Global Connection 10" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 10</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca11" alt="Global Connection 11"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca11"
+                                alt="Global Connection 11" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 11</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca12" alt="Global Connection 12"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca12"
+                                alt="Global Connection 12" style="object-fit:cover; display:block;">
                             <div class="cap">Global Connection 12</div>
                         </div>
                     </div>
@@ -479,19 +801,23 @@
 
                             <div class="m3-grid">
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca01.webp" alt="Global Connection 01" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';">
+                                    <img src="waterfall/wtca01.webp" alt="Global Connection 01" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';">
                                     <div class="m3-cap">Global Connection 01</div>
                                 </div>
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca02.webp" alt="Global Connection 02" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';">
+                                    <img src="waterfall/wtca02.webp" alt="Global Connection 02" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';">
                                     <div class="m3-cap">Global Connection 02</div>
                                 </div>
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca03.webp" alt="Global Connection 03" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';">
+                                    <img src="waterfall/wtca03.webp" alt="Global Connection 03" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';">
                                     <div class="m3-cap">Global Connection 03</div>
                                 </div>
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca04.webp" alt="Global Connection 04" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';">
+                                    <img src="waterfall/wtca04.webp" alt="Global Connection 04" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';">
                                     <div class="m3-cap">Global Connection 04</div>
                                 </div>
                             </div>
@@ -518,52 +844,58 @@
 
                     <div class="card-grid-dense fade-in d4" id="cardGrid4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/01_washington_wtc" alt="WTC Building 01"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/01_washington_wtc" alt="WTC Building 01"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 01</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc" alt="WTC Building 02"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc"
+                                alt="WTC Building 02" style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 02</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc" alt="WTC Building 03"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc"
+                                alt="WTC Building 03" style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 03</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/04_amsterdam_wtc" alt="WTC Building 04"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/04_amsterdam_wtc" alt="WTC Building 04"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 04</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/05_new_york_wtc" alt="WTC Building 05"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/05_new_york_wtc" alt="WTC Building 05"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 05</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc" alt="WTC Building 06"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc"
+                                alt="WTC Building 06" style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 06</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/07_rotterdam_wtc" alt="WTC Building 07"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/07_rotterdam_wtc" alt="WTC Building 07"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 07</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/08_bangalore_wtc" alt="WTC Building 08"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/08_bangalore_wtc" alt="WTC Building 08"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 08</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc" alt="WTC Building 09"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc"
+                                alt="WTC Building 09" style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 09</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/10_bahrain_wtc" alt="WTC Building 10"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/10_bahrain_wtc" alt="WTC Building 10"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 10</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc" alt="WTC Building 11"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc"
+                                alt="WTC Building 11" style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 11</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc" alt="WTC Building 12"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc"
+                                alt="WTC Building 12" style="object-fit:cover; display:block;">
                             <div class="cap">WTC Building 12</div>
                         </div>
                     </div>
@@ -620,16 +952,41 @@
                             <div class="m4-sub">WTC Worldwide</div>
 
                             <div class="m4-grid">
-                                <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp" alt="WTC Building 01" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';"><div class="m4-cap">WTC Building 01</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="WTC Building 02" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';"><div class="m4-cap">WTC Building 02</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="WTC Building 03" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';"><div class="m4-cap">WTC Building 03</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp" alt="WTC Building 04" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';"><div class="m4-cap">WTC Building 04</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="WTC Building 05" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';"><div class="m4-cap">WTC Building 05</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="WTC Building 06" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';"><div class="m4-cap">WTC Building 06</div></div>
+                                <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp"
+                                        alt="WTC Building 01" loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';">
+                                    <div class="m4-cap">WTC Building 01</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="WTC Building 02"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';">
+                                    <div class="m4-cap">WTC Building 02</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="WTC Building 03"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';">
+                                    <div class="m4-cap">WTC Building 03</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp"
+                                        alt="WTC Building 04" loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';">
+                                    <div class="m4-cap">WTC Building 04</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="WTC Building 05"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';">
+                                    <div class="m4-cap">WTC Building 05</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="WTC Building 06"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';">
+                                    <div class="m4-cap">WTC Building 06</div>
+                                </div>
                             </div>
 
                             <div class="m4-foot">
-                                <p class="m4-note">A curated mobile gallery of global WTC landmarks. View the desktop version for the full set.</p>
+                                <p class="m4-note">A curated mobile gallery of global WTC landmarks. View the desktop
+                                    version for the full set.</p>
                             </div>
                         </div>
                     </div>
@@ -642,15 +999,23 @@
                     <div class="section-eyebrow p2-eyebrow-top">02 — About WTC Singapore</div>
 
                     <div class="p3-main-block">
-                        <div class="p3-headline-cn fade-in d2">Rooted in Asia-Pacific, a hub linking global<br>markets with an industrial-capital ecosystem</div>
+                        <div class="p3-headline-cn fade-in d2">Rooted in Asia-Pacific, a hub linking global<br>markets
+                            with an industrial-capital ecosystem</div>
                         <div class="p3-headline-en fade-in d3">Gateway from Asia-Pacific to the World · NEXUS of
                             Capital, Innovation and Global Markets</div>
 
                         <div class="p4-intro p4-intro-en-wide fade-in d4">
-                            <p>World Trade Center Singapore (WTC Singapore for short) is the sole licensed member of the World Trade Centers
-                                Association (WTCA) Global Network in Singapore—an international business and investment platform based in Singapore, serving global enterprises and committed to connecting international trade, industry cooperation, capital, and innovation resources.</p>
-                            <p>WTC Singapore is built around three business pillars: the WTC ONE Club, the GlobalX Going-Global Accelerator, and the WTC
-                                Fund international investment fund. It continuously connects capital with projects and technology with industry, advancing international exchange, industrial synergy, and enterprise globalization, and deepening the integration of ASEAN, China, and global markets.</p>
+                            <p>World Trade Center Singapore (WTC Singapore for short) is the sole licensed member of the
+                                World Trade Centers
+                                Association (WTCA) Global Network in Singapore—an international business and investment
+                                platform based in Singapore, serving global enterprises and committed to connecting
+                                international trade, industry cooperation, capital, and innovation resources.</p>
+                            <p>WTC Singapore is built around three business pillars: the WTC ONE Club, the GlobalX
+                                Going-Global Accelerator, and the WTC
+                                Fund international investment fund. It continuously connects capital with projects and
+                                technology with industry, advancing international exchange, industrial synergy, and
+                                enterprise globalization, and deepening the integration of ASEAN, China, and global
+                                markets.</p>
                         </div>
 
                         <div class="p4-feature-divider"></div>
@@ -659,17 +1024,23 @@
                             <div class="p4-feature">
                                 <div class="p4-feature-en">WTC One Club</div>
                                 <div class="p4-feature-cn">Cross-border Business Community</div>
-                                <div class="p4-feature-desc">A premium business community of global entrepreneurs, investors, and industry leaders, fostering cross-border cooperation and resource matching through private events and member networks.</div>
+                                <div class="p4-feature-desc">A premium business community of global entrepreneurs,
+                                    investors, and industry leaders, fostering cross-border cooperation and resource
+                                    matching through private events and member networks.</div>
                             </div>
                             <div class="p4-feature">
                                 <div class="p4-feature-en">GlobalX Going-Global Accelerator</div>
                                 <div class="p4-feature-cn">Market Access One-Stop Service Platform</div>
-                                <div class="p4-feature-desc">A one-stop acceleration service for going-global enterprises—market entry, compliant landing, and local operations—bridging ASEAN and China in both directions.</div>
+                                <div class="p4-feature-desc">A one-stop acceleration service for going-global
+                                    enterprises—market entry, compliant landing, and local operations—bridging ASEAN and
+                                    China in both directions.</div>
                             </div>
                             <div class="p4-feature">
                                 <div class="p4-feature-en">WTC Fund International Capital & Innovation Ecosystem</div>
                                 <div class="p4-feature-cn">Innovation Capital Investment Fund</div>
-                                <div class="p4-feature-desc">Connecting early-stage and growth tech with industrial capital to build a "capital + industry + scenario" investment ecosystem that accelerates global expansion.</div>
+                                <div class="p4-feature-desc">Connecting early-stage and growth tech with industrial
+                                    capital to build a "capital + industry + scenario" investment ecosystem that
+                                    accelerates global expansion.</div>
                             </div>
                         </div>
                     </div>
@@ -677,25 +1048,30 @@
                     <div class="mobile-layout">
                         <div class="m5-top">
                             <div class="m5-eyebrow">02 — About WTC Singapore</div>
-                            <h2 class="m5-title">A strategic Asia-Pacific hub linking global markets and industrial capital</h2>
+                            <h2 class="m5-title">A strategic Asia-Pacific hub linking global markets and industrial
+                                capital</h2>
                             <div class="m5-sub">Gateway from Asia-Pacific to the World</div>
-                            <p class="m5-intro">WTC Singapore is WTCA's authorized Singapore member, connecting capital, industry and global opportunities through three core values.</p>
+                            <p class="m5-intro">WTC Singapore is WTCA's authorized Singapore member, connecting capital,
+                                industry and global opportunities through three core values.</p>
 
                             <div class="m5-list">
                                 <div class="m5-card">
                                     <div class="m5-name-en">WTC One Club</div>
                                     <div class="m5-name-cn">Cross-border Business Community</div>
-                                    <p class="m5-desc">A premium network of entrepreneurs, investors and industry leaders for cross-border collaboration.</p>
+                                    <p class="m5-desc">A premium network of entrepreneurs, investors and industry
+                                        leaders for cross-border collaboration.</p>
                                 </div>
                                 <div class="m5-card">
                                     <div class="m5-name-en">GlobalX Accelerator</div>
                                     <div class="m5-name-cn">Market Access One-Stop Service</div>
-                                    <p class="m5-desc">One-stop acceleration for market entry, compliant landing and local operations across ASEAN and China.</p>
+                                    <p class="m5-desc">One-stop acceleration for market entry, compliant landing and
+                                        local operations across ASEAN and China.</p>
                                 </div>
                                 <div class="m5-card">
                                     <div class="m5-name-en">WTC Fund</div>
                                     <div class="m5-name-cn">International Capital & Innovation Ecosystem</div>
-                                    <p class="m5-desc">Connects industrial capital and technology projects to build a scalable innovation investment ecosystem.</p>
+                                    <p class="m5-desc">Connects industrial capital and technology projects to build a
+                                        scalable innovation investment ecosystem.</p>
                                 </div>
                             </div>
                         </div>
@@ -731,7 +1107,9 @@
                                         <div class="capability-toggle"></div>
                                     </div>
                                     <div class="capability-panel">
-                                        <p>Connecting China, ASEAN, and major Asian economies, a strategic gateway for enterprises entering Asian markets and pursuing regional and cross-border growth.</p>
+                                        <p>Connecting China, ASEAN, and major Asian economies, a strategic gateway for
+                                            enterprises entering Asian markets and pursuing regional and cross-border
+                                            growth.</p>
                                     </div>
                                 </div>
 
@@ -741,7 +1119,9 @@
                                         <div class="capability-toggle"></div>
                                     </div>
                                     <div class="capability-panel">
-                                        <p>Converging international banks, investors, capital markets, and a global financing environment to support enterprises’ international capital allocation.</p>
+                                        <p>Converging international banks, investors, capital markets, and a global
+                                            financing environment to support enterprises’ international capital
+                                            allocation.</p>
                                     </div>
                                 </div>
 
@@ -751,7 +1131,9 @@
                                         <div class="capability-toggle"></div>
                                     </div>
                                     <div class="capability-panel">
-                                        <p>Bringing together Asia’s leading family offices and wealth-management ecosystem to support high-net-worth wealth management and long-term capital partnerships.</p>
+                                        <p>Bringing together Asia’s leading family offices and wealth-management
+                                            ecosystem to support high-net-worth wealth management and long-term capital
+                                            partnerships.</p>
                                     </div>
                                 </div>
 
@@ -761,7 +1143,8 @@
                                         <div class="capability-toggle"></div>
                                     </div>
                                     <div class="capability-panel">
-                                        <p>A core base where multinational regional HQs and international management teams converge to run regional operations.</p>
+                                        <p>A core base where multinational regional HQs and international management
+                                            teams converge to run regional operations.</p>
                                     </div>
                                 </div>
 
@@ -771,7 +1154,9 @@
                                         <div class="capability-toggle"></div>
                                     </div>
                                     <div class="capability-panel">
-                                        <p>Linking tech innovation, industry resources, research institutes, and investment capital to drive industrial synergy and the global scaling of innovations.</p>
+                                        <p>Linking tech innovation, industry resources, research institutes, and
+                                            investment capital to drive industrial synergy and the global scaling of
+                                            innovations.</p>
                                     </div>
                                 </div>
 
@@ -781,7 +1166,8 @@
                                         <div class="capability-toggle"></div>
                                     </div>
                                     <div class="capability-panel">
-                                        <p>Leveraging aviation, port shipping, and digital infrastructure to connect major global markets for efficient international business.</p>
+                                        <p>Leveraging aviation, port shipping, and digital infrastructure to connect
+                                            major global markets for efficient international business.</p>
                                     </div>
                                 </div>
 
@@ -806,7 +1192,8 @@
                             <span class="value-word" data-groups="asia-gateway hq-hub"
                                 style="top:53%; left:63%; font-size:22px; font-weight:500; --base-opacity:.6; --drift-dur:17s; --fade-delay:2.3s;">Asia</span>
                             <span class="value-word" data-groups="connectivity"
-                                style="top:76%; left:57%; font-size:31px; font-weight:600; --base-opacity:.8; --drift-dur:20s; --fade-delay:1.85s;">Global Markets</span>
+                                style="top:76%; left:57%; font-size:31px; font-weight:600; --base-opacity:.8; --drift-dur:20s; --fade-delay:1.85s;">Global
+                                Markets</span>
 
                             <span class="value-word" data-groups="financial-hub wealth-hub"
                                 style="top:23%; left:28%; font-size:27px; font-weight:600; --base-opacity:.7; --drift-dur:14s; --fade-delay:1.95s;">Capital</span>
@@ -846,28 +1233,52 @@
 
                             <div class="ma-list">
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">01</div><div class="ma-item-title">Gateway to Asia</div></div>
-                                    <div class="ma-item-body">Connecting China, ASEAN and major Asian economies, Singapore is a strategic gateway for regional and cross-border growth.</div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">01</div>
+                                        <div class="ma-item-title">Gateway to Asia</div>
+                                    </div>
+                                    <div class="ma-item-body">Connecting China, ASEAN and major Asian economies,
+                                        Singapore is a strategic gateway for regional and cross-border growth.</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">02</div><div class="ma-item-title">Financial Resource Allocation</div></div>
-                                    <div class="ma-item-body">Converges global banks, investors and capital markets to support international capital allocation.</div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">02</div>
+                                        <div class="ma-item-title">Financial Resource Allocation</div>
+                                    </div>
+                                    <div class="ma-item-body">Converges global banks, investors and capital markets to
+                                        support international capital allocation.</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">03</div><div class="ma-item-title">Wealth Management</div></div>
-                                    <div class="ma-item-body">Brings together leading family offices and wealth ecosystems to support long-term capital partnerships.</div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">03</div>
+                                        <div class="ma-item-title">Wealth Management</div>
+                                    </div>
+                                    <div class="ma-item-body">Brings together leading family offices and wealth
+                                        ecosystems to support long-term capital partnerships.</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">04</div><div class="ma-item-title">Regional HQ Cluster</div></div>
-                                    <div class="ma-item-body">A core base where multinational HQs and international management teams converge for regional operations.</div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">04</div>
+                                        <div class="ma-item-title">Regional HQ Cluster</div>
+                                    </div>
+                                    <div class="ma-item-body">A core base where multinational HQs and international
+                                        management teams converge for regional operations.</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">05</div><div class="ma-item-title">Innovation Ecosystem Synergy</div></div>
-                                    <div class="ma-item-body">Links technology, industry resources, research and investment to accelerate globally scalable innovation.</div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">05</div>
+                                        <div class="ma-item-title">Innovation Ecosystem Synergy</div>
+                                    </div>
+                                    <div class="ma-item-body">Links technology, industry resources, research and
+                                        investment to accelerate globally scalable innovation.</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">06</div><div class="ma-item-title">Global Connectivity Hub</div></div>
-                                    <div class="ma-item-body">Supported by aviation, shipping and digital infrastructure, it enables efficient access to major global markets.</div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">06</div>
+                                        <div class="ma-item-title">Global Connectivity Hub</div>
+                                    </div>
+                                    <div class="ma-item-body">Supported by aviation, shipping and digital
+                                        infrastructure, it enables efficient access to major global markets.</div>
                                 </div>
                             </div>
                         </div>
@@ -890,31 +1301,46 @@
                         <div class="card fade-in d3">
                             <div class="index">01</div>
                             <div class="en-title">Global Business<br>Opportunities</div>
-                            <div class="desc">Value resonance across WTCA’s 300+ global nodes. Not just a venue, but the top-tier business and political network powered by the World Trade Centers Association (WTCA) worldwide—offering multinational enterprises a decentralized, global business cooperation network and cross-border resource reciprocity.</div>
+                            <div class="desc">Value resonance across WTCA’s 300+ global nodes. Not just a venue, but the
+                                top-tier business and political network powered by the World Trade Centers Association
+                                (WTCA) worldwide—offering multinational enterprises a decentralized, global business
+                                cooperation network and cross-border resource reciprocity.</div>
                         </div>
                         <div class="card fade-in d4">
                             <div class="index">02</div>
                             <div class="en-title">Capital for Expanding<br>Globally</div>
-                            <div class="desc">Offshore anchor for sovereign funds and family offices. Leveraging Singapore’s absolute edge as a top-tier global wealth-management center, seamlessly linking sovereign wealth funds (SWFs), leading VCs, and core Asia-Pacific family offices to connect global WTC members, leading funds, family offices, and SWFs—building capital through closed-door roadshows and strategic matchmaking this ecosystem.</div>
+                            <div class="desc">Offshore anchor for sovereign funds and family offices. Leveraging
+                                Singapore’s absolute edge as a top-tier global wealth-management center, seamlessly
+                                linking sovereign wealth funds (SWFs), leading VCs, and core Asia-Pacific family offices
+                                to connect global WTC members, leading funds, family offices, and SWFs—building capital
+                                through closed-door roadshows and strategic matchmaking this ecosystem.</div>
                         </div>
                         <div class="card fade-in d5">
                             <div class="index">03</div>
                             <div class="en-title">Think Tank for<br>Decision Making</div>
-                            <div class="desc">Providing top-tier think-tank advisory for founders, CEOs, and global management teams, plus AI-driven strategic reports on investment, trade, and multinational institutions. Strictly by invitation only (By Invitation Only) and council nomination. Seats are open only to founders, CEOs, and international organization leaders—fully insulated from business noise.</div>
+                            <div class="desc">Providing top-tier think-tank advisory for founders, CEOs, and global
+                                management teams, plus AI-driven strategic reports on investment, trade, and
+                                multinational institutions. Strictly by invitation only (By Invitation Only) and council
+                                nomination. Seats are open only to founders, CEOs, and international organization
+                                leaders—fully insulated from business noise.</div>
                         </div>
                     </div>
 
                     <div class="p4-visual-copy fade-in d6">
                         <div class="vc-lines">
                             <div class="vc-line"><span class="accent">Across</span> markets, reach the limitless.</div>
-                            <div class="vc-line"><span class="accent">Across</span> borders, influence without bounds.</div>
+                            <div class="vc-line"><span class="accent">Across</span> borders, influence without bounds.
+                            </div>
                         </div>
                         <div class="vc-rule"></div>
-                        <div class="vc-body">Bringing together institutional capital, global decision-makers, and the WTCA international network, <em>WTC One Club</em> serves as a private gateway turning strategic relationships into lasting opportunities.</div>
+                        <div class="vc-body">Bringing together institutional capital, global decision-makers, and the
+                            WTCA international network, <em>WTC One Club</em> serves as a private gateway turning
+                            strategic relationships into lasting opportunities.</div>
                         <a class="p5-cases-card" href="wtc-one-club/one-club-journal-en.html">
                             <span class="cc-left">
                                 <span class="cc-title">Club Notes</span>
-                                <span class="cc-sub">Where global decision-makers and institutional capital turn strategic relationships into lasting opportunity.</span>
+                                <span class="cc-sub">Where global decision-makers and institutional capital turn
+                                    strategic relationships into lasting opportunity.</span>
                             </span>
                             <span class="cc-btn">Enter Notes &rarr;</span>
                         </a>
@@ -937,28 +1363,32 @@
                                         <div class="m7-num">01</div>
                                         <div class="m7-name">Global Business Opportunities</div>
                                     </div>
-                                    <p class="m7-desc">Connect to WTCA global nodes and open high-value routes for cross-border collaboration.</p>
+                                    <p class="m7-desc">Connect to WTCA global nodes and open high-value routes for
+                                        cross-border collaboration.</p>
                                 </div>
                                 <div class="m7-card">
                                     <div class="m7-card-head">
                                         <div class="m7-num">02</div>
                                         <div class="m7-name">Capital for Expanding Globally</div>
                                     </div>
-                                    <p class="m7-desc">Bridge SWFs, VCs and family offices to build strategic capital synergy for growth.</p>
+                                    <p class="m7-desc">Bridge SWFs, VCs and family offices to build strategic capital
+                                        synergy for growth.</p>
                                 </div>
                                 <div class="m7-card">
                                     <div class="m7-card-head">
                                         <div class="m7-num">03</div>
                                         <div class="m7-name">Think Tank for Decision Making</div>
                                     </div>
-                                    <p class="m7-desc">Invitation-only exchange for founders and leaders focused on long-term strategic outcomes.</p>
+                                    <p class="m7-desc">Invitation-only exchange for founders and leaders focused on
+                                        long-term strategic outcomes.</p>
                                 </div>
                             </div>
 
                             <a class="m7-cta" href="wtc-one-club/one-club-journal-en.html">Enter Club Notes</a>
                         </div>
 
-                        <div class="m7-foot">A private gateway where institutional capital, decision-makers and WTCA network turn relationships into durable opportunities.</div>
+                        <div class="m7-foot">A private gateway where institutional capital, decision-makers and WTCA
+                            network turn relationships into durable opportunities.</div>
                     </div>
 
                 </div>
@@ -972,7 +1402,8 @@
                     <div class="p5-arc p5-arc2"></div>
 
                     <div class="p5-content fade-in d2">
-                        <h2 style="color:#ffffff !important; font-size:50px !important;">GlobalX Going-Global Accelerator</h2>
+                        <h2 style="color:#ffffff !important; font-size:50px !important;">GlobalX Going-Global
+                            Accelerator</h2>
                         <div class="p5-subtitle">A One-Stop Global Expansion Service Platform</div>
                     </div>
 
@@ -986,7 +1417,9 @@
                                         <h3>Here's how AI reshapes productivity at scale.</h3>
                                     </div>
                                 </div>
-                                <p>Deeply embedding AI workflows and agent systems to digitally rebuild market expansion, organizational synergy, data operations, and global business management—boosting cross-border growth efficiency.</p>
+                                <p>Deeply embedding AI workflows and agent systems to digitally rebuild market
+                                    expansion, organizational synergy, data operations, and global business
+                                    management—boosting cross-border growth efficiency.</p>
                             </div>
                         </div>
                         <div class="p5-column fade-in d4">
@@ -998,7 +1431,10 @@
                                         <h3>Tap into the WTCA network's global reach.</h3>
                                     </div>
                                 </div>
-                                <p>Built on the WTCA global network spanning 90+ countries and regions and 300+ World Trade Centers, it provides plug-and-play international industry infrastructure and a trusted path for enterprises to enter target markets with resource-connectivity capability.</p>
+                                <p>Built on the WTCA global network spanning 90+ countries and regions and 300+ World
+                                    Trade Centers, it provides plug-and-play international industry infrastructure and a
+                                    trusted path for enterprises to enter target markets with resource-connectivity
+                                    capability.</p>
                             </div>
                         </div>
                         <div class="p5-column fade-in d5">
@@ -1010,7 +1446,9 @@
                                         <h3>Unlock offshore capital as your leverage hub.</h3>
                                     </div>
                                 </div>
-                                <p>Backed by the global capital network, it connects sovereign funds, family offices, strategic investors, and cross-border financing to deliver institutional capital solutions for global expansion.</p>
+                                <p>Backed by the global capital network, it connects sovereign funds, family offices,
+                                    strategic investors, and cross-border financing to deliver institutional capital
+                                    solutions for global expansion.</p>
                             </div>
                         </div>
                     </div>
@@ -1018,11 +1456,14 @@
                     <div class="p5-visual-copy fade-in d6">
                         <div class="p5-visual-line"></div>
                         <div class="p5-visual-title">One Connection<br>Global Expansion</div>
-                        <div class="p5-visual-desc">Drawing on the WTCA Global Network, AI operations infrastructure, and strategic capital, GlobalX empowers enterprises to expand into ASEAN and international markets.</div>
+                        <div class="p5-visual-desc">Drawing on the WTCA Global Network, AI operations infrastructure,
+                            and strategic capital, GlobalX empowers enterprises to expand into ASEAN and international
+                            markets.</div>
                         <a class="p5-cases-card" href="cases/case-list-en.html">
                             <span class="cc-left">
                                 <span class="cc-title">Global Expansion Cases</span>
-                                <span class="cc-sub">Real go-global stories — how we empower companies to grow across borders.</span>
+                                <span class="cc-sub">Real go-global stories — how we empower companies to grow across
+                                    borders.</span>
                             </span>
                             <span class="cc-btn">View Cases &rarr;</span>
                         </a>
@@ -1040,28 +1481,32 @@
                                         <div class="m8-num">01</div>
                                         <div class="m8-name">AI-Driven Execution</div>
                                     </div>
-                                    <p class="m8-desc">Embed AI workflows into expansion and operations to improve cross-border speed and quality.</p>
+                                    <p class="m8-desc">Embed AI workflows into expansion and operations to improve
+                                        cross-border speed and quality.</p>
                                 </div>
                                 <div class="m8-card">
                                     <div class="m8-card-head">
                                         <div class="m8-num">02</div>
                                         <div class="m8-name">WTCA Network Access</div>
                                     </div>
-                                    <p class="m8-desc">Use trusted WTCA nodes to enter target markets with stronger partner and resource access.</p>
+                                    <p class="m8-desc">Use trusted WTCA nodes to enter target markets with stronger
+                                        partner and resource access.</p>
                                 </div>
                                 <div class="m8-card">
                                     <div class="m8-card-head">
                                         <div class="m8-num">03</div>
                                         <div class="m8-name">Capital Enablement</div>
                                     </div>
-                                    <p class="m8-desc">Link SWFs, family offices and strategic investors to support sustained global growth.</p>
+                                    <p class="m8-desc">Link SWFs, family offices and strategic investors to support
+                                        sustained global growth.</p>
                                 </div>
                             </div>
 
                             <a class="m8-cta" href="cases/case-list-en.html">View Global Expansion Cases</a>
                         </div>
 
-                        <div class="m8-foot">One connection, global expansion. GlobalX aligns network, execution and capital for international growth.</div>
+                        <div class="m8-foot">One connection, global expansion. GlobalX aligns network, execution and
+                            capital for international growth.</div>
                     </div>
 
                 </div>
@@ -1085,7 +1530,9 @@
                             <div class="p6-content">
                                 <div class="p6-title">Global Asset Value Insights</div>
                                 <div class="p6-subtitle">Asset Intelligence</div>
-                                <div class="p6-desc">Beyond conventional screening, it builds a core asset pool with international growth resilience through the WTCA global node network and forward-looking industry layouts.</div>
+                                <div class="p6-desc">Beyond conventional screening, it builds a core asset pool with
+                                    international growth resilience through the WTCA global node network and
+                                    forward-looking industry layouts.</div>
                             </div>
                         </div>
                         <div class="p6-row fade-in d4">
@@ -1096,7 +1543,9 @@
                             <div class="p6-content">
                                 <div class="p6-title">Capital Synergy Allocation Hub</div>
                                 <div class="p6-subtitle">Capital Convergence</div>
-                                <div class="p6-desc">Deeply coupling family offices, industrial capital, and sovereign funds, it shifts from "scattered investment" to "institutional capital synergy," providing a long-term capital engine for high-potential assets.</div>
+                                <div class="p6-desc">Deeply coupling family offices, industrial capital, and sovereign
+                                    funds, it shifts from "scattered investment" to "institutional capital synergy,"
+                                    providing a long-term capital engine for high-potential assets.</div>
                             </div>
                         </div>
                         <div class="p6-row fade-in d5">
@@ -1107,7 +1556,9 @@
                             <div class="p6-content">
                                 <div class="p6-title">Global Value Cycle Loop</div>
                                 <div class="p6-subtitle">Leverage Value Creation</div>
-                                <div class="p6-desc">Relying on international market expansion, cross-jurisdiction compliance, and global capital-market access, it reshapes enterprise value discovery, ensuring maximum value release in flow.</div>
+                                <div class="p6-desc">Relying on international market expansion, cross-jurisdiction
+                                    compliance, and global capital-market access, it reshapes enterprise value
+                                    discovery, ensuring maximum value release in flow.</div>
                             </div>
                         </div>
                     </div>
@@ -1117,12 +1568,14 @@
                             <div class="p6-metric">
                                 <div class="p6-metric-dot"></div>
                                 <div class="p6-metric-label">Capital Anchor</div>
-                                <div class="p6-metric-value">Strategic capital resources linked at a scale of 1 billion+</div>
+                                <div class="p6-metric-value">Strategic capital resources linked at a scale of 1 billion+
+                                </div>
                             </div>
                             <div class="p6-metric">
                                 <div class="p6-metric-dot"></div>
                                 <div class="p6-metric-label">Ecosystem Vision</div>
-                                <div class="p6-metric-value">Advancing capital cooperation and value creation in ASEAN tech innovation</div>
+                                <div class="p6-metric-value">Advancing capital cooperation and value creation in ASEAN
+                                    tech innovation</div>
                             </div>
                         </div>
                     </div>
@@ -1135,27 +1588,41 @@
 
                             <div class="m9-list">
                                 <div class="m9-card">
-                                    <div class="m9-card-head"><div class="m9-num">01</div><div class="m9-name">Global Asset Value Insights</div></div>
-                                    <p class="m9-desc">Build a resilient core asset pool through WTCA global nodes and forward-looking industry strategy.</p>
+                                    <div class="m9-card-head">
+                                        <div class="m9-num">01</div>
+                                        <div class="m9-name">Global Asset Value Insights</div>
+                                    </div>
+                                    <p class="m9-desc">Build a resilient core asset pool through WTCA global nodes and
+                                        forward-looking industry strategy.</p>
                                 </div>
                                 <div class="m9-card">
-                                    <div class="m9-card-head"><div class="m9-num">02</div><div class="m9-name">Capital Synergy Allocation Hub</div></div>
-                                    <p class="m9-desc">Align family offices, industrial capital and sovereign funds into institutional long-term allocation.</p>
+                                    <div class="m9-card-head">
+                                        <div class="m9-num">02</div>
+                                        <div class="m9-name">Capital Synergy Allocation Hub</div>
+                                    </div>
+                                    <p class="m9-desc">Align family offices, industrial capital and sovereign funds into
+                                        institutional long-term allocation.</p>
                                 </div>
                                 <div class="m9-card">
-                                    <div class="m9-card-head"><div class="m9-num">03</div><div class="m9-name">Global Value Cycle Loop</div></div>
-                                    <p class="m9-desc">Reshape value discovery through global expansion, cross-jurisdiction compliance and market access.</p>
+                                    <div class="m9-card-head">
+                                        <div class="m9-num">03</div>
+                                        <div class="m9-name">Global Value Cycle Loop</div>
+                                    </div>
+                                    <p class="m9-desc">Reshape value discovery through global expansion,
+                                        cross-jurisdiction compliance and market access.</p>
                                 </div>
                             </div>
 
                             <div class="m9-metrics">
                                 <div class="m9-metric">
                                     <div class="m9-metric-label">Capital Anchor</div>
-                                    <div class="m9-metric-value">Strategic capital resources linked at a scale of 1 billion+</div>
+                                    <div class="m9-metric-value">Strategic capital resources linked at a scale of 1
+                                        billion+</div>
                                 </div>
                                 <div class="m9-metric">
                                     <div class="m9-metric-label">Ecosystem Vision</div>
-                                    <div class="m9-metric-value">Advancing capital cooperation and value creation in ASEAN tech innovation</div>
+                                    <div class="m9-metric-value">Advancing capital cooperation and value creation in
+                                        ASEAN tech innovation</div>
                                 </div>
                             </div>
                         </div>
@@ -1234,22 +1701,26 @@
                         </div>
 
                         <div class="node node-left node-l2" data-title="Government & Institutions"
-                            data-desc="Building long-term cooperation with government bodies, international organizations, industry associations, and public institutions to strengthen international capability and public-resource access." data-tags="Government,IOs,Associations,Public Institutions">
+                            data-desc="Building long-term cooperation with government bodies, international organizations, industry associations, and public institutions to strengthen international capability and public-resource access."
+                            data-tags="Government,IOs,Associations,Public Institutions">
                             <span class="node-text">Government & Institutions</span><span class="node-dot"></span>
                         </div>
 
-                        <div class="node node-left node-l3" data-title="Strategic Partners" data-desc="Deep strategic cooperation models such as honorary council members and global advisory board seats."
+                        <div class="node node-left node-l3" data-title="Strategic Partners"
+                            data-desc="Deep strategic cooperation models such as honorary council members and global advisory board seats."
                             data-tags="Industry,Capital,Tech,Universities" data-extra="true">
                             <span class="node-text">Strategic Partners</span><span class="node-dot"></span>
                         </div>
 
                         <div class="node node-left node-l4" data-title="Regional Ecosystem"
-                            data-desc="Using Singapore as the international hub to connect China and ASEAN ecosystems, driving cross-regional resource allocation, industry cooperation, and a continuous flow of global business opportunities." data-tags="Singapore,China,ASEAN,Asia-Pacific">
+                            data-desc="Using Singapore as the international hub to connect China and ASEAN ecosystems, driving cross-regional resource allocation, industry cooperation, and a continuous flow of global business opportunities."
+                            data-tags="Singapore,China,ASEAN,Asia-Pacific">
                             <span class="node-text">Regional Ecosystem</span><span class="node-dot"></span>
                         </div>
 
                         <div class="node node-left node-l5" data-title="Global Coordination"
-                            data-desc="A global coordination mechanism spanning resources, projects, talent, capital, and opportunities for sustained cross-region, cross-industry, and cross-institution cooperation." data-tags="Resources,Projects,Talent,Capital,Opportunities">
+                            data-desc="A global coordination mechanism spanning resources, projects, talent, capital, and opportunities for sustained cross-region, cross-industry, and cross-institution cooperation."
+                            data-tags="Resources,Projects,Talent,Capital,Opportunities">
                             <span class="node-text">Global Coordination</span><span class="node-dot"></span>
                         </div>
 
@@ -1269,12 +1740,15 @@
                             <span class="node-dot"></span><span class="node-text">Capital & Value Connection</span>
                         </div>
 
-                        <div class="node node-right node-r3" data-title="Industry Synergy" data-desc="Advancing cross-regional industry cooperation, resource sharing, and ecosystem synergy.">
+                        <div class="node node-right node-r3" data-title="Industry Synergy"
+                            data-desc="Advancing cross-regional industry cooperation, resource sharing, and ecosystem synergy.">
                             <span class="node-dot"></span><span class="node-text">Industry Synergy</span>
                         </div>
 
-                        <div class="node node-right node-r4" data-title="International Cooperation Opportunities" data-desc="Continuously creating opportunities for international, project, and global business development.">
-                            <span class="node-dot"></span><span class="node-text">International Cooperation Opportunities</span>
+                        <div class="node node-right node-r4" data-title="International Cooperation Opportunities"
+                            data-desc="Continuously creating opportunities for international, project, and global business development.">
+                            <span class="node-dot"></span><span class="node-text">International Cooperation
+                                Opportunities</span>
                         </div>
 
                     </div>
@@ -1313,7 +1787,8 @@
                                 </div>
                             </div>
 
-                            <div class="m10-foot">Mobile uses a simplified information layout. View desktop for full interactive network.</div>
+                            <div class="m10-foot">Mobile uses a simplified information layout. View desktop for full
+                                interactive network.</div>
                         </div>
                     </div>
 
@@ -1369,7 +1844,8 @@
                     </div>
 
                     <div class="p7-constellation-zone">
-                        <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" class="fade-in d3" width="1600" height="692" loading="lazy">
+                        <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" class="fade-in d3"
+                            width="1600" height="692" loading="lazy">
                     </div>
 
                     <div class="mobile-layout">
@@ -1393,7 +1869,8 @@
                     <div class="top-balance-bar">
                         <!-- 战略标语 + 副标题 -->
                         <div class="strategy-manifesto fade-in d1">
-                            <h2 style="color:#ffffff !important; font-size:50px !important;"><span class="t-cn">International Capital & Innovation Ecosystem</span></h2>
+                            <h2 style="color:#ffffff !important; font-size:50px !important;"><span
+                                    class="t-cn">International Capital & Innovation Ecosystem</span></h2>
                             <div class="strategy-subtitle">A Global Platform for Capital Innovation and Value Creation
                             </div>
                         </div>
@@ -1401,9 +1878,11 @@
 
                     <!-- Leadership Perspective（重新Positioning至标题下方） -->
                     <div class="fund-leadership-perspective fade-in d2">
-                        <img class="leader-avatar" src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" width="200" height="200" loading="lazy">
+                        <img class="leader-avatar" src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" width="200"
+                            height="200" loading="lazy">
                         <div class="leader-quote-wrap">
-                            <div class="leader-quote">"A vibrant, sustainable platform depends on a group of like-minded people growing together and creating long-term value."</div>
+                            <div class="leader-quote">"A vibrant, sustainable platform depends on a group of like-minded
+                                people growing together and creating long-term value."</div>
                             <div class="leader-signature">Blake Zhang<span>Chairman, WTC Singapore</span></div>
                         </div>
                     </div>
@@ -1478,14 +1957,16 @@
                             data-content="Focused on tech innovation and future-industry layouts, supporting commercialization, industrial upgrading, and the international growth of high-potential enterprises.">
                             <div class="module-dot"></div>
                             <div class="module-title">Industry Innovation Practice</div>
-                            <div class="module-preview">Continuously building the International Capital & Innovation Ecosystem</div>
+                            <div class="module-preview">Continuously building the International Capital & Innovation
+                                Ecosystem</div>
                         </div>
 
                         <div class="capital-module pos-m5" data-title="Global Value Creation"
                             data-content="Leveraging the global capital network, industry resources, and cooperation systems to drive deep synergy among capital, innovators, industry ecosystems, and international markets—sustaining long-term value creation, international cooperation, and global resource-allocation capability.">
                             <div class="module-dot"></div>
                             <div class="module-title">Global Value Creation</div>
-                            <div class="module-preview">Connecting capital, innovation, industry, and global markets</div>
+                            <div class="module-preview">Connecting capital, innovation, industry, and global markets
+                            </div>
                         </div>
 
                     </div>
@@ -1499,14 +1980,35 @@
                                 <img src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" loading="lazy">
                                 <div class="m12-leader-sign">Blake Zhang<span>Chairman, WTC Singapore</span></div>
                             </div>
-                            <div class="m12-quote">"A vibrant, sustainable platform depends on like-minded people growing together and creating long-term value."</div>
+                            <div class="m12-quote">"A vibrant, sustainable platform depends on like-minded people
+                                growing together and creating long-term value."</div>
 
                             <div class="m12-list">
-                                <div class="m12-item"><div class="m12-item-title">International Finance Experience</div><div class="m12-item-desc">33 years of international finance and M&A expertise.</div></div>
-                                <div class="m12-item"><div class="m12-item-title">Global Capital Network</div><div class="m12-item-desc">Connecting core capital and industry resources across regions.</div></div>
-                                <div class="m12-item"><div class="m12-item-title">Industry Investment Footprint</div><div class="m12-item-desc">Focused on AI, robotics, and future-oriented industries.</div></div>
-                                <div class="m12-item"><div class="m12-item-title">Industry Innovation Practice</div><div class="m12-item-desc">Driving commercialization and global growth of high-potential firms.</div></div>
-                                <div class="m12-item"><div class="m12-item-title">Global Value Creation</div><div class="m12-item-desc">Building long-term value loops among capital, innovation, and markets.</div></div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">International Finance Experience</div>
+                                    <div class="m12-item-desc">33 years of international finance and M&A expertise.
+                                    </div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">Global Capital Network</div>
+                                    <div class="m12-item-desc">Connecting core capital and industry resources across
+                                        regions.</div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">Industry Investment Footprint</div>
+                                    <div class="m12-item-desc">Focused on AI, robotics, and future-oriented industries.
+                                    </div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">Industry Innovation Practice</div>
+                                    <div class="m12-item-desc">Driving commercialization and global growth of
+                                        high-potential firms.</div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">Global Value Creation</div>
+                                    <div class="m12-item-desc">Building long-term value loops among capital, innovation,
+                                        and markets.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1516,16 +2018,21 @@
                 <div class="slide theme-content no-chrome" data-slide="13" id="slide-13">
 
                     <div class="hero fade-in d2" style="left:80px; top:55px;">
-                        <h2 style="color:#ffffff !important; font-size:50px !important;">International Partner Network</h2>
+                        <h2 style="color:#ffffff !important; font-size:50px !important;">International Partner Network
+                        </h2>
                         <div class="hero-title-cn">Global X Partners Networks</div>
                     </div>
 
                     <!-- 领导力引用卡片（标题下方） -->
                     <div class="hero-leader fade-in d3">
-                        <img class="leader-avatar" src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" width="200" height="200" loading="lazy">
+                        <img class="leader-avatar" src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" width="200"
+                            height="200" loading="lazy">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">
-                                "As global industry and supply chains restructure, Chinese enterprises have entered a new stage of internationalization—needing international endorsement, an expanded global network, and systematic, professional international strategy, compliance, organization design, and cross-cultural integration."</div>
+                                "As global industry and supply chains restructure, Chinese enterprises have entered a
+                                new stage of internationalization—needing international endorsement, an expanded global
+                                network, and systematic, professional international strategy, compliance, organization
+                                design, and cross-cultural integration."</div>
                             <div class="leader-signature">Xiaolan Zhu<span>Chief Representative &amp; CEO, WTC
                                     Singapore</span></div>
                         </div>
@@ -1542,9 +2049,12 @@
                             <div class="m13-sub">Global expansion with strategic support</div>
                             <div class="m13-leader">
                                 <img src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" loading="lazy">
-                                <div class="m13-leader-sign">Xiaolan Zhu<span>Chief Representative &amp; CEO, WTC Singapore</span></div>
+                                <div class="m13-leader-sign">Xiaolan Zhu<span>Chief Representative &amp; CEO, WTC
+                                        Singapore</span></div>
                             </div>
-                            <div class="m13-quote">"Enterprises need stronger international endorsement and systematic global capability in strategy, compliance, organization, and cross-cultural integration."</div>
+                            <div class="m13-quote">"Enterprises need stronger international endorsement and systematic
+                                global capability in strategy, compliance, organization, and cross-cultural
+                                integration."</div>
 
                             <div class="m13-list">
                                 <div class="m13-pill">International endorsement and trust</div>
@@ -1571,9 +2081,12 @@
 
                         <!-- 模块 B：领导力引用卡片 -->
                         <div class="leadership-perspective fade-in d2">
-                            <img class="leader-avatar" src="quotes-logos/COO_quote.webp" alt="Bruce Dong, WTC Singapore Secretary-General & COO" width="200" height="200" loading="lazy">
+                            <img class="leader-avatar" src="quotes-logos/COO_quote.webp"
+                                alt="Bruce Dong, WTC Singapore Secretary-General & COO" width="200" height="200"
+                                loading="lazy">
                             <div class="leader-quote-wrap">
-                                <div class="leader-quote">"There is only one business network in the world called World Trade Centers Association—and this is its membership in Asia-Pacific."</div>
+                                <div class="leader-quote">"There is only one business network in the world called World
+                                    Trade Centers Association—and this is its membership in Asia-Pacific."</div>
                                 <div class="leader-signature-en">Bruce Dong<span>Secretary General &amp; COO, WTC
                                         Singapore</span>
                                 </div>
@@ -1610,9 +2123,12 @@
                                 </div>
                                 <div class="pillar-content">
                                     <ul>
-                                        <li>Exclusive use of the WTC Singapore executive club in Singapore’s core business district</li>
-                                        <li>Private meeting rooms, member social spaces, and tailored business reception services</li>
-                                        <li>A trusted environment for member dialogue, relationship-building, and confidential business talks</li>
+                                        <li>Exclusive use of the WTC Singapore executive club in Singapore’s core
+                                            business district</li>
+                                        <li>Private meeting rooms, member social spaces, and tailored business reception
+                                            services</li>
+                                        <li>A trusted environment for member dialogue, relationship-building, and
+                                            confidential business talks</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1628,7 +2144,8 @@
                                 <div class="pillar-content">
                                     <ul>
                                         <li>Global access across 90+ countries and 300+ World Trade Centers</li>
-                                        <li>Local business referrals, market-access support, and trusted on-the-ground connections</li>
+                                        <li>Local business referrals, market-access support, and trusted on-the-ground
+                                            connections</li>
                                         <li>One membership, connecting you to the global business community</li>
                                     </ul>
                                 </div>
@@ -1661,16 +2178,23 @@
                             <div class="ma-sub">Join Us as ONE Club Members</div>
 
                             <div class="ma-leader">
-                                <img src="quotes-logos/COO_quote.webp" alt="Bruce Dong, WTC Singapore Secretary-General & COO" loading="lazy">
+                                <img src="quotes-logos/COO_quote.webp"
+                                    alt="Bruce Dong, WTC Singapore Secretary-General & COO" loading="lazy">
                                 <div>
-                                    <div class="ma-leader-quote">"There is only one business network in the world called World Trade Centers Association — and this is its membership in Asia-Pacific."</div>
-                                    <div class="ma-leader-sign">Bruce Dong<span>Secretary General &amp; COO, WTC Singapore</span></div>
+                                    <div class="ma-leader-quote">"There is only one business network in the world called
+                                        World Trade Centers Association — and this is its membership in Asia-Pacific."
+                                    </div>
+                                    <div class="ma-leader-sign">Bruce Dong<span>Secretary General &amp; COO, WTC
+                                            Singapore</span></div>
                                 </div>
                             </div>
 
                             <div class="ma-list">
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">01</div><div class="ma-item-title">Direct Capital Access</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">01</div>
+                                        <div class="ma-item-title">Direct Capital Access</div>
+                                    </div>
                                     <div class="ma-item-body">
                                         <ul>
                                             <li>Closed-door family-office roadshows (Family Office Salons)</li>
@@ -1680,21 +2204,31 @@
                                     </div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">02</div><div class="ma-item-title">Exclusive Privileges</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">02</div>
+                                        <div class="ma-item-title">Exclusive Privileges</div>
+                                    </div>
                                     <div class="ma-item-body">
                                         <ul>
-                                            <li>Exclusive use of the WTC Singapore executive club in Singapore's core business district</li>
-                                            <li>Private meeting rooms, member social spaces, and tailored business reception services</li>
-                                            <li>A trusted environment for member dialogue, relationship-building, and confidential business talks</li>
+                                            <li>Exclusive use of the WTC Singapore executive club in Singapore's core
+                                                business district</li>
+                                            <li>Private meeting rooms, member social spaces, and tailored business
+                                                reception services</li>
+                                            <li>A trusted environment for member dialogue, relationship-building, and
+                                                confidential business talks</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">03</div><div class="ma-item-title">Global Access</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">03</div>
+                                        <div class="ma-item-title">Global Access</div>
+                                    </div>
                                     <div class="ma-item-body">
                                         <ul>
                                             <li>Global access across 90+ countries and 300+ World Trade Centers</li>
-                                            <li>Local business referrals, market-access support, and trusted on-the-ground connections</li>
+                                            <li>Local business referrals, market-access support, and trusted
+                                                on-the-ground connections</li>
                                             <li>One membership, connecting you to the global business community</li>
                                         </ul>
                                     </div>
@@ -1709,7 +2243,8 @@
 
                 <div class="slide theme-content no-chrome" data-slide="15" id="slide-15">
                     <!-- ——— 章节眉题（Connect With Us章节起始页）——— -->
-                    <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; left:60px; margin:0;">05 — Connect With Us</div>
+                    <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; left:60px; margin:0;">05 —
+                        Connect With Us</div>
 
                     <!-- ——— 隐藏标题（仅存在于代码中，页面不显示）——— -->
                     <div class="p-title" style="display:none">
@@ -1765,12 +2300,18 @@
                     <div class="mobile-layout">
                         <div class="m15-eyebrow">05 — CONNECT WITH US</div>
                         <div class="m15-grid">
-                            <div class="m15-cell"><img src="grid/grid1.webp" alt="WTC Singapore Event Photo 1" loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid2.webp" alt="WTC Singapore Event Photo 2" loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid3.webp" alt="WTC Singapore Event Photo 3" loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid4.webp" alt="WTC Singapore Event Photo 4" loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid5.webp" alt="WTC Singapore Event Photo 5" loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid6.webp" alt="WTC Singapore Event Photo 6" loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid1.webp" alt="WTC Singapore Event Photo 1"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid2.webp" alt="WTC Singapore Event Photo 2"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid3.webp" alt="WTC Singapore Event Photo 3"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid4.webp" alt="WTC Singapore Event Photo 4"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid5.webp" alt="WTC Singapore Event Photo 5"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid6.webp" alt="WTC Singapore Event Photo 6"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';"></div>
                         </div>
                         <div class="m15-foot">
                             <div class="m15-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
@@ -1856,7 +2397,8 @@
                     <div class="p8-grid"></div>
 
                     <div class="p8-hero fade-in d2" style="top:180px;left:60px;">
-                        <h2 style="color:#ffffff !important; font-size:50px !important;">With WTC Singapore<br>Building the Future of Global Business Together</h2>
+                        <h2 style="color:#ffffff !important; font-size:50px !important;">With WTC Singapore<br>Building
+                            the Future of Global Business Together</h2>
                         <div class="hero-sub">Connect Business, Globally.</div>
                     </div>
 
@@ -1871,10 +2413,12 @@
                         </div>
                         <div class="p8-qr">
                             <div class="p8-qr-item">
-                                <img src="quotes-logos/donglixin_qrcode.png" alt="Bruce Dong QR Code" width="320" height="320" loading="lazy">
+                                <img src="quotes-logos/donglixin_qrcode.png" alt="Bruce Dong QR Code" width="320"
+                                    height="320" loading="lazy">
                             </div>
                             <div class="p8-qr-item">
-                                <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="Xiaolan Zhu QR Code" width="320" height="320" loading="lazy">
+                                <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="Xiaolan Zhu QR Code" width="320"
+                                    height="320" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -1886,7 +2430,8 @@
 
                     <div class="mobile-layout">
                         <div class="m16-top">
-                            <h2 class="m16-title">With WTC Singapore<br>Building the Future of Global Business Together</h2>
+                            <h2 class="m16-title">With WTC Singapore<br>Building the Future of Global Business Together
+                            </h2>
                             <div class="m16-sub">Connect Business, Globally.</div>
 
                             <div class="m16-info">
@@ -1906,17 +2451,20 @@
 
                             <div class="m16-qr">
                                 <div class="m16-qr-item">
-                                    <img src="quotes-logos/donglixin_qrcode.png" alt="Bruce Dong QR Code" loading="lazy">
+                                    <img src="quotes-logos/donglixin_qrcode.png" alt="Bruce Dong QR Code"
+                                        loading="lazy">
                                     <div class="m16-qr-cap">Bruce Dong</div>
                                 </div>
                                 <div class="m16-qr-item">
-                                    <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="Xiaolan Zhu QR Code" loading="lazy">
+                                    <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="Xiaolan Zhu QR Code"
+                                        loading="lazy">
                                     <div class="m16-qr-cap">Xiaolan Zhu</div>
                                 </div>
                             </div>
 
                             <div class="m16-foot">
-                                <div class="m16-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
+                                <div class="m16-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.
+                                </div>
                                 <div class="m16-foot-cn">Capital meets innovation, turning opportunity into value.</div>
                             </div>
                         </div>
@@ -1949,11 +2497,13 @@
             <ul>
                 <li>Mr. Ma Jianchun, President, China Society for WTO Studies</li>
                 <li>Mr. Jin Xu, President, China International Trade Society</li>
-                <li>Mr. Wu Jianbin, President, Financial Culture Trade Promotion Committee, China International Trade Society</li>
+                <li>Mr. Wu Jianbin, President, Financial Culture Trade Promotion Committee, China International Trade
+                    Society</li>
                 <li>Mr. Zhao Zhongxiu, President, University of International Business and Economics</li>
             </ul>
             <div class="card-extra-title" style="margin-top:12px;">Strategic Cooperation Agreements</div>
-            <div class="sub-text">World Trade Centers Association Singapore & the Financial Culture Trade Promotion Committee of China International Trade Society</div>
+            <div class="sub-text">World Trade Centers Association Singapore & the Financial Culture Trade Promotion
+                Committee of China International Trade Society</div>
         </div>
     </div>
 
@@ -2112,7 +2662,13 @@
                 { x: 100, y: 519, logo: 'logo15' },
                 { x: 300, y: 519, logo: 'logo16' },
                 { x: 500, y: 519, logo: 'logo17' },
-                { x: 700, y: 519, logo: 'logo18' }
+                { x: 700, y: 519, logo: 'logo18' },
+                // 第五行 y=692（5格）：logo19 放第一个，其余四格保留空白
+                { x: 0, y: 692, logo: 'logo19' },
+                { x: 200, y: 692, logo: null },
+                { x: 400, y: 692, logo: null },
+                { x: 600, y: 692, logo: null },
+                { x: 800, y: 692, logo: null }
             ];
 
             /* 后缀自动匹配：依次尝试 svg → png → jpg → jpeg → webp，全部失败则回退为空置格 */
@@ -2377,21 +2933,21 @@
                 hubNode.appendChild(card);
                 var style = document.createElement('style');
                 style.textContent = '.wtc-map-hub-node:hover .wtc-map-card { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }';
-            // 触屏兜底：点按切换 .tap-active，避免 :hover 在平板/手机上不触发且遮挡
-            document.querySelectorAll('.wtc-map-hub-node').forEach(function(node){
-              node.addEventListener('click', function(e){
-                e.stopPropagation();
-                document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function(n){
-                  if(n !== node) n.classList.remove('tap-active');
+                // 触屏兜底：点按切换 .tap-active，避免 :hover 在平板/手机上不触发且遮挡
+                document.querySelectorAll('.wtc-map-hub-node').forEach(function (node) {
+                    node.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function (n) {
+                            if (n !== node) n.classList.remove('tap-active');
+                        });
+                        node.classList.toggle('tap-active');
+                    });
                 });
-                node.classList.toggle('tap-active');
-              });
-            });
-            document.addEventListener('click', function(){
-              document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function(n){
-                n.classList.remove('tap-active');
-              });
-            });
+                document.addEventListener('click', function () {
+                    document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function (n) {
+                        n.classList.remove('tap-active');
+                    });
+                });
                 document.head.appendChild(style);
             }
 
@@ -2612,26 +3168,26 @@
 
     </script>
     <script>
-    // hover/touch 统一修复：资本流向卡片在触屏上点按切换 .active 显示详情
-    document.addEventListener('DOMContentLoaded', function () {
+        // hover/touch 统一修复：资本流向卡片在触屏上点按切换 .active 显示详情
+        document.addEventListener('DOMContentLoaded', function () {
             if (window.__WTC_IS_MOBILE) return;
-      document.querySelectorAll('.capital-flow-card').forEach(function (card) {
-        var hover = card.querySelector('.capital-hover-card');
-        if (!hover) return;
-        card.addEventListener('click', function (e) {
-          e.stopPropagation();
-          document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
-            if (h !== hover) h.classList.remove('active');
-          });
-          hover.classList.toggle('active');
+            document.querySelectorAll('.capital-flow-card').forEach(function (card) {
+                var hover = card.querySelector('.capital-hover-card');
+                if (!hover) return;
+                card.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
+                        if (h !== hover) h.classList.remove('active');
+                    });
+                    hover.classList.toggle('active');
+                });
+            });
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
+                    h.classList.remove('active');
+                });
+            });
         });
-      });
-      document.addEventListener('click', function () {
-        document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
-          h.classList.remove('active');
-        });
-      });
-    });
     </script>
 </body>
 

@@ -8,7 +8,8 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <title>新加坡世贸中心 WTC Singapore | 世界贸易中心协会 WTCA 新加坡</title>
-    <meta name="description" content="新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）在新加坡的成员机构，依托覆盖全球 90 多个国家、300 多个世界贸易中心的经贸网络，为企业与机构提供核心价值、全球生态连接与跨境商机对接。业务涵盖国际商业网络、出海加速器、国际资本创新生态与全球领导力网络，助力企业拓展海外市场、对接国际资源与合作伙伴。">
+    <meta name="description"
+        content="新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）在新加坡的成员机构，依托覆盖全球 90 多个国家、300 多个世界贸易中心的经贸网络，为企业与机构提供核心价值、全球生态连接与跨境商机对接。业务涵盖国际商业网络、出海加速器、国际资本创新生态与全球领导力网络，助力企业拓展海外市场、对接国际资源与合作伙伴。">
     <link rel="canonical" href="https://wtcasg.org/">
     <link rel="alternate" hreflang="zh-CN" href="https://wtcasg.org/">
     <link rel="alternate" hreflang="en" href="https://wtcasg.org/index-en.html">
@@ -31,20 +32,30 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://wtcasg.org/ogimage/og-image.jpg">
     <meta name="twitter:title" content="新加坡世贸中心 WTC Singapore | 世界贸易中心协会 WTCA 新加坡">
-    <meta name="twitter:description" content="新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）成员，依托全球经贸网络，为企业提供核心价值、全球生态连接与跨境商机对接。">
+    <meta name="twitter:description"
+        content="新加坡世贸中心（WTC Singapore）是世界贸易中心协会（WTCA）成员，依托全球经贸网络，为企业提供核心价值、全球生态连接与跨境商机对接。">
 
     <link rel="stylesheet" href="fonts/fonts.css">
     <style>
         /* 字体本地化：拉丁字形走本地 woff2，中文回退系统字体（零加载） */
-        :root{
+        :root {
             --font-display: 'Playfair Display', 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
-            --font-body:    'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+            --font-body: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
         }
     </style>
 
-<link rel="stylesheet" href="common.min.css">
-<link rel="stylesheet" href="page-shared.min.css">
-<link rel="stylesheet" href="mobile-slides.css">
+    <link rel="stylesheet" href="common.min.css">
+    <link rel="stylesheet" href="page-shared.min.css">
+    <link rel="stylesheet" href="mobile-slides.css">
+    <style>
+        #track .slide[data-slide="14"] .hex-column {
+            top: 100px !important;
+        }
+
+        #track .slide[data-slide="14"] .hex-caption-pill {
+            top: 775px !important;
+        }
+    </style>
 
     <!-- 公共图库加载 + 灯箱逻辑（waterfall / wtc-buildings / grid 共用，消除重复，见优化 4.3） -->
     <script>
@@ -156,14 +167,290 @@
     </script>
     <style>
         /* 首页 slide-7 / slide-8 聚合页入口卡片（页面内局部样式，不改动 common.min.css） */
-        .p5-cases-card{ display:flex; align-items:center; justify-content:space-between; gap:20px; max-width:100%; margin:20px 0 0; padding:18px 24px; text-decoration:none; border:1px solid rgba(197,160,89,.42); border-radius:14px; background:linear-gradient(135deg, rgba(197,160,89,.10), rgba(197,160,89,.03)); transition:border-color .35s ease, background .35s ease, transform .35s ease; }
-        .p5-cases-card:hover{ border-color:var(--color-gold-strong); background:linear-gradient(135deg, rgba(212,175,55,.16), rgba(212,175,55,.05)); transform:translateY(-2px); }
-        .p5-cases-card .cc-left{ display:flex; flex-direction:column; gap:6px; min-width:0; }
-        .p5-cases-card .cc-title{ font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--color-white); line-height:1.2; }
-        .p5-cases-card .cc-sub{ font-size:13.5px; color:var(--color-text-dim); line-height:1.5; }
-        .p5-cases-card .cc-btn{ flex:none; display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border:1px solid var(--color-gold); border-radius:999px; color:var(--color-gold-strong); font-size:14px; font-weight:600; letter-spacing:.4px; white-space:nowrap; transition:background .35s ease, color .35s ease; }
-        .p5-cases-card:hover .cc-btn{ background:var(--color-gold-strong); color:#0A192F; }
-        @media (max-width:680px){ .p5-cases-card{ flex-direction:column; align-items:flex-start; gap:14px; } .p5-cases-card .cc-btn{ align-self:stretch; justify-content:center; } }
+        .p5-cases-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 100%;
+            margin: 20px 0 0;
+            padding: 18px 24px;
+            text-decoration: none;
+            border: 1px solid rgba(197, 160, 89, .42);
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(197, 160, 89, .10), rgba(197, 160, 89, .03));
+            transition: border-color .35s ease, background .35s ease, transform .35s ease;
+        }
+
+        .p5-cases-card:hover {
+            border-color: var(--color-gold-strong);
+            background: linear-gradient(135deg, rgba(212, 175, 55, .16), rgba(212, 175, 55, .05));
+            transform: translateY(-2px);
+        }
+
+        .p5-cases-card .cc-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 0;
+        }
+
+        .p5-cases-card .cc-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-white);
+            line-height: 1.2;
+        }
+
+        .p5-cases-card .cc-sub {
+            font-size: 13.5px;
+            color: var(--color-text-dim);
+            line-height: 1.5;
+        }
+
+        .p5-cases-card .cc-btn {
+            flex: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border: 1px solid var(--color-gold);
+            border-radius: 999px;
+            color: var(--color-gold-strong);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .4px;
+            white-space: nowrap;
+            transition: background .35s ease, color .35s ease;
+        }
+
+        .p5-cases-card:hover .cc-btn {
+            background: var(--color-gold-strong);
+            color: #0A192F;
+        }
+
+        @media (max-width:680px) {
+            .p5-cases-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+
+            .p5-cases-card .cc-btn {
+                align-self: stretch;
+                justify-content: center;
+            }
+        }
+
+        /* 仅新增：核心价值菜单悬停效果（不改动现有文案） */
+        #site-topbar {
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav {
+            position: relative;
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega {
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega>a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            z-index: 2;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega>a::after {
+            content: "▾";
+            font-size: 10px;
+            color: rgba(255, 255, 255, .65);
+            margin-left: 8px;
+            transform: translateY(-1px);
+            transition: transform .2s ease, color .2s ease;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega:hover>a::after,
+        #site-topbar .topbar-nav .nav-item-with-mega:focus-within>a::after {
+            transform: rotate(180deg) translateY(1px);
+            color: var(--color-gold);
+        }
+
+        #site-topbar .topbar-nav .mega-panel {
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 10px);
+            transform: translateX(-50%) translateY(8px);
+            width: 680px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0;
+            padding: 10px 0 0;
+            background: rgba(16, 35, 63, .98);
+            border: 1px solid rgba(197, 160, 89, .28);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, .42);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+            z-index: 260;
+            overflow: visible;
+        }
+
+        #site-topbar .topbar-nav .nav-item-with-mega:hover .mega-panel,
+        #site-topbar .topbar-nav .nav-item-with-mega:focus-within .mega-panel {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        #site-topbar .topbar-nav .mega-panel::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -12px;
+            height: 12px;
+            background: transparent;
+        }
+
+        #site-topbar .topbar-nav .mega-col {
+            position: relative;
+            min-height: 260px;
+            padding: 0 22px 16px;
+            border-right: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        #site-topbar .topbar-nav .mega-col:last-child {
+            border-right: none;
+        }
+
+        #site-topbar .topbar-nav .mega-col-top {
+            display: block;
+            min-height: 66px;
+            padding-top: 20px;
+            margin-bottom: 18px;
+            font-family: var(--font-body);
+            color: rgba(255, 255, 255, .72);
+            letter-spacing: .12em;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        #site-topbar .topbar-nav .mega-col-top strong {
+            display: block;
+            margin-top: 4px;
+            margin-bottom: 0;
+            font-family: var(--font-display);
+            font-size: 20px;
+            line-height: 1.15;
+            letter-spacing: 0;
+            text-transform: none;
+            color: #fff;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        #site-topbar .topbar-nav .mega-primary {
+            display: block;
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, .8);
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 1.7;
+            min-height: 48px;
+            transition: color .2s ease;
+            text-align: left;
+        }
+
+        #site-topbar .topbar-nav .mega-primary:hover {
+            color: var(--color-gold);
+        }
+
+        #site-topbar .topbar-nav .mega-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, .08);
+            margin: 12px 0 18px;
+        }
+
+        #site-topbar .topbar-nav .mega-subhead {
+            margin-bottom: 10px;
+            font-family: var(--font-body);
+            letter-spacing: .08em;
+            font-size: 10px;
+            color: rgba(255, 255, 255, .44);
+            text-transform: uppercase;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 10px 0;
+            color: rgba(255, 255, 255, .82);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            font-size: 14px;
+            transition: color .2s ease, padding-left .2s ease;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem:last-child {
+            border-bottom: none;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem:hover {
+            color: var(--color-gold);
+            padding-left: 4px;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem .mega-arrow {
+            color: var(--color-gold);
+            opacity: 0;
+            transition: opacity .2s ease;
+        }
+
+        #site-topbar .topbar-nav .mega-subitem:hover .mega-arrow {
+            opacity: 1;
+        }
+
+        #site-topbar .topbar-nav .mega-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 58px;
+            height: 22px;
+            padding: 0 8px;
+            border: 1px solid rgba(197, 160, 89, .5);
+            border-radius: 999px;
+            color: var(--color-gold);
+            font-size: 9px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+        }
+
+        #track .slide[data-slide="14"] .hex-column {
+            top: 170px;
+        }
+
+        #track .slide[data-slide="14"] .hex-caption-pill {
+            top: 845px;
+        }
+
+        @media (max-width: 860px) {
+            #site-topbar .topbar-nav .mega-panel {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -177,7 +464,41 @@
             <a href="#slide-1" data-target="0" onclick="WTCDeck.goToBySlide(1); return false;">首页</a>
             <a href="#slide-2" data-target="1" onclick="WTCDeck.goToBySlide(2); return false;">关于世界贸易中心协会</a>
             <a href="#slide-5" data-target="4" onclick="WTCDeck.goToBySlide(5); return false;">关于新加坡世贸</a>
-            <a href="#slide-7" data-target="6" onclick="WTCDeck.goToBySlide(7); return false;">核心价值</a>
+
+            <div class="nav-item-with-mega">
+                <a href="#slide-7" data-target="6" onclick="WTCDeck.goToBySlide(7); return false;"
+                    class="active">核心价值</a>
+                <div class="mega-panel" aria-label="核心价值菜单">
+                    <div class="mega-col">
+                        <span class="mega-col-top">01<strong>WTC ONE Club</strong></span>
+                        <a class="mega-primary" href="#slide-7">全球商业机会<br>了解会员体系 →</a>
+                        <div class="mega-divider"></div>
+                        <div class="mega-subhead">延伸内容</div>
+                        <a class="mega-subitem"
+                            href="https://wtcasg.org/wtc-one-club/one-club-journal.html"><span>俱乐部手记</span><span
+                                class="mega-arrow">→</span></a>
+                        <a class="mega-subitem" href="club-apply/club-apply.html"><span>申请加入 WTC ONE Club</span><span
+                                class="mega-arrow">→</span></a>
+                    </div>
+                    <div class="mega-col">
+                        <span class="mega-col-top">02<strong>GlobalX</strong></span>
+                        <a class="mega-primary" href="#slide-8">出海加速器<br>了解服务内容 →</a>
+                        <div class="mega-divider"></div>
+                        <div class="mega-subhead">延伸内容</div>
+                        <a class="mega-subitem" href="cases/case-list.html"><span>案例研究</span><span
+                                class="mega-arrow">→</span></a>
+                    </div>
+                    <div class="mega-col">
+                        <span class="mega-col-top">03<strong>WTC Fund</strong></span>
+                        <a class="mega-primary" href="#slide-9">资本生态<br>了解投资方向 →</a>
+                        <div class="mega-divider"></div>
+                        <div class="mega-subhead">延伸内容</div>
+                        <a class="mega-subitem" href="#slide-9"><span>即将上线</span><span
+                                class="mega-tag">Coming</span></a>
+                    </div>
+                </div>
+            </div>
+
             <a href="#slide-10" data-target="9" onclick="WTCDeck.goToBySlide(10); return false;">全球生态</a>
             <a href="#slide-15" data-target="14" onclick="WTCDeck.goToBySlide(15); return false;">联系我们</a>
         </nav>
@@ -203,8 +524,10 @@
                             <div class="p1-brand-cn">新加坡世界贸易中心</div>
                         </div>
                         <div class="logo-group">
-                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="506" height="120">
-                            <img src="quotes-logos/logo_sg.webp" class="logo" alt="WTC Singapore Logo" width="610" height="120">
+                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo"
+                                style="margin-right:20px;" width="506" height="120">
+                            <img src="quotes-logos/logo_sg.webp" class="logo" alt="WTC Singapore Logo" width="610"
+                                height="120">
                         </div>
                     </div>
 
@@ -289,8 +612,10 @@
                     <div class="header fade-in d1" style="left:60px;">
                         <div class="eyebrow">World Trade Centers Association丨世界贸易中心协会</div>
                         <div class="logo-group">
-                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo" style="margin-right:20px;" width="506" height="120">
-                            <img class="logo" src="quotes-logos/logo_sg.png" alt="WTC Singapore Logo" width="2277" height="448">
+                            <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo"
+                                style="margin-right:20px;" width="506" height="120">
+                            <img class="logo" src="quotes-logos/logo_sg.png" alt="WTC Singapore Logo" width="2277"
+                                height="448">
                         </div>
                     </div>
 
@@ -337,7 +662,7 @@
                         </div>
                     </div>
 
-                        <div class="p2-timeline fade-in d5">
+                    <div class="p2-timeline fade-in d5">
                         <div class="p2-time-item">
                             <div class="p2-dot"></div>
                             <div class="p2-year">90+</div>
@@ -364,7 +689,8 @@
                         <div class="m2-top">
                             <div class="m2-eyebrow">01 · World Trade Centers Association</div>
                             <h2 class="m2-title">全球领先的国际商业网络</h2>
-                            <p class="m2-sub">World Trade Centers Association (WTCA) · Your Passport to Global Success</p>
+                            <p class="m2-sub">World Trade Centers Association (WTCA) · Your Passport to Global Success
+                            </p>
 
                             <ul class="m2-list">
                                 <li>使命：链接全球商业资源，促进国际贸易、投资合作与跨境发展。</li>
@@ -392,52 +718,52 @@
 
                     <div class="card-grid-dense fade-in d4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca01" alt="全球连接 01"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca01"
+                                alt="全球连接 01" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 01</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca02" alt="全球连接 02"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca02"
+                                alt="全球连接 02" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 02</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca03" alt="全球连接 03"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca03"
+                                alt="全球连接 03" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 03</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca04" alt="全球连接 04"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca04"
+                                alt="全球连接 04" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 04</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca05" alt="全球连接 05"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca05"
+                                alt="全球连接 05" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 05</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca06" alt="全球连接 06"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca06"
+                                alt="全球连接 06" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 06</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca07" alt="全球连接 07"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca07"
+                                alt="全球连接 07" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 07</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca08" alt="全球连接 08"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca08"
+                                alt="全球连接 08" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 08</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca09" alt="全球连接 09"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca09"
+                                alt="全球连接 09" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 09</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca10" alt="全球连接 10"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca10"
+                                alt="全球连接 10" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 10</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca11" alt="全球连接 11"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca11"
+                                alt="全球连接 11" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 11</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca12" alt="全球连接 12"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca12"
+                                alt="全球连接 12" style="object-fit:cover; display:block;">
                             <div class="cap">全球连接 12</div>
                         </div>
                     </div>
@@ -463,19 +789,23 @@
 
                             <div class="m3-grid">
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca01.webp" alt="全球连接 01" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';">
+                                    <img src="waterfall/wtca01.webp" alt="全球连接 01" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';">
                                     <div class="m3-cap">全球连接 01</div>
                                 </div>
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca02.webp" alt="全球连接 02" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';">
+                                    <img src="waterfall/wtca02.webp" alt="全球连接 02" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';">
                                     <div class="m3-cap">全球连接 02</div>
                                 </div>
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca03.webp" alt="全球连接 03" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';">
+                                    <img src="waterfall/wtca03.webp" alt="全球连接 03" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';">
                                     <div class="m3-cap">全球连接 03</div>
                                 </div>
                                 <div class="m3-item">
-                                    <img src="waterfall/wtca04.webp" alt="全球连接 04" loading="lazy" onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';">
+                                    <img src="waterfall/wtca04.webp" alt="全球连接 04" loading="lazy"
+                                        onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';">
                                     <div class="m3-cap">全球连接 04</div>
                                 </div>
                             </div>
@@ -502,52 +832,58 @@
 
                     <div class="card-grid-dense fade-in d4" id="cardGrid4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/01_washington_wtc" alt="世贸建筑 01"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/01_washington_wtc" alt="世贸建筑 01"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 01</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc" alt="世贸建筑 02"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc"
+                                alt="世贸建筑 02" style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 02</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc" alt="世贸建筑 03"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc"
+                                alt="世贸建筑 03" style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 03</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/04_amsterdam_wtc" alt="世贸建筑 04"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/04_amsterdam_wtc" alt="世贸建筑 04"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 04</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/05_new_york_wtc" alt="世贸建筑 05"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/05_new_york_wtc" alt="世贸建筑 05"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 05</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc" alt="世贸建筑 06"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc"
+                                alt="世贸建筑 06" style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 06</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/07_rotterdam_wtc" alt="世贸建筑 07"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/07_rotterdam_wtc" alt="世贸建筑 07"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 07</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/08_bangalore_wtc" alt="世贸建筑 08"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/08_bangalore_wtc" alt="世贸建筑 08"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 08</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc" alt="世贸建筑 09"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc"
+                                alt="世贸建筑 09" style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 09</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/10_bahrain_wtc" alt="世贸建筑 10"
+                        <div class="mini-card"><img loading="lazy" class="thumb"
+                                data-base="wtc-buildings/10_bahrain_wtc" alt="世贸建筑 10"
                                 style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 10</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc" alt="世贸建筑 11"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc"
+                                alt="世贸建筑 11" style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 11</div>
                         </div>
-                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc" alt="世贸建筑 12"
-                                style="object-fit:cover; display:block;">
+                        <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc"
+                                alt="世贸建筑 12" style="object-fit:cover; display:block;">
                             <div class="cap">世贸建筑 12</div>
                         </div>
                     </div>
@@ -572,12 +908,36 @@
                             <div class="m4-sub">WTC Worldwide</div>
 
                             <div class="m4-grid">
-                                <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp" alt="世贸建筑 01" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';"><div class="m4-cap">世贸建筑 01</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="世贸建筑 02" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';"><div class="m4-cap">世贸建筑 02</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="世贸建筑 03" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';"><div class="m4-cap">世贸建筑 03</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp" alt="世贸建筑 04" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';"><div class="m4-cap">世贸建筑 04</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="世贸建筑 05" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';"><div class="m4-cap">世贸建筑 05</div></div>
-                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="世贸建筑 06" loading="lazy" onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';"><div class="m4-cap">世贸建筑 06</div></div>
+                                <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp" alt="世贸建筑 01"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';">
+                                    <div class="m4-cap">世贸建筑 01</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="世贸建筑 02"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';">
+                                    <div class="m4-cap">世贸建筑 02</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="世贸建筑 03"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';">
+                                    <div class="m4-cap">世贸建筑 03</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp" alt="世贸建筑 04"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';">
+                                    <div class="m4-cap">世贸建筑 04</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="世贸建筑 05"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';">
+                                    <div class="m4-cap">世贸建筑 05</div>
+                                </div>
+                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="世贸建筑 06"
+                                        loading="lazy"
+                                        onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';">
+                                    <div class="m4-cap">世贸建筑 06</div>
+                                </div>
                             </div>
 
                             <div class="m4-foot">
@@ -799,27 +1159,45 @@
 
                             <div class="ma-list">
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">01</div><div class="ma-item-title">亚洲门户能力</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">01</div>
+                                        <div class="ma-item-title">亚洲门户能力</div>
+                                    </div>
                                     <div class="ma-item-body">联通中国、东盟及亚洲主要经济体，是企业进入亚洲市场的战略门户，支持区域拓展与跨境发展。</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">02</div><div class="ma-item-title">金融资源配置能力</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">02</div>
+                                        <div class="ma-item-title">金融资源配置能力</div>
+                                    </div>
                                     <div class="ma-item-body">汇聚国际银行、投资机构、资本市场及全球融资环境，支持企业实现国际资本配置。</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">03</div><div class="ma-item-title">财富管理能力</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">03</div>
+                                        <div class="ma-item-title">财富管理能力</div>
+                                    </div>
                                     <div class="ma-item-body">汇聚亚洲领先的家族办公室与财富管理生态，支持高净值财富管理及长期资本合作。</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">04</div><div class="ma-item-title">区域总部集聚能力</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">04</div>
+                                        <div class="ma-item-title">区域总部集聚能力</div>
+                                    </div>
                                     <div class="ma-item-body">汇聚跨国企业区域总部及国际化管理团队，是全球企业布局区域运营的核心据点。</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">05</div><div class="ma-item-title">创新生态协同能力</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">05</div>
+                                        <div class="ma-item-title">创新生态协同能力</div>
+                                    </div>
                                     <div class="ma-item-body">联通科技创新、产业资源、科研机构与投资资本，推动产业协同及创新成果的全球化发展。</div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">06</div><div class="ma-item-title">全球互联枢纽能力</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">06</div>
+                                        <div class="ma-item-title">全球互联枢纽能力</div>
+                                    </div>
                                     <div class="ma-item-body">依托航空、港口航运及数字基础设施，联通全球主要商业市场，实现高效国际商务对接。</div>
                                 </div>
                             </div>
@@ -843,18 +1221,22 @@
                         <div class="card fade-in d3">
                             <div class="index">01</div>
                             <div class="title">全球商业机会</div>
-                            <div class="desc">WTCA全球 300+ 节点的价值共振。不只是一个场所，而是激活世界贸易中心协会（WTCA）覆盖全球的顶层政商网络。为跨国企业提供去中心化、全球商业合作网络与跨境资源互惠。
+                            <div class="desc">WTCA全球 300+
+                                节点的价值共振。不只是一个场所，而是激活世界贸易中心协会（WTCA）覆盖全球的顶层政商网络。为跨国企业提供去中心化、全球商业合作网络与跨境资源互惠。
                             </div>
                         </div>
                         <div class="card fade-in d4">
                             <div class="index">02</div>
                             <div class="title">资本引力场</div>
-                            <div class="desc">主权基金与家族办公室的离岸锚点。依托新加坡作为全球顶尖财富管理中心的绝对优势，无缝链接主权财富基金（SWFs）、头部风投及亚太区核心家族办公室，连接全球WTC会员、领先投资基金、家族办公室及主权财富基金，通过闭门路演与战略撮合构建资本生态。</div>
+                            <div class="desc">
+                                主权基金与家族办公室的离岸锚点。依托新加坡作为全球顶尖财富管理中心的绝对优势，无缝链接主权财富基金（SWFs）、头部风投及亚太区核心家族办公室，连接全球WTC会员、领先投资基金、家族办公室及主权财富基金，通过闭门路演与战略撮合构建资本生态。
+                            </div>
                         </div>
                         <div class="card fade-in d5">
                             <div class="index">03</div>
                             <div class="title">顶层思享汇</div>
-                            <div class="desc">为企业创始人、CEO及全球管理团队提供顶级智库顾问支持，并配套AI驱动的投资、贸易及跨国机构战略报告。严格执行仅限定向邀约（By Invitation Only）与理事会推荐制。成员席位仅对跨国企业创始人、CEO及国际组织负责人开放，彻底隔绝商业噪音。</div>
+                            <div class="desc">为企业创始人、CEO及全球管理团队提供顶级智库顾问支持，并配套AI驱动的投资、贸易及跨国机构战略报告。严格执行仅限定向邀约（By
+                                Invitation Only）与理事会推荐制。成员席位仅对跨国企业创始人、CEO及国际组织负责人开放，彻底隔绝商业噪音。</div>
                         </div>
                     </div>
 
@@ -1083,15 +1465,24 @@
 
                             <div class="m9-list">
                                 <div class="m9-card">
-                                    <div class="m9-card-head"><div class="m9-num">01</div><div class="m9-name">全球资产价值洞察</div></div>
+                                    <div class="m9-card-head">
+                                        <div class="m9-num">01</div>
+                                        <div class="m9-name">全球资产价值洞察</div>
+                                    </div>
                                     <p class="m9-desc">通过 WTCA 全球节点网络与前瞻性产业布局，构建具有国际化增长韧性的核心资产池。</p>
                                 </div>
                                 <div class="m9-card">
-                                    <div class="m9-card-head"><div class="m9-num">02</div><div class="m9-name">资本协同配置枢纽</div></div>
+                                    <div class="m9-card-head">
+                                        <div class="m9-num">02</div>
+                                        <div class="m9-name">资本协同配置枢纽</div>
+                                    </div>
                                     <p class="m9-desc">深度耦合家族办公室、产业资本与主权基金，实现制度化资本协同与长期配置。</p>
                                 </div>
                                 <div class="m9-card">
-                                    <div class="m9-card-head"><div class="m9-num">03</div><div class="m9-name">全球价值循环闭环</div></div>
+                                    <div class="m9-card-head">
+                                        <div class="m9-num">03</div>
+                                        <div class="m9-name">全球价值循环闭环</div>
+                                    </div>
                                     <p class="m9-desc">依托国际市场拓展、跨法域合规与资本市场接口，重塑企业价值发现体系。</p>
                                 </div>
                             </div>
@@ -1318,7 +1709,8 @@
                     </div>
 
                     <div class="p7-constellation-zone">
-                        <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" class="fade-in d3" width="1600" height="692" loading="lazy">
+                        <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" class="fade-in d3"
+                            width="1600" height="692" loading="lazy">
                     </div>
 
                     <div class="mobile-layout">
@@ -1342,7 +1734,8 @@
                     <div class="top-balance-bar">
                         <!-- 战略标语 + 副标题 -->
                         <div class="strategy-manifesto fade-in d1">
-                            <h2 style="color:#ffffff !important; font-size:50px !important;"><span class="t-cn">国际资本创新生态</span> <span class="t-en">WTC Fund</span></h2>
+                            <h2 style="color:#ffffff !important; font-size:50px !important;"><span
+                                    class="t-cn">国际资本创新生态</span> <span class="t-en">WTC Fund</span></h2>
                             <div class="strategy-subtitle">A Global Platform for Capital Innovation and Value Creation
                             </div>
                         </div>
@@ -1350,7 +1743,8 @@
 
                     <!-- Leadership Perspective（重新定位至标题下方） -->
                     <div class="fund-leadership-perspective fade-in d2">
-                        <img class="leader-avatar" src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" width="200" height="200" loading="lazy">
+                        <img class="leader-avatar" src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" width="200"
+                            height="200" loading="lazy">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">"一个充满生命力、长期可持续发展的平台，更要靠一群拥有共同理念和追求的人，共同成长，共同创造长期价值。"</div>
                             <div class="leader-signature">Blake Zhang<span>Chairman, WTC Singapore</span></div>
@@ -1451,11 +1845,26 @@
                             <div class="m12-quote">"一个充满生命力、长期可持续发展的平台，更要靠一群拥有共同理念和追求的人，共同成长，共同创造长期价值。"</div>
 
                             <div class="m12-list">
-                                <div class="m12-item"><div class="m12-item-title">国际金融经验</div><div class="m12-item-desc">33 年国际金融及投资并购经验支撑跨境资本协同。</div></div>
-                                <div class="m12-item"><div class="m12-item-title">全球资本网络</div><div class="m12-item-desc">连接中国、美国、新加坡等核心资本与产业资源。</div></div>
-                                <div class="m12-item"><div class="m12-item-title">产业投资布局</div><div class="m12-item-desc">聚焦 AI、机器人与产业智能化等未来方向。</div></div>
-                                <div class="m12-item"><div class="m12-item-title">产业创新实践</div><div class="m12-item-desc">推动创新成果商业化与高潜企业国际化增长。</div></div>
-                                <div class="m12-item"><div class="m12-item-title">全球价值创造</div><div class="m12-item-desc">连接资本、创新、产业与全球市场的长期价值循环。</div></div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">国际金融经验</div>
+                                    <div class="m12-item-desc">33 年国际金融及投资并购经验支撑跨境资本协同。</div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">全球资本网络</div>
+                                    <div class="m12-item-desc">连接中国、美国、新加坡等核心资本与产业资源。</div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">产业投资布局</div>
+                                    <div class="m12-item-desc">聚焦 AI、机器人与产业智能化等未来方向。</div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">产业创新实践</div>
+                                    <div class="m12-item-desc">推动创新成果商业化与高潜企业国际化增长。</div>
+                                </div>
+                                <div class="m12-item">
+                                    <div class="m12-item-title">全球价值创造</div>
+                                    <div class="m12-item-desc">连接资本、创新、产业与全球市场的长期价值循环。</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1471,7 +1880,8 @@
 
                     <!-- 领导力引用卡片（标题下方） -->
                     <div class="hero-leader fade-in d3">
-                        <img class="leader-avatar" src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" width="200" height="200" loading="lazy">
+                        <img class="leader-avatar" src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" width="200"
+                            height="200" loading="lazy">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">
                                 "在全球产业链、供应链重构中，中国企业国际化进入新的发展阶段，更加需要国际背书，拓展国际朋友圈，做好体系化、专业化的国际化战略、合规、组织设计与跨文化融合。"</div>
@@ -1491,7 +1901,8 @@
                             <div class="m13-sub">International Partner Network</div>
                             <div class="m13-leader">
                                 <img src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" loading="lazy">
-                                <div class="m13-leader-sign">Xiaolan Zhu<span>Chief Representative &amp; CEO, WTC Singapore</span></div>
+                                <div class="m13-leader-sign">Xiaolan Zhu<span>Chief Representative &amp; CEO, WTC
+                                        Singapore</span></div>
                             </div>
                             <div class="m13-quote">"中国企业国际化进入新阶段，更需要国际背书与专业化、体系化的全球化支持。"</div>
 
@@ -1520,7 +1931,9 @@
 
                         <!-- 模块 B：领导力引用卡片 -->
                         <div class="leadership-perspective fade-in d2">
-                            <img class="leader-avatar" src="quotes-logos/COO_quote.webp" alt="董立鑫 Bruce Dong，WTC Singapore Secretary-General & COO" width="200" height="200" loading="lazy">
+                            <img class="leader-avatar" src="quotes-logos/COO_quote.webp"
+                                alt="董立鑫 Bruce Dong，WTC Singapore Secretary-General & COO" width="200" height="200"
+                                loading="lazy">
                             <div class="leader-quote-wrap">
                                 <div class="leader-quote">"全球只有一个商业网络叫世界贸易中心协会，而这，是它在亚太的会籍。"</div>
                                 <div class="leader-signature-en">Bruce Dong<span>Secretary General &amp; COO, WTC
@@ -1610,16 +2023,21 @@
                             <div class="ma-sub">Join Us as ONE Club Members</div>
 
                             <div class="ma-leader">
-                                <img src="quotes-logos/COO_quote.webp" alt="董立鑫 Bruce Dong，WTC Singapore Secretary-General & COO" loading="lazy">
+                                <img src="quotes-logos/COO_quote.webp"
+                                    alt="董立鑫 Bruce Dong，WTC Singapore Secretary-General & COO" loading="lazy">
                                 <div>
                                     <div class="ma-leader-quote">"全球只有一个商业网络叫世界贸易中心协会，而这，是它在亚太的会籍。"</div>
-                                    <div class="ma-leader-sign">Bruce Dong<span>Secretary General &amp; COO, WTC Singapore</span></div>
+                                    <div class="ma-leader-sign">Bruce Dong<span>Secretary General &amp; COO, WTC
+                                            Singapore</span></div>
                                 </div>
                             </div>
 
                             <div class="ma-list">
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">01</div><div class="ma-item-title">资本直通</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">01</div>
+                                        <div class="ma-item-title">资本直通</div>
+                                    </div>
                                     <div class="ma-item-body">
                                         <ul>
                                             <li>闭门家族办公室项目路演（Family Office Salons）</li>
@@ -1629,7 +2047,10 @@
                                     </div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">02</div><div class="ma-item-title">专属礼遇</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">02</div>
+                                        <div class="ma-item-title">专属礼遇</div>
+                                    </div>
                                     <div class="ma-item-body">
                                         <ul>
                                             <li>专享新加坡核心商务区WTC Singapore行政会所使用权</li>
@@ -1639,7 +2060,10 @@
                                     </div>
                                 </div>
                                 <div class="ma-item">
-                                    <div class="ma-item-head"><div class="ma-index">03</div><div class="ma-item-title">全球通行</div></div>
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">03</div>
+                                        <div class="ma-item-title">全球通行</div>
+                                    </div>
                                     <div class="ma-item-body">
                                         <ul>
                                             <li>覆盖90+国家及地区、300+世界贸易中心的全球通行权益</li>
@@ -1658,7 +2082,8 @@
 
                 <div class="slide theme-content no-chrome" data-slide="15" id="slide-15">
                     <!-- ——— 章节眉题（连接我们章节起始页）——— -->
-                    <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; left:60px; margin:0;">05 — 连接我们 / CONNECT</div>
+                    <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; left:60px; margin:0;">05 —
+                        连接我们 / CONNECT</div>
 
                     <!-- ——— 隐藏标题（仅存在于代码中，页面不显示）——— -->
                     <div class="p-title" style="display:none">
@@ -1671,39 +2096,48 @@
                         style="position:absolute; left:80px; right:80px; top:125px; bottom:70px;">
                         <!-- 1/9 -->
                         <div class="event-cell real" data-img="grid/grid1">
-                            <img class="event-img" src="grid/grid1.webp" data-fallback="grid/grid1.jpg" alt="WTC Singapore 活动影像 1" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid1.webp" data-fallback="grid/grid1.jpg"
+                                alt="WTC Singapore 活动影像 1" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 2/9 -->
                         <div class="event-cell" data-img="grid/grid2">
-                            <img class="event-img" src="grid/grid2.webp" data-fallback="grid/grid2.jpg" alt="WTC Singapore 活动影像 2" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid2.webp" data-fallback="grid/grid2.jpg"
+                                alt="WTC Singapore 活动影像 2" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 3/9 -->
                         <div class="event-cell" data-img="grid/grid3">
-                            <img class="event-img" src="grid/grid3.webp" data-fallback="grid/grid3.jpg" alt="WTC Singapore 活动影像 3" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid3.webp" data-fallback="grid/grid3.jpg"
+                                alt="WTC Singapore 活动影像 3" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 4/9 -->
                         <div class="event-cell" data-img="grid/grid4">
-                            <img class="event-img" src="grid/grid4.webp" data-fallback="grid/grid4.jpg" alt="WTC Singapore 活动影像 4" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid4.webp" data-fallback="grid/grid4.jpg"
+                                alt="WTC Singapore 活动影像 4" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 5/9 -->
                         <div class="event-cell" data-img="grid/grid5">
-                            <img class="event-img" src="grid/grid5.webp" data-fallback="grid/grid5.jpg" alt="WTC Singapore 活动影像 5" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid5.webp" data-fallback="grid/grid5.jpg"
+                                alt="WTC Singapore 活动影像 5" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 6/9 -->
                         <div class="event-cell" data-img="grid/grid6">
-                            <img class="event-img" src="grid/grid6.webp" data-fallback="grid/grid6.jpg" alt="WTC Singapore 活动影像 6" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid6.webp" data-fallback="grid/grid6.jpg"
+                                alt="WTC Singapore 活动影像 6" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 7/9 -->
                         <div class="event-cell" data-img="grid/grid7">
-                            <img class="event-img" src="grid/grid7.webp" data-fallback="grid/grid7.jpg" alt="WTC Singapore 活动影像 7" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid7.webp" data-fallback="grid/grid7.jpg"
+                                alt="WTC Singapore 活动影像 7" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 8/9 -->
                         <div class="event-cell" data-img="grid/grid8">
-                            <img class="event-img" src="grid/grid8.webp" data-fallback="grid/grid8.jpg" alt="WTC Singapore 活动影像 8" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid8.webp" data-fallback="grid/grid8.jpg"
+                                alt="WTC Singapore 活动影像 8" loading="lazy" width="640" height="480">
                         </div>
                         <!-- 9/9 -->
                         <div class="event-cell" data-img="grid/grid9">
-                            <img class="event-img" src="grid/grid9.webp" data-fallback="grid/grid9.jpg" alt="WTC Singapore 活动影像 9" loading="lazy" width="640" height="480">
+                            <img class="event-img" src="grid/grid9.webp" data-fallback="grid/grid9.jpg"
+                                alt="WTC Singapore 活动影像 9" loading="lazy" width="640" height="480">
                         </div>
                     </div>
 
@@ -1722,12 +2156,18 @@
                     <div class="mobile-layout">
                         <div class="m15-eyebrow">05 — 连接我们 / CONNECT</div>
                         <div class="m15-grid">
-                            <div class="m15-cell"><img src="grid/grid1.webp" alt="WTC Singapore 活动影像 1" loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid2.webp" alt="WTC Singapore 活动影像 2" loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid3.webp" alt="WTC Singapore 活动影像 3" loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid4.webp" alt="WTC Singapore 活动影像 4" loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid5.webp" alt="WTC Singapore 活动影像 5" loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';"></div>
-                            <div class="m15-cell"><img src="grid/grid6.webp" alt="WTC Singapore 活动影像 6" loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid1.webp" alt="WTC Singapore 活动影像 1" loading="lazy"
+                                    onerror="this.onerror=null;this.src='grid/grid1.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid2.webp" alt="WTC Singapore 活动影像 2" loading="lazy"
+                                    onerror="this.onerror=null;this.src='grid/grid2.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid3.webp" alt="WTC Singapore 活动影像 3" loading="lazy"
+                                    onerror="this.onerror=null;this.src='grid/grid3.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid4.webp" alt="WTC Singapore 活动影像 4" loading="lazy"
+                                    onerror="this.onerror=null;this.src='grid/grid4.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid5.webp" alt="WTC Singapore 活动影像 5" loading="lazy"
+                                    onerror="this.onerror=null;this.src='grid/grid5.jpg';"></div>
+                            <div class="m15-cell"><img src="grid/grid6.webp" alt="WTC Singapore 活动影像 6" loading="lazy"
+                                    onerror="this.onerror=null;this.src='grid/grid6.jpg';"></div>
                         </div>
                         <div class="m15-foot">
                             <div class="m15-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
@@ -1759,7 +2199,8 @@
                     <div class="p8-grid"></div>
 
                     <div class="p8-hero fade-in d2" style="top:180px;left:60px;">
-                        <h2 style="color:#ffffff !important; font-size:50px !important;">联手 WTC Singapore<br>共建全球商业未来</h2>
+                        <h2 style="color:#ffffff !important; font-size:50px !important;">联手 WTC Singapore<br>共建全球商业未来
+                        </h2>
                         <div class="hero-sub">Create the Future of Global Business Together</div>
                     </div>
 
@@ -1774,10 +2215,12 @@
                         </div>
                         <div class="p8-qr">
                             <div class="p8-qr-item">
-                                <img src="quotes-logos/donglixin_qrcode.png" alt="董立鑫 二维码" width="320" height="320" loading="lazy">
+                                <img src="quotes-logos/donglixin_qrcode.png" alt="董立鑫 二维码" width="320" height="320"
+                                    loading="lazy">
                             </div>
                             <div class="p8-qr-item">
-                                <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="朱小兰 二维码" width="320" height="320" loading="lazy">
+                                <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="朱小兰 二维码" width="320" height="320"
+                                    loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -1809,17 +2252,20 @@
 
                             <div class="m16-qr">
                                 <div class="m16-qr-item">
-                                    <img src="quotes-logos/donglixin_qrcode.png" alt="董立鑫 Bruce Dong 二维码" loading="lazy">
+                                    <img src="quotes-logos/donglixin_qrcode.png" alt="董立鑫 Bruce Dong 二维码"
+                                        loading="lazy">
                                     <div class="m16-qr-cap">董立鑫 Bruce Dong</div>
                                 </div>
                                 <div class="m16-qr-item">
-                                    <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="朱小兰 Xiaolan Zhu 二维码" loading="lazy">
+                                    <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="朱小兰 Xiaolan Zhu 二维码"
+                                        loading="lazy">
                                     <div class="m16-qr-cap">朱小兰 Xiaolan Zhu</div>
                                 </div>
                             </div>
 
                             <div class="m16-foot">
-                                <div class="m16-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
+                                <div class="m16-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.
+                                </div>
                                 <div class="m16-foot-cn">资本汇聚创新，机遇转化为价值。</div>
                             </div>
                         </div>
@@ -2017,7 +2463,13 @@
                 { x: 100, y: 519, logo: 'logo15' },
                 { x: 300, y: 519, logo: 'logo16' },
                 { x: 500, y: 519, logo: 'logo17' },
-                { x: 700, y: 519, logo: 'logo18' }
+                { x: 700, y: 519, logo: 'logo18' },
+                // 第五行 y=692（5格）：logo19 放第一个，其余四格保留空白
+                { x: 0, y: 692, logo: 'logo19' },
+                { x: 200, y: 692, logo: null },
+                { x: 400, y: 692, logo: null },
+                { x: 600, y: 692, logo: null },
+                { x: 800, y: 692, logo: null }
             ];
 
             /* 后缀自动匹配：依次尝试 svg → png → jpg → jpeg → webp，全部失败则回退为空置格 */
@@ -2074,7 +2526,7 @@
                 if (!wrapper || !field) return;
                 var cw = wrapper.offsetWidth, ch = wrapper.offsetHeight;
                 if (!cw || !ch) return;
-                var NATIVE_W = 1000, NATIVE_H = 750;
+                var NATIVE_W = 1000, NATIVE_H = 920;
                 var scale = Math.min(cw / NATIVE_W, ch / NATIVE_H, 1);
                 field.style.left = '50%';
                 field.style.top = '50%';
@@ -2280,21 +2732,21 @@
                 hubNode.appendChild(card);
                 var style = document.createElement('style');
                 style.textContent = '.wtc-map-hub-node:hover .wtc-map-card { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }';
-            // 触屏兜底：点按切换 .tap-active，避免 :hover 在平板/手机上不触发且遮挡
-            document.querySelectorAll('.wtc-map-hub-node').forEach(function(node){
-              node.addEventListener('click', function(e){
-                e.stopPropagation();
-                document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function(n){
-                  if(n !== node) n.classList.remove('tap-active');
+                // 触屏兜底：点按切换 .tap-active，避免 :hover 在平板/手机上不触发且遮挡
+                document.querySelectorAll('.wtc-map-hub-node').forEach(function (node) {
+                    node.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function (n) {
+                            if (n !== node) n.classList.remove('tap-active');
+                        });
+                        node.classList.toggle('tap-active');
+                    });
                 });
-                node.classList.toggle('tap-active');
-              });
-            });
-            document.addEventListener('click', function(){
-              document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function(n){
-                n.classList.remove('tap-active');
-              });
-            });
+                document.addEventListener('click', function () {
+                    document.querySelectorAll('.wtc-map-hub-node.tap-active').forEach(function (n) {
+                        n.classList.remove('tap-active');
+                    });
+                });
                 document.head.appendChild(style);
             }
 
@@ -2508,26 +2960,26 @@
 
     </script>
     <script>
-    // hover/touch 统一修复：资本流向卡片在触屏上点按切换 .active 显示详情
-    document.addEventListener('DOMContentLoaded', function () {
+        // hover/touch 统一修复：资本流向卡片在触屏上点按切换 .active 显示详情
+        document.addEventListener('DOMContentLoaded', function () {
             if (window.__WTC_IS_MOBILE) return;
-      document.querySelectorAll('.capital-flow-card').forEach(function (card) {
-        var hover = card.querySelector('.capital-hover-card');
-        if (!hover) return;
-        card.addEventListener('click', function (e) {
-          e.stopPropagation();
-          document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
-            if (h !== hover) h.classList.remove('active');
-          });
-          hover.classList.toggle('active');
+            document.querySelectorAll('.capital-flow-card').forEach(function (card) {
+                var hover = card.querySelector('.capital-hover-card');
+                if (!hover) return;
+                card.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
+                        if (h !== hover) h.classList.remove('active');
+                    });
+                    hover.classList.toggle('active');
+                });
+            });
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
+                    h.classList.remove('active');
+                });
+            });
         });
-      });
-      document.addEventListener('click', function () {
-        document.querySelectorAll('.capital-hover-card.active').forEach(function (h) {
-          h.classList.remove('active');
-        });
-      });
-    });
     </script>
 </body>
 

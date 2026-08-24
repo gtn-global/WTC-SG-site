@@ -176,6 +176,7 @@
         #track .slide[data-slide="16"] {
             background: #0A192F;
         }
+
         /* P16 的氛围光晕层也透明，统一纯色 */
         #track .slide[data-slide="16"] .background-fill.glow {
             background: transparent;
@@ -458,23 +459,26 @@
         #track .slide[data-slide="5"] .p4-feature-divider {
             margin: 30px 0 30px;
         }
+
         #track .slide[data-slide="5"] .p4-feature-row {
             display: flex;
             gap: 32px;
             margin-top: auto;
             padding-bottom: 16px;
         }
+
         #track .slide[data-slide="5"] .p4-feature {
             flex: 1;
             margin-bottom: 0;
             padding: 32px 28px 34px;
             border: 1px solid rgba(214, 178, 107, .32);
             border-radius: 14px;
-            background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .01));
             backdrop-filter: blur(4px);
             display: flex;
             flex-direction: column;
         }
+
         #track .slide[data-slide="5"] .p4-feature-en {
             font-family: var(--font-display);
             font-size: 34px;
@@ -482,12 +486,14 @@
             color: #fff;
             line-height: 1.2;
         }
+
         #track .slide[data-slide="5"] .p4-feature-cn {
             margin-top: 12px;
             font-size: 18px;
             color: var(--color-gold);
             letter-spacing: 1px;
         }
+
         #track .slide[data-slide="5"] .p4-feature-desc {
             margin-top: auto;
             padding-top: 26px;
@@ -1659,8 +1665,8 @@
             z-index: 0;
         }
 
-        .event-cell > .event-date,
-        .event-cell > .event-title {
+        .event-cell>.event-date,
+        .event-cell>.event-title {
             position: relative;
             z-index: 1;
         }
@@ -1678,8 +1684,8 @@
             background: linear-gradient(160deg, rgba(212, 175, 55, .18), rgba(197, 160, 89, .03) 55%);
         }
 
-        .event-cell.real > .event-date,
-        .event-cell.real > .event-title {
+        .event-cell.real>.event-date,
+        .event-cell.real>.event-title {
             z-index: 2;
         }
 
@@ -2051,7 +2057,7 @@
         .hex-column {
             position: absolute;
             left: 55%;
-            top: 240px;
+            top: 170px;
             width: 42%;
             height: 800px;
             z-index: 50;
@@ -2065,7 +2071,7 @@
             position: absolute;
             left: 55%;
             width: 42%;
-            top: 900px;
+            top: 845px;
             height: 56px;
             display: none;
             align-items: center;
@@ -3066,13 +3072,17 @@
             margin: 0;
             z-index: 1001;
         }
+
         /* 页面主体下移到页眉之下，避免遮挡 */
         #track .slide[data-slide="6"] .page-body {
             top: 210px;
         }
+
         #track .slide[data-slide="6"] .p6-header::after {
-            display: none;   /* 取消 .section-eyebrow 默认短金线 */
+            display: none;
+            /* 取消 .section-eyebrow 默认短金线 */
         }
+
         #track .slide[data-slide="6"] .p6-header-en {
             display: block;
             font-family: var(--font-display);
@@ -3082,6 +3092,7 @@
             line-height: 1.2;
             letter-spacing: 2px;
         }
+
         #track .slide[data-slide="6"] .p6-header-sub {
             display: block;
             margin-top: 10px;
@@ -3100,6 +3111,7 @@
             margin: 0;
             z-index: 1001;
         }
+
         #track .slide[data-slide="11"] .p7-hero h1 {
             font-family: var(--font-display);
             font-size: 50px;
@@ -3108,6 +3120,7 @@
             letter-spacing: 2px;
             line-height: 1.2;
         }
+
         #track .slide[data-slide="11"] .p7-hero .hero-sub {
             display: block;
             margin-top: 10px;
@@ -3117,10 +3130,12 @@
             color: var(--color-gold);
             letter-spacing: 4px;
         }
+
         /* 取消 .p7-hero 默认额外间距，统一为页眉细金线 */
         #track .slide[data-slide="11"] .p7-hero .gold-line {
             display: none;
         }
+
         #track .slide[data-slide="11"] .p7-hero::after {
             content: "";
             display: block;
@@ -3128,8 +3143,9 @@
             max-width: 1200px;
             height: 1px;
             margin-top: 22px;
-            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+            background: linear-gradient(90deg, var(--color-gold), rgba(214, 178, 107, 0));
         }
+
         /* P15 眉题：沿用章节页眉细金线，与 P16→P15 衔接紧凑 */
         #track .slide[data-slide="15"] .section-eyebrow.p2-eyebrow-top {
             position: absolute;
@@ -3137,6 +3153,7 @@
             left: 60px;
             z-index: 1001;
         }
+
         #track .slide[data-slide="15"] .section-eyebrow.p2-eyebrow-top::after {
             content: "";
             display: block;
@@ -3149,6 +3166,7 @@
         #track .slide[data-slide="12"] .top-balance-bar {
             top: 55px;
         }
+
         #track .slide[data-slide="12"] .top-balance-bar::after {
             content: "";
             display: block;
@@ -3156,12 +3174,13 @@
             max-width: 1200px;
             height: 1px;
             margin-top: 22px;
-            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+            background: linear-gradient(90deg, var(--color-gold), rgba(214, 178, 107, 0));
         }
 
         #track .slide[data-slide="13"] .hero {
             top: 55px;
         }
+
         #track .slide[data-slide="13"] .hero::after {
             content: "";
             display: block;
@@ -3169,13 +3188,14 @@
             max-width: 1200px;
             height: 1px;
             margin-top: 22px;
-            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+            background: linear-gradient(90deg, var(--color-gold), rgba(214, 178, 107, 0));
         }
 
         #track .slide[data-slide="14"] .left-column {
             top: 55px;
             height: 830px;
         }
+
         #track .slide[data-slide="14"] .page-title-en::after {
             content: "";
             display: block;
@@ -3183,13 +3203,14 @@
             max-width: 760px;
             height: 1px;
             margin-top: 22px;
-            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+            background: linear-gradient(90deg, var(--color-gold), rgba(214, 178, 107, 0));
         }
 
         /* P8/P9 延续页：标题置顶（原章节标位置），标题下加细金线作为小节标识 */
         #track .slide[data-slide="8"] .p5-content {
             top: 55px;
         }
+
         #track .slide[data-slide="8"] .p5-content::after {
             content: "";
             display: block;
@@ -3197,12 +3218,13 @@
             max-width: 1200px;
             height: 1px;
             margin-top: 22px;
-            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+            background: linear-gradient(90deg, var(--color-gold), rgba(214, 178, 107, 0));
         }
 
         #track .slide[data-slide="9"] .p6-hero {
             top: 55px;
         }
+
         #track .slide[data-slide="9"] .p6-hero::after {
             content: "";
             display: block;
@@ -3210,7 +3232,7 @@
             max-width: 1200px;
             height: 1px;
             margin-top: 22px;
-            background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
+            background: linear-gradient(90deg, var(--color-gold), rgba(214, 178, 107, 0));
         }
 
         /* ---------- 左侧：信息认知区（30%） ---------- */
@@ -3592,11 +3614,13 @@
            但关闭强制吸附、画布按宽度铺满让文字可读、导航可横向滚动
            ========================================================== */
         @media (max-width: 820px) {
+
             /* 关闭强制 scroll-snap，手机滚动更顺滑不卡顿 */
             #viewport {
                 scroll-snap-type: none;
                 -webkit-overflow-scrolling: touch;
             }
+
             #track .slide {
                 scroll-snap-align: none;
                 /* 允许按宽度铺满后超高的内容纵向滚动，不被裁切 */
@@ -3610,11 +3634,13 @@
                 padding: 0 14px;
                 gap: 8px;
             }
+
             #site-topbar .brand-text {
                 font-size: 13px;
                 letter-spacing: 1px;
                 white-space: nowrap;
             }
+
             #site-topbar .topbar-nav {
                 gap: 2px;
                 overflow-x: auto;
@@ -3622,12 +3648,17 @@
                 scrollbar-width: none;
                 max-width: 62vw;
             }
-            #site-topbar .topbar-nav::-webkit-scrollbar { display: none; }
+
+            #site-topbar .topbar-nav::-webkit-scrollbar {
+                display: none;
+            }
+
             #site-topbar .topbar-nav a {
                 padding: 6px 9px;
                 font-size: 12px;
                 letter-spacing: .5px;
             }
+
             #site-topbar .topbar-lang {
                 margin-left: 6px;
                 padding: 5px 10px;
@@ -3639,16 +3670,35 @@
                 bottom: 12px;
                 gap: 12px;
             }
-            .nav-btn { font-size: 16px; }
-            .nav-pageno .cur { font-size: 15px; }
+
+            .nav-btn {
+                font-size: 16px;
+            }
+
+            .nav-pageno .cur {
+                font-size: 15px;
+            }
         }
 
         /* 更窄的手机（≤480px）进一步收紧 */
         @media (max-width: 480px) {
-            #site-topbar .brand-text { font-size: 11px; max-width: 30vw; overflow: hidden; text-overflow: ellipsis; }
-            #site-topbar .topbar-nav { max-width: 56vw; }
-            #site-topbar .topbar-nav a { padding: 6px 7px; font-size: 11px; }
+            #site-topbar .brand-text {
+                font-size: 11px;
+                max-width: 30vw;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            #site-topbar .topbar-nav {
+                max-width: 56vw;
+            }
+
+            #site-topbar .topbar-nav a {
+                padding: 6px 7px;
+                font-size: 11px;
+            }
         }
+
         /* P2 容器与文字（与 page-shared.min.css 同步） */
         .p2-left-panel {
             position: absolute;
@@ -3657,6 +3707,7 @@
             width: 920px;
             z-index: 20;
         }
+
         .p2-block-text {
             font-size: 22px;
             line-height: 1.8;
