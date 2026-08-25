@@ -24,3 +24,9 @@ desktop.ini
 # 页面模板参考（不部署上线，仅本地用于新建页面对照）
 *_demo/
 _demo/
+
+# 本地扫描/调试脚本残留（非站点内容，勿部署）
+_scan*.txt
+_scan*.py
+_g2run.txt
+_g2run*
