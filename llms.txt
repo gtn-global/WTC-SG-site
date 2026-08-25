@@ -1,4 +1,4 @@
-# WTC Singapore Deck
+﻿# WTC Singapore Deck
 
 世界贸易中心新加坡（WTC Singapore）介绍演示文稿的中英文双版本静态站点。
 
@@ -22,8 +22,8 @@ WTC Singapore 依托 WTCA 的全球网络，为企业与机构提供核心服务
 - The Moment the Appointment Letter Landed in My Hands, I Knew the Real Work Was Only Beginning — https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en.html
 - 在博彦科技 · 新加坡，看一家中国科技企业如何把"出海"做得更具体 — https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore.html
 - At Beyondsoft · Singapore, Seeing How a Chinese Technology Company Makes "Going Global" More Concrete — https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore-en.html
-- 从香港飞来的新能源投行人士，点破了出海最被忽略的事 — https://wtcasg.org/wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon.html
-- The New-Energy Investment Banker Who Flew in from Hong Kong Pinpointed What Outbound Ventures Overlook Most — https://wtcasg.org/wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon-en.html
+- 从香港飞来的新能源投行人士，点破了出海最被忽略的事 — https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital.html
+- The New-Energy Investment Banker Who Flew in from Hong Kong Pinpointed What Outbound Ventures Overlook Most — https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital-en.html
 - 2025 中国国际服务贸易交易会（服贸会） — https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html
 - WTC Singapore at the 2025 China International Fair for Trade in Services (CIFTIS) — https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en.html
 
@@ -70,3 +70,4 @@ WTC Singapore 依托 WTCA 的全球网络，为企业与机构提供核心服务
 ## 部署
 
 纯静态站点，由 GitHub Pages 从 GitHub 仓库 `gtn-global/WTC-SG-site`（分支 main，根路径 `/`）发布，自定义域名 `wtcasg.org`。根路径 `/` 直接展示 index.html（中文版），`/index-en.html` 为英文版。
+

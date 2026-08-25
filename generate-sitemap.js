@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * 生成 sitemap.xml —— 纯静态站点，手动列出页面。
  * 用法: node generate-sitemap.js [BASE_URL]
@@ -21,8 +21,8 @@ const PAGES = [
   'wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en.html',
   'wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore.html',
   'wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore-en.html',
-  'wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon.html',
-  'wtc-one-club/journal-hk-new-energy-capital-salon/journal-hk-new-energy-capital-salon-en.html',
+  'wtc-one-club/journal-HKcapital/journal-HKcapital.html',
+  'wtc-one-club/journal-HKcapital/journal-HKcapital-en.html',
   'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html',
   'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en.html',
   'club-apply/club-apply.html',
@@ -166,3 +166,4 @@ const llms = [
 
 fs.writeFileSync(path.join(__dirname, 'llms.txt'), llms);
 console.log('llms.txt generated for', BASE);
+

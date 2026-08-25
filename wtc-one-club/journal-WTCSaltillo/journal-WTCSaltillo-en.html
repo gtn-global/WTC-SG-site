@@ -31,7 +31,11 @@
 <link rel="stylesheet" href="../one-club.css">
 <style>
   /* 英文长标题用 Playfair Display 正体（保留字族、关斜体，长句更稳且不丢亮眼感），不新增字族 */
-  .hero h1{ font-family:var(--font-display); font-style:normal; }
+  .hero h1{
+    font-family:var(--font-display); font-style:normal;
+    font-size:38px; line-height:1.25; letter-spacing:.01em;
+    max-width:none; white-space:normal;
+  }
   /* CTA 标题原无字体定义、落到系统默认体（很丑），显式统一为 Playfair Display 正体，与 h1 一致 */
   .cta h2{ font-family:var(--font-display); font-style:normal; font-weight:600; }
   /* 单张现场图：按原始比例完整显示，不裁切 */
