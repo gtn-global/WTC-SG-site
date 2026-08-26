@@ -12,6 +12,35 @@
     display: none !important;
   }
 
+  /* 手机竖屏：隐藏整条顶部导航栏，仅保留中英文切换浮出（不改动桌面版与其他元素） */
+  #site-topbar .topbar-brand,
+  #site-topbar .topbar-nav {
+    display: none !important;
+  }
+
+  #site-topbar .topbar-lang {
+    display: inline-flex !important;
+    position: fixed;
+    top: calc(12px + env(safe-area-inset-top));
+    right: calc(14px + env(safe-area-inset-right));
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    border-radius: 999px;
+    background: rgba(10, 25, 47, 0.72);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    color: #d4af37;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    pointer-events: auto;
+  }
+
   #track .slide.has-mobile-layout > .mobile-layout {
     display: flex;
     flex-direction: column;
