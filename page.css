@@ -3639,6 +3639,10 @@
                 font-size: 13px;
                 letter-spacing: 1px;
                 white-space: nowrap;
+                /* 章节导航已隐藏，顶栏仅剩品牌+EN，确保品牌完整显示不被截断 */
+                max-width: none;
+                overflow: visible;
+                text-overflow: clip;
             }
 
             #site-topbar .topbar-nav {
@@ -3684,9 +3688,11 @@
         @media (max-width: 480px) {
             #site-topbar .brand-text {
                 font-size: 11px;
-                max-width: 30vw;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                /* 不截断品牌文字：导航已隐藏，空间充足，完整显示「新加坡世贸丨WTC Singapore」 */
+                max-width: none;
+                overflow: visible;
+                text-overflow: clip;
+                white-space: nowrap;
             }
 
             #site-topbar .topbar-nav {
