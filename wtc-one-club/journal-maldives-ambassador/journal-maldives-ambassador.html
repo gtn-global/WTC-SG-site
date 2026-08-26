@@ -23,6 +23,12 @@
 <link rel="stylesheet" href="../case-study.css">
 <link rel="stylesheet" href="../one-club.css">
 <style>
+  /* 标题容器放开：关斜体、撑满宽度、允许正常换行，使 <br> 断句真正生效 */
+  .hero h1{
+    font-family:var(--font-display); font-style:normal;
+    font-size:38px; line-height:1.35; letter-spacing:.01em;
+    max-width:none; white-space:normal; width:100%;
+  }
   /* 现场照片：两张并排拼成一组，窄屏堆叠 */
   .journal-figure-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .journal-figure-grid img{
@@ -62,7 +68,7 @@
 
   <header class="hero">
     <p class="eyebrow">俱乐部手记 · 03 顶层思享汇</p>
-    <h1>问马尔代夫大使一个问题，他给了两个答案</h1>
+    <h1>问马尔代夫大使一个问题，<br>他给了两个答案</h1>
     <div class="journal-meta">
       <span class="row-pillar">03 顶层思享汇</span>
       <span class="row-date">2025 年</span>
@@ -134,6 +140,23 @@
     <h2>正在评估南亚/印度洋区域市场？</h2>
     <p>如果您的企业正在考虑马尔代夫或周边市场的落地机会，欢迎与我们聊聊实际的判断逻辑。</p>
     <a class="cta-btn" href="../../index.html#slide-16">联系我们 →</a>
+  </section>
+  <section class="more-journals" aria-label="更多秘书长手记" style="margin:48px 0;">
+    <h2 style="font-size:20px;margin:0 0 18px;font-family:var(--font-display);">更多秘书长手记</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <a href="/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony.html" style="display:block;padding:18px 20px;border:1px solid rgba(255,255,255,.12);border-radius:10px;text-decoration:none;color:inherit;background:rgba(255,255,255,.02);">
+        <span style="display:block;font-weight:600;font-size:15px;line-height:1.4;">任命书递到手上那一刻，我知道接下来的事才刚刚开始</span>
+        <span style="display:block;margin-top:8px;font-size:13px;color:#b9c2d0;">阅读 →</span>
+      </a>
+      <a href="/wtc-one-club/journal-HKcapital/journal-HKcapital.html" style="display:block;padding:18px 20px;border:1px solid rgba(255,255,255,.12);border-radius:10px;text-decoration:none;color:inherit;background:rgba(255,255,255,.02);">
+        <span style="display:block;font-weight:600;font-size:15px;line-height:1.4;">从香港飞来的新能源投行人士，点破了出海最被忽略的事</span>
+        <span style="display:block;margin-top:8px;font-size:13px;color:#b9c2d0;">阅读 →</span>
+      </a>
+      <a href="/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html" style="display:block;padding:18px 20px;border:1px solid rgba(255,255,255,.12);border-radius:10px;text-decoration:none;color:inherit;background:rgba(255,255,255,.02);">
+        <span style="display:block;font-weight:600;font-size:15px;line-height:1.4;">在服贸会现场，我重新想清楚了“出海”到底迈的哪一步</span>
+        <span style="display:block;margin-top:8px;font-size:13px;color:#b9c2d0;">阅读 →</span>
+      </a>
+    </div>
   </section>
 
   <footer>

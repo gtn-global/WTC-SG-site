@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env node
-/**
+﻿/**
  * 生成 sitemap.xml —— 纯静态站点，手动列出页面。
  * 用法: node generate-sitemap.js [BASE_URL]
  *   不传 BASE_URL 时用下方 DEFAULT_BASE。
@@ -25,6 +24,8 @@ const PAGES = [
   'wtc-one-club/journal-HKcapital/journal-HKcapital-en.html',
   'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html',
   'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en.html',
+  'wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador.html',
+  'wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador-en.html',
   'club-apply/club-apply.html',
   'club-apply/club-apply-en.html',
   'cases/case-list.html',

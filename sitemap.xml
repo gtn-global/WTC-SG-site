@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://wtcasg.org/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://wtcasg.org/index-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -33,144 +33,157 @@
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/one-club-journal.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/one-club-journal-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador-en.html</loc>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/club-apply/club-apply.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/club-apply/club-apply-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/case-list.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/case-list-en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/hardtech-semiconductor/index.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/hardtech-semiconductor/en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/home-building-materials/index.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/home-building-materials/en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/smart-manufacturing/index.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/smart-manufacturing/en.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
 
   </url>
 </urlset>
-
 

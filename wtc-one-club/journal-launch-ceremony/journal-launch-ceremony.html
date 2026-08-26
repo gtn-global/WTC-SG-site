@@ -23,6 +23,12 @@
 <link rel="stylesheet" href="../case-study.css">
 <link rel="stylesheet" href="../one-club.css">
 <style>
+  /* 标题容器放开：关斜体、撑满宽度、允许正常换行，使 <br> 断句真正生效 */
+  .hero h1{
+    font-family:var(--font-display); font-style:normal;
+    font-size:38px; line-height:1.35; letter-spacing:.01em;
+    max-width:none; white-space:normal; width:100%;
+  }
   .cta h2{ font-family:var(--font-display); font-style:normal; }
   .cta h2 .brand{ font-family:var(--font-display); }
 </style>
@@ -66,7 +72,7 @@
 
   <header class="hero">
     <p class="eyebrow">俱乐部手记 · 03 顶层思享汇</p>
-    <h1>任命书递到手上那一刻，我知道接下来的事才刚刚开始</h1>
+    <h1>任命书递到手上那一刻，<br>我知道接下来的事才刚刚开始</h1>
     <div class="journal-meta">
       <span class="row-pillar">03 顶层思享汇</span>
       <span class="row-date">2026 年</span>
