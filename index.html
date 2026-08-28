@@ -90,21 +90,47 @@
     <!-- 公共图库加载 + 灯箱逻辑（waterfall / wtc-buildings / grid 共用，消除重复，见优化 4.3） -->
     <script>
         function WTCGalleries(gridSel, lbId) {
-            var exts = ['webp', 'jpg', 'png'];
+            var PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
             var grid = typeof gridSel === 'string'
                 ? (gridSel.charAt(0) === '#' ? document.getElementById(gridSel.slice(1)) : document.querySelector(gridSel))
                 : gridSel;
             if (!grid) return;
-            grid.querySelectorAll('img.thumb[data-base]').forEach(function (img) {
+
+            /* 惰性加载：缩略图进入视口附近（上下各预取 400px）才真正发起请求，
+               避免原生 loading=lazy 的宽阈值把后面 1~3 屏的图片全部提前拉取。 */
+            function loadThumb(img) {
+                if (img.getAttribute('data-loaded')) return;
+                img.setAttribute('data-loaded', '1');
                 var base = img.getAttribute('data-base');
+                /* 缩略图位优先取 400w 小图（-400.webp，约 17KB）；
+                   若缺失则逐级回退到原图 webp / jpg / png。
+                   同时记录原图路径，供灯箱放大时使用。 */
+                var cands = [base + '-400.webp', base + '.webp', base + '.jpg', base + '.png'];
+                img.setAttribute('data-full', base + '.webp');
                 var i = 0;
                 img.addEventListener('error', function onErr() {
                     i++;
-                    if (i < exts.length) { img.src = base + '.' + exts[i]; }
-                    else { img.removeEventListener('error', onErr); img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; }
+                    if (i < cands.length) { img.src = cands[i]; }
+                    else { img.removeEventListener('error', onErr); img.src = PLACEHOLDER; }
                 });
-                img.src = base + '.' + exts[0];
-            });
+                img.src = cands[0];
+            }
+
+            var thumbs = grid.querySelectorAll('img.thumb[data-base]');
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            loadThumb(entry.target);
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '1200px 0px' });
+                thumbs.forEach(function (img) { io.observe(img); });
+            } else {
+                thumbs.forEach(loadThumb);
+            }
+
             var lb = document.getElementById(lbId);
             var lbImg = lb ? lb.querySelector('img') : null;
             if (grid && lb && lbImg) {
@@ -113,7 +139,7 @@
                     card.addEventListener('click', function () {
                         var im = card.querySelector('img.thumb, img.event-img');
                         if (!im) return;
-                        lbImg.src = im.currentSrc || im.src;
+                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src;
                         lb.classList.add('open');
                     });
                 });
@@ -581,9 +607,9 @@
                         </div>
                         <div class="logo-group">
                             <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo"
-                                style="margin-right:20px;" width="506" height="120">
+                                style="margin-right:20px;" width="506" height="120" fetchpriority="high">
                             <img src="quotes-logos/logo_sg.webp" class="logo" alt="WTC Singapore Logo" width="610"
-                                height="120">
+                                height="120" fetchpriority="high">
                         </div>
                     </div>
 
@@ -775,51 +801,51 @@
                     <div class="card-grid-dense fade-in d4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca01"
-                                alt="全球连接 01" style="object-fit:cover; display:block;">
+                                alt="全球连接 01" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 01</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca02"
-                                alt="全球连接 02" style="object-fit:cover; display:block;">
+                                alt="全球连接 02" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 02</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca03"
-                                alt="全球连接 03" style="object-fit:cover; display:block;">
+                                alt="全球连接 03" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 03</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca04"
-                                alt="全球连接 04" style="object-fit:cover; display:block;">
+                                alt="全球连接 04" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 04</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca05"
-                                alt="全球连接 05" style="object-fit:cover; display:block;">
+                                alt="全球连接 05" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 05</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca06"
-                                alt="全球连接 06" style="object-fit:cover; display:block;">
+                                alt="全球连接 06" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 06</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca07"
-                                alt="全球连接 07" style="object-fit:cover; display:block;">
+                                alt="全球连接 07" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 07</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca08"
-                                alt="全球连接 08" style="object-fit:cover; display:block;">
+                                alt="全球连接 08" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 08</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca09"
-                                alt="全球连接 09" style="object-fit:cover; display:block;">
+                                alt="全球连接 09" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 09</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca10"
-                                alt="全球连接 10" style="object-fit:cover; display:block;">
+                                alt="全球连接 10" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 10</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca11"
-                                alt="全球连接 11" style="object-fit:cover; display:block;">
+                                alt="全球连接 11" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 11</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca12"
-                                alt="全球连接 12" style="object-fit:cover; display:block;">
+                                alt="全球连接 12" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">全球连接 12</div>
                         </div>
                     </div>
@@ -846,22 +872,22 @@
                             <div class="m3-grid">
                                 <div class="m3-item">
                                     <img src="waterfall/wtca01.webp" alt="全球连接 01" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';" decoding="async">
                                     <div class="m3-cap">全球连接 01</div>
                                 </div>
                                 <div class="m3-item">
                                     <img src="waterfall/wtca02.webp" alt="全球连接 02" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';" decoding="async">
                                     <div class="m3-cap">全球连接 02</div>
                                 </div>
                                 <div class="m3-item">
                                     <img src="waterfall/wtca03.webp" alt="全球连接 03" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';" decoding="async">
                                     <div class="m3-cap">全球连接 03</div>
                                 </div>
                                 <div class="m3-item">
                                     <img src="waterfall/wtca04.webp" alt="全球连接 04" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';" decoding="async">
                                     <div class="m3-cap">全球连接 04</div>
                                 </div>
                             </div>
@@ -890,56 +916,56 @@
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/01_washington_wtc" alt="世贸建筑 01"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 01</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc"
-                                alt="世贸建筑 02" style="object-fit:cover; display:block;">
+                                alt="世贸建筑 02" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 02</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc"
-                                alt="世贸建筑 03" style="object-fit:cover; display:block;">
+                                alt="世贸建筑 03" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 03</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/04_amsterdam_wtc" alt="世贸建筑 04"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 04</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/05_new_york_wtc" alt="世贸建筑 05"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 05</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc"
-                                alt="世贸建筑 06" style="object-fit:cover; display:block;">
+                                alt="世贸建筑 06" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 06</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/07_rotterdam_wtc" alt="世贸建筑 07"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 07</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/08_bangalore_wtc" alt="世贸建筑 08"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 08</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc"
-                                alt="世贸建筑 09" style="object-fit:cover; display:block;">
+                                alt="世贸建筑 09" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 09</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/10_bahrain_wtc" alt="世贸建筑 10"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 10</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc"
-                                alt="世贸建筑 11" style="object-fit:cover; display:block;">
+                                alt="世贸建筑 11" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 11</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc"
-                                alt="世贸建筑 12" style="object-fit:cover; display:block;">
+                                alt="世贸建筑 12" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">世贸建筑 12</div>
                         </div>
                     </div>
@@ -966,32 +992,32 @@
                             <div class="m4-grid">
                                 <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp" alt="世贸建筑 01"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">世贸建筑 01</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="世贸建筑 02"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">世贸建筑 02</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="世贸建筑 03"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">世贸建筑 03</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp" alt="世贸建筑 04"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">世贸建筑 04</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="世贸建筑 05"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">世贸建筑 05</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="世贸建筑 06"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">世贸建筑 06</div>
                                 </div>
                             </div>
@@ -1766,7 +1792,7 @@
 
                     <div class="p7-constellation-zone">
                         <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" class="fade-in d3"
-                            width="1600" height="692" loading="lazy">
+                            width="1600" height="692" loading="lazy" decoding="async">
                     </div>
 
                     <div class="mobile-layout">
@@ -1775,7 +1801,7 @@
                             <h2 class="m11-title">全球领导力网络</h2>
                             <div class="m11-sub">Global Leadership Network</div>
                             <div class="m11-card">
-                                <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" loading="lazy">
+                                <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" loading="lazy" decoding="async">
                                 <div class="m11-note">连接跨区域理事会与顾问网络，形成全球协同的领导力生态。</div>
                             </div>
                         </div>
@@ -1800,7 +1826,7 @@
                     <!-- Leadership Perspective（重新定位至标题下方） -->
                     <div class="fund-leadership-perspective fade-in d2">
                         <img class="leader-avatar" src="quotes-logos/chairman_quote.webp" alt="张克" width="200"
-                            height="200" loading="lazy">
+                            height="200" loading="lazy" decoding="async">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">"一个充满生命力、长期可持续发展的平台，更要靠一群拥有共同理念和追求的人，共同成长，共同创造长期价值。"</div>
                             <div class="leader-signature">张克<span>新加坡世贸 理事长</span></div>
@@ -1895,7 +1921,7 @@
                             <h2 class="m12-title">国际资本创新生态</h2>
                             <div class="m12-sub">A Global Platform for Capital Innovation and Value Creation</div>
                             <div class="m12-leader">
-                                <img src="quotes-logos/chairman_quote.webp" alt="张克" loading="lazy">
+                                <img src="quotes-logos/chairman_quote.webp" alt="张克" loading="lazy" decoding="async">
                                 <div class="m12-leader-sign">张克<span>新加坡世贸 理事长</span></div>
                             </div>
                             <div class="m12-quote">"一个充满生命力、长期可持续发展的平台，更要靠一群拥有共同理念和追求的人，共同成长，共同创造长期价值。"</div>
@@ -1937,7 +1963,7 @@
                     <!-- 领导力引用卡片（标题下方） -->
                     <div class="hero-leader fade-in d3">
                         <img class="leader-avatar" src="quotes-logos/CEO_quote.webp" alt="朱小兰" width="200"
-                            height="200" loading="lazy">
+                            height="200" loading="lazy" decoding="async">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">
                                 "在全球产业链、供应链重构中，中国企业国际化进入新的发展阶段，更加需要国际背书，拓展国际朋友圈，做好体系化、专业化的国际化战略、合规、组织设计与跨文化融合。"</div>
@@ -1955,7 +1981,7 @@
                             <h2 class="m13-title">国际合伙人网络</h2>
                             <div class="m13-sub">International Partner Network</div>
                             <div class="m13-leader">
-                                <img src="quotes-logos/CEO_quote.webp" alt="朱小兰" loading="lazy">
+                                <img src="quotes-logos/CEO_quote.webp" alt="朱小兰" loading="lazy" decoding="async">
                                 <div class="m13-leader-sign">朱小兰<span>新加坡世贸 首席代表兼执行总裁</span></div>
                             </div>
                             <div class="m13-quote">"中国企业国际化进入新阶段，更需要国际背书与专业化、体系化的全球化支持。"</div>
@@ -1987,7 +2013,7 @@
                         <div class="leadership-perspective fade-in d2">
                             <img class="leader-avatar" src="quotes-logos/COO_quote.webp"
                                 alt="董立鑫，WTC Singapore Secretary-General & COO" width="200" height="200"
-                                loading="lazy">
+                                loading="lazy" decoding="async">
                             <div class="leader-quote-wrap">
                                 <div class="leader-quote">"全球只有一个商业网络叫世界贸易中心协会，而这，是它在亚太的会籍。"</div>
                                 <div class="leader-signature-en">董立鑫<span>新加坡世贸 秘书长兼首席运营官</span>
@@ -2077,7 +2103,7 @@
 
                             <div class="ma-leader">
                                 <img src="quotes-logos/COO_quote.webp"
-                                    alt="董立鑫，WTC Singapore Secretary-General & COO" loading="lazy">
+                                    alt="董立鑫，WTC Singapore Secretary-General & COO" loading="lazy" decoding="async">
                                 <div>
                                     <div class="ma-leader-quote">"全球只有一个商业网络叫世界贸易中心协会，而这，是它在亚太的会籍。"</div>
                                     <div class="ma-leader-sign">董立鑫<span>新加坡世贸 秘书长兼首席运营官</span></div>
@@ -2149,47 +2175,47 @@
                         <!-- 1/9 -->
                         <div class="event-cell real" data-img="grid/grid1">
                             <img class="event-img" src="grid/grid1.webp" data-fallback="grid/grid1.jpg"
-                                alt="WTC Singapore 活动影像 1" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 1" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 2/9 -->
                         <div class="event-cell" data-img="grid/grid2">
                             <img class="event-img" src="grid/grid2.webp" data-fallback="grid/grid2.jpg"
-                                alt="WTC Singapore 活动影像 2" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 2" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 3/9 -->
                         <div class="event-cell" data-img="grid/grid3">
                             <img class="event-img" src="grid/grid3.webp" data-fallback="grid/grid3.jpg"
-                                alt="WTC Singapore 活动影像 3" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 3" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 4/9 -->
                         <div class="event-cell" data-img="grid/grid4">
                             <img class="event-img" src="grid/grid4.webp" data-fallback="grid/grid4.jpg"
-                                alt="WTC Singapore 活动影像 4" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 4" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 5/9 -->
                         <div class="event-cell" data-img="grid/grid5">
                             <img class="event-img" src="grid/grid5.webp" data-fallback="grid/grid5.jpg"
-                                alt="WTC Singapore 活动影像 5" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 5" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 6/9 -->
                         <div class="event-cell" data-img="grid/grid6">
                             <img class="event-img" src="grid/grid6.webp" data-fallback="grid/grid6.jpg"
-                                alt="WTC Singapore 活动影像 6" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 6" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 7/9 -->
                         <div class="event-cell" data-img="grid/grid7">
                             <img class="event-img" src="grid/grid7.webp" data-fallback="grid/grid7.jpg"
-                                alt="WTC Singapore 活动影像 7" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 7" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 8/9 -->
                         <div class="event-cell" data-img="grid/grid8">
                             <img class="event-img" src="grid/grid8.webp" data-fallback="grid/grid8.jpg"
-                                alt="WTC Singapore 活动影像 8" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 8" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                         <!-- 9/9 -->
                         <div class="event-cell" data-img="grid/grid9">
                             <img class="event-img" src="grid/grid9.webp" data-fallback="grid/grid9.jpg"
-                                alt="WTC Singapore 活动影像 9" loading="lazy" width="640" height="480">
+                                alt="WTC Singapore 活动影像 9" loading="lazy" width="640" height="480" decoding="async">
                         </div>
                     </div>
 
@@ -2209,17 +2235,17 @@
                         <div class="m15-eyebrow">05 — 连接我们 / CONNECT</div>
                         <div class="m15-grid">
                             <div class="m15-cell"><img src="grid/grid1.webp" alt="WTC Singapore 活动影像 1" loading="lazy"
-                                    onerror="this.onerror=null;this.src='grid/grid1.jpg';"></div>
+                                    onerror="this.onerror=null;this.src='grid/grid1.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid2.webp" alt="WTC Singapore 活动影像 2" loading="lazy"
-                                    onerror="this.onerror=null;this.src='grid/grid2.jpg';"></div>
+                                    onerror="this.onerror=null;this.src='grid/grid2.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid3.webp" alt="WTC Singapore 活动影像 3" loading="lazy"
-                                    onerror="this.onerror=null;this.src='grid/grid3.jpg';"></div>
+                                    onerror="this.onerror=null;this.src='grid/grid3.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid4.webp" alt="WTC Singapore 活动影像 4" loading="lazy"
-                                    onerror="this.onerror=null;this.src='grid/grid4.jpg';"></div>
+                                    onerror="this.onerror=null;this.src='grid/grid4.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid5.webp" alt="WTC Singapore 活动影像 5" loading="lazy"
-                                    onerror="this.onerror=null;this.src='grid/grid5.jpg';"></div>
+                                    onerror="this.onerror=null;this.src='grid/grid5.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid6.webp" alt="WTC Singapore 活动影像 6" loading="lazy"
-                                    onerror="this.onerror=null;this.src='grid/grid6.jpg';"></div>
+                                    onerror="this.onerror=null;this.src='grid/grid6.jpg';" decoding="async"></div>
                         </div>
                         <div class="m15-foot">
                             <div class="m15-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
@@ -2268,11 +2294,11 @@
                         <div class="p8-qr">
                             <div class="p8-qr-item">
                                 <img src="quotes-logos/donglixin_qrcode.png" alt="董立鑫 二维码" width="320" height="320"
-                                    loading="lazy">
+                                    loading="lazy" decoding="async">
                             </div>
                             <div class="p8-qr-item">
                                 <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="朱小兰 二维码" width="320" height="320"
-                                    loading="lazy">
+                                    loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -2305,12 +2331,12 @@
                             <div class="m16-qr">
                                 <div class="m16-qr-item">
                                     <img src="quotes-logos/donglixin_qrcode.png" alt="董立鑫 二维码"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div class="m16-qr-cap">董立鑫</div>
                                 </div>
                                 <div class="m16-qr-item">
                                     <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="朱小兰 二维码"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div class="m16-qr-cap">朱小兰</div>
                                 </div>
                             </div>

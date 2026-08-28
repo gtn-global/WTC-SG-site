@@ -501,9 +501,9 @@
                         </div>
                         <div class="logo-group">
                             <img src="quotes-logos/wtca-logo-2.webp" class="logo" alt="WTCA Logo"
-                                style="margin-right:20px;" width="506" height="120">
+                                style="margin-right:20px;" width="506" height="120" fetchpriority="high">
                             <img src="quotes-logos/logo_sg.webp" class="logo" alt="WTC Singapore Logo" width="610"
-                                height="120">
+                                height="120" fetchpriority="high">
                         </div>
                     </div>
 
@@ -699,51 +699,51 @@
                     <div class="card-grid-dense fade-in d4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca01"
-                                alt="Global Connection 01" style="object-fit:cover; display:block;">
+                                alt="Global Connection 01" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 01</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca02"
-                                alt="Global Connection 02" style="object-fit:cover; display:block;">
+                                alt="Global Connection 02" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 02</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca03"
-                                alt="Global Connection 03" style="object-fit:cover; display:block;">
+                                alt="Global Connection 03" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 03</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca04"
-                                alt="Global Connection 04" style="object-fit:cover; display:block;">
+                                alt="Global Connection 04" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 04</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca05"
-                                alt="Global Connection 05" style="object-fit:cover; display:block;">
+                                alt="Global Connection 05" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 05</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca06"
-                                alt="Global Connection 06" style="object-fit:cover; display:block;">
+                                alt="Global Connection 06" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 06</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca07"
-                                alt="Global Connection 07" style="object-fit:cover; display:block;">
+                                alt="Global Connection 07" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 07</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca08"
-                                alt="Global Connection 08" style="object-fit:cover; display:block;">
+                                alt="Global Connection 08" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 08</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca09"
-                                alt="Global Connection 09" style="object-fit:cover; display:block;">
+                                alt="Global Connection 09" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 09</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca10"
-                                alt="Global Connection 10" style="object-fit:cover; display:block;">
+                                alt="Global Connection 10" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 10</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca11"
-                                alt="Global Connection 11" style="object-fit:cover; display:block;">
+                                alt="Global Connection 11" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 11</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="waterfall/wtca12"
-                                alt="Global Connection 12" style="object-fit:cover; display:block;">
+                                alt="Global Connection 12" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">Global Connection 12</div>
                         </div>
                     </div>
@@ -760,20 +760,46 @@
 
                     <script>
                         (function () {
-                            var exts = ['jpg', 'png'];
-                            document.querySelectorAll('.mini-card img.thumb[data-base]').forEach(function (img) {
+                            var PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+                            var grid = document.querySelector('.card-grid-dense');
+                            if (!grid) return;
+
+                            /* 惰性加载：缩略图进入视口附近（上下各预取 400px）才真正发起请求，
+                               避免原生 loading=lazy 的宽阈值把后面 1~3 屏的图片全部提前拉取。 */
+                            function loadThumb(img) {
+                                if (img.getAttribute('data-loaded')) return;
+                                img.setAttribute('data-loaded', '1');
                                 var base = img.getAttribute('data-base');
+                                /* 缩略图位优先取 400w 小图（-400.webp，约 17KB）；
+                                   若缺失则逐级回退到原图 webp / jpg / png。
+                                   同时记录原图路径，供灯箱放大时使用。 */
+                                var cands = [base + '-400.webp', base + '.webp', base + '.jpg', base + '.png'];
+                                img.setAttribute('data-full', base + '.webp');
                                 var i = 0;
                                 img.addEventListener('error', function onErr() {
                                     i++;
-                                    if (i < exts.length) { img.src = base + '.' + exts[i]; }
-                                    else { img.removeEventListener('error', onErr); img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; }
+                                    if (i < cands.length) { img.src = cands[i]; }
+                                    else { img.removeEventListener('error', onErr); img.src = PLACEHOLDER; }
                                 });
-                                img.src = base + '.' + exts[0];
-                            });
+                                img.src = cands[0];
+                            }
+
+                            var thumbs = grid.querySelectorAll('img.thumb[data-base]');
+                            if ('IntersectionObserver' in window) {
+                                var io = new IntersectionObserver(function (entries) {
+                                    entries.forEach(function (entry) {
+                                        if (entry.isIntersecting) {
+                                            loadThumb(entry.target);
+                                            io.unobserve(entry.target);
+                                        }
+                                    });
+                                }, { rootMargin: '1200px 0px' });
+                                thumbs.forEach(function (img) { io.observe(img); });
+                            } else {
+                                thumbs.forEach(loadThumb);
+                            }
 
                             // 灯箱：点击小卡片放大，Click anywhere to close
-                            var grid = document.querySelector('.card-grid-dense');
                             var lb = document.getElementById('lightbox3');
                             var lbImg = document.getElementById('lightbox3-img');
                             if (grid && lb && lbImg) {
@@ -782,7 +808,7 @@
                                     card.addEventListener('click', function () {
                                         var im = card.querySelector('img.thumb');
                                         if (!im) return;
-                                        lbImg.src = im.src;
+                                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src;
                                         lb.classList.add('open');
                                     });
                                 });
@@ -802,22 +828,22 @@
                             <div class="m3-grid">
                                 <div class="m3-item">
                                     <img src="waterfall/wtca01.webp" alt="Global Connection 01" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca01.jpg';" decoding="async">
                                     <div class="m3-cap">Global Connection 01</div>
                                 </div>
                                 <div class="m3-item">
                                     <img src="waterfall/wtca02.webp" alt="Global Connection 02" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca02.jpg';" decoding="async">
                                     <div class="m3-cap">Global Connection 02</div>
                                 </div>
                                 <div class="m3-item">
                                     <img src="waterfall/wtca03.webp" alt="Global Connection 03" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca03.jpg';" decoding="async">
                                     <div class="m3-cap">Global Connection 03</div>
                                 </div>
                                 <div class="m3-item">
                                     <img src="waterfall/wtca04.webp" alt="Global Connection 04" loading="lazy"
-                                        onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';">
+                                        onerror="this.onerror=null;this.src='waterfall/wtca04.jpg';" decoding="async">
                                     <div class="m3-cap">Global Connection 04</div>
                                 </div>
                             </div>
@@ -846,56 +872,56 @@
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/01_washington_wtc" alt="WTC Building 01"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 01</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc"
-                                alt="WTC Building 02" style="object-fit:cover; display:block;">
+                                alt="WTC Building 02" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 02</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc"
-                                alt="WTC Building 03" style="object-fit:cover; display:block;">
+                                alt="WTC Building 03" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 03</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/04_amsterdam_wtc" alt="WTC Building 04"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 04</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/05_new_york_wtc" alt="WTC Building 05"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 05</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc"
-                                alt="WTC Building 06" style="object-fit:cover; display:block;">
+                                alt="WTC Building 06" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 06</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/07_rotterdam_wtc" alt="WTC Building 07"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 07</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/08_bangalore_wtc" alt="WTC Building 08"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 08</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc"
-                                alt="WTC Building 09" style="object-fit:cover; display:block;">
+                                alt="WTC Building 09" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 09</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/10_bahrain_wtc" alt="WTC Building 10"
-                                style="object-fit:cover; display:block;">
+                                style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 10</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc"
-                                alt="WTC Building 11" style="object-fit:cover; display:block;">
+                                alt="WTC Building 11" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 11</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc"
-                                alt="WTC Building 12" style="object-fit:cover; display:block;">
+                                alt="WTC Building 12" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">WTC Building 12</div>
                         </div>
                     </div>
@@ -912,18 +938,44 @@
 
                     <script>
                         (function () {
-                            var exts = ['jpg', 'png'];
+                            var PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
                             var grid = document.getElementById('cardGrid4');
-                            grid.querySelectorAll('.mini-card img.thumb[data-base]').forEach(function (img) {
+                            if (!grid) return;
+
+                            /* 惰性加载：缩略图进入视口附近（上下各预取 400px）才真正发起请求，
+                               避免原生 loading=lazy 的宽阈值把后面 1~3 屏的图片全部提前拉取。 */
+                            function loadThumb(img) {
+                                if (img.getAttribute('data-loaded')) return;
+                                img.setAttribute('data-loaded', '1');
                                 var base = img.getAttribute('data-base');
+                                /* 缩略图位优先取 400w 小图（-400.webp，约 17KB）；
+                                   若缺失则逐级回退到原图 webp / jpg / png。
+                                   同时记录原图路径，供灯箱放大时使用。 */
+                                var cands = [base + '-400.webp', base + '.webp', base + '.jpg', base + '.png'];
+                                img.setAttribute('data-full', base + '.webp');
                                 var i = 0;
                                 img.addEventListener('error', function onErr() {
                                     i++;
-                                    if (i < exts.length) { img.src = base + '.' + exts[i]; }
-                                    else { img.removeEventListener('error', onErr); img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; }
+                                    if (i < cands.length) { img.src = cands[i]; }
+                                    else { img.removeEventListener('error', onErr); img.src = PLACEHOLDER; }
                                 });
-                                img.src = base + '.' + exts[0];
-                            });
+                                img.src = cands[0];
+                            }
+
+                            var thumbs = grid.querySelectorAll('img.thumb[data-base]');
+                            if ('IntersectionObserver' in window) {
+                                var io = new IntersectionObserver(function (entries) {
+                                    entries.forEach(function (entry) {
+                                        if (entry.isIntersecting) {
+                                            loadThumb(entry.target);
+                                            io.unobserve(entry.target);
+                                        }
+                                    });
+                                }, { rootMargin: '1200px 0px' });
+                                thumbs.forEach(function (img) { io.observe(img); });
+                            } else {
+                                thumbs.forEach(loadThumb);
+                            }
 
                             // 灯箱：点击小卡片放大，Click anywhere to close
                             var lb = document.getElementById('lightbox4');
@@ -934,7 +986,7 @@
                                     card.addEventListener('click', function () {
                                         var im = card.querySelector('img.thumb');
                                         if (!im) return;
-                                        lbImg.src = im.src;
+                                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src;
                                         lb.classList.add('open');
                                     });
                                 });
@@ -954,32 +1006,32 @@
                             <div class="m4-grid">
                                 <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp"
                                         alt="WTC Building 01" loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">WTC Building 01</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="WTC Building 02"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">WTC Building 02</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="WTC Building 03"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">WTC Building 03</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp"
                                         alt="WTC Building 04" loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">WTC Building 04</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="WTC Building 05"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">WTC Building 05</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="WTC Building 06"
                                         loading="lazy"
-                                        onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';">
+                                        onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">WTC Building 06</div>
                                 </div>
                             </div>
@@ -1845,7 +1897,7 @@
 
                     <div class="p7-constellation-zone">
                         <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" class="fade-in d3"
-                            width="1600" height="692" loading="lazy">
+                            width="1600" height="692" loading="lazy" decoding="async">
                     </div>
 
                     <div class="mobile-layout">
@@ -1854,7 +1906,7 @@
                             <h2 class="m11-title">Global Leadership Network</h2>
                             <div class="m11-sub">Global Board and Advisory Council</div>
                             <div class="m11-card">
-                                <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" loading="lazy">
+                                <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" loading="lazy" decoding="async">
                                 <div class="m11-note">A connected leadership ecosystem across regions and sectors.</div>
                             </div>
                         </div>
@@ -1879,7 +1931,7 @@
                     <!-- Leadership Perspective（重新Positioning至标题下方） -->
                     <div class="fund-leadership-perspective fade-in d2">
                         <img class="leader-avatar" src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" width="200"
-                            height="200" loading="lazy">
+                            height="200" loading="lazy" decoding="async">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">"A vibrant, sustainable platform depends on a group of like-minded
                                 people growing together and creating long-term value."</div>
@@ -1977,7 +2029,7 @@
                             <h2 class="m12-title">International Capital & Innovation Ecosystem</h2>
                             <div class="m12-sub">A Global Platform for Capital Innovation and Value Creation</div>
                             <div class="m12-leader">
-                                <img src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" loading="lazy">
+                                <img src="quotes-logos/chairman_quote.webp" alt="Blake Zhang" loading="lazy" decoding="async">
                                 <div class="m12-leader-sign">Blake Zhang<span>Chairman, WTC Singapore</span></div>
                             </div>
                             <div class="m12-quote">"A vibrant, sustainable platform depends on like-minded people
@@ -2026,7 +2078,7 @@
                     <!-- 领导力引用卡片（标题下方） -->
                     <div class="hero-leader fade-in d3">
                         <img class="leader-avatar" src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" width="200"
-                            height="200" loading="lazy">
+                            height="200" loading="lazy" decoding="async">
                         <div class="leader-quote-wrap">
                             <div class="leader-quote">
                                 "As global industry and supply chains restructure, Chinese enterprises have entered a
@@ -2048,7 +2100,7 @@
                             <h2 class="m13-title">International Partner Network</h2>
                             <div class="m13-sub">Global expansion with strategic support</div>
                             <div class="m13-leader">
-                                <img src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" loading="lazy">
+                                <img src="quotes-logos/CEO_quote.webp" alt="Xiaolan Zhu" loading="lazy" decoding="async">
                                 <div class="m13-leader-sign">Xiaolan Zhu<span>Chief Representative &amp; CEO, WTC
                                         Singapore</span></div>
                             </div>
@@ -2083,7 +2135,7 @@
                         <div class="leadership-perspective fade-in d2">
                             <img class="leader-avatar" src="quotes-logos/COO_quote.webp"
                                 alt="Bruce Dong, WTC Singapore Secretary-General & COO" width="200" height="200"
-                                loading="lazy">
+                                loading="lazy" decoding="async">
                             <div class="leader-quote-wrap">
                                 <div class="leader-quote">"There is only one business network in the world called World
                                     Trade Centers Association—and this is its membership in Asia-Pacific."</div>
@@ -2179,7 +2231,7 @@
 
                             <div class="ma-leader">
                                 <img src="quotes-logos/COO_quote.webp"
-                                    alt="Bruce Dong, WTC Singapore Secretary-General & COO" loading="lazy">
+                                    alt="Bruce Dong, WTC Singapore Secretary-General & COO" loading="lazy" decoding="async">
                                 <div>
                                     <div class="ma-leader-quote">"There is only one business network in the world called
                                         World Trade Centers Association — and this is its membership in Asia-Pacific."
@@ -2301,17 +2353,17 @@
                         <div class="m15-eyebrow">05 — CONNECT WITH US</div>
                         <div class="m15-grid">
                             <div class="m15-cell"><img src="grid/grid1.webp" alt="WTC Singapore Event Photo 1"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';"></div>
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid2.webp" alt="WTC Singapore Event Photo 2"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';"></div>
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid3.webp" alt="WTC Singapore Event Photo 3"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';"></div>
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid4.webp" alt="WTC Singapore Event Photo 4"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';"></div>
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid5.webp" alt="WTC Singapore Event Photo 5"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';"></div>
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';" decoding="async"></div>
                             <div class="m15-cell"><img src="grid/grid6.webp" alt="WTC Singapore Event Photo 6"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';"></div>
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';" decoding="async"></div>
                         </div>
                         <div class="m15-foot">
                             <div class="m15-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
@@ -2321,7 +2373,8 @@
 
                     <script>
                         (function () {
-                            var exts = ['jpg', 'png'];
+                            /* webp 优先（grid/ 下 webp 齐全，比 jpg 小约 25%），jpg/png 仍作回退 */
+                            var exts = ['webp', 'jpg', 'png'];
                             var grid = document.querySelector('.event-grid');
                             if (!grid) return;
                             var cells = grid.querySelectorAll('.event-cell[data-img]');
@@ -2355,7 +2408,7 @@
                                             }
                                         });
                                     });
-                                }, { rootMargin: '200px 0px' });
+                                }, { rootMargin: '1200px 0px' });
                                 cells.forEach(function (cell) { io.observe(cell); });
                             } else {
                                 cells.forEach(function (cell) {
@@ -2414,11 +2467,11 @@
                         <div class="p8-qr">
                             <div class="p8-qr-item">
                                 <img src="quotes-logos/donglixin_qrcode.png" alt="Bruce Dong QR Code" width="320"
-                                    height="320" loading="lazy">
+                                    height="320" loading="lazy" decoding="async">
                             </div>
                             <div class="p8-qr-item">
                                 <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="Xiaolan Zhu QR Code" width="320"
-                                    height="320" loading="lazy">
+                                    height="320" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -2452,12 +2505,12 @@
                             <div class="m16-qr">
                                 <div class="m16-qr-item">
                                     <img src="quotes-logos/donglixin_qrcode.png" alt="Bruce Dong QR Code"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div class="m16-qr-cap">Bruce Dong</div>
                                 </div>
                                 <div class="m16-qr-item">
                                     <img src="quotes-logos/zhuxiaolan_qrcode.png" alt="Xiaolan Zhu QR Code"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div class="m16-qr-cap">Xiaolan Zhu</div>
                                 </div>
                             </div>
