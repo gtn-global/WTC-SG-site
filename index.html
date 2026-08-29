@@ -85,6 +85,98 @@
                 pointer-events: auto;
             }
         }
+
+        /* P2 访问 WTCA 官网入口 —— 并入统计行第 4 框（仅桌面端） */
+        .p2-wtca-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            transition: border-color .35s ease, background .35s ease, box-shadow .35s ease;
+        }
+
+        .p2-wtca-box:hover {
+            border-color: rgba(212, 175, 55, .75);
+            background: rgba(212, 175, 55, .07);
+            box-shadow: 0 0 30px rgba(212, 175, 55, .12);
+        }
+
+        .p2-wtca-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--color-gold);
+            text-decoration: none;
+        }
+
+        .p2-wtca-arrow {
+            display: inline-block;
+            transition: transform .3s ease;
+        }
+
+        .p2-wtca-box:hover .p2-wtca-arrow {
+            transform: translateX(5px);
+        }
+
+        .p2-wtca-sub {
+            font-size: 10px;
+            letter-spacing: .5px;
+            line-height: 1.5;
+            color: #9FAABC;
+        }
+
+        .p2-footer-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: rgba(212, 175, 55, .5);
+            text-underline-offset: 3px;
+            transition: color .3s ease, text-decoration-color .3s ease;
+        }
+
+        .p2-footer-link:hover {
+            color: var(--color-gold);
+            text-decoration-color: var(--color-gold);
+        }
+
+        /* P12/P13 移动端领导力卡片对齐 P14（仅手机端） */
+        .m12-leader,
+        .m13-leader {
+            gap: 12px;
+            margin-top: 16px;
+            padding: 12px;
+        }
+
+        .m12-leader img,
+        .m13-leader img {
+            width: 52px;
+            height: 52px;
+        }
+
+        .m12-leader-quote,
+        .m13-leader-quote {
+            font-size: 11.5px;
+            line-height: 1.55;
+            color: #e3e7ee;
+            font-style: italic;
+        }
+
+        .m12-leader-sign,
+        .m13-leader-sign {
+            margin-top: 6px;
+            font-size: 10.5px;
+            color: #d8b876;
+        }
+
+        .m12-leader-sign span,
+        .m13-leader-sign span {
+            display: inline;
+            margin-left: 5px;
+            margin-top: 0;
+            color: #8b93a3;
+        }
     </style>
 
     <!-- 公共图库加载 + 灯箱逻辑（waterfall / wtc-buildings / grid 共用，消除重复，见优化 4.3） -->
@@ -723,6 +815,11 @@
                             <div class="p2-stat-cn">关联企业</div>
                             <div class="p2-stat-en">Affiliated Companies</div>
                         </div>
+                        <div class="p2-stat-box p2-wtca-box">
+                            <a class="p2-wtca-link" href="https://www.wtca.org/" target="_blank"
+                                rel="noopener">访问 WTCA 官网 <span class="p2-wtca-arrow">→</span></a>
+                            <div class="p2-wtca-sub">wtca.org · 全球世贸中心网络</div>
+                        </div>
                     </div>
 
                     <div class="p2-left-panel fade-in d4">
@@ -763,7 +860,7 @@
                     </div>
 
                     <div class="footer fade-in d6">
-                        <div class="footer-en">世界贸易中心协会 | wtca.org</div>
+                        <div class="footer-en">世界贸易中心协会 | <a href="https://www.wtca.org/" target="_blank" rel="noopener" class="p2-footer-link">wtca.org</a></div>
                         <div class="footer-cn">连接 · 认可 · 信誉 · 全球影响力</div>
                     </div>
 
@@ -781,7 +878,7 @@
                             </ul>
                         </div>
 
-                        <div class="m2-foot">世界贸易中心协会 | wtca.org · 连接 · 认可 · 信誉 · 全球影响力</div>
+                        <div class="m2-foot">世界贸易中心协会 | <a href="https://www.wtca.org/" target="_blank" rel="noopener" class="p2-footer-link">wtca.org</a> · 连接 · 认可 · 信誉 · 全球影响力</div>
                     </div>
 
                 </div>
@@ -1922,9 +2019,11 @@
                             <div class="m12-sub">A Global Platform for Capital Innovation and Value Creation</div>
                             <div class="m12-leader">
                                 <img src="quotes-logos/chairman_quote.webp" alt="张克" loading="lazy" decoding="async">
-                                <div class="m12-leader-sign">张克<span>新加坡世贸 理事长</span></div>
+                                <div>
+                                    <div class="m12-leader-quote">"一个充满生命力、长期可持续发展的平台，更要靠一群拥有共同理念和追求的人，共同成长，共同创造长期价值。"</div>
+                                    <div class="m12-leader-sign">张克<span>新加坡世贸 理事长</span></div>
+                                </div>
                             </div>
-                            <div class="m12-quote">"一个充满生命力、长期可持续发展的平台，更要靠一群拥有共同理念和追求的人，共同成长，共同创造长期价值。"</div>
 
                             <div class="m12-list">
                                 <div class="m12-item">
@@ -1982,9 +2081,11 @@
                             <div class="m13-sub">International Partner Network</div>
                             <div class="m13-leader">
                                 <img src="quotes-logos/CEO_quote.webp" alt="朱小兰" loading="lazy" decoding="async">
-                                <div class="m13-leader-sign">朱小兰<span>新加坡世贸 首席代表兼执行总裁</span></div>
+                                <div>
+                                    <div class="m13-leader-quote">"中国企业国际化进入新阶段，更需要国际背书与专业化、体系化的全球化支持。"</div>
+                                    <div class="m13-leader-sign">朱小兰<span>新加坡世贸 首席代表兼执行总裁</span></div>
+                                </div>
                             </div>
-                            <div class="m13-quote">"中国企业国际化进入新阶段，更需要国际背书与专业化、体系化的全球化支持。"</div>
 
                             <div class="m13-list">
                                 <div class="m13-pill">国际背书与信誉增强</div>
