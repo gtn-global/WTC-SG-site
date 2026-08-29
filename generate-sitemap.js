@@ -30,12 +30,12 @@ const PAGES = [
   'club-apply/club-apply-en.html',
   'cases/case-list.html',
   'cases/case-list-en.html',
-  'cases/hardtech-semiconductor/index.html',
-  'cases/hardtech-semiconductor/en.html',
-  'cases/home-building-materials/index.html',
-  'cases/home-building-materials/en.html',
-  'cases/smart-manufacturing/index.html',
-  'cases/smart-manufacturing/en.html',
+  'cases/materials/index.html',
+  'cases/materials/en.html',
+  'cases/robotics/index.html',
+  'cases/robotics/en.html',
+  'cases/mobility/index.html',
+  'cases/mobility/en.html',
 ];
 
 // 每个页面关联的代表性图片（用于 sitemap image 扩展，提升图片搜索可见性）
@@ -43,12 +43,12 @@ const PAGE_IMAGES = {
   '': [
     'quotes-logos/logo_sg.webp',
     'quotes-logos/governance-leaders.webp',
-    'wtc-buildings/wtc-building-01.jpg',
+    'wtc-buildings/01_washington_wtc.jpg',
   ],
   'index-en.html': [
     'quotes-logos/logo_sg.webp',
     'quotes-logos/governance-leaders.webp',
-    'wtc-buildings/wtc-building-01.jpg',
+    'wtc-buildings/01_washington_wtc.jpg',
   ],
 };
 
@@ -61,6 +61,14 @@ try {
 }
 const now = lastmod;
 
+// 页面优先级分级：首页最高，列表/申请类次之，详情/文章页最低
+function priorityOf(p) {
+  if (p === '' || p === 'index-en.html') return '1.0';
+  if (p.startsWith('club-apply/') || p.startsWith('cases/case-list')) return '0.8';
+  if (p.startsWith('cases/')) return '0.7';
+  return '0.6';
+}
+
 const urls = PAGES.map(p => {
   const imgs = (PAGE_IMAGES[p] || []).map(img =>
     `    <image:image>\n      <image:loc>${BASE}/${img}</image:loc>\n    </image:image>`).join('\n');
@@ -68,7 +76,7 @@ const urls = PAGES.map(p => {
     <loc>${BASE}${p ? '/' + p : '/'}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <priority>${priorityOf(p)}</priority>
 ${imgs}
   </url>`;
 }).join('\n');

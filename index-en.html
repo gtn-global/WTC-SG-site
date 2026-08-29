@@ -56,7 +56,7 @@
 
     <link rel="stylesheet" href="page-shared.min.css?v=20260827b">
 
-    <link rel="stylesheet" href="mobile-slides.css">
+    <link rel="stylesheet" href="mobile-slides.css?v=20260827" media="(max-width: 820px)">
     <style>
         /* Mirror the confirmed final slide-14 honeycomb treatment from the Chinese page */
         #track .slide[data-slide="14"] .hex-column {
@@ -2003,7 +2003,8 @@
                             <h2 class="m11-title">Global Leadership Network</h2>
                             <div class="m11-sub">Global Board and Advisory Council</div>
                             <div class="m11-card">
-                                <img src="quotes-logos/governance-leaders.webp" alt="Governance Leaders" loading="lazy" decoding="async">
+                                <img src="quotes-logos/governance-leaders-800.webp" alt="Governance Leaders"
+                                    loading="lazy" decoding="async">
                                 <div class="m11-note">A connected leadership ecosystem across regions and sectors.</div>
                             </div>
                         </div>
@@ -2453,17 +2454,17 @@
                     <div class="mobile-layout">
                         <div class="m15-eyebrow">05 — CONNECT WITH US</div>
                         <div class="m15-grid">
-                            <div class="m15-cell"><img src="grid/grid1.webp" alt="WTC Singapore Event Photo 1"
+                            <div class="m15-cell"><img src="grid/grid1-400.webp" alt="WTC Singapore Event Photo 1"
                                     loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid2.webp" alt="WTC Singapore Event Photo 2"
+                            <div class="m15-cell"><img src="grid/grid2-400.webp" alt="WTC Singapore Event Photo 2"
                                     loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid3.webp" alt="WTC Singapore Event Photo 3"
+                            <div class="m15-cell"><img src="grid/grid3-400.webp" alt="WTC Singapore Event Photo 3"
                                     loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid4.webp" alt="WTC Singapore Event Photo 4"
+                            <div class="m15-cell"><img src="grid/grid4-400.webp" alt="WTC Singapore Event Photo 4"
                                     loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid5.webp" alt="WTC Singapore Event Photo 5"
+                            <div class="m15-cell"><img src="grid/grid5-400.webp" alt="WTC Singapore Event Photo 5"
                                     loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid6.webp" alt="WTC Singapore Event Photo 6"
+                            <div class="m15-cell"><img src="grid/grid6-400.webp" alt="WTC Singapore Event Photo 6"
                                     loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';" decoding="async"></div>
                         </div>
                         <div class="m15-foot">
@@ -2474,8 +2475,8 @@
 
                     <script>
                         (function () {
-                            /* webp 优先（grid/ 下 webp 齐全，比 jpg 小约 25%），jpg/png 仍作回退 */
-                            var exts = ['webp', 'jpg', 'png'];
+                            /* -400.webp 缩略图优先（约 17KB），缺失再回退 webp/jpg/png 原图 */
+                            var exts = ['400.webp', 'webp', 'jpg', 'png'];
                             var grid = document.querySelector('.event-grid');
                             if (!grid) return;
                             var cells = grid.querySelectorAll('.event-cell[data-img]');
