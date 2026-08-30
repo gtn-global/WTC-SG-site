@@ -905,7 +905,7 @@
                                     card.addEventListener('click', function () {
                                         var im = card.querySelector('img.thumb');
                                         if (!im) return;
-                                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src;
+                                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src || (im.getAttribute('data-base') ? im.getAttribute('data-base') + '.webp' : '');
                                         lb.classList.add('open');
                                     });
                                 });
@@ -968,58 +968,58 @@
                     <div class="card-grid-dense fade-in d4" id="cardGrid4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/01_washington_wtc" alt="WTC Building 01"
+                                data-base="wtc-buildings/01_washington_wtc" alt="World Trade Center Washington"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 01</div>
+                            <div class="cap">World Trade Center Washington</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc"
-                                alt="WTC Building 02" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 02</div>
+                                alt="World Trade Center Taipei" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">World Trade Center Taipei</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc"
-                                alt="WTC Building 03" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 03</div>
+                                alt="China World Trade Center" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">China World Trade Center</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/04_amsterdam_wtc" alt="WTC Building 04"
+                                data-base="wtc-buildings/04_amsterdam_wtc" alt="World Trade Center Amsterdam"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 04</div>
+                            <div class="cap">World Trade Center Amsterdam</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/05_new_york_wtc" alt="WTC Building 05"
+                                data-base="wtc-buildings/05_new_york_wtc" alt="World Trade Center New York"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 05</div>
+                            <div class="cap">World Trade Center New York</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc"
-                                alt="WTC Building 06" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 06</div>
+                                alt="World Trade Center Suzhou" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">World Trade Center Suzhou</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/07_rotterdam_wtc" alt="WTC Building 07"
+                                data-base="wtc-buildings/07_rotterdam_wtc" alt="World Trade Center Rotterdam"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 07</div>
+                            <div class="cap">World Trade Center Rotterdam</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/08_bangalore_wtc" alt="WTC Building 08"
+                                data-base="wtc-buildings/08_bangalore_wtc" alt="World Trade Center Bangalore"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 08</div>
+                            <div class="cap">World Trade Center Bangalore</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc"
-                                alt="WTC Building 09" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 09</div>
+                                alt="World Trade Center Pune" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">World Trade Center Pune</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/10_bahrain_wtc" alt="WTC Building 10"
+                                data-base="wtc-buildings/10_bahrain_wtc" alt="World Trade Center Bahrain"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 10</div>
+                            <div class="cap">World Trade Center Bahrain</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc"
-                                alt="WTC Building 11" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 11</div>
+                                alt="World Trade Center Seoul" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">World Trade Center Seoul</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc"
-                                alt="WTC Building 12" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">WTC Building 12</div>
+                                alt="World Trade Center Dubai" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">World Trade Center Dubai</div>
                         </div>
                     </div>
 
@@ -1083,7 +1083,7 @@
                                     card.addEventListener('click', function () {
                                         var im = card.querySelector('img.thumb');
                                         if (!im) return;
-                                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src;
+                                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src || (im.getAttribute('data-base') ? im.getAttribute('data-base') + '.webp' : '');
                                         lb.classList.add('open');
                                     });
                                 });
@@ -1102,34 +1102,34 @@
 
                             <div class="m4-grid">
                                 <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp"
-                                        alt="WTC Building 01" loading="lazy"
+                                        alt="World Trade Center Washington" loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">WTC Building 01</div>
+                                    <div class="m4-cap">World Trade Center Washington</div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="WTC Building 02"
+                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="World Trade Center Taipei"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">WTC Building 02</div>
+                                    <div class="m4-cap">World Trade Center Taipei</div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="WTC Building 03"
+                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="China World Trade Center"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">WTC Building 03</div>
+                                    <div class="m4-cap">China World Trade Center</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp"
-                                        alt="WTC Building 04" loading="lazy"
+                                        alt="World Trade Center Amsterdam" loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">WTC Building 04</div>
+                                    <div class="m4-cap">World Trade Center Amsterdam</div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="WTC Building 05"
+                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="World Trade Center New York"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">WTC Building 05</div>
+                                    <div class="m4-cap">World Trade Center New York</div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="WTC Building 06"
+                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="World Trade Center Suzhou"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">WTC Building 06</div>
+                                    <div class="m4-cap">World Trade Center Suzhou</div>
                                 </div>
                             </div>
 
@@ -2756,7 +2756,12 @@
 
             grid.querySelectorAll('.event-cell').forEach(function (cell) {
                 cell.addEventListener('click', function () {
-                    var src = cell.getAttribute('data-img');
+                    var im = cell.querySelector('img.thumb, img.event-img');
+                    var src = (im && (im.getAttribute('data-full') || (im.getAttribute('data-base') ? im.getAttribute('data-base') + '.webp' : null)));
+                    if (!src) {
+                        var di = cell.getAttribute('data-img');
+                        src = di ? (di.indexOf('.') === -1 ? di + '.webp' : di) : '';
+                    }
                     if (!src) return;
                     lbImg.src = src;
                     lb.classList.add('open');

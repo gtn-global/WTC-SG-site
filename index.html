@@ -231,7 +231,9 @@
                     card.addEventListener('click', function () {
                         var im = card.querySelector('img.thumb, img.event-img');
                         if (!im) return;
-                        lbImg.src = im.getAttribute('data-full') || im.currentSrc || im.src;
+                        var full = im.getAttribute('data-full');
+                        var base = im.getAttribute('data-base');
+                        lbImg.src = full || im.currentSrc || im.src || (base ? base + '.webp' : '');
                         lb.classList.add('open');
                     });
                 });
@@ -625,6 +627,43 @@
                 pointer-events: auto;
             }
         }
+        /* 第4页 世贸地标卡片图注：中文名 + 英文名 两行 */
+        .card-grid-dense .mini-card .cap {
+            padding: 8px 10px;
+            line-height: 1.35;
+        }
+        .card-grid-dense .mini-card .cap .cap-cn {
+            display: block;
+            font-size: 13px;
+            color: var(--color-text, #cfd8e8);
+            letter-spacing: .5px;
+        }
+        .card-grid-dense .mini-card .cap .cap-en {
+            display: block;
+            font-size: 11px;
+            color: var(--color-text-dim, rgba(207, 216, 232, .62));
+            letter-spacing: .4px;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* 第4页 移动端图注：中文名 + 英文名 两行 */
+        .m4-cap .cap-cn {
+            display: block;
+            font-size: 10.5px;
+            color: #d7dce5;
+            line-height: 1.4;
+        }
+        .m4-cap .cap-en {
+            display: block;
+            font-size: 9px;
+            color: rgba(215, 220, 229, .6);
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 
@@ -1012,58 +1051,58 @@
                     <div class="card-grid-dense fade-in d4" id="cardGrid4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/01_washington_wtc" alt="世贸建筑 01"
+                                data-base="wtc-buildings/01_washington_wtc" alt="华盛顿世贸中心"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 01</div>
+                            <div class="cap"><span class="cap-cn">华盛顿世贸中心</span><span class="cap-en">World Trade Center Washington</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc"
-                                alt="世贸建筑 02" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 02</div>
+                                alt="台北世贸中心" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap"><span class="cap-cn">台北世贸中心</span><span class="cap-en">World Trade Center Taipei</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc"
-                                alt="世贸建筑 03" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 03</div>
+                                alt="中国国贸" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap"><span class="cap-cn">中国国贸</span><span class="cap-en">China World Trade Center</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/04_amsterdam_wtc" alt="世贸建筑 04"
+                                data-base="wtc-buildings/04_amsterdam_wtc" alt="阿姆斯特丹世贸中心"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 04</div>
+                            <div class="cap"><span class="cap-cn">阿姆斯特丹世贸中心</span><span class="cap-en">World Trade Center Amsterdam</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/05_new_york_wtc" alt="世贸建筑 05"
+                                data-base="wtc-buildings/05_new_york_wtc" alt="纽约世贸中心"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 05</div>
+                            <div class="cap"><span class="cap-cn">纽约世贸中心</span><span class="cap-en">World Trade Center New York</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_suzhou_wtc"
-                                alt="世贸建筑 06" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 06</div>
+                                alt="苏州世贸中心" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap"><span class="cap-cn">苏州世贸中心</span><span class="cap-en">World Trade Center Suzhou</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/07_rotterdam_wtc" alt="世贸建筑 07"
+                                data-base="wtc-buildings/07_rotterdam_wtc" alt="鹿特丹世贸中心"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 07</div>
+                            <div class="cap"><span class="cap-cn">鹿特丹世贸中心</span><span class="cap-en">World Trade Center Rotterdam</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/08_bangalore_wtc" alt="世贸建筑 08"
+                                data-base="wtc-buildings/08_bangalore_wtc" alt="班加罗尔世贸中心"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 08</div>
+                            <div class="cap"><span class="cap-cn">班加罗尔世贸中心</span><span class="cap-en">World Trade Center Bangalore</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc"
-                                alt="世贸建筑 09" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 09</div>
+                                alt="浦那世贸中心" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap"><span class="cap-cn">浦那世贸中心</span><span class="cap-en">World Trade Center Pune</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/10_bahrain_wtc" alt="世贸建筑 10"
+                                data-base="wtc-buildings/10_bahrain_wtc" alt="巴林世贸中心"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 10</div>
+                            <div class="cap"><span class="cap-cn">巴林世贸中心</span><span class="cap-en">World Trade Center Bahrain</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/11_seoul_wtc"
-                                alt="世贸建筑 11" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 11</div>
+                                alt="首尔世贸中心" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap"><span class="cap-cn">首尔世贸中心</span><span class="cap-en">World Trade Center Seoul</span></div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/12_dubai_wtc"
-                                alt="世贸建筑 12" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">世贸建筑 12</div>
+                                alt="迪拜世贸中心" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap"><span class="cap-cn">迪拜世贸中心</span><span class="cap-en">World Trade Center Dubai</span></div>
                         </div>
                     </div>
 
@@ -1087,35 +1126,35 @@
                             <div class="m4-sub">WTC Worldwide</div>
 
                             <div class="m4-grid">
-                                <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp" alt="世贸建筑 01"
+                                <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp" alt="华盛顿世贸中心"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">世贸建筑 01</div>
+                                    <div class="m4-cap"><span class="cap-cn">华盛顿世贸中心</span><span class="cap-en">World Trade Center Washington</span></div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="世贸建筑 02"
+                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="台北世贸中心"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">世贸建筑 02</div>
+                                    <div class="m4-cap"><span class="cap-cn">台北世贸中心</span><span class="cap-en">World Trade Center Taipei</span></div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="世贸建筑 03"
+                                <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="中国国贸"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/03_china_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">世贸建筑 03</div>
+                                    <div class="m4-cap"><span class="cap-cn">中国国贸</span><span class="cap-en">China World Trade Center</span></div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp" alt="世贸建筑 04"
+                                <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp" alt="阿姆斯特丹世贸中心"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">世贸建筑 04</div>
+                                    <div class="m4-cap"><span class="cap-cn">阿姆斯特丹世贸中心</span><span class="cap-en">World Trade Center Amsterdam</span></div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="世贸建筑 05"
+                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="纽约世贸中心"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">世贸建筑 05</div>
+                                    <div class="m4-cap"><span class="cap-cn">纽约世贸中心</span><span class="cap-en">World Trade Center New York</span></div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="世贸建筑 06"
+                                <div class="m4-item"><img src="wtc-buildings/06_suzhou_wtc.webp" alt="苏州世贸中心"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/06_suzhou_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">世贸建筑 06</div>
+                                    <div class="m4-cap"><span class="cap-cn">苏州世贸中心</span><span class="cap-en">World Trade Center Suzhou</span></div>
                                 </div>
                             </div>
 
@@ -2582,7 +2621,8 @@
 
             grid.querySelectorAll('.event-cell').forEach(function (cell) {
                 cell.addEventListener('click', function () {
-                    var src = cell.getAttribute('data-img');
+                    var im = cell.querySelector('img.thumb, img.event-img');
+                    var src = (im && (im.getAttribute('data-full') || (im.getAttribute('data-base') ? im.getAttribute('data-base') + '.webp' : null))) || cell.getAttribute('data-img');
                     if (!src) return;
                     lbImg.src = src;
                     lb.classList.add('open');
