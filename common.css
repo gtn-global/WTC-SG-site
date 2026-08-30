@@ -5,6 +5,14 @@
    包含：全部业务组件 + 多页翻页 + 金色光晕背景（可选）
    ========================================================== */
 
+/* ---------- 手机版布局容器：桌面端默认隐藏 ---------- */
+/* 注意：.mobile-layout 的隐藏规则必须放在无条件加载的全局样式表里，
+   不能依赖 mobile-slides.css（该文件已被 <link media="(max-width:820px)"> 限制，
+   桌面端不生效）。手机端显示规则仍在 mobile-slides.css 的 @media 内。 */
+.mobile-layout {
+  display: none;
+}
+
 /* ---------- 章节 eyebrow 编号（仅段起始页） ---------- */
 .section-eyebrow{
   font-family: var(--font-body);
