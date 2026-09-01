@@ -4,6 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Studies | WTC Singapore</title>
+
+<style>
+  /* Leadership card: inline style on list page, case-study.css untouched */
+  .convener-card{
+    display:flex; align-items:center; gap:20px;
+    margin-top:32px; padding:22px 26px;
+    border:1px solid var(--color-line); border-radius:4px;
+    background: rgba(255,255,255,.02);
+  }
+  .convener-avatar{
+    width:56px; height:56px; border-radius:50%; flex-shrink:0;
+    border:1px solid rgba(197,160,89,.4);
+    background: linear-gradient(135deg, rgba(197,160,89,.18), rgba(197,160,89,.04));
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display); font-style:italic; color: var(--color-gold);
+    font-size:20px; overflow:hidden;
+  }
+  .convener-avatar img{ width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; }
+  .convener-info .name{ font-family: var(--font-body); font-weight:600; font-size:15px; color: var(--color-white); }
+  .convener-info .title{ margin-top:3px; font-family: var(--font-mono); font-size:11.5px; color: var(--color-gold); letter-spacing:.02em; }
+  .convener-info .note{ margin-top:6px; font-size:13px; color: var(--color-text-dim); line-height:1.6; }
+  .convener-card + .section{ padding-top:24px; }
+  @media (max-width: 720px){
+    .convener-card{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
 <meta name="description" content="WTC Singapore case studies — real-world stories of market entry, member network access, and international capital connections.">
 
 <meta property="og:type" content="website">
@@ -45,9 +71,18 @@
 
   <header class="hero" style="border-bottom:none; padding-bottom:0;">
     <p class="eyebrow">Case Studies</p>
-    <h1 style="max-width:20ch;">How companies use WTC Singapore to land in Singapore and connect to global networks</h1>
-    <p class="lead">Real journeys from member companies, spanning market entry, market access and capital connections.</p>
+    <h1 style="max-width:none; font-size:clamp(24px,3.4vw,38px);">How companies use WTC Singapore<br>to land in Singapore and connect<br>to global networks</h1>
+    <p class="lead" style="font-size:13px; max-width:none; white-space:nowrap;">Real journeys from companies, spanning market entry, market access and capital connections.</p>
   </header>
+
+  <div class="convener-card">
+    <div class="convener-avatar"><img src="CEO_quote.webp" alt="Zhu Xiaolan, Chief Representative & CEO of WTC Singapore" width="56" height="56" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"></div>
+    <div class="convener-info">
+      <div class="name">Zhu Xiaolan</div>
+      <div class="title">Chief Representative &amp; CEO, WTC Singapore</div>
+      <div class="note">Going global is a series of deliberate choices, not a single leap. These cases are real journeys we've made together with companies.</div>
+    </div>
+  </div>
 
   <section class="section" style="border-bottom:none;">
     <div class="case-grid">

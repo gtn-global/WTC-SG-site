@@ -4,6 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>案例研究 | WTC Singapore</title>
+
+<style>
+  /* 领导力卡片：列表页内联样式，不改动 case-study.css */
+  .convener-card{
+    display:flex; align-items:center; gap:20px;
+    margin-top:32px; padding:22px 26px;
+    border:1px solid var(--color-line); border-radius:4px;
+    background: rgba(255,255,255,.02);
+  }
+  .convener-avatar{
+    width:56px; height:56px; border-radius:50%; flex-shrink:0;
+    border:1px solid rgba(197,160,89,.4);
+    background: linear-gradient(135deg, rgba(197,160,89,.18), rgba(197,160,89,.04));
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display); font-style:italic; color: var(--color-gold);
+    font-size:20px; overflow:hidden;
+  }
+  .convener-avatar img{ width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; }
+  .convener-info .name{ font-family: var(--font-body); font-weight:600; font-size:15px; color: var(--color-white); }
+  .convener-info .title{ margin-top:3px; font-family: var(--font-mono); font-size:11.5px; color: var(--color-gold); letter-spacing:.02em; }
+  .convener-info .note{ margin-top:6px; font-size:13px; color: var(--color-text-dim); line-height:1.6; }
+  .convener-card + .section{ padding-top:24px; }
+  @media (max-width: 720px){
+    .convener-card{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
 <meta name="description" content="WTC Singapore 案例研究列表 —— 出海落地、会员网络对接、国际资本合作的真实案例合集。">
 
 <meta property="og:type" content="website">
@@ -45,9 +71,18 @@
 
   <header class="hero" style="border-bottom:none; padding-bottom:0;">
     <p class="eyebrow">案例研究</p>
-    <h1 style="max-width:20ch;">企业如何借助 WTC Singapore 落地新加坡、对接全球网络</h1>
-    <p class="lead">来自会员企业的真实经历，涵盖出海落地、市场准入与资本对接。</p>
+    <h1 style="max-width:none;">企业如何借助 WTC Singapore<br>落地新加坡、对接全球网络</h1>
+    <p class="lead">来自企业的真实经历，涵盖出海落地、市场准入与资本对接。</p>
   </header>
+
+  <div class="convener-card">
+    <div class="convener-avatar"><img src="CEO_quote.webp" alt="朱小兰，新加坡世贸首席代表兼执行总裁" width="56" height="56" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"></div>
+    <div class="convener-info">
+      <div class="name">朱小兰</div>
+      <div class="title">新加坡世贸 首席代表兼执行总裁</div>
+      <div class="note">出海是一连串审慎的选择，不是一次起跳。这些案例，是我们与企业一同走过的真实路程。</div>
+    </div>
+  </div>
 
   <section class="section" style="border-bottom:none;">
     <div class="case-grid">
