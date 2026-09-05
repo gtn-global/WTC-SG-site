@@ -1,7 +1,16 @@
 ﻿/**
- * 生成 sitemap.xml —— 纯静态站点，手动列出页面。
+ * 生成 sitemap.xml 与 llms.txt —— 纯静态站点，自动扫目录，无需手写页面清单。
  * 用法: node generate-sitemap.js [BASE_URL]
  *   不传 BASE_URL 时用下方 DEFAULT_BASE。
+ *
+ * 扫描规则（与 GTN 站一致）：
+ *  - 根目录 index.html          -> BASE + '/'
+ *  - 根目录 xxx.html（非 index） -> BASE + '/xxx.html'
+ *  - 含 index.html 的子目录      -> BASE + '/' + 目录名 + '/'
+ *  - 资源目录（SKIP_DIRS）与图片/css/js 等文件一律跳过，不进 sitemap。
+ *
+ * ⚠️ 此脚本只读扫描，绝不修改任何页面内容。新增页面只要按现有目录规矩放好，
+ *    重跑本脚本即自动进 sitemap / llms.txt，无需再维护任何清单。
  */
 const fs = require('fs');
 const path = require('path');
@@ -10,33 +19,80 @@ const { execSync } = require('child_process');
 const DEFAULT_BASE = 'https://wtcasg.org';
 const BASE = (process.argv[2] || DEFAULT_BASE).replace(/\/$/, '');
 
-// 站点内所有公开页面；中文首页 canonical 为根路径，故映射为 ''（生成 BASE + '/'）
-const PAGES = [
-  '',
-  'index-en.html',
-  'wtc-one-club/one-club-journal.html',
-  'wtc-one-club/one-club-journal-en.html',
-  'wtc-one-club/journal-launch-ceremony/journal-launch-ceremony.html',
-  'wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en.html',
-  'wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore.html',
-  'wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore-en.html',
-  'wtc-one-club/journal-HKcapital/journal-HKcapital.html',
-  'wtc-one-club/journal-HKcapital/journal-HKcapital-en.html',
-  'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025.html',
-  'wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en.html',
-  'wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador.html',
-  'wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador-en.html',
-  'club-apply/club-apply.html',
-  'club-apply/club-apply-en.html',
-  'cases/case-list.html',
-  'cases/case-list-en.html',
-  'cases/materials/index.html',
-  'cases/materials/en.html',
-  'cases/robotics/index.html',
-  'cases/robotics/en.html',
-  'cases/mobility/index.html',
-  'cases/mobility/en.html',
-];
+// 这些目录是静态资源/非页面，跳过（不进 sitemap）
+const SKIP_DIRS = new Set([
+  'logo', 'grid', 'waterfall', 'wtc-buildings', 'quotes-logos', 'ogimage',
+  'fonts', 'scripts', 'tools', 'node_modules', '.git', '.codebuddy',
+]);
+
+// 这些扩展名不是页面，跳过
+const SKIP_EXT = new Set([
+  '.css', '.js', '.json', '.png', '.jpg', '.jpeg', '.webp', '.gif',
+  '.svg', '.ico', '.woff', '.woff2', '.ttf', '.md', '.db', '.php',
+  '.map', '.min.css', '.min.js',
+]);
+
+// 递归扫描，返回相对仓库根的真实页面路径（不含开头的 ./）
+function scanPages(dir, rel) {
+  let results = [];
+  let entries;
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch (e) {
+    return results;
+  }
+  for (const ent of entries) {
+    const name = ent.name;
+    if (name.startsWith('.')) continue; // 隐藏文件/目录
+    if (name.startsWith('_')) continue;                       // _demo 等开发/演示目录
+    if (name.includes('_demo')) continue;                    // journal-entry-template_demo 等模板
+    if (/^(google|baidu)[a-z0-9_-]*\.html$/i.test(name)) continue; // 搜索引擎验证文件，非页面
+    const full = path.join(dir, name);
+    const relPath = rel ? path.join(rel, name) : name;
+    if (/signature-dong/i.test(relPath)) continue;           // 签名演示页（待确认，默认排除）
+    if (ent.isDirectory()) {
+      if (SKIP_DIRS.has(name)) continue;
+      results = results.concat(scanPages(full, relPath));
+    } else if (ent.isFile()) {
+      if (!name.endsWith('.html')) continue;
+      if (SKIP_EXT.has(path.extname(name))) continue;
+      // 只收入口页：根 index.html、根非 index 的 xxx.html、含 index.html 的子目录
+      if (name === 'index.html') {
+        results.push(relPath); // 形如 'cases/materials/index.html'
+      } else if (rel === '') {
+        results.push(name);    // 根目录的 xxx.html（非 index）
+      }
+      // 子目录下的非 index.html（如 one-club-journal.html）也收，确保不漏真实页面
+      else if (name !== 'index.html' && name.endsWith('.html')) {
+        results.push(relPath);
+      }
+    }
+  }
+  return results;
+}
+
+// 把扫描到的文件路径转成用于 PAGES 的"相对 URL 路径"（去 .html 后缀，保留结尾 /）
+function toPageKey(relPath) {
+  const p = relPath.split(path.sep).join('/');
+  if (p === 'index.html') return '';
+  if (p.endsWith('/index.html')) return '/' + p.slice(0, -'index.html'.length);
+  if (p.endsWith('.html')) return '/' + p.slice(0, -'.html'.length);
+  return '/' + p;
+}
+
+const found = scanPages(__dirname, '');
+// 去重并规范成 pages（key=URL 路径，根首页为 ''；file=实际 html 相对路径）
+const seen = new Set();
+const pages = [];
+for (const relPath0 of found) {
+  const sep = relPath0.split(path.sep).join('/');
+  let key = toPageKey(sep);
+  if (key === '/index') key = '';
+  if (seen.has(key)) continue;
+  seen.add(key);
+  pages.push({ key, file: sep });
+}
+pages.sort((a, b) => a.key.localeCompare(b.key));
 
 // 每个页面关联的代表性图片（用于 sitemap image 扩展，提升图片搜索可见性）
 const PAGE_IMAGES = {
@@ -45,7 +101,7 @@ const PAGE_IMAGES = {
     'quotes-logos/governance-leaders.webp',
     'wtc-buildings/01_washington_wtc.jpg',
   ],
-  'index-en.html': [
+  '/index-en': [
     'quotes-logos/logo_sg.webp',
     'quotes-logos/governance-leaders.webp',
     'wtc-buildings/01_washington_wtc.jpg',
@@ -62,21 +118,21 @@ try {
 const now = lastmod;
 
 // 页面优先级分级：首页最高，列表/申请类次之，详情/文章页最低
-function priorityOf(p) {
-  if (p === '' || p === 'index-en.html') return '1.0';
-  if (p.startsWith('club-apply/') || p.startsWith('cases/case-list')) return '0.8';
-  if (p.startsWith('cases/')) return '0.7';
+function priorityOf(key) {
+  if (key === '' || key === '/index-en') return '1.0';
+  if (key.startsWith('/club-apply/') || key.startsWith('/cases/case-list')) return '0.8';
+  if (key.startsWith('/cases/')) return '0.7';
   return '0.6';
 }
 
-const urls = PAGES.map(p => {
-  const imgs = (PAGE_IMAGES[p] || []).map(img =>
+const urls = pages.map(({ key }) => {
+  const imgs = (PAGE_IMAGES[key] || []).map(img =>
     `    <image:image>\n      <image:loc>${BASE}/${img}</image:loc>\n    </image:image>`).join('\n');
   return `  <url>
-    <loc>${BASE}${p ? '/' + p : '/'}</loc>
+    <loc>${BASE}${key === '' ? '/' : key}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>${priorityOf(p)}</priority>
+    <priority>${priorityOf(key)}</priority>
 ${imgs}
   </url>`;
 }).join('\n');
@@ -89,12 +145,12 @@ ${urls}
 `;
 
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), xml + '\n');
-console.log('sitemap.xml generated for', BASE);
+console.log('sitemap.xml generated for', BASE, '(' + pages.length + ' pages)');
 
-// ---- llms.txt 生成：固定文案常量 + PAGES 自动扫描 ----
-function readMeta(rel) {
+// ---- llms.txt 生成：固定文案常量 + 自动扫描 ----
+function readMeta(file) {
   try {
-    const html = fs.readFileSync(path.join(__dirname, rel), 'utf8');
+    const html = fs.readFileSync(path.join(__dirname, file), 'utf8');
     const t = html.match(/<title>([\s\S]*?)<\/title>/i);
     const d = html.match(/<meta\s+name="description"\s+content="([\s\S]*?)"/i);
     let title = t ? t[1].trim() : '';
@@ -146,12 +202,12 @@ const DEPLOY = `## 部署
 纯静态站点，由 GitHub Pages 从 GitHub 仓库 \`gtn-global/WTC-SG-site\`（分支 main，根路径 \`/\`）发布，自定义域名 \`wtcasg.org\`。根路径 \`/\` 直接展示 index.html（中文版），\`/index-en.html\` 为英文版。`;
 
 const sitePages = [], journalPages = [], clubPages = [], casePages = [];
-for (const p of PAGES) {
-  const meta = readMeta(p || 'index.html');
-  const entry = { url: BASE + (p ? '/' + p : '/'), title: meta.title };
-  if (p.startsWith('club-apply/')) clubPages.push(entry);
-  else if (p.startsWith('wtc-one-club/')) journalPages.push(entry);
-  else if (p.startsWith('cases/')) casePages.push(entry);
+for (const { key, file } of pages) {
+  const meta = readMeta(file);
+  const entry = { url: BASE + (key ? '/' + key : '/'), title: meta.title };
+  if (key.startsWith('/club-apply/')) clubPages.push(entry);
+  else if (key.startsWith('/wtc-one-club/')) journalPages.push(entry);
+  else if (key.startsWith('/cases/')) casePages.push(entry);
   else sitePages.push(entry);
 }
 
