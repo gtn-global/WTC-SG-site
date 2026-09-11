@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://wtcasg.org/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,77 +18,77 @@
   </url>
   <url>
     <loc>https://wtcasg.org/cases/case-list</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/case-list-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/materials/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/materials/en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/mobility/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/mobility/en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/robotics/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/cases/robotics/en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/club-apply/club-apply</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/club-apply/club-apply-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/index-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -102,141 +102,113 @@
     </image:image>
   </url>
   <url>
+    <loc>https://wtcasg.org/report/power-2026</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/report/power-2026-en</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/report/report-list</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/report/report-list-en</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-beyondsoft-singapore/journal-beyondsoft-singapore-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-2025/journal-ciftis-2025-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-ai-2026/journal-ciftis-ai-2026</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-ai-2026/journal-ciftis-ai-2026-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-fta-2026/journal-ciftis-fta-2026</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-fta-2026/journal-ciftis-fta-2026-en</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-health-2026/journal-ciftis-health-2026</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-ciftis-health-2026/journal-ciftis-health-2026-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-coohom/journal-coohom</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-coohom/journal-coohom-en</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital-en</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador-en</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-WTCSaltillo/journal-WTCSaltillo</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/journal-WTCSaltillo/journal-WTCSaltillo-en</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/one-club-journal</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-
-  </url>
-  <url>
-    <loc>https://wtcasg.org/wtc-one-club/one-club-journal-en</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
 
@@ -250,6 +222,76 @@
   </url>
   <url>
     <loc>https://wtcasg.org/wtc-one-club/journal-hk-unicorn-2026/journal-hk-unicorn-2026-en</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-HKcapital/journal-HKcapital-en</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-launch-ceremony/journal-launch-ceremony-en</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-maldives-ambassador/journal-maldives-ambassador-en</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-WTCSaltillo/journal-WTCSaltillo</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/journal-WTCSaltillo/journal-WTCSaltillo-en</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/one-club-journal</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/wtc-one-club/one-club-journal-en</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
