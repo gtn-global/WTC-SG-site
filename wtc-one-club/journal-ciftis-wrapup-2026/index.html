@@ -61,6 +61,16 @@
   main .section{ padding-top:0; }
   .journal-figure{ margin-bottom:32px; }
   main .section > .journal-figure:first-child{ margin-top:12px; }
+  /* Pic.15.jpg：脱离 860px 容器与虚线框，全宽展开、完整显示原图（不裁切） */
+  .journal-full{
+    width:100vw; position:relative; left:50%; margin-left:-50vw;
+    margin-top:28px; margin-bottom:4px;
+    border:none; background:none; padding:0;
+  }
+  .journal-full img{
+    max-width:none; width:100%; height:auto;
+    aspect-ratio:auto; object-fit:contain; border-radius:0;
+  }
 </style>
 
 </head>
@@ -202,7 +212,7 @@
 
       <p>9 月 11 日下午，“共信共福·千帆共济”——2026 中国企业走出去论坛暨走出去综合服务生态伙伴大会举行。新加坡世界贸易中心理事长、贝克资本集团董事长张克受邀出席，并代表新加坡世界贸易中心完成“走出去全球生态合作伙伴”签约，将 WTCA 全球商业网络进一步接入中国企业出海服务体系。</p>
 
-      <figure class="journal-figure">
+      <figure class="journal-figure journal-full">
         <img src="Pic.15.jpg" alt="新加坡世贸理事长张克" loading="lazy">
         <figcaption>新加坡世贸理事长张克</figcaption>
       </figure>
@@ -248,7 +258,6 @@
 
       <figure class="journal-figure">
         <img src="Pic.18.jpg" alt="与世界贸易中心伙伴面对面交流" loading="lazy">
-        <figcaption>与世界贸易中心伙伴面对面交流</figcaption>
       </figure>
 
       <div class="journal-byline">
