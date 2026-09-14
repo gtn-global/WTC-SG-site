@@ -61,6 +61,12 @@
   main .section{ padding-top:0; }
   .journal-figure{ margin-bottom:32px; }
   main .section > .journal-figure:first-child{ margin-top:12px; }
+  /* 5 宫格拼图：沿用正文虚线框容器，但解除 680px 上限与 16/9 裁切，按原始比例完整显示，避免被压成矮条 */
+  .journal-figure.journal-collage{ margin:32px 0 8px; }
+  .journal-figure.journal-collage img{
+    max-width:100%; width:100%; height:auto;
+    aspect-ratio:auto; object-fit:contain; border-radius:4px;
+  }
 </style>
 
 </head>
@@ -140,8 +146,8 @@
 
       <p>从“走出去”到“走进去、走得稳”，新加坡世界贸易中心愿以全球网络对接中国力量，助力更多企业少走弯路、扬帆远航。</p>
 
-      <figure class="journal-figure">
-        <img src="Pic. 6.png" alt="活动现场" loading="lazy">
+      <figure class="journal-figure journal-collage">
+        <img src="5宫格拼图5新加坡世贸.png" alt="现场拼图" loading="lazy" onerror="this.closest('figure').style.display='none'">
       </figure>
 
       <div class="journal-byline">

@@ -55,6 +55,14 @@
     font-size:38px; line-height:1.35; letter-spacing:.01em;
     max-width:none; white-space:normal; width:100%;
   }
+  /* 5-grid collage: reuse the dashed-frame container, but drop the 680px cap and 16/9 crop so it shows at original ratio — avoids being squashed into a short strip */
+  .journal-figure.journal-collage{ margin:4px 0 8px; }
+  .journal-figure.journal-collage img{
+    max-width:100%; width:100%; height:auto;
+    aspect-ratio:auto; object-fit:contain; border-radius:4px;
+  }
+  /* the paragraph between "图片10" and the collage: symmetric top/bottom spacing, no longer too tight above */
+  .ciftis-note{ margin:28px 0; }
 </style>
 
 </head>
@@ -129,7 +137,7 @@
         <figcaption>Xie Yi | Director, Indonesia Integrated Service Station, China North (TEDA) One-Stop Overseas Service Base</figcaption>
       </figure>
 
-      <p>Sun Xiaogang, Secretary-General of the France-China Innovation Federation (AIFC), offered the European perspective: the scarcest resource in China-Europe cooperation is not capital but trust. He argued that overseas Chinese communities play multiple roles — interpreter of rules, gatekeeper of risk and endorser of credibility — helping companies clear compliance thresholds and the trust gap, making them an indispensable resource for entering the European market.</p>
+      <p style="margin-top:16px;">Sun Xiaogang, Secretary-General of the France-China Innovation Federation (AIFC), offered the European perspective: the scarcest resource in China-Europe cooperation is not capital but trust. He argued that overseas Chinese communities play multiple roles — interpreter of rules, gatekeeper of risk and endorser of credibility — helping companies clear compliance thresholds and the trust gap, making them an indispensable resource for entering the European market.</p>
 
       <figure class="journal-figure">
         <img src="图片6孙晓刚.webp" alt="Sun Xiaogang, France-China Innovation Federation" loading="lazy">
@@ -167,11 +175,15 @@
       </div>
 
       <figure class="journal-figure">
-        <img src="图片10.webp" alt="CIFTIS volunteers and staff" loading="lazy">
-        <figcaption>CIFTIS volunteers and staff</figcaption>
+        <img src="图片10.webp" alt="CIFTIS staff and volunteers from the University of International Business and Economics" loading="lazy">
+        <figcaption>Staff of this year's CIFTIS (Li Yijuan, Huang Xirui) and volunteers from the University of International Business and Economics (UIBE): Leong Wai Chan (School of Government), Wang Menghan (School of International Trade and Economics), IVANOVA ANASTASIIA (School of International Trade and Economics), NASHIRO YUMA (School of Literature and International Communication)</figcaption>
       </figure>
 
-      <p>Reportedly, during this CIFTIS, the WTCA pavilion will also host a second roundtable, "Southeast Asia as the Hub — AI and Going Global Driving Enterprise Growth," exploring Chinese enterprise globalization through technology, capital and talent. Amid a deeply adjusting global economy and intensifying stock competition, WTCA Singapore will continue its mandate of "connecting capital, innovation and global markets," leveraging the WTCA global network to create broader space for Chinese companies to "bring in" and "go out."</p>
+      <p class="ciftis-note">Reportedly, during this CIFTIS, the WTCA pavilion will also host a second roundtable, "Southeast Asia as the Hub — AI and Going Global Driving Enterprise Growth," exploring Chinese enterprise globalization through technology, capital and talent. Amid a deeply adjusting global economy and intensifying stock competition, WTCA Singapore will continue its mandate of "connecting capital, innovation and global markets," leveraging the WTCA global network to create broader space for Chinese companies to "bring in" and "go out."</p>
+
+      <figure class="journal-figure journal-collage">
+        <img src="5宫格拼图3大健康.png" alt="On-site collage" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      </figure>
 
       <h2>About the World Trade Centers Association</h2>
 

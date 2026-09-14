@@ -55,6 +55,12 @@
     font-size:38px; line-height:1.35; letter-spacing:.01em;
     max-width:none; white-space:normal; width:100%;
   }
+  /* 5 宫格拼图：沿用正文虚线框容器，但解除 680px 上限与 16/9 裁切，按原始比例完整显示，避免被压成矮条 */
+  .journal-figure.journal-collage{ margin:32px 0 8px; }
+  .journal-figure.journal-collage img{
+    max-width:100%; width:100%; height:auto;
+    aspect-ratio:auto; object-fit:contain; border-radius:4px;
+  }
 </style>
 
 </head>
@@ -160,6 +166,15 @@
       <figure class="journal-figure">
         <img src="图片7.webp" alt="圆桌对话嘉宾与现场合影" loading="lazy">
         <figcaption>圆桌对话嘉宾与现场合影</figcaption>
+      </figure>
+
+      <figure class="journal-figure">
+        <img src="图片8.webp" alt="圆桌对话现场" loading="lazy" onerror="this.closest('figure').style.display='none'">
+        <figcaption>圆桌对话现场</figcaption>
+      </figure>
+
+      <figure class="journal-figure journal-collage">
+        <img src="5宫格拼图4人工智能.png" alt="现场拼图" loading="lazy" onerror="this.closest('figure').style.display='none'">
       </figure>
 
       <h2>关于世界贸易中心协会</h2>

@@ -55,6 +55,12 @@
     font-size:38px; line-height:1.35; letter-spacing:.01em;
     max-width:none; white-space:normal; width:100%;
   }
+  /* 5-grid collage: reuse the dashed-frame container but drop the 680px cap and 16/9 crop */
+  .journal-figure.journal-collage{ margin:4px 0 8px; }
+  .journal-figure.journal-collage img{
+    max-width:100%; width:100%; height:auto;
+    aspect-ratio:auto; object-fit:contain; border-radius:4px;
+  }
 </style>
 
 </head>
@@ -160,6 +166,15 @@
       <figure class="journal-figure">
         <img src="图片7.webp" alt="Group photo of roundtable guests and on-site scene" loading="lazy">
         <figcaption>Group photo of roundtable guests and on-site scene</figcaption>
+      </figure>
+
+      <figure class="journal-figure">
+        <img src="图片8.webp" alt="On-site at the roundtable" loading="lazy" onerror="this.closest('figure').style.display='none'">
+        <figcaption>On-site at the roundtable</figcaption>
+      </figure>
+
+      <figure class="journal-figure journal-collage">
+        <img src="5宫格拼图4人工智能.png" alt="On-site collage" loading="lazy" onerror="this.closest('figure').style.display='none'">
       </figure>
 
       <h2>About the World Trade Centers Association</h2>
