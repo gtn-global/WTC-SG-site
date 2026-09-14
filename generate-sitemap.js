@@ -99,12 +99,12 @@ const PAGE_IMAGES = {
   '': [
     'quotes-logos/logo_sg.webp',
     'quotes-logos/governance-leaders.webp',
-    'wtc-buildings/01_washington_wtc.jpg',
+    'wtc-buildings/01_washington_wtc.webp',
   ],
   '/index-en': [
     'quotes-logos/logo_sg.webp',
     'quotes-logos/governance-leaders.webp',
-    'wtc-buildings/01_washington_wtc.jpg',
+    'wtc-buildings/01_washington_wtc.webp',
   ],
 };
 
