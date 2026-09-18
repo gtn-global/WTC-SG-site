@@ -20,6 +20,19 @@
 <link rel="stylesheet" href="../case-study.css">
 <link rel="stylesheet" href="../one-club.css">
 
+<style>
+  /* 相关报道：外部媒体转载 + 本站官方稿 */
+  .journal-reports a{
+    display:block; padding:16px 20px;
+    border:1px solid rgba(255,255,255,.12); border-radius:10px;
+    text-decoration:none; color:inherit; background:rgba(255,255,255,.02);
+    transition:border-color .2s, background .2s;
+  }
+  .journal-reports a:hover{ border-color:var(--color-gold); background:rgba(197,160,89,.06); }
+  .journal-reports .r-title{ display:block; font-weight:600; font-size:15px; line-height:1.4; }
+  .journal-reports .r-source{ display:block; margin-top:6px; font-family:var(--font-mono); font-size:12px; color:var(--color-gold); }
+</style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -226,8 +239,6 @@
 
       <p>关于新加坡世界贸易中心（WTC Singapore）：新加坡世界贸易中心是世界贸易中心协会（WTCA）在新加坡的官方授权成员，依托 WTC ONE Club、GlobalX、WTC Fund 三大业务板块，致力于连接全球资本、创新资源与市场机会，为企业提供跨境资源对接与全球化落地支持。</p>
 
-      <p style="font-size:12px;color:#8a93a3;margin-top:14px;">（注：部分内容可能由 AI 生成）</p>
-
       <div class="journal-byline">
         <div class="convener-avatar"><img src="../COO_quote.webp" alt="董立鑫"></div>
         <div>
@@ -253,6 +264,30 @@
           <span style="display:block;margin-top:8px;font-size:13px;color:#b9c2d0;">阅读 →</span>
         </a>
       </div>
+    </section>
+
+    <section class="journal-reports" aria-label="相关报道" style="margin:48px 0;">
+      <h2 style="font-size:20px;margin:0 0 18px;font-family:var(--font-display);">相关报道</h2>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;gap:14px;">
+        <li>
+          <a href="https://cn.chinadaily.com.cn/a/202609/16/WS6aaa57cbe4b09a165c78a842.html" target="_blank" rel="noopener">
+            <span class="r-title">新加坡世贸中心亮相2026年服贸会 多场活动助力中国企业拓展全球市场</span>
+            <span class="r-source">中国日报网 · 阅读原文 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.wtca.org/news/2026-ciftis-concludes-successfully-wtc-singapore" target="_blank" rel="noopener">
+            <span class="r-title">2026 CIFTIS Concludes Successfully — WTC Singapore</span>
+            <span class="r-source">WTCA 世界贸易中心协会 · 官方报道 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.wtca.org/locations/world-trade-center-singapore/news/2026-ciftis-concludes-successfully-wtc-singapore" target="_blank" rel="noopener">
+            <span class="r-title">2026 CIFTIS Concludes Successfully — WTC Singapore</span>
+            <span class="r-source">WTCA · WTC Singapore 官方报道 →</span>
+          </a>
+        </li>
+      </ul>
     </section>
   </main>
 

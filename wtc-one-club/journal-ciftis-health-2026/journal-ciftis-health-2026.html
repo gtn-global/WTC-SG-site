@@ -20,6 +20,19 @@
 <link rel="stylesheet" href="../case-study.css">
 <link rel="stylesheet" href="../one-club.css">
 
+<style>
+  /* 相关报道：外部媒体转载 + 本站官方稿 */
+  .journal-reports a{
+    display:block; padding:16px 20px;
+    border:1px solid rgba(255,255,255,.12); border-radius:10px;
+    text-decoration:none; color:inherit; background:rgba(255,255,255,.02);
+    transition:border-color .2s, background .2s;
+  }
+  .journal-reports a:hover{ border-color:var(--color-gold); background:rgba(197,160,89,.06); }
+  .journal-reports .r-title{ display:block; font-weight:600; font-size:15px; line-height:1.4; }
+  .journal-reports .r-source{ display:block; margin-top:6px; font-family:var(--font-mono); font-size:12px; color:var(--color-gold); }
+</style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -216,6 +229,23 @@
       </div>
     </section>
 
+    <section class="journal-reports" aria-label="相关报道" style="margin:48px 0;">
+      <h2 style="font-size:20px;margin:0 0 18px;font-family:var(--font-display);">相关报道</h2>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;gap:14px;">
+        <li>
+          <a href="https://www.wtca.org/locations/world-trade-center-singapore/news/bridging-trust-china-health-sector-gets-in" target="_blank" rel="noopener">
+            <span class="r-title">Bridging Trust: China's Health Sector Gets In</span>
+            <span class="r-source">WTCA · WTC Singapore 官方报道 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://cn.chinadaily.com.cn/a/202609/16/WS6aaa57cbe4b09a165c78a842.html" target="_blank" rel="noopener">
+            <span class="r-title">新加坡世贸中心亮相2026年服贸会 多场活动助力中国企业拓展全球市场</span>
+            <span class="r-source">中国日报网 · 阅读原文 →</span>
+          </a>
+        </li>
+      </ul>
+    </section>
   </main>
 
   <footer>

@@ -29,6 +29,16 @@
   }
   .cta h2{ font-family:var(--font-display); font-style:normal; }
   .cta h2 .brand{ font-family:var(--font-display); }
+  /* 相关报道：外部媒体转载 + 本站官方稿 */
+  .journal-reports a{
+    display:block; padding:16px 20px;
+    border:1px solid rgba(255,255,255,.12); border-radius:10px;
+    text-decoration:none; color:inherit; background:rgba(255,255,255,.02);
+    transition:border-color .2s, background .2s;
+  }
+  .journal-reports a:hover{ border-color:var(--color-gold); background:rgba(197,160,89,.06); }
+  .journal-reports .r-title{ display:block; font-weight:600; font-size:15px; line-height:1.4; }
+  .journal-reports .r-source{ display:block; margin-top:6px; font-family:var(--font-mono); font-size:12px; color:var(--color-gold); }
 </style>
 
 <script type="application/ld+json">
@@ -125,14 +135,22 @@
     </div>
   </main>
 
-  <section class="section related-report">
-    <h2>相关报道</h2>
-    <ol>
-      <li><strong>扬帆狮城，联通全球——新加坡世界贸易中心焕新起航（英文）</strong><br>
-      <a href="https://www.wtca.org/locations/world-trade-center-singapore/news/wtc-singapore-launches-renewed-operations">WTCA 官网原文</a></li>
-      <li><strong>扬帆狮城，联通全球——新加坡世界贸易中心焕新起航（中文）</strong><br>
-      <a href="http://www.wtca.cn/content/details_26_9271.html">WTCA 官网原文</a></li>
-    </ol>
+  <section class="journal-reports" aria-label="相关报道">
+    <h2 style="font-size:20px;margin:0 0 18px;font-family:var(--font-display);">相关报道</h2>
+    <ul style="list-style:none;margin:0;padding:0;display:grid;gap:14px;">
+      <li>
+        <a href="https://www.wtca.org/locations/world-trade-center-singapore/news/wtc-singapore-launches-renewed-operations" target="_blank" rel="noopener">
+          <span class="r-title">扬帆狮城，联通全球——新加坡世界贸易中心焕新起航（英文）</span>
+          <span class="r-source">WTCA 官网原文 →</span>
+        </a>
+      </li>
+      <li>
+        <a href="http://www.wtca.cn/content/details_26_9271.html" target="_blank" rel="noopener">
+          <span class="r-title">扬帆狮城，联通全球——新加坡世界贸易中心焕新起航（中文）</span>
+          <span class="r-source">WTCA 官网原文 →</span>
+        </a>
+      </li>
+    </ul>
   </section>
 
   <section class="cta">

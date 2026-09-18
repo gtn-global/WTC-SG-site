@@ -61,6 +61,16 @@
     max-width:100%; width:100%; height:auto;
     aspect-ratio:auto; object-fit:contain; border-radius:4px;
   }
+  /* 相关报道：外部媒体转载 + 本站官方稿 */
+  .journal-reports a{
+    display:block; padding:16px 20px;
+    border:1px solid rgba(255,255,255,.12); border-radius:10px;
+    text-decoration:none; color:inherit; background:rgba(255,255,255,.02);
+    transition:border-color .2s, background .2s;
+  }
+  .journal-reports a:hover{ border-color:var(--color-gold); background:rgba(197,160,89,.06); }
+  .journal-reports .r-title{ display:block; font-weight:600; font-size:15px; line-height:1.4; }
+  .journal-reports .r-source{ display:block; margin-top:6px; font-family:var(--font-mono); font-size:12px; color:var(--color-gold); }
 </style>
 
 </head>
@@ -204,6 +214,37 @@
           <span style="display:block;margin-top:8px;font-size:13px;color:#b9c2d0;">阅读 →</span>
         </a>
       </div>
+    </section>
+
+    <section class="journal-reports" aria-label="相关报道" style="margin:48px 0;">
+      <h2 style="font-size:20px;margin:0 0 18px;font-family:var(--font-display);">相关报道</h2>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;gap:14px;">
+
+        <li>
+          <a href="https://m.bjnews.com.cn/detail/1789374888129984.html" target="_blank" rel="noopener">
+            <span class="r-title">宁波银行北京分行受邀参加2026年中国服贸会系列活动</span>
+            <span class="r-source">新京报 · 阅读原文 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://finance.sina.com.cn/stock/relnews/cn/2026-09-16/doc-iniryvay6716949.shtml" target="_blank" rel="noopener">
+            <span class="r-title">国联股份副总裁黄莎莎：产业互联网平台帮助中国产业带走向全球</span>
+            <span class="r-source">新浪财经 · 阅读原文 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.sohu.com/a/1076652994_121070497" target="_blank" rel="noopener">
+            <span class="r-title">服贸会深度对话 | 黄莎莎：产业互联网平台，把产业带带向全球</span>
+            <span class="r-source">搜狐 · 阅读原文 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.wtca.org/locations/world-trade-center-singapore/news/southeast-asia-hub-ai-going-global-drive-growth" target="_blank" rel="noopener">
+            <span class="r-title">Southeast Asia Hub, AI Going Global Drive Growth</span>
+            <span class="r-source">WTCA 世界贸易中心协会 · 官方报道 →</span>
+          </a>
+        </li>
+      </ul>
     </section>
   </main>
 
