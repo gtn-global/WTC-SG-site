@@ -2492,6 +2492,87 @@
 
                 </div>
             </div><!-- /#track -->
+
+            <!-- ============ 站点页脚 ============ -->
+            <style>
+              .site-footer{ scroll-snap-align:start; background:linear-gradient(180deg,#0A192F 0%,#07142A 100%); color:var(--color-text); border-top:1px solid var(--color-line); padding:60px 0 0; font-family:var(--font-display,"PingFang SC","Microsoft YaHei",system-ui,sans-serif); }
+              .site-footer *{ box-sizing:border-box; }
+              .sf-inner{ max-width:1280px; margin:0 auto; padding:0 40px; display:grid; grid-template-columns:1.4fr 2.6fr; gap:48px; }
+              .sf-logo{ font-family:var(--font-display,Georgia,serif); font-size:28px; font-weight:700; color:#fff; letter-spacing:.5px; }
+              .sf-logo span{ color:var(--color-gold); margin-left:6px; }
+              .sf-tagline{ margin:18px 0 22px; font-size:15px; line-height:1.8; color:var(--color-text-dim); max-width:340px; }
+              .sf-social{ position:relative; display:flex; gap:12px; align-items:center; }
+              .sf-social-link,.sf-social-btn{ width:42px; height:42px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:rgba(197,160,89,.10); border:1px solid var(--color-line); color:var(--color-gold); cursor:pointer; transition:.2s; text-decoration:none; }
+              .sf-social-link:hover,.sf-social-btn:hover{ background:rgba(197,160,89,.22); transform:translateY(-2px); }
+              .sf-social svg{ width:20px; height:20px; fill:currentColor; }
+              .sf-wechat-pop{ position:absolute; bottom:52px; left:0; display:flex; gap:16px; background:#0E2138; border:1px solid var(--color-line); border-radius:12px; padding:14px; box-shadow:0 12px 30px rgba(0,0,0,.4); z-index:50; }
+              .sf-wechat-pop[hidden]{ display:none; }
+              .sf-qr{ text-align:center; }
+              .sf-qr img{ width:110px; height:110px; display:block; border-radius:6px; background:#fff; }
+              .sf-qr span{ display:block; margin-top:8px; font-size:13px; color:var(--color-text-dim); }
+              .sf-cols{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+              .sf-col h4{ color:var(--color-gold); font-size:15px; font-weight:600; margin:0 0 16px; letter-spacing:1px; }
+              .sf-col a{ display:block; color:var(--color-text); text-decoration:none; font-size:14.5px; line-height:2.1; transition:.2s; }
+              .sf-col a:hover{ color:var(--color-gold-soft); }
+              .sf-bottom{ max-width:1280px; margin:48px auto 0; padding:22px 40px; border-top:1px solid var(--color-line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:13px; color:var(--color-text-dim); }
+              .sf-legal a{ color:var(--color-text-dim); text-decoration:none; margin-left:18px; }
+              .sf-legal a:hover{ color:var(--color-gold-soft); }
+              @media (max-width:980px){ .sf-inner{ grid-template-columns:1fr; gap:36px; } .sf-cols{ grid-template-columns:repeat(2,1fr); } }
+              @media (max-width:560px){ .sf-inner{ padding:0 22px; } .sf-cols{ grid-template-columns:1fr; gap:20px; } .sf-bottom{ padding:18px 22px; flex-direction:column; align-items:flex-start; } .sf-legal a{ margin-left:0; margin-right:16px; } }
+            </style>
+
+            <footer class="site-footer" id="site-footer">
+              <div class="sf-inner">
+                <div class="sf-brand">
+                  <div class="sf-logo">WTC<span>Singapore</span></div>
+                  <p class="sf-tagline">世界贸易中心协会（WTCA）成员 · 连接全球商业资源，助力企业走向世界。</p>
+                  <div class="sf-social">
+                    <a class="sf-social-link" href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.25 8.25h4.5V24H.25zM8.5 8.25h4.31v2.15h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-6.96c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.67 1.8-2.67 3.67V24H8.5z"/></svg>
+                    </a>
+                    <button class="sf-social-btn" id="sfWechatBtn" type="button" aria-label="微信二维码">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4C4.9 4 1.5 6.8 1.5 10.2c0 1.9 1 3.6 2.7 4.8L3.2 17l2.4-1.2c.9.3 1.9.4 2.9.4h.6c-.2-.5-.3-1-.3-1.5 0-3.3 3.1-5.9 7-5.9.3 0 .6 0 .9.05C16.1 6.1 12.9 4 9 4zm-2.4 4.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm4.8 0a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm9.1 3.1c-3.4 0-6.2 2.3-6.2 5.2 0 2.9 2.8 5.2 6.2 5.2.7 0 1.4-.1 2-.3l1.9 1-.5-1.6c1.5-1 2.5-2.5 2.5-4.3 0-2.9-2.8-5.2-6.2-5.2zm-2.1 3.1a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zm4.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z"/></svg>
+                    </button>
+                    <div class="sf-wechat-pop" id="sfWechatPop" hidden>
+                      <div class="sf-qr"><img src="quotes-logos/donglixin_qrcode.png" alt="董立鑫 微信二维码" loading="lazy" decoding="async"><span>董立鑫</span></div>
+                      <div class="sf-qr"><img src="quotes-logos/zhuxiaolan_qrcode.png" alt="朱小兰 微信二维码" loading="lazy" decoding="async"><span>朱小兰</span></div>
+                    </div>
+                  </div>
+                </div>
+                <nav class="sf-cols" aria-label="页脚导航">
+                  <div class="sf-col"><h4>关于</h4><a href="#slide-2">协会介绍</a><a href="#slide-3">活动与资讯</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">世界贸易中心协会</a></div>
+                  <div class="sf-col"><h4>全球网络</h4><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA 全球网络</a><a href="wtc-one-club/one-club-journal.html">WTC One Club</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">会员城市</a></div>
+                  <div class="sf-col"><h4>会员与合作</h4><a href="club-apply/club-apply.html">加入会员</a><a href="#slide-16">合作洽谈</a><a href="cases/case-list.html">合作案例</a></div>
+                  <div class="sf-col"><h4>联系我们</h4><a href="#slide-16">联系方式</a><a href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA 官网</a></div>
+                </nav>
+              </div>
+              <div class="sf-bottom">
+                <div class="sf-copy">© 2026 WTC Singapore · 世界贸易中心协会（WTCA）成员</div>
+                <div class="sf-legal"><a href="privacy.html">隐私政策</a><a href="terms.html">使用条款</a></div>
+              </div>
+            </footer>
+
+            <script>
+              (function () {
+                var btn = document.getElementById('sfWechatBtn');
+                var pop = document.getElementById('sfWechatPop');
+                if (btn && pop) {
+                  btn.addEventListener('click', function (e) { e.stopPropagation(); pop.hidden = !pop.hidden; });
+                  pop.addEventListener('click', function (e) { e.stopPropagation(); });
+                  document.addEventListener('click', function () { pop.hidden = true; });
+                }
+                var links = document.querySelectorAll('#site-footer a[href^="#slide-"]');
+                for (var i = 0; i < links.length; i++) {
+                  links[i].addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var n = parseInt(this.getAttribute('href').replace('#slide-', ''), 10);
+                    if (window.WTCDeck && typeof window.WTCDeck.goTo === 'function') window.WTCDeck.goTo(n - 1);
+                    else location.hash = 'slide-' + n;
+                  });
+                }
+              })();
+            </script>
+
         </div><!-- /#stage -->
     </div><!-- /#viewport -->
 

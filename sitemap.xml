@@ -102,6 +102,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://wtcasg.org/privacy</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/privacy-en</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
     <loc>https://wtcasg.org/report/power-2026</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -124,6 +138,20 @@
   </url>
   <url>
     <loc>https://wtcasg.org/report/report-list-en</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/terms</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+
+  </url>
+  <url>
+    <loc>https://wtcasg.org/terms-en</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
