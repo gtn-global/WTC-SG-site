@@ -874,6 +874,8 @@
                                    同时记录原图路径，供灯箱放大时使用。 */
                                 var cands = [base + '-400.webp', base + '.webp', base + '.jpg', base + '.png'];
                                 img.setAttribute('data-full', base + '.webp');
+                                /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
+                                try { var _pf = new Image(); _pf.src = base + '.webp'; } catch (e) {}
                                 var i = 0;
                                 img.addEventListener('error', function onErr() {
                                     i++;
@@ -970,22 +972,22 @@
                     <div class="card-grid-dense fade-in d4" id="cardGrid4"
                         style="position:absolute; left:80px; right:80px; top:215px; bottom:95px;">
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/01_washington_wtc" alt="World Trade Center Washington"
+                                data-base="wtc-buildings/01_washington_wtc" alt="World Trade Center Zurich"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">World Trade Center Washington</div>
+                            <div class="cap">World Trade Center Zurich</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/02_taipei_wtc"
-                                alt="World Trade Center Taipei" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">World Trade Center Taipei</div>
+                                alt="World Trade Center Marseille Provence" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">World Trade Center Marseille Provence</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/03_china_wtc"
                                 alt="China World Trade Center" style="object-fit:cover; display:block;" decoding="async">
                             <div class="cap">China World Trade Center</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/04_amsterdam_wtc" alt="World Trade Center Amsterdam"
+                                data-base="wtc-buildings/04_amsterdam_wtc" alt="World Trade Center Barcelona"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">World Trade Center Amsterdam</div>
+                            <div class="cap">World Trade Center Barcelona</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/05_new_york_wtc" alt="World Trade Center New York"
@@ -1007,8 +1009,8 @@
                             <div class="cap">World Trade Center Bangalore</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/09_pune_wtc"
-                                alt="World Trade Center Pune" style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">World Trade Center Pune</div>
+                                alt="World Trade Center Utah Salt Lake City" style="object-fit:cover; display:block;" decoding="async">
+                            <div class="cap">World Trade Center Utah Salt Lake City</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
                                 data-base="wtc-buildings/10_bahrain_wtc" alt="World Trade Center Bahrain"
@@ -1052,6 +1054,8 @@
                                    同时记录原图路径，供灯箱放大时使用。 */
                                 var cands = [base + '-400.webp', base + '.webp', base + '.jpg', base + '.png'];
                                 img.setAttribute('data-full', base + '.webp');
+                                /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
+                                try { var _pf = new Image(); _pf.src = base + '.webp'; } catch (e) {}
                                 var i = 0;
                                 img.addEventListener('error', function onErr() {
                                     i++;
@@ -1104,14 +1108,14 @@
 
                             <div class="m4-grid">
                                 <div class="m4-item"><img src="wtc-buildings/01_washington_wtc.webp"
-                                        alt="World Trade Center Washington" loading="lazy"
+                                        alt="World Trade Center Zurich" loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/01_washington_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">World Trade Center Washington</div>
+                                    <div class="m4-cap">World Trade Center Zurich</div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="World Trade Center Taipei"
+                                <div class="m4-item"><img src="wtc-buildings/02_taipei_wtc.webp" alt="World Trade Center Marseille Provence"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/02_taipei_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">World Trade Center Taipei</div>
+                                    <div class="m4-cap">World Trade Center Marseille Provence</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/03_china_wtc.webp" alt="China World Trade Center"
                                         loading="lazy"
@@ -1119,9 +1123,9 @@
                                     <div class="m4-cap">China World Trade Center</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/04_amsterdam_wtc.webp"
-                                        alt="World Trade Center Amsterdam" loading="lazy"
+                                        alt="World Trade Center Barcelona" loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">World Trade Center Amsterdam</div>
+                                    <div class="m4-cap">World Trade Center Barcelona</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="World Trade Center New York"
                                         loading="lazy"
@@ -2502,6 +2506,8 @@
 
                             function resolve(cell, done) {
                                 var base = cell.getAttribute('data-img');
+                                /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
+                                try { var _pf = new Image(); _pf.src = base + '.webp'; } catch (e) {}
                                 var i = 0;
                                 (function tryNext() {
                                     if (i >= exts.length) { done(null); return; }
