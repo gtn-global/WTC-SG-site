@@ -2624,7 +2624,7 @@
                   <div class="sf-col"><h4>About</h4><a href="#slide-5">WTC Singapore</a><a href="wtc-one-club/one-club-journal-en.html">Events &amp; News</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">World Trade Centers Association</a></div>
                   <div class="sf-col"><h4>Global Network</h4><a href="https://www.wtca.org/locations/map/asia" target="_blank" rel="noopener">Asia &amp; The Pacific</a><a href="https://www.wtca.org/locations/map/europe" target="_blank" rel="noopener">Europe</a><a href="https://www.wtca.org/locations/map/latin-america" target="_blank" rel="noopener">Latin America</a><a href="https://www.wtca.org/locations/map/africa" target="_blank" rel="noopener">Middle East &amp; Africa</a><a href="https://www.wtca.org/locations/map/north-america" target="_blank" rel="noopener">North America</a></div>
                   <div class="sf-col"><h4>Membership &amp; Partnership</h4><a href="club-apply/club-apply-en.html">Join Membership</a><a href="cases/case-list-en.html">Case Studies</a><a href="report/report-list-en.html">Research Reports</a></div>
-                  <div class="sf-col"><h4>Contact</h4><a href="#" id="sfContactLink">Get in Touch</a><a href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA Official</a></div>
+                  <div class="sf-col"><h4>Contact</h4><a href="mailto:dlxdonglixin@gmail.com">Get in Touch</a><a href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA Official</a></div>
                 </nav>
               </div>
               <div class="sf-bottom">
@@ -2641,10 +2641,6 @@
                   btn.addEventListener('click', function (e) { e.stopPropagation(); pop.hidden = !pop.hidden; });
                   pop.addEventListener('click', function (e) { e.stopPropagation(); });
                   document.addEventListener('click', function () { pop.hidden = true; });
-                }
-                var contactLink = document.getElementById('sfContactLink');
-                if (contactLink && btn && pop) {
-                  contactLink.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); pop.hidden = !pop.hidden; });
                 }
                 var links = document.querySelectorAll('#site-footer a[href^="#slide-"]');
                 for (var i = 0; i < links.length; i++) {
