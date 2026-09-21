@@ -2571,34 +2571,7 @@
 
                 </div>
 
-                <div class="slide theme-content" data-slide="16" id="slide-16">
-                    <div class="background-fill glow"></div>
-                    <div class="p8-grid"></div>
 
-                    <div class="p8-hero fade-in d2" style="top:180px;left:60px;">
-                        <h2 style="color:#ffffff !important; font-size:50px !important;">With WTC Singapore<br>Building
-                            the Future of Global Business Together</h2>
-                        <div class="hero-sub">Connect Business, Globally.</div>
-                    </div>
-
-
-
-                    <div class="mobile-layout">
-                        <div class="m16-top">
-                            <h2 class="m16-title">With WTC Singapore<br>Building the Future of Global Business Together
-                            </h2>
-                            <div class="m16-sub">Connect Business, Globally.</div>
-
-                            <div class="m16-info">
-                                <div class="m16-info-item">
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
             </div><!-- /#track -->
 
             <!-- ============ Site Footer ============ -->
@@ -2650,8 +2623,8 @@
                 <nav class="sf-cols" aria-label="Footer navigation">
                   <div class="sf-col"><h4>About</h4><a href="#slide-2">Association Intro</a><a href="#slide-3">Events &amp; News</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">World Trade Centers Association</a></div>
                   <div class="sf-col"><h4>Global Network</h4><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA Global Network</a><a href="wtc-one-club/one-club-journal-en.html">WTC One Club</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">Member Cities</a></div>
-                  <div class="sf-col"><h4>Membership &amp; Partnership</h4><a href="club-apply/club-apply-en.html">Join Membership</a><a href="#slide-16">Partnership</a><a href="cases/case-list-en.html">Case Studies</a></div>
-                  <div class="sf-col"><h4>Contact</h4><a href="#slide-16">Get in Touch</a><a href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA Official</a></div>
+                  <div class="sf-col"><h4>Membership &amp; Partnership</h4><a href="club-apply/club-apply-en.html">Join Membership</a><a href="club-apply/club-apply-en.html">Partnership</a><a href="cases/case-list-en.html">Case Studies</a></div>
+                  <div class="sf-col"><h4>Contact</h4><a href="#" id="sfContactLink">Get in Touch</a><a href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA Official</a></div>
                 </nav>
               </div>
               <div class="sf-bottom">
@@ -2668,6 +2641,10 @@
                   btn.addEventListener('click', function (e) { e.stopPropagation(); pop.hidden = !pop.hidden; });
                   pop.addEventListener('click', function (e) { e.stopPropagation(); });
                   document.addEventListener('click', function () { pop.hidden = true; });
+                }
+                var contactLink = document.getElementById('sfContactLink');
+                if (contactLink && btn && pop) {
+                  contactLink.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); pop.hidden = !pop.hidden; });
                 }
                 var links = document.querySelectorAll('#site-footer a[href^="#slide-"]');
                 for (var i = 0; i < links.length; i++) {

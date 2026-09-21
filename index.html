@@ -2429,33 +2429,7 @@
 
                 </div>
 
-                <div class="slide theme-content" data-slide="16" id="slide-16">
-                    <div class="background-fill glow"></div>
-                    <div class="p8-grid"></div>
 
-                    <div class="p8-hero fade-in d2" style="top:180px;left:60px;">
-                        <h2 style="color:#ffffff !important; font-size:50px !important;">联手 WTC Singapore<br>共建全球商业未来
-                        </h2>
-                        <div class="hero-sub">Create the Future of Global Business Together</div>
-                    </div>
-
-
-
-                    <div class="mobile-layout">
-                        <div class="m16-top">
-                            <h2 class="m16-title">联手 WTC Singapore<br>共建全球商业未来</h2>
-                            <div class="m16-sub">Create the Future of Global Business Together</div>
-
-                            <div class="m16-info">
-                                <div class="m16-info-item">
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
             </div><!-- /#track -->
 
             <!-- ============ 站点页脚 ============ -->
@@ -2507,8 +2481,8 @@
                 <nav class="sf-cols" aria-label="页脚导航">
                   <div class="sf-col"><h4>关于</h4><a href="#slide-2">协会介绍</a><a href="#slide-3">活动与资讯</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">世界贸易中心协会</a></div>
                   <div class="sf-col"><h4>全球网络</h4><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA 全球网络</a><a href="wtc-one-club/one-club-journal.html">WTC One Club</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">会员城市</a></div>
-                  <div class="sf-col"><h4>会员与合作</h4><a href="club-apply/club-apply.html">加入会员</a><a href="#slide-16">合作洽谈</a><a href="cases/case-list.html">合作案例</a></div>
-                  <div class="sf-col"><h4>联系我们</h4><a href="#slide-16">联系方式</a><a href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA 官网</a></div>
+                  <div class="sf-col"><h4>会员与合作</h4><a href="club-apply/club-apply.html">加入会员</a><a href="club-apply/club-apply.html">合作洽谈</a><a href="cases/case-list.html">合作案例</a></div>
+                  <div class="sf-col"><h4>联系我们</h4><a href="#" id="sfContactLink">联系方式</a><a href="https://www.linkedin.com/company/wtcasg/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.wtca.org/" target="_blank" rel="noopener">WTCA 官网</a></div>
                 </nav>
               </div>
               <div class="sf-bottom">
@@ -2525,6 +2499,10 @@
                   btn.addEventListener('click', function (e) { e.stopPropagation(); pop.hidden = !pop.hidden; });
                   pop.addEventListener('click', function (e) { e.stopPropagation(); });
                   document.addEventListener('click', function () { pop.hidden = true; });
+                }
+                var contactLink = document.getElementById('sfContactLink');
+                if (contactLink && btn && pop) {
+                  contactLink.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); pop.hidden = !pop.hidden; });
                 }
                 var links = document.querySelectorAll('#site-footer a[href^="#slide-"]');
                 for (var i = 0; i < links.length; i++) {
