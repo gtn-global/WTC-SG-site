@@ -875,7 +875,7 @@
                                 var cands = [base + '-400.webp', base + '.webp', base + '.jpg', base + '.png'];
                                 img.setAttribute('data-full', base + '.webp');
                                 /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
-                                try { var _pf = new Image(); _pf.src = base + '.webp'; } catch (e) {}
+                                try { var _pf = new Image(); _pf.fetchPriority = 'low'; _pf.decoding = 'async'; _pf.src = base + '.webp'; } catch (e) {}
                                 var i = 0;
                                 img.addEventListener('error', function onErr() {
                                     i++;
@@ -1055,7 +1055,7 @@
                                 var cands = [base + '-400.webp', base + '.webp', base + '.jpg', base + '.png'];
                                 img.setAttribute('data-full', base + '.webp');
                                 /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
-                                try { var _pf = new Image(); _pf.src = base + '.webp'; } catch (e) {}
+                                try { var _pf = new Image(); _pf.fetchPriority = 'low'; _pf.decoding = 'async'; _pf.src = base + '.webp'; } catch (e) {}
                                 var i = 0;
                                 img.addEventListener('error', function onErr() {
                                     i++;
@@ -2507,7 +2507,7 @@
                             function resolve(cell, done) {
                                 var base = cell.getAttribute('data-img');
                                 /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
-                                try { var _pf = new Image(); _pf.src = base + '.webp'; } catch (e) {}
+                                try { var _pf = new Image(); _pf.fetchPriority = 'low'; _pf.decoding = 'async'; _pf.src = base + '.webp'; } catch (e) {}
                                 var i = 0;
                                 (function tryNext() {
                                     if (i >= exts.length) { done(null); return; }
