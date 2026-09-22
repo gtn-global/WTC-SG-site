@@ -188,6 +188,38 @@
                 : gridSel;
             if (!grid) return;
 
+            function ensureLazyFallback() {
+                document.querySelectorAll('img:not([loading])').forEach(function (img) {
+                    if (img.classList.contains('logo') || img.closest('.lightbox') || img.closest('header')) return;
+                    if (!img.src || img.src.indexOf('data:') === 0 || img.src.indexOf('blob:') === 0) return;
+                    img.loading = 'lazy';
+                    if (!img.decoding) img.decoding = 'async';
+                });
+            }
+
+            function applyImagePriorityPolicy() {
+                document.querySelectorAll('img').forEach(function (img) {
+                    if (!img.src || img.src.indexOf('data:') === 0 || img.src.indexOf('blob:') === 0) return;
+                    if (img.closest('.lightbox')) return;
+                    var inHero = !!img.closest('.theme-cover, .p2-hero, .p4-hero, .p6-hero, .p7-hero, .hero, .hero-leader, .leader-portrait');
+                    var isLogo = img.classList.contains('logo');
+                    if (inHero || isLogo) {
+                        img.setAttribute('fetchpriority', 'high');
+                        img.setAttribute('loading', 'eager');
+                        img.setAttribute('importance', 'high');
+                        if (!img.decoding) img.decoding = 'async';
+                        return;
+                    }
+                    if (!img.hasAttribute('loading')) {
+                        img.setAttribute('loading', 'lazy');
+                    }
+                    if (img.getAttribute('loading') === 'lazy') {
+                        img.setAttribute('fetchpriority', 'low');
+                        img.setAttribute('importance', 'low');
+                    }
+                });
+            }
+
             /* 惰性加载：缩略图进入视口附近（上下各预取 400px）才真正发起请求，
                避免原生 loading=lazy 的宽阈值把后面 1~3 屏的图片全部提前拉取。 */
             function loadThumb(img) {
@@ -244,7 +276,29 @@
                     lbImg.src = '';
                 });
             }
+
+            ensureLazyFallback();
+            applyImagePriorityPolicy();
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('img').forEach(function (img) {
+                if (!img.src || img.src.indexOf('data:') === 0 || img.src.indexOf('blob:') === 0) return;
+                if (img.closest('.lightbox')) return;
+                var inHero = !!img.closest('.theme-cover, .p2-hero, .p4-hero, .p6-hero, .p7-hero, .hero, .hero-leader, .leader-portrait');
+                var isLogo = img.classList.contains('logo');
+                if (inHero || isLogo) {
+                    img.setAttribute('fetchpriority', 'high');
+                    img.setAttribute('loading', 'eager');
+                    img.setAttribute('importance', 'high');
+                    if (!img.decoding) img.decoding = 'async';
+                } else if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                    img.setAttribute('fetchpriority', 'low');
+                    img.setAttribute('importance', 'low');
+                }
+            });
+        });
     </script>
 
 
