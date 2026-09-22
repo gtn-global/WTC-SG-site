@@ -527,16 +527,17 @@
 <body>
 
     <header id="site-topbar" aria-label="Site navigation">
-        <a class="topbar-brand" href="#" onclick="WTCDeck.goTo(0); return false;">
+        <a class="topbar-brand" href="#slide-1" onclick="WTCDeck.goToBySlide(1); return false;">
             <span class="brand-text">WTC Singapore</span>
         </a>
         <nav class="topbar-nav" aria-label="Chapter navigation">
-            <a href="#" data-target="0" onclick="WTCDeck.goTo(0); return false;">Home</a>
-            <a href="#" data-target="1" onclick="WTCDeck.goTo(1); return false;">About WTCA</a>
-            <a href="#" data-target="4" onclick="WTCDeck.goTo(4); return false;">About WTC Singapore</a>
+            <a href="#slide-1" data-target="0" onclick="WTCDeck.goToBySlide(1); return false;">Home</a>
+            <a href="#slide-2" data-target="1" onclick="WTCDeck.goToBySlide(2); return false;">About WTCA</a>
+            <a href="#slide-5" data-target="4" onclick="WTCDeck.goToBySlide(5); return false;">About WTC Singapore</a>
 
             <div class="nav-item-with-mega">
-                <a href="#" data-target="6" onclick="WTCDeck.goTo(6); return false;" class="active">Our Value</a>
+                <a href="#slide-7" data-target="7" onclick="WTCDeck.goToBySlide(7); return false;"
+                    class="active">Our Value</a>
                 <div class="mega-panel" aria-label="Our Value menu">
                     <div class="mega-col">
                         <span class="mega-col-top">01<strong>WTC ONE Club</strong></span>
@@ -569,8 +570,8 @@
                 </div>
             </div>
 
-            <a href="#" data-target="9" onclick="WTCDeck.goTo(9); return false;">Global Ecosystem</a>
-            <a href="#" data-target="14" onclick="WTCDeck.goTo(14); return false;">Connect With Us</a>
+            <a href="#slide-10" data-target="10" onclick="WTCDeck.goToBySlide(10); return false;">Global Ecosystem</a>
+            <a href="#slide-15" data-target="10" onclick="WTCDeck.goToBySlide(15); return false;">Global Connections</a>
         </nav>
         <a class="topbar-lang" href="index.html">中文</a>
     </header>
@@ -990,9 +991,9 @@
                             <div class="cap">World Trade Center Barcelona</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb"
-                                data-base="wtc-buildings/05_new_york_wtc" alt="World Trade Center New York"
+                                data-base="wtc-buildings/05_new_york_wtc" alt="One World Trade Center"
                                 style="object-fit:cover; display:block;" decoding="async">
-                            <div class="cap">World Trade Center New York</div>
+                            <div class="cap">One World Trade Center</div>
                         </div>
                         <div class="mini-card"><img loading="lazy" class="thumb" data-base="wtc-buildings/06_brussels_wtc"
                                 alt="World Trade Center Brussels" style="object-fit:cover; display:block;" decoding="async">
@@ -1127,10 +1128,10 @@
                                         onerror="this.onerror=null;this.src='wtc-buildings/04_amsterdam_wtc.jpg';" decoding="async">
                                     <div class="m4-cap">World Trade Center Barcelona</div>
                                 </div>
-                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="World Trade Center New York"
+                                <div class="m4-item"><img src="wtc-buildings/05_new_york_wtc.webp" alt="One World Trade Center"
                                         loading="lazy"
                                         onerror="this.onerror=null;this.src='wtc-buildings/05_new_york_wtc.jpg';" decoding="async">
-                                    <div class="m4-cap">World Trade Center New York</div>
+                                    <div class="m4-cap">One World Trade Center</div>
                                 </div>
                                 <div class="m4-item"><img src="wtc-buildings/06_brussels_wtc.webp" alt="World Trade Center Brussels"
                                         loading="lazy"
@@ -1235,212 +1236,159 @@
                 </div>
 
                 <!-- ============ 第6页 ============ -->
-                <div class="slide theme-content no-chrome" data-slide="6" id="slide-6">
+                <div class="slide theme-content no-chrome" data-slide="15" id="slide-15">
+                    <!-- ——— 活动展示页主标题（同中文版第15页结构；此页不显示 05 章节眉题）——— -->
+                    <div class="p3-headline-cn fade-in d2"
+                        style="position:absolute; left:60px; top:55px; color:#ffffff;">WTC SINGAPORE · IN ACTION</div>
 
-                    <!-- 页眉标题 -->
-                    <div class="section-eyebrow p2-eyebrow-top p6-header">
-                        <span class="p6-header-en">Singapore · A Strategic Pivot of the Global Business Ecosystem</span>
-                        <span class="p6-header-sub">Why Singapore</span>
+                    <!-- ——— 隐藏标题（仅存在于代码中，页面不显示）——— -->
+                    <div class="p-title" style="display:none">
+                        <h2 class="p-title-cn">WTC SINGAPORE · IN ACTION</h2>
+                        <div class="p-title-en">WTC SINGAPORE · IN ACTION</div>
                     </div>
 
-                    <!-- 页面主体 -->
-                    <div class="page-body">
-
-                        <!-- 左侧：信息认知区 -->
-                        <div class="left-panel">
-
-                            <div class="divider-line seq-3"></div>
-
-                            <div class="adv-heading seq-3">Singapore’s Strategic Advantages</div>
-
-                            <!-- 六项能力：常驻可见的连续列表，细金线分隔，非卡片 -->
-                            <div class="capability-list seq-4" id="capabilityAccordion">
-
-                                <div class="capability-item" data-group="asia-gateway">
-                                    <div class="capability-header">
-                                        <div class="capability-title">Gateway to Asia</div>
-                                        <div class="capability-toggle"></div>
-                                    </div>
-                                    <div class="capability-panel">
-                                        <p>Connecting China, ASEAN, and major Asian economies, a strategic gateway for
-                                            enterprises entering Asian markets and pursuing regional and cross-border
-                                            growth.</p>
-                                    </div>
-                                </div>
-
-                                <div class="capability-item" data-group="financial-hub">
-                                    <div class="capability-header">
-                                        <div class="capability-title">Financial Resource Allocation</div>
-                                        <div class="capability-toggle"></div>
-                                    </div>
-                                    <div class="capability-panel">
-                                        <p>Converging international banks, investors, capital markets, and a global
-                                            financing environment to support enterprises’ international capital
-                                            allocation.</p>
-                                    </div>
-                                </div>
-
-                                <div class="capability-item" data-group="wealth-hub">
-                                    <div class="capability-header">
-                                        <div class="capability-title">Wealth Management</div>
-                                        <div class="capability-toggle"></div>
-                                    </div>
-                                    <div class="capability-panel">
-                                        <p>Bringing together Asia’s leading family offices and wealth-management
-                                            ecosystem to support high-net-worth wealth management and long-term capital
-                                            partnerships.</p>
-                                    </div>
-                                </div>
-
-                                <div class="capability-item" data-group="hq-hub">
-                                    <div class="capability-header">
-                                        <div class="capability-title">Regional HQ Cluster</div>
-                                        <div class="capability-toggle"></div>
-                                    </div>
-                                    <div class="capability-panel">
-                                        <p>A core base where multinational regional HQs and international management
-                                            teams converge to run regional operations.</p>
-                                    </div>
-                                </div>
-
-                                <div class="capability-item" data-group="innovation">
-                                    <div class="capability-header">
-                                        <div class="capability-title">Innovation Ecosystem Synergy</div>
-                                        <div class="capability-toggle"></div>
-                                    </div>
-                                    <div class="capability-panel">
-                                        <p>Linking tech innovation, industry resources, research institutes, and
-                                            investment capital to drive industrial synergy and the global scaling of
-                                            innovations.</p>
-                                    </div>
-                                </div>
-
-                                <div class="capability-item" data-group="connectivity">
-                                    <div class="capability-header">
-                                        <div class="capability-title">Global Connectivity Hub</div>
-                                        <div class="capability-toggle"></div>
-                                    </div>
-                                    <div class="capability-panel">
-                                        <p>Leveraging aviation, port shipping, and digital infrastructure to connect
-                                            major global markets for efficient international business.</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                    <!-- ——— 九宫格主体 ——— -->
+                    <div class="event-grid bleed fade-in d4"
+                        style="position:absolute; left:80px; right:80px; top:245px; bottom:70px;">
+                        <!-- 1/9 -->
+                        <div class="event-cell real" data-img="grid/grid1"
+                            style="background: linear-gradient(160deg, rgba(212,175,55,.18), rgba(197,160,89,.03) 55%) center/cover no-repeat;">
                         </div>
-
-                        <!-- 右侧：全球商业战略空间 -->
-                        <div class="right-panel">
-
-                            <!-- 核心Positioning：纯排版建立，无图形符号；视觉中心 = 新加坡 -->
-                            <div class="core-anchor" data-visual-center>
-                                <div class="core-title">Singapore</div>
-                                <div class="core-sub">WTC Singapore</div>
-                            </div>
-
-                            <!-- 全球商业Value关键词：自然错落，非对称分布（原样保留，不做改动） -->
-                            <span class="value-word" data-groups="asia-gateway"
-                                style="top:11%; left:61%; font-size:35px; font-weight:600; --base-opacity:.85; --drift-dur:19s; --fade-delay:1.7s;">China</span>
-                            <span class="value-word" data-groups="asia-gateway"
-                                style="top:9%; left:37%; font-size:20px; font-weight:500; --base-opacity:.55; --drift-dur:15s; --fade-delay:2s;">ASEAN</span>
-                            <span class="value-word" data-groups="asia-gateway hq-hub"
-                                style="top:53%; left:63%; font-size:22px; font-weight:500; --base-opacity:.6; --drift-dur:17s; --fade-delay:2.3s;">Asia</span>
-                            <span class="value-word" data-groups="connectivity"
-                                style="top:76%; left:57%; font-size:31px; font-weight:600; --base-opacity:.8; --drift-dur:20s; --fade-delay:1.85s;">Global
-                                Markets</span>
-
-                            <span class="value-word" data-groups="financial-hub wealth-hub"
-                                style="top:23%; left:28%; font-size:27px; font-weight:600; --base-opacity:.7; --drift-dur:14s; --fade-delay:1.95s;">Capital</span>
-                            <span class="value-word" data-groups="financial-hub"
-                                style="top:64%; left:79%; font-size:24px; font-weight:500; --base-opacity:.65; --drift-dur:18s; --fade-delay:2.1s;">Finance</span>
-                            <span class="value-word" data-groups="wealth-hub"
-                                style="top:82%; left:31%; font-size:20px; font-weight:500; --base-opacity:.55; --drift-dur:13s; --fade-delay:2.4s;">Investment</span>
-
-                            <span class="value-word" data-groups="innovation"
-                                style="top:16%; left:81%; font-size:22px; font-weight:500; --base-opacity:.6; --drift-dur:16s; --fade-delay:2.05s;">Innovation</span>
-                            <span class="value-word" data-groups="innovation"
-                                style="top:31%; left:88%; font-size:17px; font-weight:400; --base-opacity:.48; --drift-dur:12s; --fade-delay:2.5s;">Tech</span>
-
-                            <span class="value-word" data-groups="hq-hub"
-                                style="top:59%; left:17%; font-size:22px; font-weight:500; --base-opacity:.6; --drift-dur:15.5s; --fade-delay:2.15s;">Enterprises</span>
-                            <span class="value-word" data-groups="hq-hub"
-                                style="top:44%; left:12%; font-size:18px; font-weight:400; --base-opacity:.5; --drift-dur:11s; --fade-delay:2.6s;">HQ</span>
-
-                            <span class="value-word" data-groups="connectivity"
-                                style="top:71%; left:42%; font-size:17px; font-weight:400; --base-opacity:.48; --drift-dur:13.5s; --fade-delay:2.7s;">Trade</span>
-
+                        <!-- 2/9 -->
+                        <div class="event-cell" data-img="grid/grid2" style="background: center/cover no-repeat;">
                         </div>
-
+                        <!-- 3/9 -->
+                        <div class="event-cell" data-img="grid/grid3" style="background: center/cover no-repeat;">
+                        </div>
+                        <!-- 4/9 -->
+                        <div class="event-cell" data-img="grid/grid4" style="background: center/cover no-repeat;">
+                        </div>
+                        <!-- 5/9 -->
+                        <div class="event-cell" data-img="grid/grid5" style="background: center/cover no-repeat;">
+                        </div>
+                        <!-- 6/9 -->
+                        <div class="event-cell" data-img="grid/grid6" style="background: center/cover no-repeat;">
+                        </div>
+                        <!-- 7/9 -->
+                        <div class="event-cell" data-img="grid/grid7" style="background: center/cover no-repeat;">
+                        </div>
+                        <!-- 8/9 -->
+                        <div class="event-cell" data-img="grid/grid8" style="background: center/cover no-repeat;">
+                        </div>
+                        <!-- 9/9 -->
+                        <div class="event-cell" data-img="grid/grid9" style="background: center/cover no-repeat;">
+                        </div>
                     </div>
 
-                    <!-- 页脚 -->
-                    <div class="footer">
+                    <!-- ——— 灯箱（点击九宫格放大，再点任意处关闭）——— -->
+                    <div class="lightbox" id="lightbox">
+                        <img id="lightbox-img" src="" alt="Zoom preview" />
+                        <span class="lightbox-hint">Click anywhere to close</span>
+                    </div>
+
+                    <!-- ——— 页脚 ——— -->
+                    <div class="footer fade-in d6">
                         <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
                         <div class="footer-cn">Capital meets innovation, turning opportunity into value.</div>
                     </div>
 
                     <div class="mobile-layout">
-                        <div class="ma-top">
-                            <div class="ma-eyebrow">Why Singapore</div>
-                            <h2 class="ma-title">Singapore: A Strategic Pivot of the Global Business Ecosystem</h2>
-                            <div class="ma-sub">Six strategic capabilities for global business expansion</div>
-
-                            <div class="ma-list">
-                                <div class="ma-item">
-                                    <div class="ma-item-head">
-                                        <div class="ma-index">01</div>
-                                        <div class="ma-item-title">Gateway to Asia</div>
-                                    </div>
-                                    <div class="ma-item-body">Connecting China, ASEAN and major Asian economies,
-                                        Singapore is a strategic gateway for regional and cross-border growth.</div>
-                                </div>
-                                <div class="ma-item">
-                                    <div class="ma-item-head">
-                                        <div class="ma-index">02</div>
-                                        <div class="ma-item-title">Financial Resource Allocation</div>
-                                    </div>
-                                    <div class="ma-item-body">Converges global banks, investors and capital markets to
-                                        support international capital allocation.</div>
-                                </div>
-                                <div class="ma-item">
-                                    <div class="ma-item-head">
-                                        <div class="ma-index">03</div>
-                                        <div class="ma-item-title">Wealth Management</div>
-                                    </div>
-                                    <div class="ma-item-body">Brings together leading family offices and wealth
-                                        ecosystems to support long-term capital partnerships.</div>
-                                </div>
-                                <div class="ma-item">
-                                    <div class="ma-item-head">
-                                        <div class="ma-index">04</div>
-                                        <div class="ma-item-title">Regional HQ Cluster</div>
-                                    </div>
-                                    <div class="ma-item-body">A core base where multinational HQs and international
-                                        management teams converge for regional operations.</div>
-                                </div>
-                                <div class="ma-item">
-                                    <div class="ma-item-head">
-                                        <div class="ma-index">05</div>
-                                        <div class="ma-item-title">Innovation Ecosystem Synergy</div>
-                                    </div>
-                                    <div class="ma-item-body">Links technology, industry resources, research and
-                                        investment to accelerate globally scalable innovation.</div>
-                                </div>
-                                <div class="ma-item">
-                                    <div class="ma-item-head">
-                                        <div class="ma-index">06</div>
-                                        <div class="ma-item-title">Global Connectivity Hub</div>
-                                    </div>
-                                    <div class="ma-item-body">Supported by aviation, shipping and digital
-                                        infrastructure, it enables efficient access to major global markets.</div>
-                                </div>
-                            </div>
+                        <div class="m15-eyebrow">05 — CONNECT WITH US</div>
+                        <div class="m15-grid">
+                            <div class="m15-cell"><img src="grid/grid1-400.webp" alt="WTC Singapore Event Photo 1"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';" decoding="async"></div>
+                            <div class="m15-cell"><img src="grid/grid2-400.webp" alt="WTC Singapore Event Photo 2"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';" decoding="async"></div>
+                            <div class="m15-cell"><img src="grid/grid3-400.webp" alt="WTC Singapore Event Photo 3"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';" decoding="async"></div>
+                            <div class="m15-cell"><img src="grid/grid4-400.webp" alt="WTC Singapore Event Photo 4"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';" decoding="async"></div>
+                            <div class="m15-cell"><img src="grid/grid5-400.webp" alt="WTC Singapore Event Photo 5"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';" decoding="async"></div>
+                            <div class="m15-cell"><img src="grid/grid6-400.webp" alt="WTC Singapore Event Photo 6"
+                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';" decoding="async"></div>
+                        </div>
+                        <div class="m15-foot">
+                            <div class="m15-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
+                            <div class="m15-foot-cn">Capital meets innovation, turning opportunity into value.</div>
                         </div>
                     </div>
 
-                </div>
+                    <script>
+                        (function () {
+                            /* -400.webp 缩略图优先（约 17KB），缺失再回退 webp/jpg/png 原图 */
+                            var exts = ['400.webp', 'webp', 'jpg', 'png'];
+                            var grid = document.querySelector('.event-grid');
+                            if (!grid) return;
+                            var cells = grid.querySelectorAll('.event-cell[data-img]');
+                            var grad = 'linear-gradient(160deg, rgba(212,175,55,.18), rgba(197,160,89,.03) 55%)';
 
+                            function resolve(cell, done) {
+                                var base = cell.getAttribute('data-img');
+                                /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
+                                try { var _pf = new Image(); _pf.fetchPriority = 'low'; _pf.decoding = 'async'; _pf.src = base + '.webp'; } catch (e) {}
+                                var i = 0;
+                                (function tryNext() {
+                                    if (i >= exts.length) { done(null); return; }
+                                    var url = base + '.' + exts[i++];
+                                    var t = new Image();
+                                    t.onload = function () { done(url); };
+                                    t.onerror = tryNext;
+                                    t.src = url;
+                                })();
+                            }
+
+                            if ('IntersectionObserver' in window) {
+                                var io = new IntersectionObserver(function (entries) {
+                                    entries.forEach(function (e) {
+                                        if (!e.isIntersecting) return;
+                                        var cell = e.target;
+                                        io.unobserve(cell);
+                                        resolve(cell, function (url) {
+                                            if (!url) return;
+                                            if (cell.classList.contains('real')) {
+                                                cell.style.backgroundImage = grad + ", url('" + url + "')";
+                                            } else {
+                                                cell.style.backgroundImage = "url('" + url + "')";
+                                            }
+                                        });
+                                    });
+                                }, { rootMargin: '1200px 0px' });
+                                cells.forEach(function (cell) { io.observe(cell); });
+                            } else {
+                                cells.forEach(function (cell) {
+                                    resolve(cell, function (url) {
+                                        if (!url) return;
+                                        if (cell.classList.contains('real')) {
+                                            cell.style.backgroundImage = grad + ", url('" + url + "')";
+                                        } else {
+                                            cell.style.backgroundImage = "url('" + url + "')";
+                                        }
+                                    });
+                                });
+                            }
+
+                            var lb = document.getElementById('lightbox');
+                            var lbImg = document.getElementById('lightbox-img');
+                            if (lb && lbImg) {
+                                cells.forEach(function (cell) {
+                                    cell.addEventListener('click', function () {
+                                        resolve(cell, function (url) {
+                                            if (!url) return;
+                                            lbImg.src = url;
+                                            lb.classList.add('open');
+                                        });
+                                    });
+                                });
+                                lb.addEventListener('click', function () {
+                                    lb.classList.remove('open');
+                                    lbImg.src = '';
+                                });
+                            }
+                        })();
+                    </script>
+
+                </div>
                 <div class="slide theme-content no-chrome" data-slide="7" id="slide-7">
 
                     <div class="p4-grid"></div>
@@ -2035,6 +1983,214 @@
                 </div>
 
                 <!-- ============ 第12页 ============ -->
+                <div class="slide theme-content no-chrome" data-slide="6" id="slide-6">
+
+                    <!-- 页眉标题 -->
+                    <div class="section-eyebrow p2-eyebrow-top"
+                        style="top:55px !important; left:60px !important; z-index:1001; color:#C5A059 !important;">05 — GLOBAL CONNECTIONS</div>
+                    <div class="section-eyebrow p2-eyebrow-top p6-header" style="top:145px;">
+                        <span class="p6-header-en" style="font-size:28px;">Singapore · A Strategic Pivot of the Global Business Ecosystem</span>
+                        <span class="p6-header-sub">Why Singapore</span>
+                    </div>
+
+                    <!-- 页面主体 -->
+                    <div class="page-body">
+
+                        <!-- 左侧：信息认知区 -->
+                        <div class="left-panel">
+
+                            <div class="divider-line seq-3"></div>
+
+                            <div class="adv-heading seq-3">Singapore’s Strategic Advantages</div>
+
+                            <!-- 六项能力：常驻可见的连续列表，细金线分隔，非卡片 -->
+                            <div class="capability-list seq-4" id="capabilityAccordion">
+
+                                <div class="capability-item" data-group="asia-gateway">
+                                    <div class="capability-header">
+                                        <div class="capability-title">Gateway to Asia</div>
+                                        <div class="capability-toggle"></div>
+                                    </div>
+                                    <div class="capability-panel">
+                                        <p>Connecting China, ASEAN, and major Asian economies, a strategic gateway for
+                                            enterprises entering Asian markets and pursuing regional and cross-border
+                                            growth.</p>
+                                    </div>
+                                </div>
+
+                                <div class="capability-item" data-group="financial-hub">
+                                    <div class="capability-header">
+                                        <div class="capability-title">Financial Resource Allocation</div>
+                                        <div class="capability-toggle"></div>
+                                    </div>
+                                    <div class="capability-panel">
+                                        <p>Converging international banks, investors, capital markets, and a global
+                                            financing environment to support enterprises’ international capital
+                                            allocation.</p>
+                                    </div>
+                                </div>
+
+                                <div class="capability-item" data-group="wealth-hub">
+                                    <div class="capability-header">
+                                        <div class="capability-title">Wealth Management</div>
+                                        <div class="capability-toggle"></div>
+                                    </div>
+                                    <div class="capability-panel">
+                                        <p>Bringing together Asia’s leading family offices and wealth-management
+                                            ecosystem to support high-net-worth wealth management and long-term capital
+                                            partnerships.</p>
+                                    </div>
+                                </div>
+
+                                <div class="capability-item" data-group="hq-hub">
+                                    <div class="capability-header">
+                                        <div class="capability-title">Regional HQ Cluster</div>
+                                        <div class="capability-toggle"></div>
+                                    </div>
+                                    <div class="capability-panel">
+                                        <p>A core base where multinational regional HQs and international management
+                                            teams converge to run regional operations.</p>
+                                    </div>
+                                </div>
+
+                                <div class="capability-item" data-group="innovation">
+                                    <div class="capability-header">
+                                        <div class="capability-title">Innovation Ecosystem Synergy</div>
+                                        <div class="capability-toggle"></div>
+                                    </div>
+                                    <div class="capability-panel">
+                                        <p>Linking tech innovation, industry resources, research institutes, and
+                                            investment capital to drive industrial synergy and the global scaling of
+                                            innovations.</p>
+                                    </div>
+                                </div>
+
+                                <div class="capability-item" data-group="connectivity">
+                                    <div class="capability-header">
+                                        <div class="capability-title">Global Connectivity Hub</div>
+                                        <div class="capability-toggle"></div>
+                                    </div>
+                                    <div class="capability-panel">
+                                        <p>Leveraging aviation, port shipping, and digital infrastructure to connect
+                                            major global markets for efficient international business.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- 右侧：全球商业战略空间 -->
+                        <div class="right-panel">
+
+                            <!-- 核心Positioning：纯排版建立，无图形符号；视觉中心 = 新加坡 -->
+                            <div class="core-anchor" data-visual-center>
+                                <div class="core-title">Singapore</div>
+                                <div class="core-sub">WTC Singapore</div>
+                            </div>
+
+                            <!-- 全球商业Value关键词：自然错落，非对称分布（原样保留，不做改动） -->
+                            <span class="value-word" data-groups="asia-gateway"
+                                style="top:11%; left:61%; font-size:35px; font-weight:600; --base-opacity:.85; --drift-dur:19s; --fade-delay:1.7s;">China</span>
+                            <span class="value-word" data-groups="asia-gateway"
+                                style="top:9%; left:37%; font-size:20px; font-weight:500; --base-opacity:.55; --drift-dur:15s; --fade-delay:2s;">ASEAN</span>
+                            <span class="value-word" data-groups="asia-gateway hq-hub"
+                                style="top:53%; left:63%; font-size:22px; font-weight:500; --base-opacity:.6; --drift-dur:17s; --fade-delay:2.3s;">Asia</span>
+                            <span class="value-word" data-groups="connectivity"
+                                style="top:76%; left:57%; font-size:31px; font-weight:600; --base-opacity:.8; --drift-dur:20s; --fade-delay:1.85s;">Global
+                                Markets</span>
+
+                            <span class="value-word" data-groups="financial-hub wealth-hub"
+                                style="top:23%; left:28%; font-size:27px; font-weight:600; --base-opacity:.7; --drift-dur:14s; --fade-delay:1.95s;">Capital</span>
+                            <span class="value-word" data-groups="financial-hub"
+                                style="top:64%; left:79%; font-size:24px; font-weight:500; --base-opacity:.65; --drift-dur:18s; --fade-delay:2.1s;">Finance</span>
+                            <span class="value-word" data-groups="wealth-hub"
+                                style="top:82%; left:31%; font-size:20px; font-weight:500; --base-opacity:.55; --drift-dur:13s; --fade-delay:2.4s;">Investment</span>
+
+                            <span class="value-word" data-groups="innovation"
+                                style="top:16%; left:81%; font-size:22px; font-weight:500; --base-opacity:.6; --drift-dur:16s; --fade-delay:2.05s;">Innovation</span>
+                            <span class="value-word" data-groups="innovation"
+                                style="top:31%; left:88%; font-size:17px; font-weight:400; --base-opacity:.48; --drift-dur:12s; --fade-delay:2.5s;">Tech</span>
+
+                            <span class="value-word" data-groups="hq-hub"
+                                style="top:59%; left:17%; font-size:22px; font-weight:500; --base-opacity:.6; --drift-dur:15.5s; --fade-delay:2.15s;">Enterprises</span>
+                            <span class="value-word" data-groups="hq-hub"
+                                style="top:44%; left:12%; font-size:18px; font-weight:400; --base-opacity:.5; --drift-dur:11s; --fade-delay:2.6s;">HQ</span>
+
+                            <span class="value-word" data-groups="connectivity"
+                                style="top:71%; left:42%; font-size:17px; font-weight:400; --base-opacity:.48; --drift-dur:13.5s; --fade-delay:2.7s;">Trade</span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- 页脚 -->
+                    <div class="footer">
+                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
+                        <div class="footer-cn">Capital meets innovation, turning opportunity into value.</div>
+                    </div>
+
+                    <div class="mobile-layout">
+                        <div class="ma-top">
+                            <div class="ma-eyebrow">Why Singapore</div>
+                            <h2 class="ma-title">Singapore: A Strategic Pivot of the Global Business Ecosystem</h2>
+                            <div class="ma-sub">Six strategic capabilities for global business expansion</div>
+
+                            <div class="ma-list">
+                                <div class="ma-item">
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">01</div>
+                                        <div class="ma-item-title">Gateway to Asia</div>
+                                    </div>
+                                    <div class="ma-item-body">Connecting China, ASEAN and major Asian economies,
+                                        Singapore is a strategic gateway for regional and cross-border growth.</div>
+                                </div>
+                                <div class="ma-item">
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">02</div>
+                                        <div class="ma-item-title">Financial Resource Allocation</div>
+                                    </div>
+                                    <div class="ma-item-body">Converges global banks, investors and capital markets to
+                                        support international capital allocation.</div>
+                                </div>
+                                <div class="ma-item">
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">03</div>
+                                        <div class="ma-item-title">Wealth Management</div>
+                                    </div>
+                                    <div class="ma-item-body">Brings together leading family offices and wealth
+                                        ecosystems to support long-term capital partnerships.</div>
+                                </div>
+                                <div class="ma-item">
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">04</div>
+                                        <div class="ma-item-title">Regional HQ Cluster</div>
+                                    </div>
+                                    <div class="ma-item-body">A core base where multinational HQs and international
+                                        management teams converge for regional operations.</div>
+                                </div>
+                                <div class="ma-item">
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">05</div>
+                                        <div class="ma-item-title">Innovation Ecosystem Synergy</div>
+                                    </div>
+                                    <div class="ma-item-body">Links technology, industry resources, research and
+                                        investment to accelerate globally scalable innovation.</div>
+                                </div>
+                                <div class="ma-item">
+                                    <div class="ma-item-head">
+                                        <div class="ma-index">06</div>
+                                        <div class="ma-item-title">Global Connectivity Hub</div>
+                                    </div>
+                                    <div class="ma-item-body">Supported by aviation, shipping and digital
+                                        infrastructure, it enables efficient access to major global markets.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="slide theme-content no-chrome" data-slide="12" id="slide-12">
                     <div class="background-fill glow"></div>
                     <!-- 顶部布局栏 -->
@@ -2417,159 +2573,6 @@
 
                 </div>
 
-                <div class="slide theme-content no-chrome" data-slide="15" id="slide-15">
-                    <!-- ——— 章节眉题（Connect With Us章节起始页）——— -->
-                    <div class="section-eyebrow p2-eyebrow-top" style="position:absolute; left:60px; margin:0;">05 —
-                        Connect With Us</div>
-
-                    <!-- ——— 隐藏标题（仅存在于代码中，页面不显示）——— -->
-                    <div class="p-title" style="display:none">
-                        <h2 class="p-title-cn">Connect With Us</h2>
-                        <div class="p-title-en">Connect With Us</div>
-                    </div>
-
-                    <!-- ——— 九宫格主体 ——— -->
-                    <div class="event-grid bleed fade-in d4"
-                        style="position:absolute; left:80px; right:80px; top:125px; bottom:70px;">
-                        <!-- 1/9 -->
-                        <div class="event-cell real" data-img="grid/grid1"
-                            style="background: linear-gradient(160deg, rgba(212,175,55,.18), rgba(197,160,89,.03) 55%) center/cover no-repeat;">
-                        </div>
-                        <!-- 2/9 -->
-                        <div class="event-cell" data-img="grid/grid2" style="background: center/cover no-repeat;">
-                        </div>
-                        <!-- 3/9 -->
-                        <div class="event-cell" data-img="grid/grid3" style="background: center/cover no-repeat;">
-                        </div>
-                        <!-- 4/9 -->
-                        <div class="event-cell" data-img="grid/grid4" style="background: center/cover no-repeat;">
-                        </div>
-                        <!-- 5/9 -->
-                        <div class="event-cell" data-img="grid/grid5" style="background: center/cover no-repeat;">
-                        </div>
-                        <!-- 6/9 -->
-                        <div class="event-cell" data-img="grid/grid6" style="background: center/cover no-repeat;">
-                        </div>
-                        <!-- 7/9 -->
-                        <div class="event-cell" data-img="grid/grid7" style="background: center/cover no-repeat;">
-                        </div>
-                        <!-- 8/9 -->
-                        <div class="event-cell" data-img="grid/grid8" style="background: center/cover no-repeat;">
-                        </div>
-                        <!-- 9/9 -->
-                        <div class="event-cell" data-img="grid/grid9" style="background: center/cover no-repeat;">
-                        </div>
-                    </div>
-
-                    <!-- ——— 灯箱（点击九宫格放大，再点任意处关闭）——— -->
-                    <div class="lightbox" id="lightbox">
-                        <img id="lightbox-img" src="" alt="Zoom preview" />
-                        <span class="lightbox-hint">Click anywhere to close</span>
-                    </div>
-
-                    <!-- ——— 页脚 ——— -->
-                    <div class="footer fade-in d6">
-                        <div class="footer-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                        <div class="footer-cn">Capital meets innovation, turning opportunity into value.</div>
-                    </div>
-
-                    <div class="mobile-layout">
-                        <div class="m15-eyebrow">05 — CONNECT WITH US</div>
-                        <div class="m15-grid">
-                            <div class="m15-cell"><img src="grid/grid1-400.webp" alt="WTC Singapore Event Photo 1"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid1.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid2-400.webp" alt="WTC Singapore Event Photo 2"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid2.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid3-400.webp" alt="WTC Singapore Event Photo 3"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid3.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid4-400.webp" alt="WTC Singapore Event Photo 4"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid4.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid5-400.webp" alt="WTC Singapore Event Photo 5"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid5.jpg';" decoding="async"></div>
-                            <div class="m15-cell"><img src="grid/grid6-400.webp" alt="WTC Singapore Event Photo 6"
-                                    loading="lazy" onerror="this.onerror=null;this.src='grid/grid6.jpg';" decoding="async"></div>
-                        </div>
-                        <div class="m15-foot">
-                            <div class="m15-foot-en">Where Capital Meets Innovation, Opportunity Becomes Value.</div>
-                            <div class="m15-foot-cn">Capital meets innovation, turning opportunity into value.</div>
-                        </div>
-                    </div>
-
-                    <script>
-                        (function () {
-                            /* -400.webp 缩略图优先（约 17KB），缺失再回退 webp/jpg/png 原图 */
-                            var exts = ['400.webp', 'webp', 'jpg', 'png'];
-                            var grid = document.querySelector('.event-grid');
-                            if (!grid) return;
-                            var cells = grid.querySelectorAll('.event-cell[data-img]');
-                            var grad = 'linear-gradient(160deg, rgba(212,175,55,.18), rgba(197,160,89,.03) 55%)';
-
-                            function resolve(cell, done) {
-                                var base = cell.getAttribute('data-img');
-                                /* 预览图进入视口即预载原图，点击灯箱时浏览器已缓存，秒开 */
-                                try { var _pf = new Image(); _pf.fetchPriority = 'low'; _pf.decoding = 'async'; _pf.src = base + '.webp'; } catch (e) {}
-                                var i = 0;
-                                (function tryNext() {
-                                    if (i >= exts.length) { done(null); return; }
-                                    var url = base + '.' + exts[i++];
-                                    var t = new Image();
-                                    t.onload = function () { done(url); };
-                                    t.onerror = tryNext;
-                                    t.src = url;
-                                })();
-                            }
-
-                            if ('IntersectionObserver' in window) {
-                                var io = new IntersectionObserver(function (entries) {
-                                    entries.forEach(function (e) {
-                                        if (!e.isIntersecting) return;
-                                        var cell = e.target;
-                                        io.unobserve(cell);
-                                        resolve(cell, function (url) {
-                                            if (!url) return;
-                                            if (cell.classList.contains('real')) {
-                                                cell.style.backgroundImage = grad + ", url('" + url + "')";
-                                            } else {
-                                                cell.style.backgroundImage = "url('" + url + "')";
-                                            }
-                                        });
-                                    });
-                                }, { rootMargin: '1200px 0px' });
-                                cells.forEach(function (cell) { io.observe(cell); });
-                            } else {
-                                cells.forEach(function (cell) {
-                                    resolve(cell, function (url) {
-                                        if (!url) return;
-                                        if (cell.classList.contains('real')) {
-                                            cell.style.backgroundImage = grad + ", url('" + url + "')";
-                                        } else {
-                                            cell.style.backgroundImage = "url('" + url + "')";
-                                        }
-                                    });
-                                });
-                            }
-
-                            var lb = document.getElementById('lightbox');
-                            var lbImg = document.getElementById('lightbox-img');
-                            if (lb && lbImg) {
-                                cells.forEach(function (cell) {
-                                    cell.addEventListener('click', function () {
-                                        resolve(cell, function (url) {
-                                            if (!url) return;
-                                            lbImg.src = url;
-                                            lb.classList.add('open');
-                                        });
-                                    });
-                                });
-                                lb.addEventListener('click', function () {
-                                    lb.classList.remove('open');
-                                    lbImg.src = '';
-                                });
-                            }
-                        })();
-                    </script>
-
-                </div>
 
 
             </div><!-- /#track -->
@@ -2850,10 +2853,10 @@
                 { x: 300, y: 519, logo: 'logo16' },
                 { x: 500, y: 519, logo: 'logo17' },
                 { x: 700, y: 519, logo: 'logo18' },
-                // 第五行 y=692（5格）：logo19 放第一个，其余四格保留空白
+                // 第五行 y=692（5格）：logo19 / logo20 / logo21 顺排，其余两格保留空白
                 { x: 0, y: 692, logo: 'logo19' },
-                { x: 200, y: 692, logo: null },
-                { x: 400, y: 692, logo: null },
+                { x: 200, y: 692, logo: 'logo20' },
+                { x: 400, y: 692, logo: 'logo21' },
                 { x: 600, y: 692, logo: null },
                 { x: 800, y: 692, logo: null }
             ];
