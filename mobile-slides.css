@@ -101,6 +101,10 @@
   z-index: 2;
 }
 
+html[lang^="zh"] .mh-middle {
+  margin-top: 18px;
+}
+
 .mh-headline {
   font-family: 'Playfair Display', 'Noto Serif SC', serif;
   font-weight: 600;
