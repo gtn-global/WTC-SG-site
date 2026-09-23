@@ -2994,7 +2994,7 @@
         }
 
         /* P6 标题改为页眉（置 slide 顶部，与章节页眉一致） */
-        #track .slide[data-slide="6"] .p6-header {
+        #track .slide[data-slide="12"] .p6-header {
             position: absolute;
             top: 55px;
             left: 60px;
@@ -3002,13 +3002,13 @@
             z-index: 1001;
         }
         /* 页面主体下移到页眉之下，避免遮挡 */
-        #track .slide[data-slide="6"] .page-body {
+        #track .slide[data-slide="12"] .page-body {
             top: 245px;
         }
-        #track .slide[data-slide="6"] .p6-header::after {
+        #track .slide[data-slide="12"] .p6-header::after {
             display: none;   /* 取消 .section-eyebrow 默认短金线 */
         }
-        #track .slide[data-slide="6"] .p6-header-en {
+        #track .slide[data-slide="12"] .p6-header-en {
             display: block;
             font-family: var(--font-display);
             font-size: 50px;
@@ -3017,7 +3017,7 @@
             line-height: 1.2;
             letter-spacing: 2px;
         }
-        #track .slide[data-slide="6"] .p6-header-sub {
+        #track .slide[data-slide="12"] .p6-header-sub {
             display: block;
             margin-top: 10px;
             font-family: 'Noto Serif SC', serif;
@@ -3081,10 +3081,10 @@
             margin-top: 14px;
         }
 
-        #track .slide[data-slide="12"] .top-balance-bar {
+        #track .slide[data-slide="13"] .top-balance-bar {
             top: 55px;
         }
-        #track .slide[data-slide="12"] .top-balance-bar::after {
+        #track .slide[data-slide="13"] .top-balance-bar::after {
             content: "";
             display: block;
             width: 100%;
@@ -3094,10 +3094,10 @@
             background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
         }
 
-        #track .slide[data-slide="13"] .hero {
+        #track .slide[data-slide="14"] .hero {
             top: 55px;
         }
-        #track .slide[data-slide="13"] .hero::after {
+        #track .slide[data-slide="14"] .hero::after {
             content: "";
             display: block;
             width: 100%;
@@ -3107,11 +3107,11 @@
             background: linear-gradient(90deg, var(--color-gold), rgba(214,178,107,0));
         }
 
-        #track .slide[data-slide="14"] .left-column {
+        #track .slide[data-slide="15"] .left-column {
             top: 55px;
             height: 830px;
         }
-        #track .slide[data-slide="14"] .page-title-en::after {
+        #track .slide[data-slide="15"] .page-title-en::after {
             content: "";
             display: block;
             width: 100%;
