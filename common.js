@@ -208,6 +208,10 @@
             if (idx !== deck.index && idx >= 0 && idx < deck.count) {
                 deck.index = idx;
                 renderNav();
+                // 同步地址栏为当前可见页序号（1-based），与 data-slide 解耦，保证滚动时显示 1→15
+                if (history.replaceState) {
+                    history.replaceState(null, '', '#slide-' + (idx + 1));
+                }
             }
         }, { passive: true });
 
