@@ -186,3 +186,48 @@ footer a:hover{ color: var(--color-gold); }
   html{ scroll-behavior:auto; }
   .svc-card, .cta-btn, .case-card{ transition:none; }
 }
+
+/* ============================================================
+   追加（不改动上方任何基础样式）
+   1) 研究报告详情页：下载区块
+   2) 列表卡片修饰类 case-card--with-download（仅作用于需要下载入口的卡片）
+   ============================================================ */
+.report-download{
+  margin-top:8px; padding:26px 28px;
+  border:1px solid rgba(197,160,89,.35); border-radius:10px;
+  background: rgba(197,160,89,.04);
+}
+.report-download .dl-title{
+  font-family:var(--font-display); font-style:normal; font-weight:600;
+  font-size:19px; line-height:1.35; color:var(--color-white);
+}
+.report-download .dl-note{ margin-top:8px; font-size:13px; color:var(--color-text-dim); }
+.report-download .dl-meta{
+  margin-top:16px; display:flex; flex-wrap:wrap; gap:8px 24px;
+  font-family:var(--font-mono); font-size:12.5px; letter-spacing:.02em;
+  color:var(--color-text-dim); line-height:1.7;
+}
+.report-download .dl-meta b{ color:var(--color-text); font-weight:500; }
+.report-download .dl-actions{ margin-top:20px; display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+.report-download .dl-actions .cta-btn{ margin-top:0; }
+
+/* 标题链接 ::after 拉伸覆盖整卡 → 整卡可点；下载链接 z-index 更高 → 独立可点，无 <a> 嵌套 */
+.case-card--with-download{ position:relative; }
+.case-card--with-download .case-title-link{ text-decoration:none; color:inherit; }
+.case-card--with-download .case-title-link::after{ content:''; position:absolute; inset:0; z-index:1; }
+.case-card--with-download .case-download{
+  position:relative; z-index:2;
+  display:inline-block; margin-top:12px; padding:6px 13px;
+  border:1px solid rgba(197,160,89,.4); border-radius:2px;
+  font-family:var(--font-mono); font-size:11.5px; letter-spacing:.06em;
+  color:var(--color-gold); text-decoration:none; transition: background .2s, border-color .2s;
+}
+.case-card--with-download .case-download:hover{ background:rgba(197,160,89,.12); border-color:var(--color-gold); }
+
+/* ---------- 追加规则的手机端适配 ---------- */
+@media (max-width: 720px){
+  .report-download{ padding:20px 18px; }
+  .report-download .dl-title{ font-size:17px; }
+  .report-download .dl-meta{ gap:6px 18px; font-size:12px; }
+  .report-download .dl-actions .cta-btn{ padding:12px 22px; }
+}
